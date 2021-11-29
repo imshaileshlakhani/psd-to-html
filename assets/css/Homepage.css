@@ -1,0 +1,713 @@
+* {
+  margin: 0 0;
+  font-family: Roboto;
+}
+body{
+  overflow-x: hidden;
+}
+.main {
+  width: 1582px;
+  height: 3278px;
+}
+
+/* first slide */
+.hero-image {
+  background-image: url("../images/Homepage/bg-home.png");
+  height: 789px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+}
+.navbar-brand {
+  padding: 15px;
+}
+.navbar-brand img {
+  height: 110px;
+}
+.navbar-nav {
+  margin-left: auto;
+  margin-right: 20px;
+}
+.nav-item {
+  margin-left: 25px;
+}
+.nav-item .nav-btn {
+  border-radius: 20px;
+  color: white;
+  padding-left:15px !important;
+  padding-right: 15px !important;
+  border-color: white;
+}
+.nav-item .nav-btn:hover {
+  background-color: #29626d;
+}
+.nav-item .nav-link {
+  color: white;
+  letter-spacing: 1px;
+}
+.nav-item .nav-link:hover {
+  color: white;
+}
+.home-heading h1 {
+  color: white;
+  letter-spacing: 1px;
+}
+.home-content {
+  position: absolute;
+  top: 30%;
+  left: 3%;
+}
+.list {
+  list-style: none;
+  color: white;
+  letter-spacing: 1px;
+  margin-left: -31px;
+}
+.fa-check {
+  color: white;
+}
+.btn-lets {
+  position: absolute;
+  top: 50%;
+  left: 43%;
+}
+.btn-lets button {
+  border-radius: 25px;
+  padding: 12px 25px;
+  background-color: #006072;
+  letter-spacing: 1px;
+}
+.btn-lets button:hover {
+  background-color: #006072;
+}
+.steps {
+  width: 1000px;
+  position: absolute;
+  top: 66%;
+  left: 20%;
+}
+.all-steps {
+  display: flex;
+}
+.step {
+  position: relative;
+  margin-right: 100px;
+}
+.step-text {
+  font-size: 20px;
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+}
+.step-arrow {
+  position: absolute;
+  top: 10%;
+  left: 100%;
+}
+.step-img {
+  text-align: center;
+}
+.btn-down {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  top: 80%;
+  left: 43%;
+}
+.circle {
+  margin-top: 52px;
+  border: 1px solid white;
+  width: fit-content;
+  border-radius: 100%;
+  padding: 10px 12px;
+  text-align: center;
+  cursor: pointer;
+  position: absolute;
+  left: 6%;
+}
+@media only screen and (max-width: 600px) {
+  .main {
+    overflow: hidden;
+    height: 6180px;
+    z-index: 0;
+  }
+  .navbar-collapse{
+    z-index: 1;
+    background-color: #000;
+  }
+  .nav-item {
+    margin-left: 23px;
+    margin-top: 7px;
+  }
+  .navbar-nav .nav-item .nav-link {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .hero-image .home-content {
+    position: absolute;
+    top: 20%;
+  }
+  .step-arrow {
+    display: none;
+  }
+  .hero-image .btn-lets {
+    left: 17%;
+  }
+  .hero-image .all-steps {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    left: 1%;
+    width: 329px;
+  }
+  .hero-image .steps {
+    top: 60%;
+    left: 9%;
+  }
+  .hero-image .all-steps .step-text {
+    font-size: 16px;
+  }
+  .hero-image .btn-down {
+    top: 84%;
+    left: 42%;
+  }
+  .step {
+    margin-right: 19px;
+  }
+}
+
+/* second slide */
+.second {
+  height: 710px;
+  background-color: #fff;
+  padding: 87px 0 156px 0;
+  position: relative;
+}
+.Why-Helperland {
+  width: 382px;
+  height: 38px;
+  position: absolute;
+  left: 40%;
+  top: 60px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #4f4f4f;
+}
+.card-deck {
+  position: absolute;
+  width: 100%;
+  left: 15%;
+  top: 100.5px;
+  width: 1118.65;
+  height: 569.92px;
+}
+.card1 {
+  width: 319px;
+  margin-top: 84px;
+  margin-right: 71px;
+}
+.img {
+  width: 300px;
+  height: 300px;
+  padding-left: 20px;
+}
+.img .card-img-top {
+  width: 270px;
+  height: 270px;
+}
+.Experience-Vetted-Professionals {
+  width: 270px;
+  height: 59px;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: normal;
+  text-align: center;
+  color: #565656;
+  display: block;
+}
+.dominate-the-industry-in-scale-and-scope-with-an-adaptable-ext {
+  width: 290px;
+  height: 64px;
+  font-size: 17px;
+  line-height: 1.41;
+  text-align: center;
+  color: #565656;
+}
+.Secure-Online-Payment {
+  width: 314px;
+  height: 29px;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: normal;
+  text-align: left;
+  color: #565656;
+  display: block;
+}
+.Payment-is-processed-securely-online-Customers-pay-safely-onli {
+  width: 286px;
+  height: 64px;
+  font-size: 17px;
+  line-height: 1.41;
+  text-align: center;
+  color: #565656;
+}
+.Dedicated-Customer-Service {
+  width: 274px;
+  height: 59px;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: normal;
+  text-align: center;
+  color: #565656;
+  display: block;
+}
+.to-our-customers-and-are-guided-in-all-we-do-by-their-needs-Th {
+  width: 370px;
+  height: 64px;
+  font-size: 17px;
+  line-height: 1.41;
+  text-align: center;
+  color: #565656;
+}
+@media only screen and (max-width: 600px) {
+  .second {
+    height: 1363px;
+  }
+  .Why-Helperland {
+    width: 267px;
+    height: 38px;
+    left: 17%;
+    top: 25px;
+    font-size: 25px;
+    letter-spacing: 2px;
+  }
+  .card-deck {
+    left: 3%;
+    top: 80px;
+    height: 1000x;
+  }
+  .card1 {
+    width: 336px;
+    margin-top: 20px;
+    margin-right: 0px;
+  }
+  .img {
+    width: 276px;
+    height: 218px;
+    padding-left: 45px;
+  }
+  .img .card-img-top {
+    width: 215px;
+    height: 215px;
+  }
+  .card-body {
+    padding-left: 30px;
+  }
+  .Experience-Vetted-Professionals {
+    font-size: 25px;
+  }
+  .Secure-Online-Payment {
+    font-size: 25px;
+  }
+  .Dedicated-Customer-Service {
+    font-size: 25px;
+  }
+}
+
+/* third slide */
+.third {
+  height: 950px;
+  position: relative;
+}
+.Forma-1 {
+  width: 153px;
+  height: 931px;
+  margin: 84px 47px 107px 0;
+}
+.Forma-2 {
+  width: 153px;
+  height: 931px;
+  margin: 0 0 125px 23px;
+}
+.third .Forma-1 {
+  position: absolute;
+  top: 0%;
+}
+.third .Forma-2 {
+  position: absolute;
+  left: 87.4%;
+  top: 2.5%;
+}
+.third .row1 {
+  position: absolute;
+  left: 13%;
+}
+.third .row1 .lorem > p {
+  width: 381px;
+  height: 68px;
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1.2;
+  text-align: left;
+  color: #4f4f4f;
+}
+.third .row1 .lorem .p {
+  width: 600px;
+  line-height: 1.33;
+  font-size: 18px;
+  text-align: left;
+  color: #4f4f4f;
+}
+.third .row1 .lorem {
+  padding: 80px 40px;
+}
+.third .row1 .lorem-img {
+  padding: 40px 15px;
+}
+/* .third .row1 .lorem-img{
+  width: 300px;
+} */
+.Our-Blog {
+  position: absolute;
+  top: 47%;
+  left: 3%;
+  width: 159px;
+  height: 38px;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  color: #4f4f4f;
+}
+.blog-container {
+  position: absolute;
+  top: 55%;
+  left: 15%;
+}
+.card-body {
+  padding: 15px;
+}
+.blog-title {
+  margin-bottom: 40px;
+}
+.blog {
+  width: 330px;
+  margin: 10px 20px;
+  text-align: left;
+  background-color: rgba(230, 230, 250, 0.52);
+}
+.card-img-top {
+  width: 300px;
+  height: 150px;
+}
+.card-date {
+  color: grey;
+  font-size: smaller;
+}
+@media only screen and (max-width: 600px) {
+  .third {
+    height: 2000px;
+  }
+  .third .row1 {
+    position: absolute;
+    left: -1%;
+  }
+  .third .row1 .lorem > p {
+    width: 265px;
+    height: 68px;
+    font-size: 25px;
+    line-height: 1;
+  }
+  .third .row1 .lorem .p {
+    width: 300px;
+    line-height: 1.41;
+    font-size: 18px;
+  }
+  .third .row1 .lorem {
+    padding: 10px 29px;
+  }
+  .third .row1 .lorem-img {
+    padding: 10px 23px;
+    width: 324px;
+  }
+  .third .row1 .lorem-img img {
+    width: 290px;
+  }
+  .Our-Blog {
+    top: 37%;
+    left: 3%;
+    width: 159px;
+    height: 54px;
+    font-size: 25px;
+  }
+  .third .blog-container {
+    position: absolute;
+    top: 40%;
+    left: 0%;
+  }
+  .Forma-1 {
+    display: none;
+  }
+  .Forma-2 {
+    display: none;
+  }
+}
+
+/* fourth slide */
+.fourth {
+  height: 650px;
+  position: relative;
+  background-color: #f4f5f8;
+}
+.What-Our-Customers-Say {
+  width: 449px;
+  height: 38px;
+  position: absolute;
+  left: 35%;
+  top: 45px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #4f4f4f;
+}
+.customers-container {
+  position: absolute;
+  top: 20%;
+  left: 1%;
+}
+.customers {
+  padding: 30px;
+  margin-bottom: 20px;
+  width: 330px;
+  margin: auto 20px 30px 20px;
+  height: 370px;
+  background-color: #ffffff;
+  border-left: 4px solid #1d7a8c;
+}
+.about-customer {
+  display: flex;
+  margin-bottom: 10px;
+}
+.customer-profile {
+  margin-right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.customer-name {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+  padding-top: 15px;
+}
+.name {
+  font-size: 20px;
+}
+.city {
+  color: #8e8e8e;
+}
+.customer-msg {
+  margin: auto;
+  cursor: pointer;
+}
+.customer-content {
+  font-size: 16px;
+}
+.read-more {
+  font-size: 18px;
+  padding-top: 10px;
+}
+.customer-heading {
+  text-align: center;
+  padding: 30px;
+}
+.newsletter {
+  height: 100px;
+  position: absolute;
+  top: 80%;
+}
+.up {
+  background-color: #525252;
+  position: relative;
+  left: 7%;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.up img {
+  padding: 17px 15px;
+}
+.msg-box {
+  position: relative;
+  left: 35%;
+}
+.GET-OUR-NEWSLETTER {
+  width: 190px;
+  height: 13px;
+  font-size: 18px;
+  font-weight: 500;
+  color: #353548;
+  padding-left: 63px;
+}
+.msg-foam {
+  margin-top: 10px;
+}
+.Rounded-Rectangle-649 {
+  width: 233px;
+  height: 40px;
+  padding: 14px 13px 16px 22px;
+  border-radius: 20px;
+  border: solid 1px #565656;
+  outline: none;
+  background-color: #f4f5f8;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.Rounded-Rectangle-649-copy {
+  width: 88px;
+  height: 40px;
+  border: none;
+  color: #ffffff;
+  border-radius: 20px;
+  background-color: #ff7b6d;
+}
+.layer {
+  position: relative;
+  right: -66%;
+}
+@media only screen and (max-width: 600px) {
+  .fourth {
+    height: 1510px;
+  }
+  .fourth .What-Our-Customers-Say {
+    width: 310px;
+    left: 7%;
+    top: 29px;
+    font-size: 25px;
+  }
+  .fourth .customers-container {
+    top: 6%;
+    left: 0%;
+  }
+  .customers .read-more {
+    font-size: 14px;
+    padding-top: 0px;
+  }
+  .fourth .newsletter {
+    height: 235px;
+    top: 84.5%;
+  }
+  .newsletter .up {
+    left: 43%;
+  }
+  .newsletter .msg-box {
+    left: 1%;
+  }
+  .newsletter .layer {
+    right: -43%;
+  }
+}
+
+/* footer */
+.footer {
+  height: 180px;
+  background-color: black;
+  position: relative;
+}
+.footer1 {
+  height: 120px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-right: 100px;
+}
+.footer-img {
+  margin-right: 300px;
+  height: 100px;
+}
+.footer1-logo {
+  width: 120px;
+  height: 92px;
+  padding: 17px 0 0 17px;
+  position: absolute;
+}
+.footer-nav {
+  padding-top: 5px;
+}
+.footer-nav a{
+  text-decoration: none;
+  font-size: 14px;
+  margin-right: 10px;
+  overflow: hidden;
+  color: #f1f1f1;
+  letter-spacing: 0.7px;
+}
+.footer-nav a:hover {
+  color: #f1f1f1;
+}
+.social {
+  float: right;
+  margin-left: 250px;
+}
+.social img {
+  padding-right: 15px;
+}
+.footer2 {
+  height: 60px;
+  background-color: #292929;
+}
+.footer2 p {
+  color: #9ba0a3;
+  padding-top: 15px;
+  margin-left: 300px;
+}
+.footer2 p span {
+  color: #6eabef;
+}
+.footer2-btn {
+  width: 88px;
+  height: 40px;
+  border: none;
+  color: #4f4f4f;
+  border-radius: 20px;
+  background-color: #eed507;
+  float: right;
+  margin-left: 345px;
+}
+@media only screen and (max-width: 600px) {
+  .footer {
+    height: 385px;
+  }
+  .footer1-logo {
+    width: 118px;
+    height: 85px;
+    /* padding: 17px 0 0 18px; */
+    left: 31%;
+  }
+  .footer .footer1{
+    height: 385px;
+    width: 206px;
+  }
+  .footer1 .social {
+    float: right;
+    margin-left: 17px;
+    margin-top: 20px;
+  }
+  .footer1 .footer-nav {
+    width: 108px;
+    margin-left: 48px;
+  }
+  .footer2 {
+    position: absolute;
+    top: 100%;
+    height: 130px;
+  }
+  .footer .footer2 p {
+    padding-top: 15px;
+    margin-left: 7px;
+  }
+  .footer .footer2 .footer2-btn {
+    margin-top: -52px;
+    margin-left: 200px;
+  }
+}

@@ -1,0 +1,398 @@
+* {
+  margin: 0 0;
+  font-family: Roboto;
+}
+body {
+  overflow-x: hidden;
+}
+.main {
+  width: 1582px;
+  height: 1627px;
+}
+
+/* navigation */
+.navbar {
+  background-color: #525252;
+}
+.navbar-brand {
+  padding: 15px;
+}
+.navbar-brand img {
+  height: 54px;
+  width: 73px;
+}
+.navbar-collapse {
+  padding: 10px 0px;
+}
+.navbar-nav {
+  margin-left: auto;
+  margin-right: 20px;
+}
+.nav-item {
+  margin-left: 25px;
+}
+.nav-item .nav-btn {
+  border-radius: 20px;
+  color: white;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+  border-color: white;
+}
+.nav-item .nav-btn:hover {
+  background-color: #29626d;
+}
+.nav-item .nav-link {
+  color: white;
+  letter-spacing: 1px;
+}
+.nav-item .nav-link:hover {
+  color: white;
+}
+
+/* .hero image */
+.hero-img {
+  background-image: url("../images/faq/group-16.jpg");
+  height: 370px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+@media only screen and (max-width: 600px) {
+  .main {
+    overflow: hidden;
+    height: 2180px;
+  }
+  .navbar-brand img {
+    height: 40px;
+    width: 60px;
+  }
+  .navbar-collapse {
+    background-color: #525252;
+  }
+  .nav-item {
+    margin-left: 23px;
+    margin-top: 7px;
+  }
+  .navbar-nav .nav-item .nav-link {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .hero-img {
+    height: 200px;
+  }
+}
+
+/* faq */
+.faq {
+  height: 1000px;
+  position: relative;
+}
+.FAQs {
+  position: absolute;
+  top: 2.3%;
+  width: 80px;
+  height: 30px;
+  font-size: 36px;
+  line-height: 0.67;
+  text-align: center;
+  color: #4f4f4f;
+}
+.Rectangle-5-copy-5 {
+  width: 62px;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  background-color: #ccc;
+  left: -3.8%;
+}
+.Rectangle-5-copy-6 {
+  width: 62px;
+  height: 1px;
+  position: absolute;
+  top: 50%;
+  background-color: #ccc;
+  left: 3%;
+}
+.Forma-1-copy-5 {
+  position: absolute;
+  top: 6.4%;
+  left: 48.5%;
+  height: 25px;
+}
+.Whether-you-are-Customer-or-Service-provider-We-have-tried-our {
+  position: absolute;
+  top: 10%;
+  width: 491px;
+  height: 54px;
+  font-size: 18px;
+  line-height: 1.44;
+  letter-spacing: normal;
+  text-align: center;
+  color: #646464;
+}
+.Rectangle-21-copy-3 {
+  width: 472px;
+  height: 66px;
+  background-color: #1d7a8c;
+}
+.Rectangle-21 {
+  width: 472px;
+  height: 66px;
+  background-color: #f6f6f6;
+  border-bottom: 3px solid #1d7a8c;
+}
+.faq .d-flex {
+  position: absolute;
+  top: 18%;
+}
+.For-Customer {
+  font-size: 24px;
+  margin: 0px 106px 0px 167px;
+  line-height: 2.8;
+  letter-spacing: normal;
+  color: #fff;
+}
+.For-Service-Provider {
+  margin: 0px 106px 0px 136px;
+  font-size: 24px;
+  line-height: 2.8;
+  letter-spacing: normal;
+  color: #646464;
+}
+.bs-example {
+  position: absolute;
+  top: 27%;
+  left: 19.3%;
+  width: 100px;
+}
+.card1 p {
+  margin-bottom: 0px;
+  color: #646464;
+  width: 888px;
+  line-height: 3;
+}
+.accordion .fas {
+  margin-right: 0.4rem;
+  font-size: 24px;
+  position: relative;
+  top: 3px;
+}
+.accordion .collapse {
+  width: 920px;
+  height: 156px;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #646464;
+  padding-left: 33px;
+}
+.newsletter {
+  height: 100px;
+  position: absolute;
+  top: 89%;
+}
+.msg-box {
+  position: relative;
+  left: 40%;
+  height: 100px;
+}
+.GET-OUR-NEWSLETTER {
+  font-size: 18px;
+  font-weight: 500;
+  color: #353548;
+  padding-left: 63px;
+}
+.msg-foam {
+  margin-top: 10px;
+}
+.Rounded-Rectangle-649 {
+  width: 233px;
+  height: 40px;
+  padding: 14px 13px 16px 22px;
+  border-radius: 20px;
+  border: solid 1px #565656;
+  outline: none;
+  background-color: #f4f5f8;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.Rounded-Rectangle-649-copy {
+  width: 88px;
+  height: 40px;
+  border: none;
+  color: #ffffff;
+  border-radius: 20px;
+  background-color: #ff7b6d;
+}
+@media only screen and (max-width: 600px) {
+  .faq {
+    height: 1430px;
+  }
+  .FAQs {
+    font-size: 25px;
+  }
+  .Forma-1-copy-5 {
+    left: 44.5%;
+    top: 4.5%;
+  }
+  .Rectangle-5-copy-5 {
+    width: 62px;
+    left: -15.8%;
+  }
+  .Rectangle-5-copy-6 {
+    width: 62px;
+    left: 12%;
+  }
+  .Whether-you-are-Customer-or-Service-provider-We-have-tried-our {
+    top: 8%;
+    font-size: 14px;
+    line-height: 1.3;
+  }
+  .faq .d-flex {
+    top: 13.5%;
+  }
+  .Rectangle-21-copy-3 {
+    height: 55px;
+  }
+  .Rectangle-21 {
+    height: 55px;
+  }
+  .For-Customer {
+    font-size: 21px;
+    margin: 0px 98px 0px 112px;
+    line-height: 2.8;
+  }
+  .For-Service-Provider {
+    margin: 0px 65px 0px 82px;
+    font-size: 21px;
+    line-height: 2.8;
+  }
+  .bs-example {
+    top: 23%;
+    left: 0%;
+    width: 100px;
+  }
+  .card1 p {
+    margin-bottom: 6px;
+    width: 336px;
+    line-height: 1.3;
+  }
+  .accordion .fas {
+    margin-right: 0.4rem;
+    font-size: 16px;
+  }
+  .accordion .collapse {
+    width: 336px;
+    height: 349px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  .faq .newsletter {
+    top: 92%;
+  }
+  .faq .msg-box {
+    left: 1%;
+  }
+  .faq .msg-foam {
+    top: 15.5%;
+  }
+}
+
+/* footer */
+.footer {
+  height: 180px;
+  background-color: black;
+  position: relative;
+}
+.footer1 {
+  height: 120px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-right: 100px;
+}
+.footer-img {
+  margin-right: 300px;
+  height: 100px;
+}
+.footer1-logo {
+  width: 120px;
+  height: 92px;
+  padding: 17px 0 0 17px;
+  position: absolute;
+}
+.footer-nav {
+  padding-top: 5px;
+}
+.footer-nav a {
+  text-decoration: none;
+  font-size: 14px;
+  margin-right: 10px;
+  overflow: hidden;
+  color: #f1f1f1;
+  letter-spacing: 0.7px;
+}
+.footer-nav a:hover {
+  color: #f1f1f1;
+}
+.social {
+  float: right;
+  margin-left: 250px;
+}
+.social img {
+  padding-right: 15px;
+}
+.footer2 {
+  height: 60px;
+}
+.footer2 p {
+  color: #9ba0a3;
+  padding-top: 15px;
+}
+.footer2 p span {
+  color: #6eabef;
+}
+.Rectangle-12-copy-2 {
+  width: 1120px;
+  height: 1.2px;
+  background-color: #424242;
+}
+@media only screen and (max-width: 600px) {
+  .footer {
+    height: 385px;
+  }
+  .footer1-logo {
+    width: 118px;
+    height: 85px;
+    /* padding: 17px 0 0 18px; */
+    left: 31%;
+  }
+  .footer .footer1 {
+    height: 385px;
+    width: 206px;
+  }
+  .footer1 .social {
+    float: right;
+    margin-left: 17px;
+    margin-top: 20px;
+  }
+  .footer1 .footer-nav {
+    width: 108px;
+    margin-left: 48px;
+  }
+  .Rectangle-12-copy-2 {
+    width: 318px;
+    height: 1.2px;
+    background-color: #424242;
+  }
+  .footer2 {
+    position: absolute;
+    top: 100%;
+    height: 99px;
+    background-color: black;
+  }
+  .footer .footer2 p {
+    margin-left: 7px;
+  }
+}

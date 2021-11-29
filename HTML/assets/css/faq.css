@@ -6,8 +6,12 @@ body {
   overflow-x: hidden;
 }
 .main {
-  width: 1582px;
-  height: 1627px;
+  height: 100%;
+}
+@media only screen and (min-width: 992px) and (max-width: 1587px) {
+  .main {
+    overflow: hidden;
+  }
 }
 
 /* navigation */
@@ -51,12 +55,12 @@ body {
 
 /* .hero image */
 .hero-img {
-  background-image: url("../images/faq/group-16.jpg");
   height: 370px;
+  background-image: url("../images/faq/group-16.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 420px) {
   .main {
     overflow: hidden;
     height: 2180px;
@@ -83,102 +87,95 @@ body {
 
 /* faq */
 .faq {
-  height: 1000px;
-  position: relative;
+  height: 100%;
 }
 .FAQs {
-  position: absolute;
-  top: 2.3%;
   width: 80px;
   height: 30px;
   font-size: 36px;
   line-height: 0.67;
   text-align: center;
   color: #4f4f4f;
+  padding: 50px;
 }
 .Rectangle-5-copy-5 {
   width: 62px;
   height: 1px;
-  position: absolute;
-  top: 50%;
   background-color: #ccc;
-  left: -3.8%;
+  margin-right: 10px;
 }
 .Rectangle-5-copy-6 {
   width: 62px;
   height: 1px;
-  position: absolute;
-  top: 50%;
   background-color: #ccc;
-  left: 3%;
+  margin-left: 10px;
 }
 .Forma-1-copy-5 {
-  position: absolute;
-  top: 6.4%;
-  left: 48.5%;
-  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .Whether-you-are-Customer-or-Service-provider-We-have-tried-our {
-  position: absolute;
-  top: 10%;
   width: 491px;
-  height: 54px;
+  height: 119px;
   font-size: 18px;
   line-height: 1.44;
   letter-spacing: normal;
   text-align: center;
   color: #646464;
+  padding-top:34px;
 }
 .Rectangle-21-copy-3 {
   width: 472px;
   height: 66px;
+  text-align: center;
   background-color: #1d7a8c;
 }
 .Rectangle-21 {
   width: 472px;
   height: 66px;
+  text-align: center;
   background-color: #f6f6f6;
   border-bottom: 3px solid #1d7a8c;
 }
 .faq .d-flex {
-  position: absolute;
   top: 18%;
 }
 .For-Customer {
-  font-size: 24px;
-  margin: 0px 106px 0px 167px;
+  font-size: 1.4rem;
+  align-items: center;
   line-height: 2.8;
   letter-spacing: normal;
   color: #fff;
 }
 .For-Service-Provider {
-  margin: 0px 106px 0px 136px;
   font-size: 24px;
   line-height: 2.8;
   letter-spacing: normal;
   color: #646464;
 }
 .bs-example {
-  position: absolute;
-  top: 27%;
-  left: 19.3%;
-  width: 100px;
+  width: 931px;
+  margin: 0 auto;
+
 }
 .card1 p {
   margin-bottom: 0px;
   color: #646464;
-  width: 888px;
+  width: 100%;
   line-height: 3;
+}
+.accordion {
+  width: 100%;
 }
 .accordion .fas {
   margin-right: 0.4rem;
   font-size: 24px;
   position: relative;
-  top: 3px;
 }
 .accordion .collapse {
-  width: 920px;
-  height: 156px;
+  width: 100%;
+  height: 100%;
   font-size: 16px;
   line-height: 1.5;
   letter-spacing: normal;
@@ -186,13 +183,12 @@ body {
   padding-left: 33px;
 }
 .newsletter {
-  height: 100px;
-  position: absolute;
+  height: 100px; 
   top: 89%;
 }
 .msg-box {
-  position: relative;
-  left: 40%;
+  width: 23%;
+  margin: 10px auto;
   height: 100px;
 }
 .GET-OUR-NEWSLETTER {
@@ -223,57 +219,46 @@ body {
   border-radius: 20px;
   background-color: #ff7b6d;
 }
-@media only screen and (max-width: 600px) {
-  .faq {
-    height: 1430px;
+@media screen and (max-width:933px) {
+  .bs-example{
+    padding-top: 10px;
+    width: fit-content;
+  }
+}
+@media only screen and (max-width: 420px) {
+  .main{
+    height: 100%;
   }
   .FAQs {
     font-size: 25px;
   }
-  .Forma-1-copy-5 {
-    left: 44.5%;
-    top: 4.5%;
+  .faq{
+    height: 11%;
   }
   .Rectangle-5-copy-5 {
     width: 62px;
-    left: -15.8%;
   }
   .Rectangle-5-copy-6 {
     width: 62px;
-    left: 12%;
+
   }
   .Whether-you-are-Customer-or-Service-provider-We-have-tried-our {
-    top: 8%;
     font-size: 14px;
     line-height: 1.3;
   }
-  .faq .d-flex {
-    top: 13.5%;
-  }
-  .Rectangle-21-copy-3 {
-    height: 55px;
-  }
-  .Rectangle-21 {
-    height: 55px;
-  }
   .For-Customer {
     font-size: 21px;
-    margin: 0px 98px 0px 112px;
-    line-height: 2.8;
   }
   .For-Service-Provider {
-    margin: 0px 65px 0px 82px;
     font-size: 21px;
     line-height: 2.8;
   }
   .bs-example {
-    top: 23%;
-    left: 0%;
-    width: 100px;
+    width: 100%;
   }
   .card1 p {
     margin-bottom: 6px;
-    width: 336px;
+    width: 337px;
     line-height: 1.3;
   }
   .accordion .fas {
@@ -282,117 +267,106 @@ body {
   }
   .accordion .collapse {
     width: 336px;
-    height: 349px;
     font-size: 14px;
     line-height: 1.5;
   }
-  .faq .newsletter {
-    top: 92%;
-  }
-  .faq .msg-box {
-    left: 1%;
-  }
-  .faq .msg-foam {
-    top: 15.5%;
-  }
+}
+  .section-newsseltter {
+    text-align: center;
+    width:100%;
+    display: block;
+    margin-top: 55px;
+    margin-bottom: 53px;
+
 }
 
-/* footer */
-.footer {
-  height: 180px;
-  background-color: black;
-  position: relative;
+.newstitle{
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    font-size: 1.13rem;
+    font-weight: 600;
 }
-.footer1 {
-  height: 120px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  padding-right: 100px;
+.newsform button{
+    width: 88px;
+    height: 40px;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    background-color: #ff7b6d;
 }
-.footer-img {
-  margin-right: 300px;
-  height: 100px;
+.newsform .input-field input{
+    width: 233px;
+    height: 40px;
+    padding: 14px 131px 16px 22px;
+    margin-right: 11px;
+    border-radius: 20px;
+    border: solid 1px #565656;
+    background-color: #f4f5f8;
 }
-.footer1-logo {
-  width: 120px;
-  height: 92px;
-  padding: 17px 0 0 17px;
-  position: absolute;
+
+  
+/*############### footer ##############*/
+
+.section-footer{
+    background-color: #111111;
+    margin-bottom: auto;
+    padding: 2% 6%;
 }
-.footer-nav {
-  padding-top: 5px;
+.footer-nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.footer-nav a {
-  text-decoration: none;
-  font-size: 14px;
-  margin-right: 10px;
-  overflow: hidden;
-  color: #f1f1f1;
-  letter-spacing: 0.7px;
+.footer-social{
+	display: flex;
+    justify-content: center;
+   
 }
-.footer-nav a:hover {
-  color: #f1f1f1;
-}
-.social {
+.footer-social img{
+  margin-left: 10px;
   float: right;
-  margin-left: 250px;
+  margin: auto 5px;
 }
-.social img {
-  padding-right: 15px;
+
+.footer-nav ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    
 }
-.footer2 {
-  height: 60px;
+.footer-nav ul li{
+    margin-left: 2%;
+    margin-right: 2%;
 }
-.footer2 p {
-  color: #9ba0a3;
-  padding-top: 15px;
+.footer-nav ul li a{
+    text-decoration: none;
+    color: white;
 }
-.footer2 p span {
-  color: #6eabef;
+.f-sub{
+    text-align: center;
+    opacity: 0.5;
+    color: white;
 }
-.Rectangle-12-copy-2 {
-  width: 1120px;
-  height: 1.2px;
-  background-color: #424242;
+.hr{
+    width: 100%;
+    color: violet;
 }
-@media only screen and (max-width: 600px) {
-  .footer {
-    height: 385px;
-  }
-  .footer1-logo {
-    width: 118px;
-    height: 85px;
-    /* padding: 17px 0 0 18px; */
-    left: 31%;
-  }
-  .footer .footer1 {
-    height: 385px;
-    width: 206px;
-  }
-  .footer1 .social {
-    float: right;
-    margin-left: 17px;
-    margin-top: 20px;
-  }
-  .footer1 .footer-nav {
-    width: 108px;
-    margin-left: 48px;
-  }
-  .Rectangle-12-copy-2 {
-    width: 318px;
-    height: 1.2px;
-    background-color: #424242;
-  }
-  .footer2 {
-    position: absolute;
-    top: 100%;
-    height: 99px;
-    background-color: black;
-  }
-  .footer .footer2 p {
-    margin-left: 7px;
-  }
+
+@media screen and (max-width:1202px) {
+.footer-nav ul{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+	}
+    .footer-logo{
+        text-align: center;
+    }
+    .footer-social{
+        text-align: center;
+    }
+    .footer-social img{
+        float: none;
+    }
 }
+

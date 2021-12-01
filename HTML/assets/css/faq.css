@@ -1,6 +1,5 @@
 * {
   margin: 0 0;
-  font-family: Roboto;
 }
 body {
   overflow-x: hidden;
@@ -42,7 +41,7 @@ body {
   padding-right: 15px !important;
   border-color: white;
 }
-.nav-item .nav-btn:hover {
+.nav-item .btn1 {
   background-color: #29626d;
 }
 .nav-item .nav-link {
@@ -123,7 +122,7 @@ body {
   letter-spacing: normal;
   text-align: center;
   color: #646464;
-  padding-top:34px;
+  padding-top: 34px;
 }
 .Rectangle-21-copy-3 {
   width: 472px;
@@ -157,7 +156,6 @@ body {
 .bs-example {
   width: 931px;
   margin: 0 auto;
-
 }
 .card1 p {
   margin-bottom: 0px;
@@ -183,7 +181,7 @@ body {
   padding-left: 33px;
 }
 .newsletter {
-  height: 100px; 
+  height: 100px;
   top: 89%;
 }
 .msg-box {
@@ -219,20 +217,20 @@ body {
   border-radius: 20px;
   background-color: #ff7b6d;
 }
-@media screen and (max-width:933px) {
-  .bs-example{
+@media screen and (max-width: 933px) {
+  .bs-example {
     padding-top: 10px;
     width: fit-content;
   }
 }
 @media only screen and (max-width: 420px) {
-  .main{
+  .main {
     height: 100%;
   }
   .FAQs {
     font-size: 25px;
   }
-  .faq{
+  .faq {
     height: 11%;
   }
   .Rectangle-5-copy-5 {
@@ -240,7 +238,6 @@ body {
   }
   .Rectangle-5-copy-6 {
     width: 62px;
-
   }
   .Whether-you-are-Customer-or-Service-provider-We-have-tried-our {
     font-size: 14px;
@@ -271,102 +268,103 @@ body {
     line-height: 1.5;
   }
 }
-  .section-newsseltter {
-    text-align: center;
-    width:100%;
-    display: block;
-    margin-top: 55px;
-    margin-bottom: 53px;
-
+.section-newsseltter {
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin-top: 55px;
+  margin-bottom: 53px;
 }
 
-.newstitle{
-    margin-bottom: 16px;
-    text-transform: uppercase;
-    font-size: 1.13rem;
-    font-weight: 600;
+.newstitle {
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  font-size: 1.13rem;
+  font-weight: 600;
 }
-.newsform button{
-    width: 88px;
-    height: 40px;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    background-color: #ff7b6d;
+.newsform button {
+  width: 88px;
+  height: 40px;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  background-color: #ff7b6d;
 }
-.newsform .input-field input{
-    width: 233px;
-    height: 40px;
-    padding: 14px 131px 16px 22px;
-    margin-right: 11px;
-    border-radius: 20px;
-    border: solid 1px #565656;
-    background-color: #f4f5f8;
+.newsform .input-field input {
+  width: 233px;
+  height: 40px;
+  padding: 14px 131px 16px 22px;
+  margin-right: 11px;
+  border-radius: 20px;
+  border: solid 1px #565656;
+  background-color: #f4f5f8;
 }
 
-  
 /*############### footer ##############*/
 
-.section-footer{
-    background-color: #111111;
-    margin-bottom: auto;
-    padding: 2% 6%;
+.section-footer {
+  background-color: #111111;
+  margin-bottom: auto;
+  padding: 2% 6%;
 }
-.footer-nav{
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.f-main {
+  margin-bottom: 12px;
 }
-.footer-social{
-	display: flex;
-    justify-content: center;
-   
+.footer-logo img {
+  width: 120px;
+  height: 92px;
 }
-.footer-social img{
+.footer-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-social {
+  display: flex;
+  justify-content: center;
+}
+.footer-social img {
   margin-left: 10px;
   float: right;
   margin: auto 5px;
 }
-
-.footer-nav ul{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    
+.footer-nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
 }
-.footer-nav ul li{
-    margin-left: 2%;
-    margin-right: 2%;
+.footer-nav ul li {
+  margin-left: 2%;
+  margin-right: 2%;
 }
-.footer-nav ul li a{
-    text-decoration: none;
-    color: white;
+.footer-nav ul li a {
+  text-decoration: none;
+  color: white;
 }
-.f-sub{
-    text-align: center;
-    opacity: 0.5;
-    color: white;
+.f-sub {
+  text-align: center;
+  opacity: 0.5;
+  color: white;
 }
-.hr{
-    width: 100%;
-    color: violet;
+.hr {
+  width: 100%;
+  color: violet;
 }
 
-@media screen and (max-width:1202px) {
-.footer-nav ul{
+@media screen and (max-width: 1202px) {
+  .footer-nav ul {
     padding-top: 10px;
     padding-bottom: 10px;
     flex-wrap: wrap;
-	}
-    .footer-logo{
-        text-align: center;
-    }
-    .footer-social{
-        text-align: center;
-    }
-    .footer-social img{
-        float: none;
-    }
+  }
+  .footer-logo {
+    text-align: center;
+  }
+  .footer-social {
+    text-align: center;
+  }
+  .footer-social img {
+    float: none;
+  }
 }
-

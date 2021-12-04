@@ -7,18 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/faq.css">
 
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
 
     <script src="https://kit.fontawesome.com/4ae0bb5b6f.js" crossorigin="anonymous"></script>
 
@@ -26,49 +17,48 @@
 </head>
 
 <body>
-    <div class="main container-fluid">
-        <div class="navigation row">
-            <nav class="navbar navbar-expand-lg ">
-                <a class="navbar-brand" href="#">
-                    <img src="assets/images/faq/nav-logo.png" alt="">
-                </a>
-                <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse text-white" id="navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <button class="nav-link btn nav-btn btn1" href="#">Book now</button>
-                        </li>
-                        <li class="nav-item">
-                            <button class="nav-link btn nav-btn" href="#">Prices & services</button>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Warranty</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Blog</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <button class="nav-link btn nav-btn btn1" href="#">Login</button>
-                        </li>
-                        <li class="nav-item">
-                            <button class="nav-link btn nav-btn btn1" href="#">Become a
-                                Helper</button>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
+    <header class="navigation">
+        <nav class="navbar navbar-expand-lg ">
+            <a class="navbar-brand" href="#">
+                <img src="assets/images/faq/nav-logo.png" alt="">
+            </a>
+            <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse text-white" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <button class="nav-link btn nav-btn btn1" href="#">Book now</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link btn nav-btn" href="#">Prices & services</button>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Warranty</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link btn nav-btn btn1" href="#">Login</button>
+                    </li>
+                    <li class="nav-item">
+                        <button class="nav-link btn nav-btn btn1" href="#">Become a
+                            Helper</button>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="container-fluid">
+        <section class="hero-img row">
+        </section>
 
-        <div class="hero-img row">
-        </div>
-
-        <div class="faq row">
+        <section class="faq row">
             <span class="FAQs">
                 FAQs
             </span>
@@ -81,189 +71,358 @@
                 Whether you are Customer or Service provider,<br>
                 We have tried our best to solve all your queries and questions.
             </div>
+            <div>
+                <div class="d-flex d-flex flex-row flex-wrap justify-content-center">
+                    <div class="Rectangle-21-copy-3 active"><span class="For-Customer">
+                            For Customer
+                        </span></div>
+                    <div class="Rectangle-21"><span class="For-Service-Provider">
+                            For Service Provider
+                        </span></div>
+                </div>
 
-        </div>
-        <div>
-            <div class="d-flex d-flex flex-row flex-wrap justify-content-center">
-                <div class="Rectangle-21-copy-3"><span class="For-Customer">
-                        For Customer
-                    </span></div>
-                <div class="Rectangle-21"><span class="For-Service-Provider">
-                        For Service Provider
-                    </span></div>
-            </div>
+                <div class="bs-example customer">
+                    <div class="accordion" id="accordion">
+                        <div class="card1" id="headingOne">
+                            <p data-toggle="collapse" data-target="#collapseOne" class="qe">
+                                <img class="img" src="./assets/images/faq/arrow-right.png" alt="">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?
+                            </p>
+                        </div>
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                            data-parent="#accordion">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
+                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
+                                tortor.
+                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
+                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
+                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
+                                ipsum
+                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
+                                risus
+                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
+                                amet
+                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
+                                nisl.
+                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
+                        </div>
 
-            <div class="bs-example">
-                <div class="accordion" id="accordion">
-                    <div class="card1" id="headingOne">
-                        <p data-toggle="collapse" data-target="#collapseOne"><i class="fas fa-chevron-circle-right"></i>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nisl nunc, iaculis
-                            mattis tellus ac ut non imperdiet velit?</p>
-                    </div>
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
-                            ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit tortor.
-                            Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
-                            lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
-                            libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante ipsum
-                            primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam risus
-                            justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit amet
-                            congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget nisl.
-                            Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
-                    </div>
+                        <div class="card1" id="headingTwo">
+                            <p class="collapsed" data-toggle="collapse" data-target="#collapseTwo" class="qe"><img class="img"
+                                    src="./assets/images/faq/arrow-right.png" alt="">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?
+                            </p>
+                        </div>
+                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
+                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
+                                tortor.
+                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
+                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
+                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
+                                ipsum
+                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
+                                risus
+                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
+                                amet
+                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
+                                nisl.
+                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
+                        </div>
 
-                    <div class="card1" id="headingTwo">
-                        <p class="collapsed" data-toggle="collapse" data-target="#collapseTwo"><i
-                                class="fas fa-chevron-circle-right"></i> Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?</p>
-                    </div>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
-                            ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit tortor.
-                            Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
-                            lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
-                            libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante ipsum
-                            primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam risus
-                            justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit amet
-                            congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget nisl.
-                            Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
-                    </div>
+                        <div class="card1" id="headingThree">
+                            <p class="collapsed" data-toggle="collapse" data-target="#collapseThree" class="qe"><img class="img"
+                                    src="./assets/images/faq/arrow-right.png" alt="">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?
+                            </p>
+                        </div>
+                        <div id="collapseThree" class="collapse " aria-labelledby="headingThree"
+                            data-parent="#accordion">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
+                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
+                                tortor.
+                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
+                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
+                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
+                                ipsum
+                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
+                                risus
+                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
+                                amet
+                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
+                                nisl.
+                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
+                        </div>
 
-                    <div class="card1" id="headingThree">
-                        <p class="collapsed" data-toggle="collapse" data-target="#collapseThree"><i
-                                class="fas fa-chevron-circle-right"></i> Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?</p>
-                    </div>
-                    <div id="collapseThree" class="collapse " aria-labelledby="headingThree" data-parent="#accordion">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
-                            ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit tortor.
-                            Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
-                            lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
-                            libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante ipsum
-                            primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam risus
-                            justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit amet
-                            congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget nisl.
-                            Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
-                    </div>
+                        <div class="card1" id="headingFour">
+                            <p class="collapsed" data-toggle="collapse" data-target="#collapseFour" class="qe"><img class="img"
+                                    src="./assets/images/faq/arrow-right.png" alt="">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?
+                            </p>
+                        </div>
+                        <div id="collapseFour" class="collapse " aria-labelledby="headingFour" data-parent="#accordion">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
+                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
+                                tortor.
+                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
+                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
+                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
+                                ipsum
+                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
+                                risus
+                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
+                                amet
+                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
+                                nisl.
+                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
+                        </div>
 
-                    <div class="card1" id="headingFour">
-                        <p class="collapsed" data-toggle="collapse" data-target="#collapseFour"><i
-                                class="fas fa-chevron-circle-right"></i> Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?</p>
-                    </div>
-                    <div id="collapseFour" class="collapse " aria-labelledby="headingFour" data-parent="#accordion">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
-                            ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit tortor.
-                            Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
-                            lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
-                            libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante ipsum
-                            primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam risus
-                            justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit amet
-                            congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget nisl.
-                            Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
-                    </div>
+                        <div class="card1" id="headingFive">
+                            <p class="collapsed" data-toggle="collapse" data-target="#collapseFive" class="qe"><img class="img"
+                                    src="./assets/images/faq/arrow-right.png" alt="">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?
+                            </p>
+                        </div>
+                        <div id="collapseFive" class="collapse " aria-labelledby="headingFive" data-parent="#accordion">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
+                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
+                                tortor.
+                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
+                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
+                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
+                                ipsum
+                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
+                                risus
+                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
+                                amet
+                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
+                                nisl.
+                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
+                        </div>
 
-                    <div class="card1" id="headingFive">
-                        <p class="collapsed" data-toggle="collapse" data-target="#collapseFive"><i
-                                class="fas fa-chevron-circle-right"></i> Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?</p>
-                    </div>
-                    <div id="collapseFive" class="collapse " aria-labelledby="headingFive" data-parent="#accordion">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
-                            ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit tortor.
-                            Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
-                            lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
-                            libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante ipsum
-                            primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam risus
-                            justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit amet
-                            congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget nisl.
-                            Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
-                    </div>
+                        <div class="card1" id="headingSix">
+                            <p class="collapsed" data-toggle="collapse" data-target="#collapseSix" class="qe"><img class="img"
+                                    src="./assets/images/faq/arrow-right.png" alt="">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?
+                            </p>
+                        </div>
+                        <div id="collapseSix" class="collapse " aria-labelledby="headingSix" data-parent="#accordion">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
+                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
+                                tortor.
+                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
+                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
+                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
+                                ipsum
+                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
+                                risus
+                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
+                                amet
+                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
+                                nisl.
+                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
+                        </div>
 
-                    <div class="card1" id="headingSix">
-                        <p class="collapsed" data-toggle="collapse" data-target="#collapseSix"><i
-                                class="fas fa-chevron-circle-right"></i> Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?</p>
-                    </div>
-                    <div id="collapseSix" class="collapse " aria-labelledby="headingSix" data-parent="#accordion">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
-                            ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit tortor.
-                            Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
-                            lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
-                            libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante ipsum
-                            primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam risus
-                            justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit amet
-                            congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget nisl.
-                            Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
-                    </div>
+                        <div class="card1" id="headingSeven">
+                            <p class="collapsed" data-toggle="collapse" data-target="#collapseSeven" class="qe">
+                                <img class="img" src="./assets/images/faq/arrow-right.png" alt="">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?
+                            </p>
+                        </div>
+                        <div id="collapseSeven" class="collapse " aria-labelledby="headingSeven"
+                            data-parent="#accordion">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
+                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
+                                tortor.
+                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
+                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
+                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
+                                ipsum
+                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
+                                risus
+                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
+                                amet
+                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
+                                nisl.
+                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
+                        </div>
 
-                    <div class="card1" id="headingSeven">
-                        <p class="collapsed" data-toggle="collapse" data-target="#collapseSeven"><i
-                                class="fas fa-chevron-circle-right"></i> Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?</p>
-                    </div>
-                    <div id="collapseSeven" class="collapse " aria-labelledby="headingSeven" data-parent="#accordion">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
-                            ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit tortor.
-                            Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
-                            lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
-                            libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante ipsum
-                            primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam risus
-                            justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit amet
-                            congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget nisl.
-                            Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
-                    </div>
+                        <div class="card1" id="headingEight">
+                            <p class="collapsed" data-toggle="collapse" data-target="#collapseEight" class="qe">
+                                <img class="img" src="./assets/images/faq/arrow-right.png" alt="">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?
+                            </p>
+                        </div>
+                        <div id="collapseEight" class="collapse " aria-labelledby="headingEight"
+                            data-parent="#accordion">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
+                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
+                                tortor.
+                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
+                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
+                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
+                                ipsum
+                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
+                                risus
+                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
+                                amet
+                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
+                                nisl.
+                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
+                        </div>
 
-                    <div class="card1" id="headingEight">
-                        <p class="collapsed" data-toggle="collapse" data-target="#collapseEight"><i
-                                class="fas fa-chevron-circle-right"></i> Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?</p>
-                    </div>
-                    <div id="collapseEight" class="collapse " aria-labelledby="headingEight" data-parent="#accordion">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
-                            ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit tortor.
-                            Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
-                            lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
-                            libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante ipsum
-                            primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam risus
-                            justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit amet
-                            congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget nisl.
-                            Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
-                    </div>
+                        <div class="card1" id="headingNine">
+                            <p class="collapsed" data-toggle="collapse" data-target="#collapseNine" class="qe">
+                                <img class="img" src="./assets/images/faq/arrow-right.png" alt="">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?
+                            </p>
+                        </div>
+                        <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordion">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
+                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
+                                tortor.
+                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
+                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
+                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
+                                ipsum
+                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
+                                risus
+                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
+                                amet
+                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
+                                nisl.
+                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
+                        </div>
 
-                    <div class="card1" id="headingNine">
-                        <p class="collapsed" data-toggle="collapse" data-target="#collapseNine"><i
-                                class="fas fa-chevron-circle-right"></i> Lorem ipsum dolor sit amet, consectetur
-                            adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?</p>
                     </div>
-                    <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordion">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
-                            ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit tortor.
-                            Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
-                            lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
-                            libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante ipsum
-                            primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam risus
-                            justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit amet
-                            congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget nisl.
-                            Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
-                    </div>
+                </div>
+                <div class="bs-example service-provider" style="display: none;">
+                    <div class="accordion" id="accordion1">
+                        <div class="card1" id="heading-One">
+                            <p data-toggle="collapse" data-target="#collapse-One" class="qe">
+                                <img class="img" src="./assets/images/faq/arrow-right.png" alt="">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nisl nunc, iaculis
+                                mattis tellus ac ut non imperdiet velit?
+                            </p>
+                        </div>
+                        <div id="collapse-One" class="collapse show" aria-labelledby="heading-One"
+                            data-parent="#accordion1">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
+                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
+                                tortor.
+                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
+                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
+                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
+                                ipsum
+                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
+                                risus
+                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
+                                amet
+                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
+                                nisl.
+                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
+                        </div>
 
+                        <div class="card1" id="heading-Two">
+                            <p class="collapsed" data-toggle="collapse" data-target="#collapse-Two" class="qe">
+                                <img class="img" src="./assets/images/faq/arrow-right.png" alt="">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?
+                            </p>
+                        </div>
+                        <div id="collapse-Two" class="collapse" aria-labelledby="heading-Two" data-parent="#accordion1">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
+                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
+                                tortor.
+                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
+                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
+                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
+                                ipsum
+                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
+                                risus
+                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
+                                amet
+                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
+                                nisl.
+                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
+                        </div>
+
+                        <div class="card1" id="heading-Three">
+                            <p class="collapsed" data-toggle="collapse" data-target="#collapse-Three" class="qe">
+                                <img class="img" src="./assets/images/faq/arrow-right.png" alt="">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?
+                            </p>
+                        </div>
+                        <div id="collapse-Three" class="collapse " aria-labelledby="heading-Three"
+                            data-parent="#accordion1">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
+                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
+                                tortor.
+                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
+                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
+                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
+                                ipsum
+                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
+                                risus
+                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
+                                amet
+                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
+                                nisl.
+                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
+                        </div>
+
+                        <div class="card1" id="heading-Four">
+                            <p class="collapsed" data-toggle="collapse" data-target="#collapse-Four" class="qe">
+                                <img class="img" src="./assets/images/faq/arrow-right.png" alt="">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?
+                            </p>
+                        </div>
+                        <div id="collapse-Four" class="collapse " aria-labelledby="heading-Four"
+                            data-parent="#accordion1">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
+                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
+                                tortor.
+                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
+                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
+                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
+                                ipsum
+                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
+                                risus
+                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
+                                amet
+                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
+                                nisl.
+                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-    </div>
-    <div class="section-newsseltter">
-        <div class="newstitle">
-            <p>get our newsselter</p>
-        </div>
-        <div class="newsform d-flex justify-content-center">
-            <div class="input-field"><input type="text" placeholder="Your Email"></div>
-            <button>Submit</button>
-        </div>
-    </div>
+        <section class="section-newsseltter">
+            <div class="newstitle">
+                <p>get our newsselter</p>
+            </div>
+            <div class="newsform d-flex justify-content-center">
+                <div class="input-field"><input type="text" placeholder="Your Email"></div>
+                <button>Submit</button>
+            </div>
+        </section>
+    </main>
 
-    <div class="section-footer container-fluid">
+    <footer class="section-footer">
         <div class="f-main row">
             <div class="footer-logo col-xl-2">
                 <img src="./assets/images/faq/nav-logo.png">
@@ -288,23 +447,21 @@
         <div class="f-sub">
             <p>©2018 Helperland. All rights reserved. Terms and Conditions | Privacy Policy</p>
         </div>
-    </div>
+    </footer>
 
-    <script>
-        $(document).ready(function () {
-            // Add down arrow icon for collapse element which is open by default
-            $(".collapse.show").each(function () {
-                $(this).prev(".card1").find(".fas").addClass("fa-chevron-circle-down").removeClass("fa-chevron-circle-right");
-            });
 
-            // Toggle right and down arrow icon on show hide of collapse element
-            $(".collapse").on('show.bs.collapse', function () {
-                $(this).prev(".card1").find(".fas").removeClass("fa-chevron-circle-right").addClass("fa-chevron-circle-down");
-            }).on('hide.bs.collapse', function () {
-                $(this).prev(".card1").find(".fas").removeClass("fa-chevron-circle-down").addClass("fa-chevron-circle-right");
-            });
-        });
-    </script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script src="./assets/js/faq.js"></script>
+
 </body>
 
 </html>

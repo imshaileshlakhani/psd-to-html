@@ -1,7 +1,7 @@
 /* -----------------header-section------------------ */
 #header {
   width: 100%;
-  padding: 15px 15px 5px 17px;
+  padding: 10px 15px 0px 17px;
   transition: all 0.7s ease;
   z-index: 99;
   background-color: #525252;
@@ -19,12 +19,14 @@
 .header .brand {
   height: 54px;
   width: 73px;
+  padding-bottom: 5px;
 }
 .header .brand a img {
   width: 100%;
   height: 100%;
 }
 .header ul li {
+  margin-top: 5px;
   list-style: none;
   display: inline-block;
   margin-left: 25px;

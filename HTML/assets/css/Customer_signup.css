@@ -134,6 +134,7 @@ html {
 .form-check-label span,
 .submit span {
   color: #1fb6ff;
+  cursor: pointer;
 }
 .submit button {
   width: 163px;

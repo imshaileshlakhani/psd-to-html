@@ -38,12 +38,34 @@
   letter-spacing: 1px;
   font-weight: 0;
 }
-.header .vr{
-    width: 1px;
-    margin-top: -6px;
-    margin-bottom: -20px;
-    height: 48px;
-    color: #e1e1e1;
+.header .vr {
+  width: 1px;
+  margin-top: -6px;
+  margin-bottom: -20px;
+  height: 48px;
+  color: #e1e1e1;
+}
+.dropdown .dropdown-toggle {
+  color: white;
+}
+.dropdown .dropdown-toggle:hover {
+  color: white;
+}
+.dropdown-toggle:hover {
+  color: white;
+}
+.dropdown button:focus {
+  outline: none;
+  box-shadow: none;
+}
+.dropdown-menu.show {
+  right: 15%;
+}
+.dropdown-menu .dropdown-item {
+  color: black;
+}
+.dropdown-menu .dropdown-item img {
+  margin-right: 5px;
 }
 .menu-btn {
   color: white;
@@ -64,12 +86,6 @@
     padding-top: 150px;
     transition: 0.3s ease;
   }
-  .menu-btn i.active::before {
-    content: "\f00d";
-  }
-  .header ul.show {
-    left: 0;
-  }
   .header ul li {
     display: block;
     margin-bottom: 30px;
@@ -77,7 +93,44 @@
   .menu-btn {
     display: block;
   }
-  .navitem .vr{
+  .navitem .vr {
     display: none;
   }
+}
+
+#navbartoggle .modal-dialog {
+  float: right;
+  width: 220px;
+}
+#navbartoggle .modal-content {
+  width: auto;
+  height: 90vh;
+  padding: 1px;
+}
+#navbartoggle .modal-body,
+#navbartoggle .modal-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+#navbartoggle .modal-body a,
+#navbartoggle .modal-footer a {
+  text-decoration: none;
+  padding: 5px;
+  color: #646464;
+  font-size: 16px;
+}
+#navbartoggle .modal-header {
+  border: none;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.4);
+}
+#welcomeuser {
+  font-size: 14px;
+}
+#navbartoggle .modal-footer {
+  border-top: 1px solid rgba(128, 128, 128, 0.4);
+}
+#navbartoggle .modal-footer a {
+  margin: 0;
 }

@@ -38,7 +38,7 @@
   display: block;
   color: #ffffff;
   font-size: 18px;
-  padding: 15px 15px;
+  padding: 15px 100px 15px 15px;
   border-bottom: 1px solid rgba(202, 194, 194, 0.2);
 }
 .sidebar a.active {
@@ -72,7 +72,7 @@
   color: #646464;
 }
 .table1 tr td {
-  line-height: 2.1;
+  line-height: 2;
 }
 .table1 td span {
   display: block;

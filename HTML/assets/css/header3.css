@@ -1,7 +1,7 @@
 /* -----------------header-section------------------ */
 #header {
   width: 100%;
-  padding: 10px 15px 0px 17px;
+  padding: 2px 15px 0px 17px;
   transition: all 0.7s ease;
   z-index: 99;
   background-color: #525252;
@@ -27,6 +27,7 @@
 }
 .header ul li {
   margin-top: 5px;
+  margin-bottom: -10px;
   list-style: none;
   display: inline-block;
   margin-left: 25px;
@@ -104,14 +105,13 @@
 }
 #navbartoggle .modal-content {
   width: auto;
-  height: 90vh;
   padding: 1px;
 }
 #navbartoggle .modal-body,
 #navbartoggle .modal-footer {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: unset;
   align-items: flex-start;
 }
 #navbartoggle .modal-body a,

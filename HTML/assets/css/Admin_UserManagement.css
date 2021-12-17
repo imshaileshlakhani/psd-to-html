@@ -1,0 +1,349 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+/* --------------------sidebar-section--------------- */
+.service-section {
+  margin: 0 auto;
+  display: flex;
+}
+.service-section .sidebar {
+  background-color: #fff;
+  box-shadow: 2px 0px #e5e5e5;
+  /* overflow-x: hidden; */
+  position: fixed;
+  top: 59px;
+  left: 0;
+  transition: 0.3s ease;
+  z-index: 99;
+}
+.sidebar-admin{
+  display: none;
+}
+.sidebar-admin a{
+  border-top: 1px solid #e5e5e5;
+}
+.welcomeadmin{
+  padding: 10px 15px 0px 15px;
+}
+#service-section .sidebar.show{
+  left: 0%;
+}
+.service-section .sidebar a {
+  text-decoration: none;
+  display: block;
+  color: #646464;
+  font-size: 1rem;
+  padding: 11px 20px 11px 15px;
+  border-bottom: 1px solid #e5e5e5;
+  cursor: pointer;
+}
+.service-section .dropdown-container{
+  display: none;
+  background-color: #f9f9f9;
+  padding-left: 34px;
+}
+.service-section .dropdown-container a{
+  border: none;
+  color: #646464;
+}
+.drop-arrow {
+  float: right;
+  padding-top: 28px;
+  transform: rotate(-90deg);
+  padding-left: 9px;
+}
+.drop-arrow.active {
+  transform: rotate(0deg);
+  padding-top: 9px;
+}
+
+.service-section .sidebar a.active1 {
+  color: #1fb6ff;
+}
+.service-section .sidebar a:hover {
+  color: #1fb6ff;
+}
+/* -------------------start common css for different tab---------------------- */
+.sidebar-content {
+  overflow-y:hidden;
+  height: 1400px;
+  margin-left: 250px;
+  width: 84.2%;
+  overflow-x: auto;
+  padding: 18px 20px 15px 20px;
+  background-color: #f2f4f5;
+}
+.sidebar-content .title{
+  color: #646464;
+  font-size: 1.37rem;
+  font-weight: bold;
+}
+/* form */
+.form-container{
+  padding: 20px 15px 15px 15px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: white;
+}
+.form-container .input-container{
+  margin-right: 15px;
+  margin-bottom: 5px;
+}
+.submit button{
+  width: 84px;
+  height: 46px;
+  border-radius: 5px;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+}
+.submit .search{
+  background-color: #1fb6ff;
+  color: white;
+  margin-right: 10px;
+}
+.submit .clear{
+  background-color: white;
+  color: #646464;
+  border: 1px solid #dedddd;
+}
+#ups {
+  overflow-x: auto;
+}
+.sidebar-content .table-footer{
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+}
+.sidebar-content .drop-record{
+  color: #646464;
+  font-size: 0.87rem;
+}
+.drop-record select{
+  width: 62px;
+  height: 38px;
+  outline: none;
+  border: 1px solid #e1e1e1;
+  color: #646464;
+  font-size: 0.87rem;
+  text-align: center;
+}
+.pagination div{
+  width: 38px;
+  height: 38px;
+  border: 1px solid #e1e1e1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777777;
+  cursor: pointer;
+}
+.pagination div.active{
+  background-color: #565656;
+  border-color: #565656;
+  color: white;
+}
+.pagination div:nth-child(7) img{
+  transform: rotate(180deg);
+}
+.copyright{
+  color: #a2a6a8;
+  font-size: 0.87rem;
+}
+.table1 .th img, .table2 .th img{
+  cursor: pointer;
+}
+.action{
+  cursor: pointer;
+}
+/* -------------------end common css for different tab---------------------- */
+
+/* -----------------------start service request section--------------------- */
+.main1{
+  padding-top: 50px;
+  padding-bottom: 800px;
+}
+.inputbox{
+  width: 160px;
+  height: 46px;
+  outline: none;
+  border: 1px solid #dedddd;
+  border-radius: 5px;
+  color: #a0a0a0;
+  font-size: 1rem;
+  padding-left: 11px;
+}
+/* table-section */
+.table1 {
+  border-collapse: collapse;
+  font-size: 1rem;
+  width: 100%;
+  background-color: white;
+}
+.table1 .th {
+  background-color: #f9f9f9;
+  color: #646464;
+}
+.table1 .th th {
+  padding: 13px 0;
+}
+.table1 tr {
+  border-bottom: 1px solid #ddd;
+  color: #646464;
+}
+.table1 tr td {
+  line-height: 1.5;
+  padding: 15px 0;
+}
+.table1 td span {
+  display: block;
+}
+.table1 .text-center td:nth-child(4) > div{
+  display: flex;
+  align-items: center;
+}
+.table1 .cap{
+  border: 1px solid #aaa;
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+.table1 .cap img{
+  height: 20px;
+  width: 30px;
+}
+.table1 .text-center td:nth-child(5) a{
+  background-color: #67b644;
+  padding: 4px 9px;
+  color: white;
+  font-size: 0.81rem;
+}
+.table1 .text-center td:nth-child(5) a.Cancelled{
+  text-decoration: none;
+  background-color: #ff6b6b;
+}
+.table1 .text-center td:nth-child(5) a.New{
+  text-decoration: none;
+  background-color: #f2bb37;
+}
+.table1 .text-center td:nth-child(5) a.Pending{
+  text-decoration: none;
+  background-color: #1fb6ff;
+}
+/* -----------------------end service request section--------------------- */
+
+/* ----------------------user management section------------------- */
+.main{
+  padding-top: 60px;
+  padding-bottom: 800px;
+}
+.sidebar-content .add-user a{
+  text-decoration: none;
+  background-color: #1fb6ff;
+  color: #fff;
+  font-size: 0.87rem;
+  padding: 11px 12px;
+}
+.sidebar-content .add-user a img{
+  padding-bottom: 3px;
+}
+/* ---------foam--------- */
+.input-container .inputbox1{
+  width: 200px;
+  height: 46px;
+  outline: none;
+  border: 1px solid #dedddd;
+  border-radius: 5px;
+  color: #a0a0a0;
+  font-size: 1rem;
+  padding-left: 11px;
+}
+.input-group-text{
+  height: 46px;
+  color: #646464;
+}
+/* ------------table-section--------- */
+.table2 {
+  border-collapse: collapse;
+  font-size: 1rem;
+  width: 100%;
+  background-color: white;
+}
+.table2 .th {
+  background-color: #F9F9F9;
+  color: #646464;
+}
+.table2 .th th {
+  padding: 13px 0;
+}
+.table2 tr {
+  border-bottom: 1px solid #ddd;
+  color: #646464;
+}
+.table2 tr td {
+  line-height: 1.5;
+  padding: 20px 0;
+}
+.table2 td span {
+  display: block;
+}
+.table2 .text-center td:nth-child(2) > div{
+  display: flex;
+  align-items: center;
+}
+.table2 .text-center td:nth-child(7) a{
+  background-color: #67b644;
+  padding: 4px 9px;
+  color: white;
+  font-size: 0.81rem;
+}
+.table2 .text-center td:nth-child(7) a.Inactive{
+  text-decoration: none;
+  background-color: #ff6b6b;
+}
+/* ----------------------end user management section------------------- */
+
+@media screen and (max-width:500px) {
+  .input-container{
+    width: 100%;
+  }
+  .inputbox{
+    width: 100%;
+  }
+  .input-group{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  .input-group1 div:nth-child(2){
+    width: inherit;
+  }
+  .submit{
+    width: 100%;
+  }
+}
+@media screen and (max-width:720px) {
+  .table1 .text-center td:nth-child(4) > div{
+    flex-direction: column;
+  }
+  .sidebar-content .table-footer{
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 1100px) {
+  #service-section .sidebar {
+    left: -100%;
+  }
+  .sidebar-content {
+    width: 100%;
+    margin-left: 0px;
+  }
+}

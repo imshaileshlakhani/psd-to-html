@@ -10,6 +10,9 @@ $(document).ready(function(){
     $('.menu-btn').click(function(){
         $('.header ul').toggleClass('show');
         $('.menu-btn i').toggleClass('active');
+
+        // for admin panale sidebar nav
+        $('#service-section .sidebar').toggleClass('show');
     });
 
     jQuery('.dropdown-menu li a').click(function(){

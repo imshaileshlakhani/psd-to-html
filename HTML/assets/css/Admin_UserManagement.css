@@ -20,16 +20,16 @@
   transition: 0.3s ease;
   z-index: 99;
 }
-.sidebar-admin{
+.sidebar-admin {
   display: none;
 }
-.sidebar-admin a{
+.sidebar-admin a {
   border-top: 1px solid #e5e5e5;
 }
-.welcomeadmin{
+.welcomeadmin {
   padding: 10px 15px 0px 15px;
 }
-#service-section .sidebar.show{
+#service-section .sidebar.show {
   left: 0%;
 }
 .service-section .sidebar a {
@@ -41,12 +41,12 @@
   border-bottom: 1px solid #e5e5e5;
   cursor: pointer;
 }
-.service-section .dropdown-container{
+.service-section .dropdown-container {
   display: none;
   background-color: #f9f9f9;
   padding-left: 34px;
 }
-.service-section .dropdown-container a{
+.service-section .dropdown-container a {
   border: none;
   color: #646464;
 }
@@ -60,7 +60,6 @@
   transform: rotate(0deg);
   padding-top: 9px;
 }
-
 .service-section .sidebar a.active1 {
   color: #1fb6ff;
 }
@@ -69,7 +68,7 @@
 }
 /* -------------------start common css for different tab---------------------- */
 .sidebar-content {
-  overflow-y:hidden;
+  overflow-y: hidden;
   height: 1400px;
   margin-left: 250px;
   width: 84.2%;
@@ -77,13 +76,13 @@
   padding: 18px 20px 15px 20px;
   background-color: #f2f4f5;
 }
-.sidebar-content .title{
+.sidebar-content .title {
   color: #646464;
   font-size: 1.37rem;
   font-weight: bold;
 }
 /* form */
-.form-container{
+.form-container {
   padding: 20px 15px 15px 15px;
   margin-bottom: 20px;
   display: flex;
@@ -91,11 +90,11 @@
   flex-wrap: wrap;
   background-color: white;
 }
-.form-container .input-container{
+.form-container .input-container {
   margin-right: 15px;
   margin-bottom: 5px;
 }
-.submit button{
+.submit button {
   width: 84px;
   height: 46px;
   border-radius: 5px;
@@ -103,29 +102,45 @@
   border: none;
   outline: none;
 }
-.submit .search{
+.submit .search {
   background-color: #1fb6ff;
   color: white;
   margin-right: 10px;
 }
-.submit .clear{
+.submit .clear {
   background-color: white;
   color: #646464;
   border: 1px solid #dedddd;
 }
+.action .dropdown-toggle::after {
+  display: none;
+}
+.action .dropdown .dropdown-toggle {
+  background-color: white;
+  border: none;
+}
+.action .dropdown .dropdown-toggle:focus {
+  background-color: #f4f4f4;
+  border-radius: 50%;
+  padding: 6px 16px 6px 16px;
+}
+.action .dropdown-menu li a {
+  text-decoration: none;
+  color: #646464;
+}
 #ups {
   overflow-x: auto;
 }
-.sidebar-content .table-footer{
+.sidebar-content .table-footer {
   display: flex;
   justify-content: space-between;
   background-color: white;
 }
-.sidebar-content .drop-record{
+.sidebar-content .drop-record {
   color: #646464;
   font-size: 0.87rem;
 }
-.drop-record select{
+.drop-record select {
   width: 62px;
   height: 38px;
   outline: none;
@@ -134,7 +149,7 @@
   font-size: 0.87rem;
   text-align: center;
 }
-.pagination div{
+.pagination div {
   width: 38px;
   height: 38px;
   border: 1px solid #e1e1e1;
@@ -144,32 +159,30 @@
   color: #777777;
   cursor: pointer;
 }
-.pagination div.active{
+.pagination div.active {
   background-color: #565656;
   border-color: #565656;
   color: white;
 }
-.pagination div:nth-child(7) img{
+.pagination div:nth-child(7) img {
   transform: rotate(180deg);
 }
-.copyright{
+.copyright {
   color: #a2a6a8;
   font-size: 0.87rem;
 }
-.table1 .th img, .table2 .th img{
-  cursor: pointer;
-}
-.action{
+.table1 .th img,
+.table2 .th img {
   cursor: pointer;
 }
 /* -------------------end common css for different tab---------------------- */
 
 /* -----------------------start service request section--------------------- */
-.main1{
+.main1 {
   padding-top: 50px;
   padding-bottom: 800px;
 }
-.inputbox{
+.inputbox {
   width: 160px;
   height: 46px;
   outline: none;
@@ -204,58 +217,58 @@
 .table1 td span {
   display: block;
 }
-.table1 .text-center td:nth-child(4) > div{
+.table1 .text-center td:nth-child(4) > div {
   display: flex;
   align-items: center;
 }
-.table1 .cap{
+.table1 .cap {
   border: 1px solid #aaa;
   height: 44px;
   width: 44px;
   border-radius: 50%;
   margin-right: 12px;
 }
-.table1 .cap img{
+.table1 .cap img {
   height: 20px;
   width: 30px;
 }
-.table1 .text-center td:nth-child(5) a{
+.table1 .text-center td:nth-child(5) a {
   background-color: #67b644;
   padding: 4px 9px;
   color: white;
   font-size: 0.81rem;
 }
-.table1 .text-center td:nth-child(5) a.Cancelled{
+.table1 .text-center td:nth-child(5) a.Cancelled {
   text-decoration: none;
   background-color: #ff6b6b;
 }
-.table1 .text-center td:nth-child(5) a.New{
+.table1 .text-center td:nth-child(5) a.New {
   text-decoration: none;
   background-color: #f2bb37;
 }
-.table1 .text-center td:nth-child(5) a.Pending{
+.table1 .text-center td:nth-child(5) a.Pending {
   text-decoration: none;
   background-color: #1fb6ff;
 }
 /* -----------------------end service request section--------------------- */
 
 /* ----------------------user management section------------------- */
-.main{
+.main {
   padding-top: 60px;
   padding-bottom: 800px;
 }
-.sidebar-content .add-user a{
+.sidebar-content .add-user a {
   text-decoration: none;
   background-color: #1fb6ff;
   color: #fff;
   font-size: 0.87rem;
   padding: 11px 12px;
 }
-.sidebar-content .add-user a img{
+.sidebar-content .add-user a img {
   padding-bottom: 3px;
 }
 /* ---------foam--------- */
-.input-container .inputbox1{
+.input-container .inputbox1 {
   width: 200px;
   height: 46px;
   outline: none;
@@ -265,7 +278,7 @@
   font-size: 1rem;
   padding-left: 11px;
 }
-.input-group-text{
+.input-group-text {
   height: 46px;
   color: #646464;
 }
@@ -277,7 +290,7 @@
   background-color: white;
 }
 .table2 .th {
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
   color: #646464;
 }
 .table2 .th th {
@@ -294,46 +307,46 @@
 .table2 td span {
   display: block;
 }
-.table2 .text-center td:nth-child(2) > div{
+.table2 .text-center td:nth-child(2) > div {
   display: flex;
   align-items: center;
 }
-.table2 .text-center td:nth-child(7) a{
+.table2 .text-center td:nth-child(7) a {
   background-color: #67b644;
   padding: 4px 9px;
   color: white;
   font-size: 0.81rem;
 }
-.table2 .text-center td:nth-child(7) a.Inactive{
+.table2 .text-center td:nth-child(7) a.Inactive {
   text-decoration: none;
   background-color: #ff6b6b;
 }
 /* ----------------------end user management section------------------- */
 
-@media screen and (max-width:500px) {
-  .input-container{
+@media screen and (max-width: 500px) {
+  .input-container {
     width: 100%;
   }
-  .inputbox{
+  .inputbox {
     width: 100%;
   }
-  .input-group{
+  .input-group {
     display: flex;
     flex-direction: row;
     width: 100%;
   }
-  .input-group1 div:nth-child(2){
+  .input-group1 div:nth-child(2) {
     width: inherit;
   }
-  .submit{
+  .submit {
     width: 100%;
   }
 }
-@media screen and (max-width:720px) {
-  .table1 .text-center td:nth-child(4) > div{
+@media screen and (max-width: 720px) {
+  .table1 .text-center td:nth-child(4) > div {
     flex-direction: column;
   }
-  .sidebar-content .table-footer{
+  .sidebar-content .table-footer {
     flex-direction: column;
     align-items: center;
   }

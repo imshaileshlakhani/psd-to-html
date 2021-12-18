@@ -5,16 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="assets/css/Homepage.css">
+    <link rel="stylesheet" href="./assets/css/header1.css">
     <link rel="stylesheet" href="./assets/css/modal.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'>
+ 
+    <script src="https://kit.fontawesome.com/4ae0bb5b6f.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Homepage</title>
 </head>
 
@@ -107,252 +106,257 @@
     </div>
     <!-- modal end -->
 
-    <div class="main container-fluid">
-        <div class="hero-image row">
-            <div class="navigation">
-                <nav class="navbar navbar-expand-lg">
-                    <a class="navbar-brand" href="#">
-                        <img src="assets/images/Homepage/nav-logo.png" alt="">
-                    </a>
-                    <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse"
-                        data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                        aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse p-4 text-white" id="navbarNav">
-                        <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <button class="nav-link btn nav-btn" href="#">Book a
-                                    Cleaner</button>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Prices</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Our Gaurantee</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Blog</a>
-                            </li>
-                            <li class="nav-item">
-                                <button class="nav-link btn nav-btn" href="#" data-toggle="modal"
-                                data-target="#loginModal">Login</button>
-                            </li>
-                            <li class="nav-item">
-                                <button class="nav-link btn nav-btn" href="#">Become a
-                                    Helper</button>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <img src="assets/images/Homepage/flag1.png" alt="">
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#"></a>
-                                    <a class="dropdown-item" href="#"></a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+    <header id="header">
+        <div class="header">
+            <div class="brand">
+                <a class="navbarbrand" href="#">
+                    <img src="./assets/images/Homepage/nav-logo.png" alt="">
+                </a>
             </div>
-            <div class="home-content">
-                <div class="home-heading">
-                    <h1>Lorem ipsum text</h1>
-                </div>
-                <ul class="list">
-                    <li><i class="fa fa-check"></i> Lorem ipsum dolor sit amet, consectetur adipiscing</li>
-                    <li><i class="fa fa-check"></i> Lorem ipsum dolor sit amet, consectetur adipiscing</li>
-                    <li><i class="fa fa-check"></i> Lorem ipsum dolor sit amet, consectetur adipiscing</li>
-                </ul>
-            </div>
-            <div class="btn-lets">
-                <button class="btn btn-outline-light text-light">Let’s Book a Cleaner</button>
-            </div>
-            <div class="steps">
-                <div class="all-steps">
-                    <div class="step">
-                        <div class="step-img">
-                            <img src="assets/images/Homepage/step1.png" alt="">
-                        </div>
-                        <div class="step-text">
-                            Enter Your Postcode
-                        </div>
-                        <div class="step-arrow">
-                            <img src="assets/images/Homepage/step-down-arrow.png" alt="">
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-img">
-                            <img src="assets/images/Homepage/step2.png" alt="">
-                        </div>
-                        <div class="step-text">
-                            Select your plan
-                        </div>
-                        <div class="step-arrow">
-                            <img src="assets/images/Homepage/step-up-arrow.png" alt="">
-                        </div>
-                    </div>
-                    <div class="step">
-                        <div class="step-img">
-                            <img src="assets/images/Homepage/step3.png" alt="">
-                        </div>
-                        <div class="step-text">
-                            Pay securely online
-                        </div>
-                        <div class="step-arrow">
-                            <img src="assets/images/Homepage/step-down-arrow.png" alt="">
+            <ul>
+                <li class="navitem">
+                    <a class="navlink navbtn" href="#">Book a
+                        Cleaner</a>
+                </li>
+                <li class="navitem">
+                    <a class="navlink" href="#">Prices</a>
+                </li>
+                <li class="navitem">
+                    <a class="navlink" href="#">Our Gaurantee</a>
+                </li>
+                <li class="navitem">
+                    <a class="navlink" href="#">Blog</a>
+                </li>
+                <li class="navitem">
+                    <a class="navlink" href="#">Contact us</a>
+                </li>
+                <li class="navitem">
+                    <a class="navlink navbtn" href="#" data-toggle="modal"
+                    data-target="#loginModal">Login</a>
+                </li>
+                <li class="navitem">
+                    <a class="navlink navbtn" href="#">Become a
+                        Helper</a>
+                </li>
+                <li class="navitem">
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                            aria-expanded="false">
+                            <img src="./assets/images/Homepage/flag1.png" alt="">
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#"><img src="./assets/images/Homepage/flag1.png" alt="">
+                                English</a>
                         </div>
                     </div>
-                    <div class="step">
-                        <div class="step-img">
-                            <img src="assets/images/Homepage/step1.png" alt="">
-                        </div>
-                        <div class="step-text">
-                            Enjoy Amazing Service
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="btn-down">
-                <div class="circle">
-                    <img src="assets/images/Homepage/shape-1.png" alt="">
-                </div>
+                </li>
+            </ul>
+            <div class="menu-btn">
+                <i class="fas fa-bars "></i>
             </div>
         </div>
+    </header>
+    <main>
+        <section id="hero-image">
+            <div class="hero-image">
+                <div class="home-content">
+                    <div class="home-heading">
+                        <h1>Lorem ipsum text</h1>
+                    </div>
+                    <ul class="list">
+                        <li><i class="fa fa-check"></i> Lorem ipsum dolor sit amet, consectetur adipiscing</li>
+                        <li><i class="fa fa-check"></i> Lorem ipsum dolor sit amet, consectetur adipiscing</li>
+                        <li><i class="fa fa-check"></i> Lorem ipsum dolor sit amet, consectetur adipiscing</li>
+                    </ul>
+                </div>
+                <div class="btn-lets">
+                    <a href="">Let’s Book a Cleaner</a>
+                </div>
+                <div class="steps">
+                    <div class="all-steps">
+                        <div class="step">
+                            <div class="step-img">
+                                <img src="./assets/images/Homepage/step1.png" alt="">
+                                <div class="step-text">
+                                    Enter Your Postcode
+                                </div>
+                            </div>
+                            <div class="step-arrow">
+                                <img src="./assets/images/Homepage/step-down-arrow.png" alt="">
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-img">
+                                <img src="./assets/images/Homepage/step2.png" alt="">
+                                <div class="step-text">
+                                    Select your plan
+                                </div>
+                            </div>
+                            <div class="step-arrow">
+                                <img src="./assets/images/Homepage/step-up-arrow.png" alt="">
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-img">
+                                <img src="./assets/images/Homepage/step3.png" alt="">
+                                <div class="step-text">
+                                    Pay securely online
+                                </div>
+                            </div>
+                            <div class="step-arrow">
+                                <img src="./assets/images/Homepage/step-down-arrow.png" alt="">
+                            </div>
+                        </div>
+                        <div class="step">
+                            <div class="step-img">
+                                <img src="./assets/images/Homepage/step4.png" alt="">
+                                <div class="step-text">
+                                    Enjoy Amazing Service
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-down">
+                    <a href="#Helperland">
+                        <div class="circle">
+                            <img src="./assets/images/Homepage/shape-1.png" alt="">
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
 
-        <div class="second row">
-            <span class="Why-Helperland">
-                Why Helperland
-            </span>
+        <section id="Helperland">
+            <div class="title text-center">
+                    Why Helperland
+            </div>
 
-            <div class="card-deck d-flex flex-row flex-wrap">
+            <div class="card-deck">
                 <div class="card1">
                     <div class="img">
-                        <img class="card-img-top" src="assets/images/Homepage/helper-img-1.png" alt="Card image cap">
+                        <img class="card-img-top" src="./assets/images/Homepage/group-21.png" alt="Card image cap">
                     </div>
                     <div class="card-body">
-                        <span class="Experience-Vetted-Professionals mb-3">
+                        <div class="card-heading">
                             Experience & Vetted
                             Professionals
-                        </span>
-                        <span class="dominate-the-industry-in-scale-and-scope-with-an-adaptable-ext">
+                        </div>
+                        <div class="card-content">
                             dominate the industry in scale and scope with an adaptable, extensive network that
                             consistently delivers exceptional results.
-                        </span>
+                        </div>
                     </div>
                 </div>
                 <div class="card1">
                     <div class="img">
-                        <img class="card-img-top" src="assets/images/Homepage/group-23.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="./assets/images/Homepage/group-23.jpg" alt="Card image cap">
                     </div>
                     <div class="card-body">
-                        <span class="Secure-Online-Payment mb-5">
+                        <div class="card-heading card-heading1">
                             Secure Online Payment
-                        </span>
-                        <span class="Payment-is-processed-securely-online-Customers-pay-safely-onli">
+                        </div>
+                        <div class="card-content">
                             Payment is processed securely online. Customers pay safely online and
                             manage the booking.
-                        </span>
+                        </div>
                     </div>
                 </div>
                 <div class="card1">
                     <div class="img">
-                        <img class="card-img-top" src="assets/images/Homepage/group-24.png" alt="Card image cap">
+                        <img class="card-img-top" src="./assets/images/Homepage/group-24.png" alt="Card image cap">
                     </div>
                     <div class="card-body">
-                        <span class="Dedicated-Customer-Service mb-3">
+                        <div class="card-heading">
                             Dedicated Customer
                             Service
-                        </span>
-                        <span class="to-our-customers-and-are-guided-in-all-we-do-by-their-needs-Th">
+                        </div>
+                        <div class="card-content">
                             to our customers and are guided in all we do by their needs. The team is always happy to
                             support you and offer all the information.
-                        </span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="third row">
-            <div class="row1 d-flex flex-row flex-wrap">
+        <section id="Blog">
+            <div class="lorem-container">
                 <div class="lorem">
-                    <p>Lorem ipsum dolor sit amet, consectetur</p>
+                    <p>Lorem ipsum dolor sit amet,<br> consectetur</p>
                     <div class="p">
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisi sapien, suscipit ut
-                            accumsan
-                            vitae, pulvinar ac libero.</p>
-                        <p></p> Aliquam erat volutpat. Nullam quis ex odio. Nam bibendum cursus purus, vel efficitur
-                        urna
-                        finibus vitae. Nullam finibus aliquet pharetra. Morbi in sem dolor. Integer pretium hendrerit
-                        ante
-                        quis vehicula.</p>
+                            accumsan vitae, pulvinar ac libero.</p>
+                        <p>
+                        </p> Aliquam erat volutpat. Nullam quis ex odio. Nam bibendum cursus purus, vel efficitur
+                        urna finibus vitae. Nullam finibus aliquet pharetra. Morbi in sem dolor. Integer pretium
+                        hendrerit ante quis vehicula.</p>
                         <p> Mauris consequat ornare enim, sed lobortis quam ultrices sed.</p>
                     </div>
                 </div>
                 <div class="lorem-img">
-                    <img src="assets/images/Homepage/group-36.png" alt="">
+                    <img src="./assets/images/Homepage/group-36.png" alt="">
                 </div>
-            </div>
-            <span class="Our-Blog">
+            </div> 
+            <div class="title text-center">
                 Our Blog
-            </span>
+            </div>
 
-            <div class="blog-container d-flex flex-row flex-wrap">
+             <div class="blog-container">
                 <div class="blog card">
-                    <img class="card-img-top" src="assets/images/Homepage/blog1.png" alt="Card image cap">
+                    <img class="card-img-top" src="./assets/images/Homepage/blog1.png" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">Lorem ipsum dolor sit amet<br><span class="card-date">January 28,
-                                2019</span></h5>
+                        <p class="card-title">Lorem ipsum dolor sit amet<br><span class="card-date">January 28,
+                                2019</span></p>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum
                             metus pulvinar aliquet.</p>
-                        <p>
-                            Read The Post <img src="assets/images/Homepage/shape-2.png" alt="">
+                        <p class="read-more">
+                            Read the Post <img src="./assets/images/Homepage/shape-2.png" alt="">
                         </p>
                     </div>
                 </div>
                 <div class="blog card">
-                    <img class="card-img-top" src="assets/images/Homepage/blog2.png" alt="Card image cap">
+                    <img class="card-img-top" src="./assets/images/Homepage/blog2.png" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">Lorem ipsum dolor sit amet<br><span class="card-date">January 28,
-                                2019</span></h5>
+                        <p class="card-title">Lorem ipsum dolor sit amet<br><span class="card-date">January 28,
+                                2019</span></p>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum
                             metus pulvinar aliquet.</p>
-                        <p>
-                            Read The Post <img src="assets/images/Homepage/shape-2.png" alt="">
+                        <p class="read-more">
+                            Read the Post <img src="./assets/images/Homepage/shape-2.png" alt="">
                         </p>
                     </div>
                 </div>
                 <div class="blog card">
-                    <img class="card-img-top" src="assets/images/Homepage/blog3.png" alt="Card image cap">
+                    <img class="card-img-top" src="./assets/images/Homepage/blog3.png" alt="Card image cap">
                     <div class="card-body">
-                        <h5 class="card-title">Lorem ipsum dolor sit amet<br><span class="card-date">January 28,
-                                2019</span></h5>
+                        <p class="card-title">Lorem ipsum dolor sit amet<br><span class="card-date">January 28,
+                                2019</span></p>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum
                             metus pulvinar aliquet.</p>
-                        <p>
-                            Read The Post <img src="assets/images/Homepage/shape-2.png" alt="">
+                        <p class="read-more">
+                            Read the Post <img src="./assets/images/Homepage/shape-2.png" alt="">
                         </p>
                     </div>
                 </div>
             </div>
             <div class="Forma-1">
-                <img src="assets/images/Homepage/blog-left-bg.png" alt="">
+                <img src="./assets/images/Homepage/blog-left-bg.png" alt="">
             </div>
             <div class="Forma-2">
-                <img src="assets/images/Homepage/blog-right-bg.png" alt="">
+                <img src="./assets/images/Homepage/blog-right-bg.png" alt="">
             </div>
-        </div>
+        </section>
 
-        <div class="fourth row">
-            <span class="What-Our-Customers-Say">
+        <section id="Customers-Say">
+            <div class="title text-center">
                 What Our Customers Say
-            </span>
-            <div class="customers-container d-flex flex-row flex-wrap justify-content-center">
+            </div>
+            <div class="customers-container">
                 <div class="customers">
                     <div class="about-customer">
                         <div class="customer-profile">
-                            <img src="assets/images/Homepage/profile1.png" alt="">
+                            <img src="./assets/images/Homepage/profile1.png" alt="">
                         </div>
                         <div class="customer-name">
                             <div>
@@ -363,7 +367,7 @@
                             </div>
                         </div>
                         <div class="customer-msg">
-                            <img src="assets/images/Homepage/message.png" alt="">
+                            <img src="./assets/images/Homepage/message.png" alt="">
                         </div>
                     </div>
                     <div class="customer-content">
@@ -373,13 +377,13 @@
                             Nullam et metus congue, auctor augue sit amet, consectetur tortor. </p>
                     </div>
                     <div class="read-more">
-                        Read More <img src="assets/images/Homepage/shape-2.png" alt="">
+                        Read More <img src="./assets/images/Homepage/shape-2.png" alt="">
                     </div>
                 </div>
                 <div class="customers">
                     <div class="about-customer">
                         <div class="customer-profile">
-                            <img src="assets/images/Homepage/profile2.png" alt="">
+                            <img src="./assets/images/Homepage/profile2.png" alt="">
                         </div>
                         <div class="customer-name">
                             <div>
@@ -390,7 +394,7 @@
                             </div>
                         </div>
                         <div class="customer-msg">
-                            <img src="assets/images/Homepage/message.png" alt="">
+                            <img src="./assets/images/Homepage/message.png" alt="">
                         </div>
                     </div>
                     <div class="customer-content">
@@ -400,13 +404,13 @@
                             Nullam et metus congue, auctor augue sit amet, consectetur tortor. </p>
                     </div>
                     <div class="read-more">
-                        Read More <img src="assets/images/Homepage/shape-2.png" alt="">
+                        Read More <img src="./assets/images/Homepage/shape-2.png" alt="">
                     </div>
                 </div>
                 <div class="customers">
                     <div class="about-customer">
                         <div class="customer-profile">
-                            <img src="assets/images/Homepage/profile3.png" alt="">
+                            <img src="./assets/images/Homepage/profile3.png" alt="">
                         </div>
                         <div class="customer-name">
                             <div>
@@ -417,7 +421,7 @@
                             </div>
                         </div>
                         <div class="customer-msg">
-                            <img src="assets/images/Homepage/message.png" alt="">
+                            <img src="./assets/images/Homepage/message.png" alt="">
                         </div>
                     </div>
                     <div class="customer-content">
@@ -427,57 +431,64 @@
                             Nullam et metus congue, auctor augue sit amet, consectetur tortor. </p>
                     </div>
                     <div class="read-more">
-                        Read More <img src="assets/images/Homepage/shape-2.png" alt="">
+                        Read More <img src="./assets/images/Homepage/shape-2.png" alt="">
                     </div>
                 </div>
             </div>
 
-            <div class="container-fluid newsletter d-flex flex-row flex-wrap ">
+            <div class="newsletter">
                 <div class="up">
-                    <img src="assets/images/Homepage/forma-1.png" alt="">
+                    <a href="#hero-image"><img src="./assets/images/Homepage/forma-1.png" alt=""></a>
                 </div>
                 <div class="msg-box">
-                    <span class="GET-OUR-NEWSLETTER">
+                    <div class="GET-OUR-NEWSLETTER text-center">
                         GET OUR NEWSLETTER
-                    </span>
-                    <div class="msg-foam d-flex flex-row flex-wrap">
-                        <input type="text" class="Rounded-Rectangle-649" placeholder="YOUR EMAIL">
-                        <button class="Rounded-Rectangle-649-copy">Submit</button>
+                    </div>
+                    <div class="msg-foam">
+                        <input type="text" class="inputbox" placeholder="YOUR EMAIL">
+                        <button class="submit-btn">Submit</button>
                     </div>
                 </div>
                 <div class="layer">
-                    <img src="assets/images/Homepage/layer.png" alt="">
+                    <img src="./assets/images/Homepage/layer.png" alt="">
                 </div>
+            </div> 
+        </section>
+    </main>
+     <footer id="footer">
+        <div class="footer">
+            <div class="footer-img">
+                <img src="./assets/images/Homepage/white-logo-transparent-background.png" class="footer1-logo ">
             </div>
+            <div class="footer-nav">
+                <ul>
+                    <li><a href="#home">HOME</a></li>
+                    <li><a href="#news">ABOUT</a></li>
+                    <li><a href="#contact">TESTIMONIALS</a></li>
+                    <li><a href="#about">FAQS</a></li>
+                    <li><a href="#news">INSURANCE</a></li>
+                    <li><a href="#contact">POLICY</a></li>
+                    <li><a href="#about">IMPRESSUM</a></li>
+                </ul>
+            </div>
+            <div class="social">
+                <img src="./assets/images/Homepage/facebook.png" alt="">
+                <img src="./assets/images/Homepage/insta.png" alt="">
+            </div>
+        </div>
+        <div class="footer2">
+            <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat nunc libero, ac malesuada ligula
+                aliquam ac. <span>Privacy Policy</span></div>
+            <button class="footer2-btn">OK!</button>
+        </div>
+    </footer>
 
-        </div>
-        <div class="footer row">
-            <div class="footer1 container d-flex flex-row flex-wrap">
-                <div class="footer-img">
-                    <img src="assets/images/Homepage/white-logo-transparent-background.png"
-                        srcset="assets/images/Homepage/white-logo-transparent-background.png" class="footer1-logo ">
-                </div>
-                <div class="footer-nav d-flex flex-row flex-wrap">
-                    <div><a href="#home">HOME</a></div>
-                    <div><a href="#news">ABOUT</a></div>
-                    <div><a href="#contact">TESTIMONIALS</a></div>
-                    <div><a href="#about">FAQS</a></div>
-                    <div><a href="#news">INSURANCE</a></div>
-                    <div><a href="#contact">POLICY</a></div>
-                    <div><a href="#about">IMPRESSUM</a></div>
-                </div>
-                <div class="social">
-                    <img src="assets/images/Homepage/facebook.png" alt="">
-                    <img src="assets/images/Homepage/insta.png" alt="">
-                </div>
-            </div>
-            <div class="footer2 d-flex flex-row flex-wrap justify-content-center align-items-center">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut feugiat nunc libero, ac malesuada ligula
-                    aliquam ac. <span>Privacy Policy</span></p>
-                <button class="footer2-btn">OK!</button>
-            </div>
-        </div>
-    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./assets/js/nav.js"></script>
 </body>
 
 </html>

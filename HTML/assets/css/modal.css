@@ -1,50 +1,49 @@
 /* ----------------modal--------------- */
-.modal .modal-dialog {
-  width: 400px;
-}
-.modal-header .close {
-  margin-top: -1.5rem;
-}
-.modal-dialog .modal-content {
+#loginModal .modal-header .btn-close, #forgotModal .modal-header .btn-close{
+  margin-top: -60px;
+} 
+#loginModal .modal-dialog .modal-content, #forgotModal .modal-dialog .modal-content {
   padding: 1rem;
 }
-.form-title {
-  margin: -2rem 0rem 2rem;
+#loginModal .form-title, #forgotModal .form-title {
   color: gray;
   font-weight: bold;
 }
-.modal-body .form-control {
+#loginModal .modal-body, #forgotModal .modal-body {
+  padding-top: 0px;
+}
+#loginModal .modal-body .form-control, #forgotModal .modal-body .form-control {
   height: 46px;
   border: 1px solid #c8c8c8;
 }
-.modal-body .btn-round {
+#loginModal .modal-body .btn-round, #forgotModal .modal-body .btn-round {
   height: 56px;
+  width: 100%;
   background-color: #1d7a8c;
   font-size: 20px;
   color: white;
   font-weight: bold;
   border-radius: 3rem;
 }
-.modal-body .btn-round:hover {
+#loginModal .modal-body .btn-round:hover, #forgotModal .modal-body .btn-round:hover {
   color: white;
 }
-.modal-body p {
+#loginModal .modal-body p, #forgotModal .modal-body p {
   margin-bottom: 0px;
   font-size: 16px;
 }
-.modal-body a {
+#loginModal .modal-body a, #forgotModal .modal-body a {
   color: #1fb6ff;
   text-decoration: none;
 }
-.modal-body a:hover {
+#loginModal .modal-body a:hover, #forgotModal .modal-body a:hover {
   color: #1fb6ff;
   text-decoration: none;
 }
-.icon {
+#loginModal .icon, #forgotModal .icon {
   position: relative;
 }
-
-.icon img {
+#loginModal .icon img, #forgotModal .icon img {
   position: absolute;
   right: 0;
   top: 0;

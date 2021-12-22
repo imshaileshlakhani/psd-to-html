@@ -99,6 +99,8 @@
   }
 }
 
+
+/* navbar model css */
 #navbartoggle .modal-dialog {
   float: right;
   width: 220px;
@@ -133,4 +135,121 @@
 }
 #navbartoggle .modal-footer a {
   margin: 0;
+}
+
+/* Rate sp model */
+#Ratesp{
+  color: #646464;
+}
+#Ratesp .modal-header{
+  border-bottom: none;
+}
+#Ratesp .modal-header .btn-close{
+  margin-top: -60px;
+}
+#Ratesp .modal-header > div{
+  display: flex;
+}
+#Ratesp .modal-header > div span{
+  display: block;
+}
+#Ratesp .modal-header > div .cap{
+  border: 1px solid #aaa;
+  height: 55px;
+  width: 55px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+#Ratesp .modal-header > div .cap img{
+  height: 20px;
+  width: 30px;
+}
+#Ratesp .modal-body{
+  padding-top: 0;
+}
+#Ratesp .modal-body .rate-title{
+  font-size: 18px;
+  font-weight: 500;
+}
+#Ratesp .modal-body .rate{
+  display: flex;
+}
+#Ratesp .modal-body .submit button{
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 46px;
+  border: none;
+  outline: none;
+  background-color: #1D7A8C;
+  color:white;
+}
+
+/* service-cancle model */
+#servicecancle{
+  color: #646464;
+}
+#servicecancle .modal-dialog{
+  max-width: 1000px;
+}
+#servicecancle .modal-content{
+  width: 1000px;
+}
+#servicecancle .modal-header{
+  border-bottom: none;
+}
+#servicecancle .content-section .model-title{
+  font-size: 20px;
+  font-weight: 400;
+}
+#servicecancle .content-section .model-time{
+  font-size: 26px;
+  color: black;
+}
+#servicecancle .content-section div p{
+  margin-top: 2px;
+  margin-bottom: 0;
+  font-size: 17px;
+  font-weight: 500;
+}
+#servicecancle .content-section div p span{
+  font-weight: 400;
+}
+#servicecancle .content-section .model-price{
+  font-size: 26px;
+  color: #348588;
+  font-weight: 600;
+}
+#servicecancle .content-section .fa-times-circle-o{
+  color: rgb(255, 0, 0);
+}
+#servicecancle .model-button{
+  padding-top: 7px;
+}
+#servicecancle .model-button button{
+  width: 130px;
+  border-radius: 25px;
+  padding: 8px 10px; 
+  color: white;
+  border: none;
+}
+#servicecancle .model-button button i{
+  margin-right: 5px;
+}
+#servicecancle .cancel-button{
+ background-color: #ff6b6b; 
+}
+#servicecancle .complete-button{
+  background-color: #348588;
+}
+#servicecancle .modal-section-body hr{
+  margin: 6px 0;
+}
+#servicecancle .modal-body .map-section.col-5 {
+  flex: 0 0 auto;
+  width: 49.666667%;
+}
+#servicecancle .map-section iframe{
+  height: 100%;
+  width: 100%;
 }

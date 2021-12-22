@@ -10,10 +10,8 @@
     <link rel="stylesheet" href="./assets/css/header2.css">
     <link rel="stylesheet" href="./assets/css/footer.css">
 
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css'>
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="https://kit.fontawesome.com/4ae0bb5b6f.js" crossorigin="anonymous"></script>
 
@@ -24,82 +22,79 @@
     <!-- modal start -->
 
     <!--login Modal -->
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header border-bottom-0">
+                <div class="form-title ">
+                    <h4>Login to your account</h4>
+                </div>
+                <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <form>
+                        <div class="col my-2">
+                            <div class="form-group icon">
+                                <input class="form-control" name="email" placeholder="Email" type="email"
+                                    required /><i class=""></i>
+                                <img alt="email" src="./assets/images/faq/user.png">
+                            </div>
+                        </div>
+                        <div class="col my-2">
+                            <div class="form-group icon">
+                                <input class="form-control" name="psw" placeholder="Password" type="text" required
+                                    autofocus />
+                                <img alt="Password" src="./assets/images/faq/lock.png">
+                            </div>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                Remember me
+                            </label>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-block btn-round my-3">Login</button>
+                        </div>
+                        <div class="text-center">
+                            <p><a href="" data-bs-toggle="modal" data-bs-target="#forgotModal"
+                                data-bs-dismiss="modal">Forgot
+                                    password? </a></p>
+                            <p>Don't have an account? <a href="./Customer_signup.html"> Create an account</a></p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <!-- forgot modal -->
+    <div class="modal fade" id="forgotModal" tabindex="-1" aria-labelledby="forgotModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" >
             <div class="modal-content">
                 <div class="modal-header border-bottom-0">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+                    <div class="form-title">
+                        <h4>Forgot password</h4>
+                    </div>
+                    <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class="form-title text-center">
-                        <h4>Login to your account
-                        </h4>
-                    </div>
-                    <div class="d-flex flex-column">
+                    <div class="row">
                         <form>
-                            <div class="">
+                            <div class="col my-2">
                                 <div class="form-group icon">
                                     <input class="form-control" name="email" placeholder="Email" type="email"
                                         required /><i class=""></i>
                                     <img alt="email" src="./assets/images/faq/user.png">
                                 </div>
                             </div>
-                            <div class="">
-                                <div class="form-group icon">
-                                    <input class="form-control" name="psw" placeholder="Password" type="text" required
-                                        autofocus />
-                                    <img alt="Password" src="./assets/images/faq/lock.png">
-                                </div>
+                            <div>
+                                <button type="button" class="btn btn-block btn-round my-3">Send</button>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    Remember me
-                                </label>
-                            </div>
-                            <button type="button" class="btn btn-block btn-round my-4">Login</button>
                             <div class="text-center">
-                                <p><a href="" data-toggle="modal" data-target="#forgotModal" data-dismiss="modal">Forgot
-                                        password? </a></p>
-                                <p>Don't have an account? <a href="./Customer_signup.html"> Create an account</a></p>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- forgot modal -->
-    <div class="modal fade" id="forgotModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
-        aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header border-bottom-0">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-title text-center">
-                        <h4>Forgot password
-                        </h4>
-                    </div>
-                    <div class="d-flex flex-column">
-                        <form>
-                            <div class="">
-                                <div class="form-group icon">
-                                    <input class="form-control" name="email" placeholder="Email" type="email"
-                                        required />
-                                        <img alt="email" src="./assets/images/faq/user.png">
-                                </div>
-                            </div>
-                            <button type="button" class="btn btn-block btn-round my-4">Login</button>
-                            <div class="text-center">
-                                <p><a href="" data-toggle="modal" data-target="#loginModal" data-dismiss="modal">Login
-                                        now</a></p>
+                                <p><a href="" data-bs-toggle="modal" data-bs-target="#loginModal"
+                                    data-bs-dismiss="modal">Login now</a></p>
                             </div>
                         </form>
                     </div>
@@ -133,8 +128,8 @@
                     <a class="navlink" href="#">Contact</a>
                 </li>
                 <li class="navitem">
-                    <a class="navlink navbtn" href="#" data-toggle="modal"
-                    data-target="#loginModal">Login</a>
+                    <a class="navlink navbtn" href="#" data-bs-toggle="modal" data-bs-target="#loginModal"
+                    data-bs-dismiss="modal">Login</a>
                 </li>
                 <li class="navitem">
                     <a class="navlink navbtn" href="#">Become a
@@ -178,222 +173,55 @@
                         <div class="card1" id="headingOne">
                             <p data-toggle="collapse" data-target="#collapseOne" class="qe">
                                 <img class="img" src="./assets/images/faq/arrow-down.png" alt="">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?
+                                What's included in a cleaning?
                             </p>
                         </div>
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                             data-parent="#accordion">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
-                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
-                                tortor.
-                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
-                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
-                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
-                                ipsum
-                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
-                                risus
-                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
-                                amet
-                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
-                                nisl.
-                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
+                            <p>Bedroom, Living Room & Common Areas, Bathrooms, Kitchen, Extras </p>
                         </div>
 
                         <div class="card1" id="headingTwo">
                             <p class="collapsed qe" data-toggle="collapse" data-target="#collapseTwo"><img class="img"
                                     src="./assets/images/faq/arrow-right.png" alt="">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?
+                                Which Helperland professional will come to my place?
                             </p>
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
-                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
-                                tortor.
-                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
-                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
-                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
-                                ipsum
-                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
-                                risus
-                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
-                                amet
-                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
-                                nisl.
-                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
+                            <p>Helperland has a vast network of experienced, top-rated cleaners. Based on the time and
+                                date of your request, we work to assign the best professional available. Like working
+                                with a specific pro? Add them to your Pro Team from the mobile app and they'll be
+                                requested first for all future bookings. You will receive an email with details about
+                                your professional prior to your appointment.
+                            </p>
                         </div>
 
                         <div class="card1" id="headingThree">
-                            <p class="collapsed qe" data-toggle="collapse" data-target="#collapseThree" class="qe"><img class="img"
-                                    src="./assets/images/faq/arrow-right.png" alt="">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?
+                            <p class="collapsed qe" data-toggle="collapse" data-target="#collapseThree" class="qe"><img
+                                    class="img" src="./assets/images/faq/arrow-right.png" alt="">
+                                Can I skip or reschedule bookings?
                             </p>
                         </div>
                         <div id="collapseThree" class="collapse " aria-labelledby="headingThree"
                             data-parent="#accordion">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
-                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
-                                tortor.
-                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
-                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
-                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
-                                ipsum
-                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
-                                risus
-                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
-                                amet
-                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
-                                nisl.
-                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
+                            <p>You can reschedule any booking for free at least 24 hours in advance of the scheduled
+                                start time. If you need to skip a booking within the minimum commitment, we’ll credit
+                                the value of the booking to your account. You can use this credit on future cleanings
+                                and other Helperland services. </p>
                         </div>
 
                         <div class="card1" id="headingFour">
-                            <p class="collapsed qe" data-toggle="collapse" data-target="#collapseFour" class="qe"><img class="img"
-                                    src="./assets/images/faq/arrow-right.png" alt="">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?
+                            <p class="collapsed qe" data-toggle="collapse" data-target="#collapseFour" class="qe"><img
+                                    class="img" src="./assets/images/faq/arrow-right.png" alt="">
+                                Do I need to be home for the booking?
                             </p>
                         </div>
                         <div id="collapseFour" class="collapse " aria-labelledby="headingFour" data-parent="#accordion">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
-                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
-                                tortor.
-                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
-                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
-                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
-                                ipsum
-                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
-                                risus
-                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
-                                amet
-                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
-                                nisl.
-                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
+                            <p>We strongly recommend that you are home for the first clean of your booking to show your
+                                cleaner around. Some customers choose to give a spare key to their cleaner, but this
+                                decision is based on individual preferences.. </p>
                         </div>
 
-                        <div class="card1" id="headingFive">
-                            <p class="collapsed qe" data-toggle="collapse" data-target="#collapseFive" class="qe"><img class="img"
-                                    src="./assets/images/faq/arrow-right.png" alt="">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?
-                            </p>
-                        </div>
-                        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
-                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
-                                tortor.
-                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
-                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
-                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
-                                ipsum
-                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
-                                risus
-                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
-                                amet
-                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
-                                nisl.
-                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
-                        </div>
-
-                        <div class="card1" id="headingSix">
-                            <p class="collapsed qe" data-toggle="collapse" data-target="#collapseSix" class="qe"><img class="img"
-                                    src="./assets/images/faq/arrow-right.png" alt="">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?
-                            </p>
-                        </div>
-                        <div id="collapseSix" class="collapse " aria-labelledby="headingSix" data-parent="#accordion">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
-                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
-                                tortor.
-                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
-                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
-                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
-                                ipsum
-                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
-                                risus
-                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
-                                amet
-                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
-                                nisl.
-                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
-                        </div>
-
-                        <div class="card1" id="headingSeven">
-                            <p class="collapsed qe" data-toggle="collapse" data-target="#collapseSeven" class="qe">
-                                <img class="img" src="./assets/images/faq/arrow-right.png" alt="">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?
-                            </p>
-                        </div>
-                        <div id="collapseSeven" class="collapse " aria-labelledby="headingSeven"
-                            data-parent="#accordion">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
-                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
-                                tortor.
-                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
-                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
-                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
-                                ipsum
-                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
-                                risus
-                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
-                                amet
-                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
-                                nisl.
-                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
-                        </div>
-
-                        <div class="card1" id="headingEight">
-                            <p class="collapsed qe" data-toggle="collapse" data-target="#collapseEight" class="qe">
-                                <img class="img" src="./assets/images/faq/arrow-right.png" alt="">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?
-                            </p>
-                        </div>
-                        <div id="collapseEight" class="collapse " aria-labelledby="headingEight"
-                            data-parent="#accordion">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
-                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
-                                tortor.
-                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
-                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
-                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
-                                ipsum
-                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
-                                risus
-                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
-                                amet
-                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
-                                nisl.
-                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
-                        </div>
-
-                        <div class="card1" id="headingNine">
-                            <p class="collapsed qe" data-toggle="collapse" data-target="#collapseNine" class="qe">
-                                <img class="img" src="./assets/images/faq/arrow-right.png" alt="">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?
-                            </p>
-                        </div>
-                        <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordion">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
-                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
-                                tortor.
-                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
-                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
-                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
-                                ipsum
-                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
-                                risus
-                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
-                                amet
-                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
-                                nisl.
-                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
-                        </div>
                     </div>
                 </div>
                 <div class="bs-example service-provider" style="display: none;">
@@ -401,100 +229,26 @@
                         <div class="card1" id="heading-One">
                             <p data-toggle="collapse" data-target="#collapse-One" class="qe">
                                 <img class="img" src="./assets/images/faq/arrow-down.png" alt="">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum nisl nunc, iaculis
-                                mattis tellus ac ut non imperdiet velit?
+                                How much do service providers earn?
                             </p>
                         </div>
                         <div id="collapse-One" class="collapse show" aria-labelledby="heading-One"
                             data-parent="#accordion1">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
-                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
-                                tortor.
-                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
-                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
-                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
-                                ipsum
-                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
-                                risus
-                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
-                                amet
-                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
-                                nisl.
-                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
+                            <p>The self-employed service providers working with Helperland set their own payouts, this
+                                means that they decide how much they earn per hour.</p>
                         </div>
 
                         <div class="card1" id="heading-Two">
                             <p class="collapsed qe" data-toggle="collapse" data-target="#collapse-Two" class="qe">
                                 <img class="img" src="./assets/images/faq/arrow-right.png" alt="">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?
+                                What support do you provide to the service providers?
                             </p>
                         </div>
                         <div id="collapse-Two" class="collapse" aria-labelledby="heading-Two" data-parent="#accordion1">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
-                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
-                                tortor.
-                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
-                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
-                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
-                                ipsum
-                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
-                                risus
-                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
-                                amet
-                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
-                                nisl.
-                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
-                        </div>
-
-                        <div class="card1" id="heading-Three">
-                            <p class="collapsed qe" data-toggle="collapse" data-target="#collapse-Three" class="qe">
-                                <img class="img" src="./assets/images/faq/arrow-right.png" alt="">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?
-                            </p>
-                        </div>
-                        <div id="collapse-Three" class="collapse " aria-labelledby="heading-Three"
-                            data-parent="#accordion1">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
-                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
-                                tortor.
-                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
-                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
-                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
-                                ipsum
-                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
-                                risus
-                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
-                                amet
-                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
-                                nisl.
-                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
-                        </div>
-
-                        <div class="card1" id="heading-Four">
-                            <p class="collapsed qe" data-toggle="collapse" data-target="#collapse-Four" class="qe">
-                                <img class="img" src="./assets/images/faq/arrow-right.png" alt="">
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit. Vestibulum nisl nunc, iaculis mattis tellus ac ut non imperdiet velit?
-                            </p>
-                        </div>
-                        <div id="collapse-Four" class="collapse " aria-labelledby="heading-Four"
-                            data-parent="#accordion1">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed id diam tincidunt, fringilla
-                                ante vitae, dapibus velit. Vivamus id tortor rhoncus, efficitur quam at, suscipit
-                                tortor.
-                                Integer fermentum convallis eros vel semper. Ut non imperdiet velit. Praesent eu dui vel
-                                lacus porta eleifend eget quis dui. Integer tempus massa in gravida tincidunt. Fusce in
-                                libero tristique, euismod nisi vel, luctus urna. Interdum et malesuada fames ac ante
-                                ipsum
-                                primis in faucibus. Donec et placerat arcu. Suspendisse lacinia tristique massa. Etiam
-                                risus
-                                justo, scelerisque id arcu eu, sodales tempor eros. Aliquam efficitur pretium urna, sit
-                                amet
-                                congue risus malesuada rutrum. Donec id massa vel velit ullamcorper accumsan ut eget
-                                nisl.
-                                Fusce viverra commodo lacus, sit amet facilisis leo luctus dictum. </p>
+                            <p>Our call-centre is available to assist the service providers with all queries or issues
+                                in regards to their bookings during office hours. Before a service provider starts
+                                receiving jobs, every individual partner receives an orientation session to familiarise
+                                with the online platform and their profile. </p>
                         </div>
                     </div>
                 </div>

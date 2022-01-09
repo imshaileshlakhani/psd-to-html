@@ -13,16 +13,6 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
-@media screen and (max-width: 600px) {
-  .hero-img {
-    height: 200px;
-  }
-}
-@media screen and (min-width: 600px) and (max-width: 991px) {
-  .hero-img {
-    height: 265px;
-  }
-}
 
 /*--------------------------- about-------------------- */
 .about {
@@ -60,11 +50,6 @@ body {
 .story p {
   margin-bottom: 22px;
 }
-@media only screen and (max-width: 420px) {
-  .title {
-    font-size: 25px;
-  }
-}
 
 /*-------------------- news latter-------------------- */
 .section-newsseltter {
@@ -96,4 +81,22 @@ body {
   border-radius: 20px;
   border: solid 1px #565656;
   background-color: #f4f5f8;
+}
+@media only screen and (max-width: 420px) {
+  .title {
+    font-size: 1.8rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .hero-img {
+    height: 200px;
+  }
+  .about-content, .story {
+    width: 75%;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 991px) {
+  .hero-img {
+    height: 265px;
+  }
 }

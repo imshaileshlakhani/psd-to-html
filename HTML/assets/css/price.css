@@ -13,26 +13,16 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
-@media screen and (max-width: 600px) {
-  .hero-img {
-    height: 200px;
-  }
+/* ---------------common-css----------- */
+.title {
+  font-size: 2.25rem;
+  font-weight: 500;
+  color: #4f4f4f;
 }
-@media screen and (min-width: 600px) and (max-width: 991px) {
-  .hero-img {
-    height: 265px;
-  }
-}
-
 /* ------------------------ price section ----------------------- */
 .price-section {
   text-align: center;
   padding: 31px 0px;
-}
-.title {
-  font-size: 2.2rem;
-  font-weight: 500;
-  color: #4f4f4f;
 }
 .price-section > .d-flex {
   margin-top: 6px;
@@ -61,20 +51,20 @@ body {
   font-weight: bold;
 }
 .uro-img {
-  height: 51px;
+  height: 48px;
   opacity: 0.6;
 }
 .uro img {
-  height: 38px;
+  height: 30px;
   color: #646464;
 }
 .uro p {
-  font-size: 3rem;
+  font-size: 2.4rem;
   color: #646464;
   font-weight: 500;
 }
 .uro p span {
-  font-size: 1.87rem;
+  font-size: 1.7rem;
   font-weight: normal;
 }
 .flex-column {
@@ -95,36 +85,16 @@ body {
   background-color: #dcdcdc;
   margin: 0 auto;
 }
-@media screen and (max-width: 1300px) {
-  .onetime .price {
-    width: 50%;
-  }
-}
-@media screen and (max-width: 991px) {
-  .onetime .price {
-    width: 50%;
-  }
-}
-@media screen and (max-width: 600px) {
-  .price-section h1 {
-    font-size: 1.8rem;
-  }
-  .onetime .price {
-    width: 90%;
-  }
-}
 
 /* ------------------------ Extra-services -------------------- */
 .Extra-services {
   padding: 41px 0 5px 0;
-  /* background-color: #29626d; */
 }
 .Extra-services > .d-flex {
   margin-top: 10px;
   margin-bottom: 39px;
 }
 .services-section {
-  /* background-color: yellow; */
   margin: 49px auto;
   width: 65%;
 }
@@ -155,16 +125,6 @@ body {
   font-weight: bold;
   text-align: center;
 }
-@media screen and (max-width: 990px) {
-  .services-section {
-    width: 85%;
-  }
-}
-@media screen and (max-width: 412px) {
-  .services-section div {
-    width: 115px;
-  }
-}
 
 /* ---------------- What we include in cleaning --------------- */
 .include {
@@ -175,9 +135,6 @@ body {
   margin-top: 10px;
   margin-bottom: 39px;
 }
-/* .include-card{
-  background-color: yellow;
-} */
 .card1 {
   margin: 5px 25px;
   width: 360px;
@@ -201,14 +158,6 @@ body {
   margin-bottom: 10px;
   font-size: 16px;
   color: #4f4f4f;
-}
-@media screen and (max-width: 411px) {
-  .card1 {
-    padding: 15px 5px;
-  }
-  .card1 .img {
-    width: 100%;
-  }
 }
 
 /* ----------------------- why helperland ------------------- */
@@ -278,4 +227,70 @@ body {
   border-radius: 20px;
   border: solid 1px #565656;
   background-color: #f4f5f8;
+}
+
+@media screen and (max-width: 411px) {
+  .title {
+    font-size: 1.8rem;
+  }
+  .price .one {
+    font-size: 1.5rem;
+  }
+  .uro-img{
+    height: 42px;
+  }
+  .uro img{
+    height: 20px;
+  }
+  .uro p {
+    font-size: 1.6rem;
+  }
+  .uro p span{
+    font-size: 1.2rem;
+  }
+  .services-section div {
+    width: 115px;
+  }
+  .card1 {
+    padding: 15px 5px;
+  }
+  .card1 .img {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .hero-img {
+    height: 200px;
+  }
+  .onetime{
+    height: auto;
+  }
+  .price-section h1 {
+    font-size: 1.8rem;
+  }
+  .onetime .price {
+    width: 90% !important;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 991px) {
+  .hero-img {
+    height: 265px;
+  }
+  .services-section {
+    width: 85%;
+  }
+  .onetime .price {
+    width: 50%;
+  }
+  .include-card .card1{
+    margin: 10px;
+  }
+  .why-card .card2{
+    margin: 10px;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .onetime .price {
+    width: 50%;
+  }
 }

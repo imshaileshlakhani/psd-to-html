@@ -37,14 +37,14 @@
                             <div class="form-group icon">
                                 <input class="form-control" name="email" placeholder="Email" type="email"
                                     required /><i class=""></i>
-                                <img alt="email" src="./assets/images/S_provider/user.png">
+                                <img alt="email" src="./assets/images/Homepage/user.png">
                             </div>
                         </div>
                         <div class="col my-2">
                             <div class="form-group icon">
                                 <input class="form-control" name="psw" placeholder="Password" type="text" required
                                     autofocus />
-                                <img alt="Password" src="./assets/images/S_provider/lock.png">
+                                <img alt="Password" src="./assets/images/Homepage/lock.png">
                             </div>
                         </div>
                         <div class="form-check">
@@ -53,10 +53,10 @@
                                 Remember me
                             </label>
                         </div>
-                        <div>
-                            <button type="button" class="btn btn-block btn-round my-3">Login</button>
+                        <div class="">
+                            <button type="button" class="btn btn-block btn-round my-3 col-12">Login</button>
                         </div>
-                        <div class="text-center">
+                        <div class="text-center col">
                             <p><a href="" data-bs-toggle="modal" data-bs-target="#forgotModal"
                                 data-bs-dismiss="modal">Forgot
                                     password? </a></p>
@@ -85,13 +85,13 @@
                                 <div class="form-group icon">
                                     <input class="form-control" name="email" placeholder="Email" type="email"
                                         required /><i class=""></i>
-                                    <img alt="email" src="./assets/images/S_provider/user.png">
+                                    <img alt="email" src="./assets/images/Homepage/user.png">
                                 </div>
                             </div>
                             <div>
-                                <button type="button" class="btn btn-block btn-round my-3">Send</button>
+                                <button type="button" class="btn btn-block btn-round col-12 my-3">Send</button>
                             </div>
-                            <div class="text-center">
+                            <div class="text-center col">
                                 <p><a href="" data-bs-toggle="modal" data-bs-target="#loginModal"
                                     data-bs-dismiss="modal">Login now</a></p>
                             </div>
@@ -102,11 +102,10 @@
         </div>
     </div>
     <!-- modal end -->
-
     <header id="header">
         <div class="header">
             <div class="brand">
-                <a class="navbarbrand" href="#">
+                <a class="navbarbrand" href="Homepage.html">
                     <img src="./assets/images/S_provider/nav-logo.png" alt="">
                 </a>
             </div>
@@ -116,7 +115,7 @@
                         Cleaner</a>
                 </li>
                 <li class="navitem">
-                    <a class="navlink" href="#">Prices</a>
+                    <a class="navlink" href="Price.html">Prices</a>
                 </li>
                 <li class="navitem">
                     <a class="navlink" href="#">Our Gaurantee</a>
@@ -125,23 +124,22 @@
                     <a class="navlink" href="#">Blog</a>
                 </li>
                 <li class="navitem">
-                    <a class="navlink" href="#">Contact us</a>
+                    <a class="navlink" href="Contact.html">Contact us</a>
                 </li>
                 <li class="navitem">
                     <a class="navlink navbtn" href="#" data-bs-toggle="modal" data-bs-target="#loginModal"
                     data-bs-dismiss="modal">Login</a>
                 </li>
                 <li class="navitem">
-                    <a class="navlink navbtn" href="#">Become a
+                    <a class="navlink navbtn" href="sp-sign-up.html">Become a
                         Helper</a>
                 </li>
                 <li class="navitem">
                     <div class="dropdown">
-                        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-                            aria-expanded="false">
+                        <button class="btn dropdown-toggle" role="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src="./assets/images/S_provider/flag1.png" alt="">
                         </button>
-                        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton">
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#"><img src="./assets/images/S_provider/flag1.png" alt="">
                                 English</a>
                         </div>
@@ -232,8 +230,8 @@
         </section>
         <section id="how_it_works">
             <div class="how_it_works">
-                <div class="text-center">
-                    <span>How it works</span>
+                <div class="text-center title">
+                    How it works
                 </div>
                 <div class="cards">
                     <div class="single-card">
@@ -288,36 +286,34 @@
             </div>
         </section>
     </main>
-    <footer class="section-footer ">
-        <div class="f-main row">
-            <div class="footer-logo col-xl-2">
-                <img src="./assets/images/S_provider/nav-logo.png">
+    <footer id="footer">
+        <div class="footer">
+            <div class="footer-img">
+                <img src="./assets/images/Homepage/white-logo-transparent-background.png" class="footer1-logo ">
             </div>
-            <div class="footer-nav col-xl-8">
-                <ul>
-                    <li><a href="#home">HOME</a></li>
-                    <li><a href="#about">ABOUT</a></li>
-                    <li><a href="#testimonials">TESTIMONIALS</a></li>
-                    <li><a href="#faq">FAQS</a></li>
-                    <li><a href="#insurance">INSURANCE</a></li>
-                    <li><a href="#policy">POLICY</a></li>
-                    <li><a href="#impressum">IMPRESSUM</a></li>
+            <div class="footer-nav">
+                <ul class="">
+                    <li><a href="Homepage.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="#Customers-Say">TESTIMONIALS</a></li>
+                    <li><a href="Faq.html">FAQS</a></li>
+                    <li><a href="#">INSURANCE POLICY</a></li>
+                    <li><a href="#">IMPRESSUM</a></li>
                 </ul>
             </div>
-            <div class="col-xl-2 footer-social">
-                <img src="./assets/images/S_provider/facebook.png">
-                <img src="./assets/images/S_provider/insta.png">
+            <div class="social">
+                <img src="./assets/images/Homepage/facebook.png" alt="">
+                <img src="./assets/images/Homepage/insta.png" alt="">
             </div>
         </div>
         <hr class="hr1">
-        <div class="f-sub">
-            <p>©2018 Helperland. All rights reserved. Terms and Conditions | Privacy Policy</p>
+        <div class="sub-footer">
+            <p>©2018 Helperland. All rights reserved. Terms and Conditions | <span class="text-primary">Privacy Policy</span></p>
         </div>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <script src="./assets/js/nav.js"></script>
 </body>

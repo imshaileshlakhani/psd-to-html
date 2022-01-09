@@ -13,16 +13,6 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
-@media screen and (max-width: 600px) {
-  .hero-img {
-    height: 200px;
-  }
-}
-@media screen and (min-width: 600px) and (max-width: 991px) {
-  .hero-img {
-    height: 265px;
-  }
-}
 
 /*----------------------- contact----------------------- */
 .contact {
@@ -67,11 +57,6 @@ body {
   background-color: #dcdcdc;
   margin: 0 auto;
 }
-@media only screen and (max-width: 420px) {
-  .title{
-    font-size: 25px;
-  }
-}
 
 /*------------------------ contact foam----------------------- */
 .get-in {
@@ -98,12 +83,6 @@ body {
   outline: none;
   background-color: #1D7A8C;
   color:white;
-}
-
-@media screen and (max-width:990px) {
-  .form{
-      width: 80%;
-  }
 }
 
 /*---------------------- map-------------------- */
@@ -142,4 +121,25 @@ body {
   border-radius: 20px;
   border: solid 1px #565656;
   background-color: #f4f5f8;
+}
+
+@media only screen and (max-width: 420px) {
+  .title{
+    font-size: 1.8rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .hero-img {
+    height: 200px;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 991px) {
+  .hero-img {
+    height: 265px;
+  }
+}
+@media screen and (max-width:990px) {
+  .form{
+      width: 80%;
+  }
 }

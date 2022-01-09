@@ -14,48 +14,16 @@ body {
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
-@media only screen and (max-width: 420px) {
-  .navbar-brand img {
-    height: 40px;
-    width: 60px;
-  }
-  .navbar-collapse {
-    background-color: #525252;
-  }
-  .nav-item {
-    margin-left: 23px;
-    margin-top: 7px;
-  }
-  .navbar-nav .nav-item .nav-link {
-    padding-right: 15px;
-    padding-left: 15px;
-  }
-
-}
-@media screen and (max-width: 600px) {
-  .hero-img {
-    height: 200px;
-  }
-}
-@media screen and (min-width: 600px) and (max-width: 991px) {
-  .hero-img {
-    height: 265px;
-  }
-}
 
 /* faq */
 .faq {
   height: 100%;
 }
-.FAQs {
-  width: 80px;
-  height: 30px;
-  font-size: 36px;
-  line-height: 0.67;
-  text-align: center;
-  color: #4f4f4f;
-  padding: 50px;
+.title {
+  font-size: 2.25rem;
   font-weight: 500;
+  color: #4f4f4f;
+  padding-top: 50px;
 }
 .line {
   width: 62px;
@@ -64,50 +32,33 @@ body {
   margin: 0 10px;
 }
 .Whether-you {
-  width: 491px;
-  height: 119px;
   font-size: 18px;
   line-height: 1.44;
   letter-spacing: normal;
   text-align: center;
   color: #646464;
-  padding-top: 34px;
+  padding: 34px 0;
 }
-.customer-tab {
+.customer-tab, .servicer-tab {
   width: 472px;
   height: 66px;
   text-align: center;
   border-bottom: 3px solid #1d7a8c;
   cursor: pointer;
   background-color: #f6f6f6;
+  display: flex;
+  justify-content: center;
+  align-items: center !important;
+  line-height: 1.2;
 }
-.servicer-tab {
-  width: 472px;
-  height: 66px;
-  text-align: center;
-  border-bottom: 3px solid #1d7a8c;
-  cursor: pointer;
-  background-color: #f6f6f6;
-}
-.active1 span{
+.active1 div{
   color: white;
 }
 .active1{
   background-color: #1d7a8c;
 }
-.faq .d-flex {
-  top: 18%;
-}
-.For-Customer {
+.For-Customer, .For-Service-Provider {
   font-size: 1.4rem;
-  align-items: center;
-  line-height: 2.8;
-  letter-spacing: normal;
-  color: #646464;
-}
-.For-Service-Provider {
-  font-size: 24px;
-  line-height: 2.8;
   letter-spacing: normal;
   color: #646464;
 }
@@ -118,17 +69,10 @@ body {
 .card1 p {
   margin-bottom: 0px;
   color: #646464;
+  font-weight: bold;
   width: 100%;
   line-height: 3;
   cursor: pointer;
-}
-.accordion {
-  width: 100%;
-}
-.accordion .fas {
-  margin-right: 0.4rem;
-  font-size: 24px;
-  position: relative;
 }
 .accordion .collapse {
   width: 100%;
@@ -137,59 +81,9 @@ body {
   line-height: 1.5;
   letter-spacing: normal;
   color: #646464;
-  padding-left: 33px;
 }
-.newsletter {
-  height: 100px;
-  top: 89%;
-}
-@media screen and (max-width: 933px) {
-  .bs-example {
-    padding-top: 10px;
-    width: fit-content;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  .card1 p {
-    line-height: 2.3;
-  }
-}
-@media only screen and (max-width: 420px) {
-  .FAQs {
-    font-size: 25px;
-  }
-  .faq {
-    height: 11%;
-  }
-  .Whether-you {
-    font-size: 14px;
-    line-height: 1.3;
-  }
-  .For-Customer {
-    font-size: 21px;
-  }
-  .For-Service-Provider {
-    font-size: 21px;
-    line-height: 2.8;
-  }
-  .bs-example {
-    width: 100%;
-  }
-  .card1 p {
-    margin-bottom: 6px;
-    width: 337px;
-    line-height: 1.3;
-  }
-  .accordion .fas {
-    margin-right: 0.4rem;
-    font-size: 16px;
-  }
-  .accordion .collapse {
-    width: 336px;
-    font-size: 14px;
-    line-height: 1.5;
-    padding: 0 25px;
-  }
+.accordion .ans{
+  padding-left: 27px;
 }
 
 /* ----------------newsletter--------------- */
@@ -222,4 +116,57 @@ body {
   border-radius: 20px;
   border: solid 1px #565656;
   background-color: #f4f5f8;
+}
+
+@media only screen and (max-width: 420px) {
+  .navbar-brand img {
+    height: 40px;
+    width: 60px;
+  }
+  .navbar-collapse {
+    background-color: #525252;
+  }
+  .nav-item {
+    margin-left: 23px;
+    margin-top: 7px;
+  }
+  .navbar-nav .nav-item .nav-link {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .title {
+    font-size: 1.8rem;
+  }
+  .Whether-you {
+    line-height: 1.3;
+  }
+}
+@media screen and (max-width: 600px) {
+  .hero-img {
+    height: 200px;
+  }
+  .For-Customer, .For-Service-Provider {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 991px) {
+  .hero-img {
+    height: 265px;
+  }
+}
+@media screen and (max-width: 933px) {
+  .bs-example {
+    padding-top: 10px;
+    width: fit-content;
+    margin-left: inherit;
+  }
+  .card1 p {
+    margin-bottom: 30px;
+    line-height: 1.3;
+  }
+  .accordion .collapse {
+    margin-top: -20px;
+    line-height: 1.5;
+    padding: 0 25px;
+  }
 }

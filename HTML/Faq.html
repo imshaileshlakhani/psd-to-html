@@ -38,14 +38,14 @@
                             <div class="form-group icon">
                                 <input class="form-control" name="email" placeholder="Email" type="email"
                                     required /><i class=""></i>
-                                <img alt="email" src="./assets/images/faq/user.png">
+                                <img alt="email" src="./assets/images/Homepage/user.png">
                             </div>
                         </div>
                         <div class="col my-2">
                             <div class="form-group icon">
                                 <input class="form-control" name="psw" placeholder="Password" type="text" required
                                     autofocus />
-                                <img alt="Password" src="./assets/images/faq/lock.png">
+                                <img alt="Password" src="./assets/images/Homepage/lock.png">
                             </div>
                         </div>
                         <div class="form-check">
@@ -54,10 +54,10 @@
                                 Remember me
                             </label>
                         </div>
-                        <div>
-                            <button type="button" class="btn btn-block btn-round my-3">Login</button>
+                        <div class="">
+                            <button type="button" class="btn btn-block btn-round my-3 col-12">Login</button>
                         </div>
-                        <div class="text-center">
+                        <div class="text-center col">
                             <p><a href="" data-bs-toggle="modal" data-bs-target="#forgotModal"
                                 data-bs-dismiss="modal">Forgot
                                     password? </a></p>
@@ -86,13 +86,13 @@
                                 <div class="form-group icon">
                                     <input class="form-control" name="email" placeholder="Email" type="email"
                                         required /><i class=""></i>
-                                    <img alt="email" src="./assets/images/faq/user.png">
+                                    <img alt="email" src="./assets/images/Homepage/user.png">
                                 </div>
                             </div>
                             <div>
-                                <button type="button" class="btn btn-block btn-round my-3">Send</button>
+                                <button type="button" class="btn btn-block btn-round col-12 my-3">Send</button>
                             </div>
-                            <div class="text-center">
+                            <div class="text-center col">
                                 <p><a href="" data-bs-toggle="modal" data-bs-target="#loginModal"
                                     data-bs-dismiss="modal">Login now</a></p>
                             </div>
@@ -107,7 +107,7 @@
     <header id="header">
         <div class="header">
             <div class="brand">
-                <a class="navbarbrand" href="#">
+                <a class="navbarbrand" href="Homepage.html">
                     <img src="./assets/images/faq/nav-logo.png" alt="">
                 </a>
             </div>
@@ -116,7 +116,7 @@
                     <a class="navlink navbtn" href="#">Book now</a>
                 </li>
                 <li class="navitem">
-                    <a class="navlink" href="#">Prices & services</a>
+                    <a class="navlink" href="Price.html">Prices & services</a>
                 </li>
                 <li class="navitem">
                     <a class="navlink" href="#">Warranty</a>
@@ -125,14 +125,14 @@
                     <a class="navlink" href="#">Blog</a>
                 </li>
                 <li class="navitem">
-                    <a class="navlink" href="#">Contact</a>
+                    <a class="navlink" href="Contact.html">Contact</a>
                 </li>
                 <li class="navitem">
                     <a class="navlink navbtn" href="#" data-bs-toggle="modal" data-bs-target="#loginModal"
                     data-bs-dismiss="modal">Login</a>
                 </li>
                 <li class="navitem">
-                    <a class="navlink navbtn" href="#">Become a
+                    <a class="navlink navbtn" href="sp-sign-up.html">Become a
                         Helper</a>
                 </li>
             </ul>
@@ -146,9 +146,9 @@
         </section>
 
         <section class="faq row">
-            <span class="FAQs">
+            <div class="title text-center">
                 FAQs
-            </span>
+            </div>
             <div class="d-flex justify-content-center align-items-center">
                 <div class="line"></div>
                 <img src="./assets/images/faq/separator.png" alt="">
@@ -159,13 +159,17 @@
                 We have tried our best to solve all your queries and questions.
             </div>
             <div>
-                <div class="d-flex d-flex flex-row flex-wrap justify-content-center">
-                    <div class="customer-tab active1"><span class="For-Customer">
+                <div class="d-flex flex-row justify-content-center">
+                    <div class="customer-tab active1">
+                        <div class="For-Customer">
                             For Customer
-                        </span></div>
-                    <div class="servicer-tab"><span class="For-Service-Provider">
+                        </div>
+                    </div>
+                    <div class="servicer-tab">
+                        <div class="For-Service-Provider">
                             For Service Provider
-                        </span></div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="bs-example customer">
@@ -178,7 +182,7 @@
                         </div>
                         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
                             data-parent="#accordion">
-                            <p>Bedroom, Living Room & Common Areas, Bathrooms, Kitchen, Extras </p>
+                            <p class="ans">Bedroom, Living Room & Common Areas, Bathrooms, Kitchen, Extras </p>
                         </div>
 
                         <div class="card1" id="headingTwo">
@@ -188,7 +192,7 @@
                             </p>
                         </div>
                         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                            <p>Helperland has a vast network of experienced, top-rated cleaners. Based on the time and
+                            <p class="ans">Helperland has a vast network of experienced, top-rated cleaners. Based on the time and
                                 date of your request, we work to assign the best professional available. Like working
                                 with a specific pro? Add them to your Pro Team from the mobile app and they'll be
                                 requested first for all future bookings. You will receive an email with details about
@@ -204,7 +208,7 @@
                         </div>
                         <div id="collapseThree" class="collapse " aria-labelledby="headingThree"
                             data-parent="#accordion">
-                            <p>You can reschedule any booking for free at least 24 hours in advance of the scheduled
+                            <p class="ans">You can reschedule any booking for free at least 24 hours in advance of the scheduled
                                 start time. If you need to skip a booking within the minimum commitment, we’ll credit
                                 the value of the booking to your account. You can use this credit on future cleanings
                                 and other Helperland services. </p>
@@ -217,7 +221,7 @@
                             </p>
                         </div>
                         <div id="collapseFour" class="collapse " aria-labelledby="headingFour" data-parent="#accordion">
-                            <p>We strongly recommend that you are home for the first clean of your booking to show your
+                            <p class="ans">We strongly recommend that you are home for the first clean of your booking to show your
                                 cleaner around. Some customers choose to give a spare key to their cleaner, but this
                                 decision is based on individual preferences.. </p>
                         </div>
@@ -234,7 +238,7 @@
                         </div>
                         <div id="collapse-One" class="collapse show" aria-labelledby="heading-One"
                             data-parent="#accordion1">
-                            <p>The self-employed service providers working with Helperland set their own payouts, this
+                            <p class="ans">The self-employed service providers working with Helperland set their own payouts, this
                                 means that they decide how much they earn per hour.</p>
                         </div>
 
@@ -245,7 +249,7 @@
                             </p>
                         </div>
                         <div id="collapse-Two" class="collapse" aria-labelledby="heading-Two" data-parent="#accordion1">
-                            <p>Our call-centre is available to assist the service providers with all queries or issues
+                            <p class="ans">Our call-centre is available to assist the service providers with all queries or issues
                                 in regards to their bookings during office hours. Before a service provider starts
                                 receiving jobs, every individual partner receives an orientation session to familiarise
                                 with the online platform and their profile. </p>
@@ -266,30 +270,29 @@
         </section>
     </main>
 
-    <footer class="section-footer">
-        <div class="f-main row">
-            <div class="footer-logo col-xl-2">
-                <img src="./assets/images/faq/nav-logo.png">
+    <footer id="footer">
+        <div class="footer">
+            <div class="footer-img">
+                <img src="./assets/images/Homepage/white-logo-transparent-background.png" class="footer1-logo ">
             </div>
-            <div class="footer-nav col-xl-8">
-                <ul>
-                    <li><a href="#home">HOME</a></li>
-                    <li><a href="#news">ABOUT</a></li>
-                    <li><a href="#contact">TESTIMONIALS</a></li>
-                    <li><a href="#about">FAQS</a></li>
-                    <li><a href="#news">INSURANCE</a></li>
-                    <li><a href="#contact">POLICY</a></li>
-                    <li><a href="#about">IMPRESSUM</a></li>
+            <div class="footer-nav">
+                <ul class="">
+                    <li><a href="Homepage.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="#Customers-Say">TESTIMONIALS</a></li>
+                    <li><a href="Faq.html">FAQS</a></li>
+                    <li><a href="#">INSURANCE POLICY</a></li>
+                    <li><a href="#">IMPRESSUM</a></li>
                 </ul>
             </div>
-            <div class="col-xl-2 footer-social">
-                <img src="./assets/images/faq/facebook.png">
-                <img src="./assets/images/faq/insta.png">
+            <div class="social">
+                <img src="./assets/images/Homepage/facebook.png" alt="">
+                <img src="./assets/images/Homepage/insta.png" alt="">
             </div>
         </div>
         <hr class="hr1">
-        <div class="f-sub">
-            <p>©2018 Helperland. All rights reserved. Terms and Conditions | Privacy Policy</p>
+        <div class="sub-footer">
+            <p>©2018 Helperland. All rights reserved. Terms and Conditions | <span class="text-primary">Privacy Policy</span></p>
         </div>
     </footer>
 

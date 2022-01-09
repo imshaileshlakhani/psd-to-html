@@ -1,16 +1,24 @@
 /* ----------------modal--------------- */
 #loginModal .modal-header .btn-close, #forgotModal .modal-header .btn-close{
-  margin-top: -60px;
+  margin-top: -40px;
 } 
-#loginModal .modal-dialog .modal-content, #forgotModal .modal-dialog .modal-content {
+#loginModal .modal-dialog .modal-content {
   padding: 1rem;
+  width: auto !important;
+  margin: 0 auto;
+}
+#forgotModal .modal-dialog .modal-content {
+  padding: 1rem;
+  width: 71%;
+  margin: 0 auto;
 }
 #loginModal .form-title, #forgotModal .form-title {
   color: gray;
   font-weight: bold;
 }
 #loginModal .modal-body, #forgotModal .modal-body {
-  padding-top: 0px;
+  padding-top: 0px !important;
+  padding: 0.8rem;
 }
 #loginModal .modal-body .form-control, #forgotModal .modal-body .form-control {
   height: 46px;
@@ -18,7 +26,6 @@
 }
 #loginModal .modal-body .btn-round, #forgotModal .modal-body .btn-round {
   height: 56px;
-  width: 100%;
   background-color: #1d7a8c;
   font-size: 20px;
   color: white;
@@ -49,4 +56,10 @@
   top: 0;
   margin-top: 10px;
   margin-right: 10px;
+}
+
+@media screen and (max-width:414px) {
+  #forgotModal .modal-dialog .modal-content {
+    width: 95%;
+  }
 }

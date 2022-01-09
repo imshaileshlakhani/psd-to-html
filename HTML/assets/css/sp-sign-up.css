@@ -15,10 +15,8 @@ html {
 .hero-image {
   background-image: url("../images/S_provider/become-a-pro-banner.png");
   width: 100%;
-  height: 100vh;
   background-position: top center;
   background-size: cover;
-  position: relative;
 }
 /*------------------------ contact form----------------------- */
 #form{
@@ -71,54 +69,17 @@ html {
   color:white;
 }
 .btn-down {
-  position: absolute;
-  top: 85%;
-  left: 50%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 23px;
 }
 .circle {
-  margin-top: 52px;
   border: 1px solid white;
   width: fit-content;
   border-radius: 100%;
   padding: 10px 12px;
   text-align: center;
   cursor: pointer;
-}
-@media screen and (max-width:600px) {
-  #form{
-    padding-bottom: 5px;
-  }
-  .form{
-      width: 85%;
-  }
-  .form .row > div{
-    padding-bottom: 10px;
-  }
-  .form-control, .input-group-text{
-    height: 36px;
-  }
-  .btn-down {
-    display: none;
-  }
-}
-@media screen and (min-width:600px) and (max-width: 1400px) {
-  #form{
-    padding: 100px 0 40px 0;
-  }
-  .form{
-      width: 55%;
-  }
-  .form .row > div{
-    padding-bottom: 10px;
-  }
-  .form-control, .input-group-text{
-    height: 40px;
-  }
-}
-@media screen and (min-height:700px) and (max-height:1400px) {
-  #form{
-    padding: 120px 0 40px 0;
-  }
 }
 
 /* -------------------how it works------------------- */
@@ -130,8 +91,8 @@ html {
   margin: 0 auto;
   padding-top: 4.25rem;
 }
-.how_it_works .text-center {
-  font-size: 2.5rem;
+.how_it_works .title {
+  font-size: 2.25rem;
   font-weight: bold;
   color: #4f4f4f;
   margin-bottom: 4.56rem;
@@ -153,7 +114,6 @@ html {
 .cards .single-card:nth-child(odd) .card-img {
   text-align: right;
 }
-
 .single-card .card-content {
   padding-top: 3.25rem;
   color: #4f4f4f;
@@ -175,6 +135,7 @@ html {
   top: 3%;
   left: 0;
   height: 100%;
+  z-index: -1;
 }
 #how_it_works .right-img {
   position: absolute;
@@ -182,38 +143,12 @@ html {
   right: 0;
   height: 100%;
   text-align: right;
+  z-index: -1;
 }
 .left-img img,
 .right-img img {
   height: 100%;
   width: 85%;
-}
-@media screen and (max-width: 1130px) {
-  #how_it_works .left-img,
-  #how_it_works .right-img {
-    display: none;
-  }
-}
-@media screen and (max-width: 768px) {
-  .how_it_works .cards .single-card {
-    flex-wrap: wrap;
-  }
-  .cards .single-card:nth-child(odd) .card-img {
-    text-align: center;
-  }
-  .cards .single-card:nth-child(even) .card-img {
-    text-align: center;
-  }
-  .single-card .card-content {
-    text-align: center;
-    padding: 0 15px;
-  }
-}
-@media screen and (max-width: 450px) {
-  .cards .single-card .card-img img {
-    height: 200px;
-    width: 200px;
-  }
 }
 
 /*-------------------- news latter-------------------- */
@@ -246,4 +181,75 @@ html {
   border-radius: 20px;
   border: solid 1px #565656;
   background-color: #f4f5f8;
+}
+
+@media screen and (max-width: 450px) {
+  .how_it_works .title {
+    font-size: 1.8rem;
+  }
+  .cards .single-card .card-img img {
+    height: 200px;
+    width: 200px;
+  }
+  .card-content h2 {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (max-width:600px) {
+  #form{
+    padding-bottom: 20px;
+  }
+  .form{
+      width: 85%;
+  }
+  .form .row > div{
+    padding-bottom: 10px;
+  }
+  .form-control, .input-group-text{
+    height: 36px;
+  }
+  .btn-down {
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .how_it_works .cards .single-card {
+    flex-wrap: wrap;
+  }
+  .cards .single-card:nth-child(odd) .card-img {
+    text-align: center;
+  }
+  .cards .single-card:nth-child(even) .card-img {
+    text-align: center;
+  }
+  .single-card .card-content {
+    text-align: center;
+    padding: 0 15px;
+  }
+  .card-content h2 {
+    margin-top: 10px;
+    font-size: 1.5rem;
+  }
+  #how_it_works .left-img, #how_it_works .right-img {
+    display: none;
+  }
+}
+@media screen and (min-width:600px) and (max-width: 1400px) {
+  #form{
+    padding: 100px 0 40px 0;
+  }
+  .form{
+      width: 55%;
+  }
+  .form .row > div{
+    padding-bottom: 10px;
+  }
+  .form-control, .input-group-text{
+    height: 40px;
+  }
+}
+@media screen and (min-height:700px) and (max-height:1400px) {
+  #form{
+    padding: 120px 0 40px 0;
+  }
 }

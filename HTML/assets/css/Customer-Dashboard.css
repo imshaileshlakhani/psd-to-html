@@ -30,7 +30,7 @@
 
 /* --------------------table-section--------------- */
 #service-section {
-  padding: 31px 0px;
+  padding: 31px 20px;
 }
 .service-section {
   margin: 0 auto;
@@ -39,14 +39,14 @@
 }
 .sidebar {
   background-color: #1d7a8c;
-  /* overflow-x: hidden; */
+  width: 18%;
 }
 .sidebar a {
   text-decoration: none;
   display: block;
   color: #ffffff;
   font-size: 18px;
-  padding: 15px 100px 15px 15px;
+  padding: 15px 15px 15px 15px;
   border-bottom: 1px solid rgba(202, 194, 194, 0.2);
 }
 .sidebar a.active {
@@ -56,17 +56,17 @@
   color: #ffffff;
 }
 .sidebar-content {
-  /* overflow-y:hidden; */
   margin-left: 14px;
   overflow-x: auto;
   padding: 15px 20px;
+  width: 100%;
 }
-.sidebar-content .title{
+.sidebar-content-tab .title{
   color: #646464;
   font-size: 1.37rem;
   font-weight: bold;
 }
-.sidebar-content .export-btn a{
+.sidebar-content-tab .export-btn a{
   text-decoration: none;
   background-color: #146371;
   color: #fff;
@@ -80,6 +80,7 @@
 .table1 {
   border-collapse: collapse;
   font-size: 1rem;
+  width: 100%;
 }
 .table1 .th {
   background-color: #f9f9f9;
@@ -89,12 +90,11 @@
   padding: 13px 37.2px 13px 37.2px;
 }
 .table1 tr {
-  border-bottom: 1px solid #ddd;
+  border: 1px solid #ddd;
   color: #646464;
 }
 .table1 tr td {
-  line-height: 1.5;
-  padding: 20px 0;
+  padding: 15px 0;
 }
 .table1 td span {
   display: block;
@@ -142,11 +142,11 @@
   padding: 12px 16px;
   border-radius: 34px;
 }
-.sidebar-content .table-footer{
+.sidebar-content-tab .table-footer{
   display: flex;
   justify-content: space-between;
 }
-.sidebar-content .drop-record{
+.sidebar-content-tab .drop-record{
   color: #646464;
   font-size: 0.87rem;
 }
@@ -181,11 +181,46 @@
 .pagination div:nth-child(8) img{
   transform: rotate(180deg);
 }
-@media screen and (max-width:720px) {
-  .table1 .text-center td:nth-child(2) > div{
+
+@media screen and (max-width: 521px){
+  .sidebar-content-tab .export-btn{
+    margin: 10px 0;
+  }
+}
+@media screen and (max-width:767px) {
+  .table1 {
+    border-collapse: separate;
+    border-spacing: 1px 15px;
+  }
+  .table1 .th{
+    display: none;
+  }
+  .table1 tr{
+    outline: 1px solid #ddd;
+  }
+  .table1 tr td{
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 20px;
+    margin: 0 15px;
+  }
+  .table1 tr td:nth-child(1){
+    display: flex;
     flex-direction: column;
   }
-  .sidebar-content .table-footer{
+  .table1 tr td:nth-child(1) span{
+    text-align: left;
+  }
+  .table1 tr td:nth-child(3), .table1 tr td:nth-child(4), .table1 tr td:nth-child(5){
+    justify-content: center;
+  }
+  .table1 tr td:last-child{
+    border: none;
+  }
+  .table1 .ratesp a {
+    padding: 8px 16px;
+  }
+  .sidebar-content-tab .table-footer{
     flex-direction: column;
     align-items: center;
   }

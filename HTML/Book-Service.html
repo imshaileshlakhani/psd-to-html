@@ -350,35 +350,35 @@
                                             </li>
                                         </ul>
                                         <div class="add-address-btn">
-                                            <button class="btn form-control w-auto px-4">+ Add New Address</button>
+                                            <button type="button" class="btn form-control w-auto px-4">+ Add New Address</button>
                                         </div>
-                                        <div class="" id="new-address">
+                                        <div id="add-new-address">
                                             <div class="card card-body">
                                                 <div class="row">
                                                     <div class="col-6">
                                                         <div class="form-group">
-                                                            <label for="streetname">Street name</label>
-                                                            <input type="text" name="streetname" class="form-control"
-                                                                placeholder="street name">
+                                                            <label for="Streetname">Street name</label>
+                                                            <input type="text" name="Streetname" class="form-control"
+                                                                placeholder="Street name">
                                                         </div>
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="form-group">
-                                                            <label for="streetname">House number</label>
-                                                            <input type="text" name="housenumber" class="form-control"
-                                                                placeholder="street name">
+                                                            <label for="Housename">House number</label>
+                                                            <input type="text" name="Housenumber" class="form-control"
+                                                                placeholder="House name">
                                                         </div>
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="form-group">
-                                                            <label for="streetname">Postal code</label>
-                                                            <input type="text" name="postalcode" class="form-control"
-                                                                placeholder="postal code">
+                                                            <label for="Postalname">Postal code</label>
+                                                            <input type="text" name="Postalcode" class="form-control"
+                                                                placeholder="Postal code">
                                                         </div>
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="form-group">
-                                                            <label for="city">City</label>
+                                                            <label for="City">City</label>
                                                             <select class="form-select mb-3">
                                                                 <option selected>Troisdrof</option>
                                                             </select>
@@ -386,27 +386,36 @@
                                                     </div>
                                                     <div class="col-6">
                                                         <div class="form-group">
-                                                            <label for="phone number">Phone number</label>
+                                                            <label for="Phonenumber">Phone number</label>
                                                             <div class="input-group mb-3">
-                                                                <div class="input-group-text"
-                                                                    id="basic-addon1">+49</div>
+                                                                <div class="input-group-text">+49</div>
                                                                 <input type="text" class="form-control"
-                                                                    placeholder="phone number"
-                                                                    aria-describedby="basic-addon1" value="9988556644">
+                                                                    placeholder="9988556644">
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="add-address-buttons">
-                                                    <button class="btn-save">Save</button>
-                                                    <button class="btn-cancel">Cancel</button>
+                                                <div class="btn-wraper">
+                                                    <button type="button" class="save">Save</button>
+                                                    <button type="button" class="cancel">Cancel</button>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="form-check my-4">
-                                            <input class="form-check-input" type="checkbox" value=""
-                                                id="flexCheckDefault">
-                                            Send invoice on this address
+                                        <div class="favorite-sp-section">
+                                            <span class="bb">Your Favorite Service Provider</span>
+                                            <div>You can choose your favorite service provider from the below list</div>
+                                            <div class="favorite-sp-wraper">
+                                                <div>
+                                                    <label>
+                                                        <input class="form-check-input" type="checkbox" value="3">
+                                                        <div class="sp-avtar mb-1">
+                                                            <img src="assets/images/book-now/cap.png" alt="">
+                                                        </div>
+                                                        <span class="sp-name">Sandip Patel</span>
+                                                        <button type="button" class="btn select">Select</button>
+                                                    </label>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="continue-btn pt-4">
@@ -433,21 +442,21 @@
                                             <button type="submit" class="btn w-auto px-4 form-control">Apply</button>
                                         </div>
                                     </div>
-                                    <div class="payment-card">
+                                    <div class="card-details">
                                         <div class="card-number">
-                                            <i class="fa fa-credit-card" aria-hidden="true"></i>
+                                            <i class="fa fa-credit-card"></i>
                                             <input type="text" id="cnumber" placeholder="Card number">
                                         </div>
-                                        <div class="card-detailes">
+                                        <div class="card-expiry">
                                             <div>
-                                                <input type="text" placeholder="MM/YY" id="cmonth">
+                                                <input type="text" placeholder="MM/YY" id="expiry">
                                             </div>
                                             <div>
-                                                <input type="text" placeholder="CVC" id="ccvc">
+                                                <input type="text" placeholder="CVC" id="cvc">
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="cards-list">
+                                    <div class="Accpeted-cards">
                                         <span>Accpeted Cards:</span>
 
                                     </div>

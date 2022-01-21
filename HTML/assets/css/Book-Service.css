@@ -208,8 +208,20 @@ body {
   background-color: #3A7A8C;
   color: white;
 }
-
-.add-address-buttons button {
+#add-new-address {
+  margin-top: 10px;
+  display: none;
+}
+#add-new-address .card-body{
+  background-color: #F8F8F8;
+}
+#add-new-address input, #add-new-address select{
+  height: 46px;
+}
+#add-new-address .col-6 {
+  margin-top: 10px;
+}
+.btn-wraper button {
   padding: 8px 16px;
   border-radius: 25px;
   border: none;
@@ -217,19 +229,48 @@ body {
   color: #1d7a8c;
   font-size: 18px;
 }
-.btn-save {
+.btn-wraper .save {
   background-color: #1d7a8c;
   color: white !important;
 }
-#new-address {
-  margin-top: 10px;
-  background-color: #F8F8F8;
+.btn-wraper .cancel{
+  border: 1px solid #ccc !important;
+  color: #646464 !important;
 }
-#new-address input, #new-address select{
-  height: 46px;
+.btn-wraper .cancel:hover{
+  border: 1px solid #1d7a8c !important;
+  color: #1d7a8c !important;
 }
-#new-address .col-6 {
-  margin-top: 10px;
+.favorite-sp-wraper .form-check-input{
+  opacity: 0;
+}
+.favorite-sp-section{
+  padding-top: 10px;
+}
+.favorite-sp-wraper label{
+  height: 180px;
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.favorite-sp-wraper .sp-avtar{
+  position: relative;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  border: 1px solid #646464;
+}
+.favorite-sp-wraper .sp-avtar img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+.favorite-sp-wraper .select{
+  border: 1px solid #ccc;
+  padding: 7px 30px;
 }
 
 /* -------------------payment-------------------- */
@@ -241,7 +282,7 @@ body {
   flex-wrap: wrap;
   align-items: end;
 }
-#payment .payment-details .payment-card {
+#payment .payment-details .card-details {
   display: flex;
   justify-content: space-between;
   height: 65px;
@@ -251,7 +292,7 @@ body {
   box-shadow: 0 0 5px #ccc;
   padding: 0 15px;
 }
-#payment .payment-details .payment-card input {
+#payment .payment-details .card-details input {
   border: none;
   outline: none;
   font-size: 18px;
@@ -259,21 +300,21 @@ body {
 #payment .payment-details .card-number i {
   margin-right: 6px;
 }
-#payment .payment-details .card-detailes {
+#payment .payment-details .card-expiry {
   display: flex;
   justify-content: right;
 }
-#payment .payment-details .card-detailes>div, #payment .payment-details .card-detailes input {
+#payment .payment-details .card-expiry>div, #payment .payment-details .card-expiry input {
   width: 70px;
 }
-#payment .payment-details .cards-list {
+#payment .payment-details .Accpeted-cards {
   display: flex;
   justify-content: right;
   margin-top: 10px;
   font-size: 10px !important;
   font-weight: normal !important;
 }
-#payment .payment-details .cards-list span{
+#payment .payment-details .Accpeted-cards span{
   font-size: 10px !important;
   font-weight: normal !important;
 }

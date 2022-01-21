@@ -10,8 +10,22 @@ $(document).ready(function () {
             $(this).find('div img').attr("src","assets/images/book-now/"+$imgVal+".png");
         }
     });
+
+    //add address
+    $(".add-address-btn button").click(function(){
+      $("#add-new-address").css("display","block");
+      $(".add-address-btn").css("display","none");
+    });
+    $(".save").click(function(){
+      $("#add-new-address").css("display","none");
+      $(".add-address-btn").css("display","block");
+    });
+    $(".cancel").click(function(){
+      $("#add-new-address").css("display","none");
+      $(".add-address-btn").css("display","block");
+    });
   
-    //card number validation
+    //card number
     $("#cnumber").on("keyup", function (event) {
       var value = $(this).val();
       if (value.length <= 17) {
@@ -31,8 +45,8 @@ $(document).ready(function () {
       }
     });
   
-    //card date validation
-    $("#cmonth").on("keyup", function (event) {
+    //card date
+    $("#expiry").on("keyup", function (event) {
       var date = $(this).val();
       if (date.length <= 5) {
         if (event.which >= 48 && event.which <= 57) {
@@ -48,8 +62,8 @@ $(document).ready(function () {
       }
     });
   
-    //card cvc validation
-    $("#ccvc").on("keyup", function(event){
+    //card cvc
+    $("#cvc").on("keyup", function(event){
       var cvc = $(this).val();
       if (event.which >= 48 && event.which <= 57) {
           if (!cvc.length <= 3) {

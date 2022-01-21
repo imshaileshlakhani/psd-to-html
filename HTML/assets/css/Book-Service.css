@@ -1,0 +1,517 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+* {
+  font-family: 'Roboto', sans-serif;
+}
+body {
+  overflow-x: hidden;
+}
+
+/* ------------------ hero image ---------------------- */
+.hero-img {
+  background-image: url("../images/book-now/book-service-banner.jpg");
+  height: 370px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/*--------------------------- book-service-------------------- */
+.book-service-section{
+  padding: 32px 0;
+}
+.title {
+  font-size: 2.25rem;
+  font-weight: 500;
+  color: #4f4f4f;
+  margin-bottom: 18px;
+}
+.line {
+  width: 62px;
+  height: 2px;
+  background-color: #cccccc;
+  margin: 0 10px;
+}
+.book-service-section .book-service{
+  /* background-color: #565656; */
+  max-width: 1200px;
+  display: flex;
+  /* justify-content: center; */
+  margin: 0 auto !important;
+  padding: 50px 20px 0 20px;
+}
+.book-service .nav-tabs{
+  border-bottom: none;
+  margin-bottom: 20px;
+  flex-wrap: nowrap !important;
+}
+.book-service .nav-tabs .nav-item .nav-link{
+  border: none !important;
+  background-color: #F3F3F3;
+  border-radius: 0px;
+  padding: 15px 20px;
+  font-size: 18px;
+  color: #646464;
+  position: relative;
+}
+.book-service .nav-tabs .nav-item .nav-link.active{
+  background-color: #3A7A8C;
+  color: white;
+}
+.book-service .nav-tabs .nav-item .nav-link.active::after{
+  position: absolute;
+  content: "";
+  height: 0;
+  width: 0;
+  top: 100%;
+  border-width: 14px 14px 0 14px;
+  border-color: #1d7a8c transparent transparent transparent;
+  border-style: solid;
+  left: 50%;
+  margin-left: -14px;
+}
+.book-service .nav-tabs .nav-item .nav-link.fill{
+  background-color: #3A7A8C;
+  color: white;
+}
+.book-service .nav-tabs .nav-item .nav-link.fill::after:not(.active){
+  content: none;
+}
+.show-title{
+  font-size: 20px;
+  font-weight: 700;
+  color: #646464;
+  border-bottom: 1px solid #cccccc;
+  padding-bottom: 10px;
+  display: none;
+}
+.tab-content span, .tab-content label{
+  font-size: 17px;
+  line-height: 20px;
+  font-weight: 700;
+  color: #4f4f4f;
+  margin-bottom: 10px;
+  display: block;
+}
+#service-setup input.form-control, #schedule .form-select, #schedule .form-control, #payment .form-control{
+  color: #646464;
+  height: 46px;
+}
+.bb{
+  border-bottom: 1px solid #cccccc;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+/* ---------------service-setup-------------------- */
+#service-setup .btn.form-control, #schedule .btn.form-control, #details .btn.form-control, #payment .btn.form-control{
+  background-color: #3A7A8C;
+  color: white;
+  height: 46px;
+  border-radius: 46px;
+}
+#service-setup .service-setup-content{
+  padding: 15px 0;
+}
+#service-setup .service-setup-content .postal-code{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* ----------------service-schedule------------------- */
+#schedule .room-and-bath{
+  display: flex;
+}
+#schedule .service-schedule .service-time{
+  padding: 20px 0;
+}
+#schedule .service-schedule .service-time > div.d-flex{
+  margin-right: 30px;
+}
+#schedule .service-schedule .service-time > div.d-flex .form-group:nth-child(2){
+  margin-left: -45px;
+}
+#schedule .extra-service-section label {
+  padding: 0 10px;
+}
+#schedule .extra-service-section label .form-check-input{
+  opacity: 0;
+}
+#schedule .extra-service-section label .service {
+  width: 108px;
+  height: 108px;
+  border: 1px solid #b0c9ce;
+  border-radius: 50% 50%;
+  margin: 0 auto;
+  position: relative;
+}
+#schedule .extra-service-section label .service.active{
+  border: 3px solid #3A7A8C;
+}
+#schedule .extra-service-section label .service img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#schedule .extra-service-section label .service-name {
+  font-weight: normal;
+  margin: 10px auto;
+  text-align: center;
+}
+#schedule .comment .form-control{
+  height: auto;
+}
+#schedule .comment .form-check{
+  line-height: 1.9;
+}
+#schedule .comment .form-check-input{
+  width: 20px;
+  height: 20px;
+}
+
+/* ------------------your-details--------------------- */
+#details .address .form-check{
+  line-height: 1.9;
+}
+#details .address .form-check-input{
+  width: 20px;
+  height: 20px;
+}
+#details .address ul{
+  list-style: none;
+  padding-left: 0;
+}
+#details .address ul li{
+  display: flex;
+  align-items: center;
+  border: 1px solid #cccccc;
+  margin-bottom: 20px;
+  padding: 10px 20px;
+}
+#details .address ul li > div{
+  margin-right: 25px;
+}
+#details .address ul li div p{
+  margin: 8px 0;
+}
+#details .address ul li div p b{
+  font-weight: 700;
+}
+#details .add-address-btn .form-control, #payment .promo-apply .form-control{
+  background-color: white;
+  color: #3A7A8C;
+  font-weight: bold;
+  border: 2px solid #3A7A8C;
+  letter-spacing: normal;
+}
+#details .add-address-btn .form-control:hover, #payment .promo-apply .form-control:hover{
+  background-color: #3A7A8C;
+  color: white;
+}
+
+.add-address-buttons button {
+  padding: 8px 16px;
+  border-radius: 25px;
+  border: none;
+  border: 2px solid #1d7a8c;
+  color: #1d7a8c;
+  font-size: 18px;
+}
+.btn-save {
+  background-color: #1d7a8c;
+  color: white !important;
+}
+#new-address {
+  margin-top: 10px;
+  background-color: #F8F8F8;
+}
+#new-address input, #new-address select{
+  height: 46px;
+}
+#new-address .col-6 {
+  margin-top: 10px;
+}
+
+/* -------------------payment-------------------- */
+#payment .payment-details{
+  padding: 15px 0;
+}
+#payment .promocode{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+}
+#payment .payment-details .payment-card {
+  display: flex;
+  justify-content: space-between;
+  height: 65px;
+  align-items: center;
+  border-bottom: 1px solid #dcdcdc;
+  margin-top: 15px;
+  box-shadow: 0 0 5px #ccc;
+  padding: 0 15px;
+}
+#payment .payment-details .payment-card input {
+  border: none;
+  outline: none;
+  font-size: 18px;
+}
+#payment .payment-details .card-number i {
+  margin-right: 6px;
+}
+#payment .payment-details .card-detailes {
+  display: flex;
+  justify-content: right;
+}
+#payment .payment-details .card-detailes>div, #payment .payment-details .card-detailes input {
+  width: 70px;
+}
+#payment .payment-details .cards-list {
+  display: flex;
+  justify-content: right;
+  margin-top: 10px;
+  font-size: 10px !important;
+  font-weight: normal !important;
+}
+#payment .payment-details .cards-list span{
+  font-size: 10px !important;
+  font-weight: normal !important;
+}
+#payment .payment-details .form-check a{
+  text-decoration: none;
+}
+
+/* -------------------payment-card-------------------- */
+.payment-tab{
+  margin-left: 30px;
+}
+.payment-tab .payment-card{
+  box-shadow: 0 0 5px #646464;
+  height: auto;
+}
+.payment-tab .payment-card .payment-Summary div{
+  background-color: #3A7A8C;
+  padding: 22px 20px;
+  font-size: 18px;
+  color: white;
+}
+.payment-tab .payment-card .book-time{
+  padding: 22px 20px;
+  color: #646464;
+}
+.payment-tab .payment-card .duration{
+  padding: 0px 20px 22px 20px;
+  color: #646464;
+  border-bottom: 1px solid #cccccc;
+}
+.payment-tab .payment-card .duration span{
+  font-size: 18px;
+  font-weight: 500;
+}
+.payment-tab .payment-card .duration div div{
+  display: flex;
+  justify-content: space-between;
+}
+.payment-tab .payment-card .duration div .basic-service-time{
+  border-bottom: 1px solid #cccccc;
+  padding-bottom: 5px;
+}
+.payment-tab .payment-card .duration div .total-time{
+  padding-top: 5px;
+}
+.payment-tab .payment-card .per-cleaning{
+  padding: 22px 20px;
+  color: #646464;
+  border-bottom: 1px solid #cccccc;
+}
+.payment-tab .payment-card .per-cleaning div{
+  display: flex;
+  justify-content: space-between;
+}
+.payment-tab .payment-card .total-payment{
+  padding: 22px 20px;
+  color: #646464;
+  border-bottom: 1px solid #cccccc;
+}
+.payment-tab .payment-card .total-payment div{
+  display: flex;
+  justify-content: space-between;
+}
+.payment-tab .payment-card .total-payment .price{
+  color: #3A7A8C;
+  line-height: 24px;
+  font-size: 24px;
+}
+.payment-tab .payment-card .total-payment .price div:nth-child(2){
+  font-size: 42px;
+  font-weight: 700;
+}
+.payment-tab .payment-card .total-payment .effective-price div:nth-child(2){
+  font-size: 20px;
+}
+.payment-tab .payment-card .total-payment .save a{
+  font-size: 14px;
+  text-decoration: none;
+  color: #646464;
+}
+.payment-tab .payment-card .total-payment .save span{
+  color: red;
+  display: inline-block;
+}
+.payment-tab .payment-card .smily{
+  padding: 15px 20px;
+  color: #8d8d8d;
+  background-color: #F3F3F3;
+}
+
+/* --------------------faq-section------------------- */
+.faq .text-center {
+  font-size: 20px;
+  color: #4f4f4f;
+  padding: 20px 0 5px 0;
+  font-weight: bold;
+}
+.faq #accordion{
+  width: 370px;
+  color: #646464;
+}
+.faq #accordion .card1{
+  border-bottom: 1px solid #cccccc;
+}
+.faq #accordion .card1{
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+.faq #accordion .card1 p{
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.faq #accordion .card1 p.collapsed img{
+  transform: rotate(-90deg);
+}
+.faq #accordion .ans{
+  padding-left: 18px;
+}
+.faq .link a{
+  color: #3A7A8C;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+/*-------------------- news latter-------------------- */
+.section-newsseltter {
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 53px;
+}
+.newstitle {
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  font-size: 1.13rem;
+  font-weight: 600;
+}
+.newsform button {
+  width: 88px;
+  height: 40px;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  background-color: #ff7b6d;
+}
+.newsform .input-field input {
+  width: 233px;
+  height: 40px;
+  padding: 14px 131px 16px 22px;
+  margin-right: 11px;
+  border-radius: 20px;
+  border: solid 1px #565656;
+  background-color: #f4f5f8;
+}
+
+
+@media screen and (max-width: 371px) {
+  #schedule .service-schedule .service-time > div.d-flex .form-group:nth-child(2) {
+    margin-left: 0px !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 465px) {
+  .book-service .nav-tabs .nav-item .nav-link {
+    padding: 5px 0px 5px 0px !important;
+    position: relative;
+  }
+  .book-service .nav-tabs .nav-item .nav-link img{
+    position: absolute;
+    top: 27%;
+    left: 38%;
+  }
+  .book-service .nav-tabs .nav-item .nav-link span{
+    visibility: hidden;
+  }
+  .show-title{
+    display: block;
+  }
+  .payment-tab{
+    display: none;
+  }
+}
+@media screen and (max-width: 600px) {
+  .hero-img {
+    height: 200px;
+  }
+  .title {
+    font-size: 1.8rem;
+  }
+}
+@media screen and (min-width: 465px) and (max-width: 767px) {
+  .book-service .nav-tabs .nav-item .nav-link {
+    padding: 15px 22px 15px 22px !important;
+    position: relative;
+  }
+  .book-service .nav-tabs .nav-item .nav-link img{
+    position: absolute;
+    top: 27%;
+    left: 38%;
+  }
+  .book-service .nav-tabs .nav-item .nav-link span{
+    visibility: hidden;
+  }
+  .show-title{
+    display: block;
+  }
+  .payment-tab{
+    display: none;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 991px) {
+  .hero-img {
+    height: 265px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .book-service .nav-tabs .nav-item .nav-link{
+    font-size: 17px;
+    padding: 10px 20px !important;
+  }
+  .book-service .nav-tabs .nav-item .nav-link span{
+    display: block;
+  }
+  .payment-tab {
+    margin-left: 15px;
+  }
+  .faq #accordion{
+    width: 315px;
+  }
+}
+@media screen and (min-width: 991px) and (max-width: 1200px) {
+  .book-service .nav-tabs .nav-item .nav-link{
+    padding: 5px 38px !important;
+  }
+  .book-service .nav-tabs .nav-item .nav-link span{
+    display: block;
+  }
+}
+

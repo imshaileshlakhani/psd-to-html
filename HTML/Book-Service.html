@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./assets/css/Book-Service.css">
+    <link rel="stylesheet" href="./assets/css/modal.css">
+    <link rel="stylesheet" href="./assets/css/header2.css">
+    <link rel="stylesheet" href="./assets/css/footer.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/4ae0bb5b6f.js" crossorigin="anonymous"></script>
+
+    <title>Book Service</title>
+</head>
+
+<body>
+    <!-- modal start -->
+
+    <!--login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <div class="form-title ">
+                        <h4>Login to your account</h4>
+                    </div>
+                    <button type="button" class="btn-close text-end" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <form>
+                            <div class="col my-2">
+                                <div class="form-group icon">
+                                    <input class="form-control" name="email" placeholder="Email" type="email"
+                                        required /><i class=""></i>
+                                    <img alt="email" src="./assets/images/book-now/user.png">
+                                </div>
+                            </div>
+                            <div class="col my-2">
+                                <div class="form-group icon">
+                                    <input class="form-control" name="psw" placeholder="Password" type="text" required
+                                        autofocus />
+                                    <img alt="Password" src="./assets/images/book-now/lock.png">
+                                </div>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Remember me
+                                </label>
+                            </div>
+                            <div class="">
+                                <button type="button" class="btn btn-block btn-round my-3 col-12">Login</button>
+                            </div>
+                            <div class="text-center col">
+                                <p><a href="" data-bs-toggle="modal" data-bs-target="#forgotModal"
+                                        data-bs-dismiss="modal">Forgot
+                                        password? </a></p>
+                                <p>Don't have an account? <a href="./Customer_signup.html"> Create an account</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- forgot modal -->
+    <div class="modal fade" id="forgotModal" tabindex="-1" aria-labelledby="forgotModal" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-bottom-0">
+                    <div class="form-title">
+                        <h4>Forgot password</h4>
+                    </div>
+                    <button type="button" class="btn-close text-end" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <form>
+                            <div class="col my-2">
+                                <div class="form-group icon">
+                                    <input class="form-control" name="email" placeholder="Email" type="email"
+                                        required /><i class=""></i>
+                                    <img alt="email" src="./assets/images/book-now/user.png">
+                                </div>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-block btn-round col-12 my-3">Send</button>
+                            </div>
+                            <div class="text-center col">
+                                <p><a href="" data-bs-toggle="modal" data-bs-target="#loginModal"
+                                        data-bs-dismiss="modal">Login now</a></p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- modal end -->
+
+    <header id="header">
+        <div class="header">
+            <div class="brand">
+                <a class="navbarbrand" href="Homepage.html">
+                    <img src="./assets/images/book-now/nav-logo.png" alt="">
+                </a>
+            </div>
+            <ul>
+                <li class="navitem">
+                    <a class="navlink navbtn" href="Book-Service.html">Book now</a>
+                </li>
+                <li class="navitem">
+                    <a class="navlink" href="Price.html">Prices & services</a>
+                </li>
+                <li class="navitem">
+                    <a class="navlink" href="#">Warranty</a>
+                </li>
+                <li class="navitem">
+                    <a class="navlink" href="#">Blog</a>
+                </li>
+                <li class="navitem">
+                    <a class="navlink" href="Contact.html">Contact</a>
+                </li>
+                <li class="navitem">
+                    <a class="navlink navbtn" href="#" data-bs-toggle="modal" data-bs-target="#loginModal"
+                        data-bs-dismiss="modal">Login</a>
+                </li>
+                <li class="navitem">
+                    <a class="navlink navbtn" href="sp-sign-up.html">Become a
+                        Helper</a>
+                </li>
+            </ul>
+            <div class="menu-btn">
+                <i class="fas fa-bars "></i>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="hero-img"></section>
+
+        <section class="book-service-section">
+            <div class="text-center title">
+                Set up your cleaning service
+            </div>
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="line"></div>
+                <img src="./assets/images/book-now/separator.png" alt="">
+                <div class="line"></div>
+            </div>
+            <div class="book-service">
+                <div class="service-tab">
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active fill" id="service-setup-tab" data-bs-toggle="tab"
+                                data-bs-target="#service-setup" type="button" role="tab" aria-controls="service-setup"
+                                aria-selected="true">
+                                <img src="./assets/images/book-now/setup-service.png" alt="">
+                                <span>Setup Service</span>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="schedule-tab" data-bs-toggle="tab" data-bs-target="#schedule"
+                                type="button" role="tab" aria-controls="schedule" aria-selected="false">
+                                <img src="./assets/images/book-now/schedule.png" alt="">
+                                <span>Schedule & Plan</span>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="details-tab" data-bs-toggle="tab" data-bs-target="#details"
+                                type="button" role="tab" aria-controls="details" aria-selected="false">
+                                <img src="./assets/images/book-now/details.png" alt="">
+                                <span>Your Details</span>
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="payment-tab" data-bs-toggle="tab" data-bs-target="#payment"
+                                type="button" role="tab" aria-controls="payment" aria-selected="false">
+                                <img src="./assets/images/book-now/payment.png" alt="">
+                                <span>Make Payment</span>
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="service-setup" role="tabpanel"
+                            aria-labelledby="service-setup-tab">
+                            <div class="show-title">
+                                Setup Service
+                            </div>
+                            <div class="service-setup-content">
+                                <form action="">
+                                    <span>Enter your Postal Code</span>
+                                    <div class="postal-code">
+                                        <div class="form-group mb-2">
+                                            <input type="text" class="form-control" placeholder="Postal code">
+                                        </div>
+                                        <div class="mx-2">
+                                            <button type="submit" class="btn form-control">Check Availability</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade " id="schedule" role="tabpanel" aria-labelledby="schedule-tab">
+                            <div class="show-title">
+                                Schedule & Plan
+                            </div>
+                            <div class="service-schedule">
+                                <form action="">
+                                    <span class="mb-0 mt-3">Select number of rooms and bath</span>
+                                    <div class="room-and-bath bb">
+                                        <div class="">
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected value="1">1 bed</option>
+                                                <option value="2">2 bed</option>
+                                                <option value="3">3 bed</option>
+                                                <option value="4">4 bed</option>
+                                            </select>
+                                        </div>
+                                        <div class="mx-3">
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected value="1">1 bath</option>
+                                                <option value="2">2 bath</option>
+                                                <option value="3">3 bath</option>
+                                                <option value="4">4 bath</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="service-time d-flex align-items-center flex-wrap bb">
+                                        <div class="d-flex align-items-end flex-wrap">
+                                            <div class="form-group">
+                                                <label for="date">When do you need the cleaner?</label>
+                                                <input type="date" class="form-control w-75">
+                                            </div>
+                                            <div class="form-group">
+                                                <select class="form-select" aria-label="bath">
+                                                    <option selected value="1">1:00 PM</option>
+                                                    <option value="2">2:00 PM</option>
+                                                    <option value="3">3:00 PM</option>
+                                                    <option value="4">4:00 PM</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="date">How long do you need your cleaner to stay?</label>
+                                            <select class="form-select w-50" aria-label="hrs">
+                                                <option selected value="1">1 Hrs</option>
+                                                <option value="2">2 Hrs</option>
+                                                <option value="3">3 Hrs</option>
+                                                <option value="4">4 Hrs</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="extra-service-section bb">
+                                        <span>Extra Services</span>
+                                        <div class="extra-service d-flex flex-wrap">
+                                            <label>
+                                                <input class="form-check-input" type="checkbox" value="3">
+                                                <div class="service">
+                                                    <img src="assets/images/book-now/3.png" alt="">
+                                                </div>
+                                                <span class="service-name">Inside cabinets</span>
+                                            </label>
+                                            <label>
+                                                <input class="form-check-input" type="checkbox" value="5">
+                                                <div class="service">
+                                                    <img src="assets/images/book-now/5.png" alt="">
+                                                </div>
+                                                <span class="service-name">Inside fridge</span>
+                                            </label>
+                                            <label>
+                                                <input class="form-check-input" type="checkbox" value="4">
+                                                <div class="service">
+                                                    <img src="assets/images/book-now/4.png" alt="">
+                                                </div>
+                                                <span class="service-name">Inside oven</span>
+                                            </label>
+                                            <label>
+                                                <input class="form-check-input" type="checkbox" value="2">
+                                                <div class="service">
+                                                    <img src="assets/images/book-now/2.png" alt="">
+                                                </div>
+                                                <span class="service-name">Laundry wash & dry</span>
+                                            </label>
+                                            <label>
+                                                <input class="form-check-input" type="checkbox" value="1">
+                                                <div class="service">
+                                                    <img src="assets/images/book-now/1.png" alt="">
+                                                </div>
+                                                <span class="service-name">Interior windows</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="comment bb">
+                                        <span>Comments</span>
+                                        <div class="">
+                                            <textarea class="form-control" id="" rows="3"></textarea>
+                                        </div>
+                                        <div class="form-check my-3">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="flexCheckDefault">
+                                            I have pets at home
+                                        </div>
+                                    </div>
+                                    <div class="continue-btn pt-4">
+                                        <button type="submit"
+                                            class="btn form-control w-auto px-4 float-end">Continue</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="details" role="tabpanel" aria-labelledby="details-tab">
+                            <div class="show-title">
+                                Your Details
+                            </div>
+                            <div class="details pt-3">
+                                <form action="">
+                                    <span>Enter your contact details, so we can serve you in better way!</span>
+                                    <div class="address bb">
+                                        <ul>
+                                            <li>
+                                                <div>
+                                                    <input class="form-check-input" type="radio"
+                                                        name="flexRadioDefault">
+                                                </div>
+                                                <div>
+                                                    <p><b>Address:</b> street 2 40, Troisdorf 53844</p>
+                                                    <p><b>Phone number:</b> 9988556644</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div>
+                                                    <input class="form-check-input" type="radio"
+                                                        name="flexRadioDefault">
+                                                </div>
+                                                <div>
+                                                    <p><b>Address:</b> street 2 40, Troisdorf 53844</p>
+                                                    <p><b>Phone number:</b> 9988556644</p>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <div class="add-address-btn">
+                                            <button class="btn form-control w-auto px-4">+ Add New Address</button>
+                                        </div>
+                                        <div class="" id="new-address">
+                                            <div class="card card-body">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="form-group">
+                                                            <label for="streetname">Street name</label>
+                                                            <input type="text" name="streetname" class="form-control"
+                                                                placeholder="street name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="form-group">
+                                                            <label for="streetname">House number</label>
+                                                            <input type="text" name="housenumber" class="form-control"
+                                                                placeholder="street name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="form-group">
+                                                            <label for="streetname">Postal code</label>
+                                                            <input type="text" name="postalcode" class="form-control"
+                                                                placeholder="postal code">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="form-group">
+                                                            <label for="city">City</label>
+                                                            <select class="form-select mb-3">
+                                                                <option selected>Troisdrof</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <div class="form-group">
+                                                            <label for="phone number">Phone number</label>
+                                                            <div class="input-group mb-3">
+                                                                <div class="input-group-text"
+                                                                    id="basic-addon1">+49</div>
+                                                                <input type="text" class="form-control"
+                                                                    placeholder="phone number"
+                                                                    aria-describedby="basic-addon1" value="9988556644">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="add-address-buttons">
+                                                    <button class="btn-save">Save</button>
+                                                    <button class="btn-cancel">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-check my-4">
+                                            <input class="form-check-input" type="checkbox" value=""
+                                                id="flexCheckDefault">
+                                            Send invoice on this address
+                                        </div>
+                                    </div>
+                                    <div class="continue-btn pt-4">
+                                        <button type="submit"
+                                            class="btn form-control w-auto px-4 float-end">Continue</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane fade" id="payment" role="tabpanel" aria-labelledby="payment-tab">
+                            <div class="show-title">
+                                Make Payment
+                            </div>
+                            <div class="payment-details">
+                                <form action="">
+                                    <span>Pay securely with Helperland payment gateway!</span>
+                                    <div class="promocode bb">
+                                        <div class="form-group">
+                                            <label for="">Promo code (optional)</label>
+                                            <input type="text" class="form-control" placeholder="Promo code (optional)">
+                                        </div>
+                                        <div class="promo-apply px-2 pt-2">
+                                            <button type="submit" class="btn w-auto px-4 form-control">Apply</button>
+                                        </div>
+                                    </div>
+                                    <div class="payment-card">
+                                        <div class="card-number">
+                                            <i class="fa fa-credit-card" aria-hidden="true"></i>
+                                            <input type="text" id="cnumber" placeholder="Card number">
+                                        </div>
+                                        <div class="card-detailes">
+                                            <div>
+                                                <input type="text" placeholder="MM/YY" id="cmonth">
+                                            </div>
+                                            <div>
+                                                <input type="text" placeholder="CVC" id="ccvc">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cards-list">
+                                        <span>Accpeted Cards:</span>
+
+                                    </div>
+                                    <div class="form-check my-4 bb">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                        I accepted <a href="#">terms and conditions</a>, the <a href="#">cancellation
+                                            policy</a> and the <a href="#">privacy policy</a>. I confirm that Helperland
+                                        starts to execute the contract before the expiry of the withdrawal period and I
+                                        lose my right of withdrawal as a consumer with full performance of the contract.
+                                    </div>
+                                    <div class="continue-btn pt-4">
+                                        <button type="submit" class="btn form-control w-auto px-4 float-end">Complete
+                                            Booking</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="payment-tab">
+                    <div class="payment-card">
+                        <div class="payment-Summary">
+                            <div>Payment Summary</div>
+                        </div>
+
+                        <div class="book-time">
+                            <div>01/01/2018 @ 4:00 pm</div>
+                            <div>1 bed, 1 bath.</div>
+                        </div>
+
+                        <div class="duration bb">
+                            <span>Duration</span>
+                            <div>
+                                <div class="basic-service-time">
+                                    <div>Basic</div>
+                                    <div>0 Hrs</div>
+                                </div>
+                                <div class="total-time">
+                                    <div><b>Total Service Time</b></div>
+                                    <div><b>3 Hrs</b></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="per-cleaning">
+                            <div class="">
+                                <div>Per cleaning</div>
+                                <div><b>0,00 €</b></div>
+                            </div>
+                            <div class="discount">
+                                <div>Discount</div>
+                                <div><b>0,00 €</b></div>
+                            </div>
+                        </div>
+
+                        <div class="total-payment">
+                            <div class="price">
+                                <div>Total Payment</div>
+                                <div><b>0,00 €</b></div>
+                            </div>
+                            <div class="effective-price mt-2">
+                                <div>Effective Price</div>
+                                <div><b>0,00 €</b></div>
+                            </div>
+                            <div class="save mt-2"><a href=""><span>*</span>You will save 20% according to §35a
+                                    EStG.</a></div>
+                        </div>
+
+                        <div class="smily">
+                            <img src="./assets/images/book-now/smiley.png" alt=""> See what is always included
+                        </div>
+                    </div>
+                    <div class="faq">
+                        <div class="text-center">Questions?</div>
+                        <div class="accordion" id="accordion">
+                            <div class="card1" id="heading-One">
+                                <p data-toggle="collapse" data-target="#collapse-One" class="qe">
+                                    <img class="img" src="./assets/images/book-now/drop-arrow.png" alt="">
+                                    What's included in a cleaning?
+                                </p>
+                            </div>
+                            <div id="collapse-One" class="collapse show" aria-labelledby="heading-One"
+                                data-parent="#accordion">
+                                <p class="ans">Bedroom, Living Room & Common Areas, Bathrooms, Kitchen, Extras</p>
+                            </div>
+
+                            <div class="card1" id="heading-Two">
+                                <p class="collapsed qe" data-toggle="collapse" data-target="#collapse-Two" class="qe">
+                                    <img class="img" src="./assets/images/book-now/drop-arrow.png" alt="">
+                                    Can I skip or reschedule bookings?
+                                </p>
+                            </div>
+                            <div id="collapse-Two" class="collapse" aria-labelledby="heading-Two"
+                                data-parent="#accordion">
+                                <p class="ans">You can reschedule any booking for free at least 24 hours in advance of
+                                    the scheduled start time. If you need to skip a booking within the minimum
+                                    commitment, we’ll credit the value of the booking to your account. You can use this
+                                    credit on future cleanings and other Helperland services. </p>
+                            </div>
+                        </div>
+                        <div class="link"><a href="Faq.php">For more help</a></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section-newsseltter">
+            <div class="newstitle">
+                <p>get our newsselter</p>
+            </div>
+            <div class="newsform d-flex justify-content-center flex-wrap">
+                <div class="input-field mb-2"><input type="text" placeholder="Your Email"></div>
+                <button>Submit</button>
+            </div>
+        </section>
+
+    </main>
+    <footer id="footer">
+        <div class="footer">
+            <div class="footer-img">
+                <img src="./assets/images/book-now/white-logo-transparent-background.png" class="footer1-logo ">
+            </div>
+            <div class="footer-nav">
+                <ul class="">
+                    <li><a href="Homepage.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="#Customers-Say">TESTIMONIALS</a></li>
+                    <li><a href="Faq.html">FAQS</a></li>
+                    <li><a href="#">INSURANCE POLICY</a></li>
+                    <li><a href="#">IMPRESSUM</a></li>
+                </ul>
+            </div>
+            <div class="social">
+                <img src="./assets/images/book-now/facebook.png" alt="">
+                <img src="./assets/images/book-now/insta.png" alt="">
+            </div>
+        </div>
+        <hr class="hr1">
+        <div class="sub-footer">
+            <p>©2018 Helperland. All rights reserved. Terms and Conditions | <span class="text-primary">Privacy
+                    Policy</span></p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script src="./assets/js/nav.js"></script>
+    <script src="./assets/js/book-now.js"></script>
+</body>
+
+</html>

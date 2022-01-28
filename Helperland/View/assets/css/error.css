@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+*{
+  font-family: 'Roboto', sans-serif;
+}
+.error-section{
+    padding: 60px 50px 100px 50px;
+    background-color: #EFF7FA;
+}
+.error-section .error-img{
+    display: flex;
+    justify-content: center;
+}
+.error-section .error-img img{
+    width: 40%;
+}
+.error-section span{
+    color: #646464;
+    font-weight: bold;
+    font-size: 30px;
+}

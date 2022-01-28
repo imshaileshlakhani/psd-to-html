@@ -17,5 +17,7 @@ class Config{
     
     //Enter password of SMTP_EMAIL to activate email functionality
     const SMTP_PASS = "";
+
+    const SMTP_ADMIN = "shaileshlakhani1234@gmail.com";
 }
 ?>

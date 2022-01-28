@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2022 at 05:23 AM
+-- Generation Time: Jan 28, 2022 at 03:08 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -44,45 +44,14 @@ CREATE TABLE `contactus` (
   `ContactUsId` int(11) NOT NULL,
   `Name` varchar(50) NOT NULL,
   `Email` varchar(200) NOT NULL,
-  `SubjectType` varchar(100) NOT NULL,
   `Subject` varchar(500) DEFAULT NULL,
   `PhoneNumber` varchar(20) NOT NULL,
   `Message` longtext NOT NULL,
   `UploadFileName` varchar(100) DEFAULT NULL,
   `CreatedOn` datetime(3) DEFAULT NULL,
   `CreatedBy` int(11) DEFAULT NULL,
-  `Status` int(11) DEFAULT NULL,
-  `Priority` int(11) DEFAULT NULL,
-  `AssignedToUser` int(11) DEFAULT NULL,
-  `IsDeleted` tinyint(4) NOT NULL DEFAULT 0
+  `FileName` varchar(500) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `contactus`
---
-
-INSERT INTO `contactus` (`ContactUsId`, `Name`, `Email`, `SubjectType`, `Subject`, `PhoneNumber`, `Message`, `UploadFileName`, `CreatedOn`, `CreatedBy`, `Status`, `Priority`, `AssignedToUser`, `IsDeleted`) VALUES
-(1, 'Shailesh Lakhani', 'shaileshlakhani1234@gmail.com', '', 'Inquiry', '8469116765', 'Where do we get the next discount?', '18SOECE11028_Shailesh Lakhani.jpeg', NULL, NULL, NULL, NULL, NULL, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `contactusattachment`
---
-
-CREATE TABLE `contactusattachment` (
-  `ContactUsAttachmentId` int(11) NOT NULL,
-  `ContactUsId` int(11) NOT NULL,
-  `Name` varchar(100) NOT NULL,
-  `FileName` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `contactusattachment`
---
-
-INSERT INTO `contactusattachment` (`ContactUsAttachmentId`, `ContactUsId`, `Name`, `FileName`) VALUES
-(1, 1, 'Shailesh Lakhani', '18SOECE11028_Shailesh Lakhani.jpeg');
 
 -- --------------------------------------------------------
 
@@ -300,12 +269,6 @@ ALTER TABLE `contactus`
   ADD PRIMARY KEY (`ContactUsId`);
 
 --
--- Indexes for table `contactusattachment`
---
-ALTER TABLE `contactusattachment`
-  ADD PRIMARY KEY (`ContactUsAttachmentId`);
-
---
 -- Indexes for table `favoriteandblocked`
 --
 ALTER TABLE `favoriteandblocked`
@@ -379,13 +342,7 @@ ALTER TABLE `city`
 -- AUTO_INCREMENT for table `contactus`
 --
 ALTER TABLE `contactus`
-  MODIFY `ContactUsId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `contactusattachment`
---
-ALTER TABLE `contactusattachment`
-  MODIFY `ContactUsAttachmentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ContactUsId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `favoriteandblocked`

@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+* {
+  font-family: "Roboto", sans-serif;
+}
+body {
+  overflow-x: hidden;
+}
+
+/* ------------------ hero image ---------------------- */
+.hero-img {
+  background-image: url("../images/hero-banner-img.png");
+  height: 370px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/*--------------------------- about-------------------- */
+.about {
+  padding: 32px 0;
+}
+.title {
+  font-size: 2.25rem;
+  font-weight: 500;
+  color: #4f4f4f;
+  margin-bottom: 18px;
+}
+.line {
+  width: 62px;
+  height: 2px;
+  background-color: #cccccc;
+  margin: 0 10px;
+}
+.about-content {
+  padding: 35px 0;
+  width: 62%;
+  margin: 0 auto;
+  color: #646464;
+  font-size: 16px;
+}
+.about-content p {
+  margin-bottom: 22px;
+}
+.story {
+  padding-top: 38px;
+  width: 62%;
+  margin: 0 auto;
+  color: #646464;
+  font-size: 16px;
+}
+.story p {
+  margin-bottom: 22px;
+}
+
+/*-------------------- news latter-------------------- */
+.section-newsseltter {
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 53px;
+}
+.newstitle {
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  font-size: 1.13rem;
+  font-weight: 600;
+}
+.newsform button {
+  width: 88px;
+  height: 40px;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  background-color: #ff7b6d;
+}
+.newsform .input-field input {
+  width: 233px;
+  height: 40px;
+  padding: 14px 131px 16px 22px;
+  margin-right: 11px;
+  border-radius: 20px;
+  border: solid 1px #565656;
+  background-color: #f4f5f8;
+}
+@media only screen and (max-width: 420px) {
+  .title {
+    font-size: 1.8rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .hero-img {
+    height: 200px;
+  }
+  .about-content, .story {
+    width: 75%;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 991px) {
+  .hero-img {
+    height: 265px;
+  }
+}

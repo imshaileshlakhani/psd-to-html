@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+* {
+  margin: 0 0;
+  font-family: 'Roboto', sans-serif;
+}
+body {
+  overflow-x: hidden;
+}
+
+/* .hero image */
+.hero-img {
+  height: 370px;
+  background-image: url("../images/group-16.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+/* faq */
+.faq {
+  height: 100%;
+}
+.title {
+  font-size: 2.25rem;
+  font-weight: 500;
+  color: #4f4f4f;
+  padding-top: 50px;
+}
+.line {
+  width: 62px;
+  height: 2px;
+  background-color: #cccccc;
+  margin: 0 10px;
+}
+.Whether-you {
+  font-size: 18px;
+  line-height: 1.44;
+  letter-spacing: normal;
+  text-align: center;
+  color: #646464;
+  padding: 34px 0;
+}
+.customer-tab, .servicer-tab {
+  width: 472px;
+  height: 66px;
+  text-align: center;
+  border-bottom: 3px solid #1d7a8c;
+  cursor: pointer;
+  background-color: #f6f6f6;
+  display: flex;
+  justify-content: center;
+  align-items: center !important;
+  line-height: 1.2;
+}
+.active1 div{
+  color: white;
+}
+.active1{
+  background-color: #1d7a8c;
+}
+.For-Customer, .For-Service-Provider {
+  font-size: 1.4rem;
+  letter-spacing: normal;
+  color: #646464;
+}
+.bs-example {
+  width: 931px;
+  margin: 0 auto;
+}
+.card1 p {
+  margin-bottom: 0px;
+  color: #646464;
+  font-weight: bold;
+  width: 100%;
+  line-height: 3;
+  cursor: pointer;
+}
+.accordion .collapse {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: normal;
+  color: #646464;
+}
+.accordion .ans{
+  padding-left: 27px;
+}
+
+/* ----------------newsletter--------------- */
+.section-newsseltter {
+  text-align: center;
+  width: 100%;
+  display: block;
+  margin-top: 55px;
+  margin-bottom: 53px;
+}
+.newstitle {
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  font-size: 1.13rem;
+  font-weight: 600;
+}
+.newsform button {
+  width: 88px;
+  height: 40px;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  background-color: #ff7b6d;
+}
+.newsform .input-field input {
+  width: 233px;
+  height: 40px;
+  padding: 14px 131px 16px 22px;
+  margin-right: 11px;
+  border-radius: 20px;
+  border: solid 1px #565656;
+  background-color: #f4f5f8;
+}
+
+@media only screen and (max-width: 420px) {
+  .navbar-brand img {
+    height: 40px;
+    width: 60px;
+  }
+  .navbar-collapse {
+    background-color: #525252;
+  }
+  .nav-item {
+    margin-left: 23px;
+    margin-top: 7px;
+  }
+  .navbar-nav .nav-item .nav-link {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .title {
+    font-size: 1.8rem;
+  }
+  .Whether-you {
+    line-height: 1.3;
+  }
+}
+@media screen and (max-width: 600px) {
+  .hero-img {
+    height: 200px;
+  }
+  .For-Customer, .For-Service-Provider {
+    font-size: 1.2rem;
+  }
+}
+@media screen and (min-width: 600px) and (max-width: 991px) {
+  .hero-img {
+    height: 265px;
+  }
+}
+@media screen and (max-width: 933px) {
+  .bs-example {
+    padding-top: 10px;
+    width: fit-content;
+    margin-left: inherit;
+  }
+  .card1 p {
+    margin-bottom: 30px;
+    line-height: 1.3;
+  }
+  .accordion .collapse {
+    margin-top: -20px;
+    line-height: 1.5;
+    padding: 0 25px;
+  }
+}

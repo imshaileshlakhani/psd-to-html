@@ -8,8 +8,8 @@
 
     <link rel="stylesheet" href="assets/css/contact.css">
     <link rel="stylesheet" href="assets/css/modal.css">
-    <link rel="stylesheet" href="./assets/css/header2.css">
-    <link rel="stylesheet" href="./assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/header2.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -21,7 +21,7 @@
 
 <body>
     <?php
-    include('./modal/login-model.php');
+    include('modal/login-model.php');
     include('includes/header.php');
     ?>
 
@@ -34,26 +34,26 @@
             </div>
             <div class="d-flex justify-content-center align-items-center">
                 <div class="line"></div>
-                <img src="./assets/images/separator.png" alt="">
+                <img src="assets/images/separator.png" alt="">
                 <div class="line"></div>
             </div>
             <div class="detail-section d-flex flex-wrap justify-content-center">
                 <div class="detail text-center">
-                    <div class="img"><img src="./assets/images/location.png" alt=""></div>
+                    <div class="img"><img src="assets/images/location.png" alt=""></div>
                     <div class="content">
                         <p>1111 Lorem ipsum text 100,</p>
                         <p>Lorem ipsum AB</p>
                     </div>
                 </div>
                 <div class="detail text-center">
-                    <div class="img"><img src="./assets/images/phone-call.png" alt=""></div>
+                    <div class="img"><img src="assets/images/phone-call.png" alt=""></div>
                     <div class="content">
                         <p>+49 (40) 123 56 7890</p>
                         <p>+49 (40) 987 56 0000</p>
                     </div>
                 </div>
                 <div class="detail text-center">
-                    <div class="img"><img src="./assets/images/mail.png" alt=""></div>
+                    <div class="img"><img src="assets/images/mail.png" alt=""></div>
                     <div class="content">
                         <p>info@helperland.com</p>
                     </div>
@@ -65,7 +65,7 @@
                     <span class="title">Get in touch with us</span>
                 </div>
                 <div class="form">
-                    <form action="../Controller/contact-controller.php" method="post" enctype="multipart/form-data">
+                    <form action="<?= $base_url.'?controller=Public&function=contact_us'?>" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 pb-3">
                                 <input class="form-control" id="firstname" name="firstname" placeholder="First name" type="text"/>
@@ -147,8 +147,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-    <script src="./assets/js/nav.js"></script>
-    <script src="./assets/js/validate.js"></script>
+    <script src="assets/js/nav.js"></script>
+    <script src="assets/js/validate.js"></script>
 </body>
 
 </html>

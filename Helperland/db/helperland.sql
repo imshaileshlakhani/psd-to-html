@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 28, 2022 at 03:08 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.1
+-- Host: localhost:5050
+-- Generation Time: Jan 29, 2022 at 03:31 PM
+-- Server version: 10.4.17-MariaDB
+-- PHP Version: 8.0.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -81,8 +80,6 @@ CREATE TABLE `rating` (
   `Ratings` decimal(2,1) NOT NULL,
   `Comments` varchar(2000) DEFAULT NULL,
   `RatingDate` datetime(3) NOT NULL,
-  `IsApproved` tinyint(4) DEFAULT 1,
-  `VisibleOnHomeScreen` tinyint(4) NOT NULL DEFAULT 0,
   `OnTimeArrival` decimal(2,1) NOT NULL DEFAULT 0.0,
   `Friendly` decimal(2,1) NOT NULL DEFAULT 0.0,
   `QualityOfService` decimal(2,1) NOT NULL DEFAULT 0.0
@@ -100,7 +97,6 @@ CREATE TABLE `servicerequest` (
   `ServiceId` int(11) NOT NULL,
   `ServiceStartDate` datetime(3) NOT NULL,
   `ZipCode` varchar(10) NOT NULL,
-  `ServiceFrequency` tinyint(3) UNSIGNED DEFAULT NULL,
   `ServiceHourlyRate` decimal(8,2) DEFAULT NULL,
   `ServiceHours` double NOT NULL,
   `ExtraHours` double DEFAULT NULL,
@@ -110,7 +106,6 @@ CREATE TABLE `servicerequest` (
   `Comments` varchar(500) DEFAULT NULL,
   `PaymentTransactionRefNo` varchar(50) DEFAULT NULL,
   `PaymentDue` tinyint(4) NOT NULL DEFAULT 0,
-  `JobStatus` tinyint(3) UNSIGNED DEFAULT NULL,
   `ServiceProviderId` int(11) DEFAULT NULL,
   `SPAcceptedDate` datetime(3) DEFAULT NULL,
   `HasPets` tinyint(4) NOT NULL DEFAULT 0,
@@ -140,8 +135,7 @@ CREATE TABLE `servicerequestaddress` (
   `State` varchar(50) DEFAULT NULL,
   `PostalCode` varchar(20) DEFAULT NULL,
   `Mobile` varchar(20) DEFAULT NULL,
-  `Email` varchar(100) DEFAULT NULL,
-  `Type` int(11) DEFAULT 1
+  `Email` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -154,20 +148,6 @@ CREATE TABLE `servicerequestextra` (
   `ServiceRequestExtraId` int(11) NOT NULL,
   `ServiceRequestId` int(11) NOT NULL,
   `ServiceExtraId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `servicesetting`
---
-
-CREATE TABLE `servicesetting` (
-  `Id` int(11) NOT NULL,
-  `ActionType` int(11) NOT NULL,
-  `Interval` int(11) NOT NULL,
-  `ScheduleTime` time(6) NOT NULL,
-  `LastPoll` datetime(3) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -195,10 +175,8 @@ CREATE TABLE `user` (
   `Password` varchar(100) DEFAULT NULL,
   `Mobile` varchar(20) NOT NULL,
   `UserTypeId` int(11) NOT NULL,
-  `RoleId` int(11) DEFAULT NULL,
   `Gender` int(11) DEFAULT NULL,
   `DateOfBirth` datetime(3) DEFAULT NULL,
-  `WebSite` varchar(1000) DEFAULT NULL,
   `UserProfilePicture` varchar(200) DEFAULT NULL,
   `IsRegisteredUser` tinyint(4) NOT NULL DEFAULT 0,
   `PaymentGatewayUserRef` varchar(200) DEFAULT NULL,
@@ -206,7 +184,6 @@ CREATE TABLE `user` (
   `WorksWithPets` tinyint(4) NOT NULL DEFAULT 0,
   `LanguageId` int(11) DEFAULT NULL,
   `NationalityId` int(11) DEFAULT NULL,
-  `ResetKey` varchar(200) DEFAULT NULL,
   `CreatedDate` datetime(3) NOT NULL,
   `ModifiedDate` datetime(3) NOT NULL,
   `ModifiedBy` int(11) NOT NULL,
@@ -214,7 +191,6 @@ CREATE TABLE `user` (
   `IsActive` tinyint(4) NOT NULL DEFAULT 0,
   `IsDeleted` tinyint(4) NOT NULL DEFAULT 0,
   `Status` int(11) DEFAULT NULL,
-  `IsOnline` tinyint(4) NOT NULL DEFAULT 0,
   `BankTokenId` varchar(100) DEFAULT NULL,
   `TaxNo` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -236,8 +212,7 @@ CREATE TABLE `useraddress` (
   `IsDefault` tinyint(4) NOT NULL DEFAULT 0,
   `IsDeleted` tinyint(4) NOT NULL DEFAULT 0,
   `Mobile` varchar(20) DEFAULT NULL,
-  `Email` varchar(100) DEFAULT NULL,
-  `Type` int(11) DEFAULT NULL
+  `Email` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -260,7 +235,8 @@ CREATE TABLE `zipcode` (
 -- Indexes for table `city`
 --
 ALTER TABLE `city`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `StateId` (`StateId`);
 
 --
 -- Indexes for table `contactus`
@@ -272,37 +248,39 @@ ALTER TABLE `contactus`
 -- Indexes for table `favoriteandblocked`
 --
 ALTER TABLE `favoriteandblocked`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `UserId` (`UserId`),
+  ADD KEY `TargetUserId` (`TargetUserId`);
 
 --
 -- Indexes for table `rating`
 --
 ALTER TABLE `rating`
-  ADD PRIMARY KEY (`RatingId`);
+  ADD PRIMARY KEY (`RatingId`),
+  ADD KEY `ServiceRequestId` (`ServiceRequestId`),
+  ADD KEY `RatingFrom` (`RatingFrom`),
+  ADD KEY `RatingTo` (`RatingTo`);
 
 --
 -- Indexes for table `servicerequest`
 --
 ALTER TABLE `servicerequest`
-  ADD PRIMARY KEY (`ServiceRequestId`);
+  ADD PRIMARY KEY (`ServiceRequestId`),
+  ADD KEY `UserId` (`UserId`),
+  ADD KEY `ServiceProviderId` (`ServiceProviderId`);
 
 --
 -- Indexes for table `servicerequestaddress`
 --
 ALTER TABLE `servicerequestaddress`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `ServiceRequestId` (`ServiceRequestId`);
 
 --
 -- Indexes for table `servicerequestextra`
 --
 ALTER TABLE `servicerequestextra`
   ADD PRIMARY KEY (`ServiceRequestExtraId`);
-
---
--- Indexes for table `servicesetting`
---
-ALTER TABLE `servicesetting`
-  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indexes for table `state`
@@ -320,13 +298,15 @@ ALTER TABLE `user`
 -- Indexes for table `useraddress`
 --
 ALTER TABLE `useraddress`
-  ADD PRIMARY KEY (`AddressId`);
+  ADD PRIMARY KEY (`AddressId`),
+  ADD KEY `UserId` (`UserId`);
 
 --
 -- Indexes for table `zipcode`
 --
 ALTER TABLE `zipcode`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `CityId` (`CityId`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -375,12 +355,6 @@ ALTER TABLE `servicerequestextra`
   MODIFY `ServiceRequestExtraId` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `servicesetting`
---
-ALTER TABLE `servicesetting`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `state`
 --
 ALTER TABLE `state`
@@ -403,6 +377,62 @@ ALTER TABLE `useraddress`
 --
 ALTER TABLE `zipcode`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `city`
+--
+ALTER TABLE `city`
+  ADD CONSTRAINT `city_ibfk_1` FOREIGN KEY (`StateId`) REFERENCES `state` (`Id`);
+
+--
+-- Constraints for table `favoriteandblocked`
+--
+ALTER TABLE `favoriteandblocked`
+  ADD CONSTRAINT `favoriteandblocked_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `user` (`UserId`),
+  ADD CONSTRAINT `favoriteandblocked_ibfk_2` FOREIGN KEY (`TargetUserId`) REFERENCES `user` (`UserId`);
+
+--
+-- Constraints for table `rating`
+--
+ALTER TABLE `rating`
+  ADD CONSTRAINT `rating_ibfk_1` FOREIGN KEY (`ServiceRequestId`) REFERENCES `servicerequest` (`ServiceRequestId`),
+  ADD CONSTRAINT `rating_ibfk_2` FOREIGN KEY (`RatingFrom`) REFERENCES `user` (`UserId`),
+  ADD CONSTRAINT `rating_ibfk_3` FOREIGN KEY (`RatingTo`) REFERENCES `user` (`UserId`);
+
+--
+-- Constraints for table `servicerequest`
+--
+ALTER TABLE `servicerequest`
+  ADD CONSTRAINT `servicerequest_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `user` (`UserId`),
+  ADD CONSTRAINT `servicerequest_ibfk_2` FOREIGN KEY (`ServiceProviderId`) REFERENCES `user` (`UserId`);
+
+--
+-- Constraints for table `servicerequestaddress`
+--
+ALTER TABLE `servicerequestaddress`
+  ADD CONSTRAINT `servicerequestaddress_ibfk_1` FOREIGN KEY (`ServiceRequestId`) REFERENCES `servicerequest` (`ServiceRequestId`);
+
+--
+-- Constraints for table `servicerequestextra`
+--
+ALTER TABLE `servicerequestextra`
+  ADD CONSTRAINT `servicerequestextra_ibfk_1` FOREIGN KEY (`ServiceRequestExtraId`) REFERENCES `servicerequest` (`ServiceRequestId`);
+
+--
+-- Constraints for table `useraddress`
+--
+ALTER TABLE `useraddress`
+  ADD CONSTRAINT `useraddress_ibfk_1` FOREIGN KEY (`UserId`) REFERENCES `user` (`UserId`);
+
+--
+-- Constraints for table `zipcode`
+--
+ALTER TABLE `zipcode`
+  ADD CONSTRAINT `zipcode_ibfk_1` FOREIGN KEY (`CityId`) REFERENCES `city` (`Id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

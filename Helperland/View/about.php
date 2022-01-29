@@ -8,8 +8,8 @@
 
     <link rel="stylesheet" href="assets/css/about.css">
     <link rel="stylesheet" href="assets/css/modal.css">
-    <link rel="stylesheet" href="./assets/css/header2.css">
-    <link rel="stylesheet" href="./assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/header2.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -21,7 +21,7 @@
 
 <body>
     <?php
-        include ('./modal/login-model.php');
+        include ('modal/login-model.php');
         include ('includes/header.php');
     ?>
 
@@ -34,7 +34,7 @@
             </div>
             <div class="d-flex justify-content-center align-items-center">
                 <div class="line"></div>
-                <img src="./assets/images/separator.png" alt="">
+                <img src="assets/images/separator.png" alt="">
                 <div class="line"></div>
             </div>
             <div class="about-content text-center">
@@ -71,7 +71,7 @@
             </div>
             <div class="d-flex justify-content-center align-items-center">
                 <div class="line"></div>
-                <img src="./assets/images/separator.png" alt="">
+                <img src="assets/images/separator.png" alt="">
                 <div class="line"></div>
             </div>
             <div class="story text-center">
@@ -127,7 +127,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-    <script src="./assets/js/nav.js"></script>
+    <script src="assets/js/nav.js"></script>
 </body>
 
 </html>

@@ -17,14 +17,14 @@
                             <div class="form-group icon">
                                 <input class="form-control" name="username" placeholder="Email" type="email"
                                     required /><i class=""></i>
-                                <img alt="email" src="./assets/images/user.png">
+                                <img alt="email" src="assets/images/user.png">
                             </div>
                         </div>
                         <div class="col my-2">
                             <div class="form-group icon">
                                 <input class="form-control" name="password" placeholder="Password" type="text" required
                                     autofocus />
-                                <img alt="Password" src="./assets/images/lock.png">
+                                <img alt="Password" src="assets/images/lock.png">
                             </div>
                         </div>
                         <div class="form-check">
@@ -65,7 +65,7 @@
                                 <div class="form-group icon">
                                     <input class="form-control" name="email" placeholder="Email" type="email"
                                         required /><i class=""></i>
-                                    <img alt="email" src="./assets/images/user.png">
+                                    <img alt="email" src="assets/images/user.png">
                                 </div>
                             </div>
                             <div>

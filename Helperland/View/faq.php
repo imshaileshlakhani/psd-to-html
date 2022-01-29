@@ -6,9 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/faq.css">
-    <link rel="stylesheet" href="./assets/css/modal.css">
-    <link rel="stylesheet" href="./assets/css/header2.css">
-    <link rel="stylesheet" href="./assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/modal.css">
+    <link rel="stylesheet" href="assets/css/header2.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -20,7 +20,7 @@
 
 <body>
     <?php
-        include ('./modal/login-model.php');
+        include ('modal/login-model.php');
         include ('includes/header.php');
     ?>
 
@@ -34,7 +34,7 @@
             </div>
             <div class="d-flex justify-content-center align-items-center">
                 <div class="line"></div>
-                <img src="./assets/images/separator.png" alt="">
+                <img src="assets/images/separator.png" alt="">
                 <div class="line"></div>
             </div>
             <div class="Whether-you">
@@ -59,7 +59,7 @@
                     <div class="accordion" id="accordion">
                         <div class="card1" id="headingOne">
                             <p data-toggle="collapse" data-target="#collapseOne" class="qe">
-                                <img class="img" src="./assets/images/arrow-down.png" alt="">
+                                <img class="img" src="assets/images/arrow-down.png" alt="">
                                 What's included in a cleaning?
                             </p>
                         </div>
@@ -70,7 +70,7 @@
 
                         <div class="card1" id="headingTwo">
                             <p class="collapsed qe" data-toggle="collapse" data-target="#collapseTwo"><img class="img"
-                                    src="./assets/images/arrow-right.png" alt="">
+                                    src="assets/images/arrow-right.png" alt="">
                                 Which Helperland professional will come to my place?
                             </p>
                         </div>
@@ -82,7 +82,7 @@
 
                         <div class="card1" id="headingThree">
                             <p class="collapsed qe" data-toggle="collapse" data-target="#collapseThree" class="qe"><img
-                                    class="img" src="./assets/images/arrow-right.png" alt="">
+                                    class="img" src="assets/images/arrow-right.png" alt="">
                                 Can I skip or reschedule bookings?
                             </p>
                         </div>
@@ -94,7 +94,7 @@
 
                         <div class="card1" id="headingFour">
                             <p class="collapsed qe" data-toggle="collapse" data-target="#collapseFour" class="qe"><img
-                                    class="img" src="./assets/images/arrow-right.png" alt="">
+                                    class="img" src="assets/images/arrow-right.png" alt="">
                                 Do I need to be home for the booking?
                             </p>
                         </div>
@@ -107,7 +107,7 @@
                     <div class="accordion" id="accordion1">
                         <div class="card1" id="heading-One">
                             <p data-toggle="collapse" data-target="#collapse-One" class="qe">
-                                <img class="img" src="./assets/images/arrow-down.png" alt="">
+                                <img class="img" src="assets/images/arrow-down.png" alt="">
                                 How much do service providers earn?
                             </p>
                         </div>
@@ -119,7 +119,7 @@
 
                         <div class="card1" id="heading-Two">
                             <p class="collapsed qe" data-toggle="collapse" data-target="#collapse-Two" class="qe">
-                                <img class="img" src="./assets/images/arrow-right.png" alt="">
+                                <img class="img" src="assets/images/arrow-right.png" alt="">
                                 What support do you provide to the service providers?
                             </p>
                         </div>
@@ -152,8 +152,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
-    <script src="./assets/js/faq.js"></script>
-    <script src="./assets/js/nav.js"></script>
+    <script src="assets/js/faq.js"></script>
+    <script src="assets/js/nav.js"></script>
 
 </body>
 

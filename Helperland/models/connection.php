@@ -1,5 +1,5 @@
 <?php
-    include("../Controller/config.php");
+    include("controllers/config.php");
     class Connection{
         public function connect(){
             $conn = new mysqli(Config::DB_SERVER, Config::DB_USER, Config::DB_PASS, Config::DB_NAME);

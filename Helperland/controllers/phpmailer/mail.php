@@ -1,5 +1,5 @@
 <?php 
-    require("./phpmailer/PHPMailerAutoload.php");
+    require("PHPMailerAutoload.php");
 
     function sendmail($recipent, $subject, $body, $attachment=""){
         $mail = new PHPMailer;

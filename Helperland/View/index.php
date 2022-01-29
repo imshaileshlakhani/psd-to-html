@@ -1,3 +1,6 @@
+<?php
+    $base_url = "http://localhost/psd-to-html/Helperland/";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,8 +10,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="stylesheet" href="./assets/css/header1.css">
-    <link rel="stylesheet" href="./assets/css/modal.css">
+    <link rel="stylesheet" href="assets/css/header1.css">
+    <link rel="stylesheet" href="assets/css/modal.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
  
@@ -19,13 +22,13 @@
 
 <body>
     <?php
-        include ('./modal/login-model.php');
+        include ('modal/login-model.php');
     ?>
     <header id="header">
         <div class="header">
             <div class="brand">
-                <a class="navbarbrand" href="index.php">
-                    <img src="./assets/images/nav-logo.png" alt="">
+                <a class="navbarbrand" href="<?= $base_url.'?controller=Public&function=home'?>">
+                    <img src="assets/images/nav-logo.png" alt="">
                 </a>
             </div>
             <ul>
@@ -33,7 +36,7 @@
                     <a class="navlink navbtn" href="#">Book a Cleaner</a>
                 </li>
                 <li class="navitem">
-                    <a class="navlink" href="price.php">Prices</a>
+                    <a class="navlink" href="<?= $base_url.'?controller=Public&function=price'?>">Prices</a>
                 </li>
                 <li class="navitem">
                     <a class="navlink" href="#">Our Gaurantee</a>
@@ -42,7 +45,7 @@
                     <a class="navlink" href="#Blog1">Blog</a>
                 </li>
                 <li class="navitem">
-                    <a class="navlink" href="contact.php">Contact us</a>
+                    <a class="navlink" href="<?= $base_url.'?controller=Public&function=contact'?>">Contact us</a>
                 </li>
                 <li class="navitem">
                     <a class="navlink navbtn" href="#" data-bs-toggle="modal" data-bs-target="#loginModal"
@@ -77,40 +80,40 @@
                     <div class="all-steps">
                         <div class="step">
                             <div class="step-img">
-                                <img src="./assets/images/step1.png" alt="">
+                                <img src="assets/images/step1.png" alt="">
                                 <div class="step-text">
                                     Enter Your Postcode
                                 </div>
                             </div>
                             <div class="step-arrow">
-                                <img src="./assets/images/step-down-arrow.png" alt="">
+                                <img src="assets/images/step-down-arrow.png" alt="">
                             </div>
                         </div>
                         <div class="step">
                             <div class="step-img">
-                                <img src="./assets/images/step2.png" alt="">
+                                <img src="assets/images/step2.png" alt="">
                                 <div class="step-text">
                                     Select your plan
                                 </div>
                             </div>
                             <div class="step-arrow">
-                                <img src="./assets/images/step-up-arrow.png" alt="">
+                                <img src="assets/images/step-up-arrow.png" alt="">
                             </div>
                         </div>
                         <div class="step">
                             <div class="step-img">
-                                <img src="./assets/images/step3.png" alt="">
+                                <img src="assets/images/step3.png" alt="">
                                 <div class="step-text">
                                     Pay securely online
                                 </div>
                             </div>
                             <div class="step-arrow">
-                                <img src="./assets/images/step-down-arrow.png" alt="">
+                                <img src="assets/images/step-down-arrow.png" alt="">
                             </div>
                         </div>
                         <div class="step">
                             <div class="step-img">
-                                <img src="./assets/images/step4.png" alt="">
+                                <img src="assets/images/step4.png" alt="">
                                 <div class="step-text">
                                     Enjoy Amazing Service
                                 </div>
@@ -121,7 +124,7 @@
                 <div class="btn-down">
                     <a href="#Helperland">
                         <div class="circle">
-                            <img src="./assets/images/shape-1.png" alt="">
+                            <img src="assets/images/shape-1.png" alt="">
                         </div>
                     </a>
                 </div>
@@ -136,7 +139,7 @@
             <div class="card-deck">
                 <div class="card1">
                     <div class="img">
-                        <img class="card-img-top" src="./assets/images/group-21.png" alt="Card image cap">
+                        <img class="card-img-top" src="assets/images/group-21.png" alt="Card image cap">
                     </div>
                     <div class="card-body">
                         <div class="card-heading">
@@ -151,7 +154,7 @@
                 </div>
                 <div class="card1">
                     <div class="img">
-                        <img class="card-img-top" src="./assets/images/group-23.jpg" alt="Card image cap">
+                        <img class="card-img-top" src="assets/images/group-23.jpg" alt="Card image cap">
                     </div>
                     <div class="card-body">
                         <div class="card-heading card-heading1">
@@ -165,7 +168,7 @@
                 </div>
                 <div class="card1">
                     <div class="img">
-                        <img class="card-img-top" src="./assets/images/group-24.png" alt="Card image cap">
+                        <img class="card-img-top" src="assets/images/group-24.png" alt="Card image cap">
                     </div>
                     <div class="card-body">
                         <div class="card-heading">
@@ -196,7 +199,7 @@
                     </div>
                 </div>
                 <div class="lorem-img">
-                    <img src="./assets/images/group-36.png" alt="">
+                    <img src="assets/images/group-36.png" alt="">
                 </div>
             </div> 
             <div class="title text-center" id="Blog1">
@@ -205,47 +208,47 @@
 
              <div class="blog-container">
                 <div class="blog card">
-                    <img class="card-img-top" src="./assets/images/blog1.png" alt="Card image cap">
+                    <img class="card-img-top" src="assets/images/blog1.png" alt="Card image cap">
                     <div class="card-body">
                         <p class="card-title">Lorem ipsum dolor sit amet<br><span class="card-date">January 28,
                                 2019</span></p>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum
                             metus pulvinar aliquet.</p>
                         <p class="read-more">
-                            Read the Post <img src="./assets/images/shape-2.png" alt="">
+                            Read the Post <img src="assets/images/shape-2.png" alt="">
                         </p>
                     </div>
                 </div>
                 <div class="blog card">
-                    <img class="card-img-top" src="./assets/images/blog2.png" alt="Card image cap">
+                    <img class="card-img-top" src="assets/images/blog2.png" alt="Card image cap">
                     <div class="card-body">
                         <p class="card-title">Lorem ipsum dolor sit amet<br><span class="card-date">January 28,
                                 2019</span></p>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum
                             metus pulvinar aliquet.</p>
                         <p class="read-more">
-                            Read the Post <img src="./assets/images/shape-2.png" alt="">
+                            Read the Post <img src="assets/images/shape-2.png" alt="">
                         </p>
                     </div>
                 </div>
                 <div class="blog card">
-                    <img class="card-img-top" src="./assets/images/blog3.png" alt="Card image cap">
+                    <img class="card-img-top" src="assets/images/blog3.png" alt="Card image cap">
                     <div class="card-body">
                         <p class="card-title">Lorem ipsum dolor sit amet<br><span class="card-date">January 28,
                                 2019</span></p>
                         <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed fermentum
                             metus pulvinar aliquet.</p>
                         <p class="read-more">
-                            Read the Post <img src="./assets/images/shape-2.png" alt="">
+                            Read the Post <img src="assets/images/shape-2.png" alt="">
                         </p>
                     </div>
                 </div>
             </div>
             <div class="left-img">
-                <img src="./assets/images/blog-left-bg.png" alt="">
+                <img src="assets/images/blog-left-bg.png" alt="">
             </div>
             <div class="right-img">
-                <img src="./assets/images/blog-right-bg.png" alt="">
+                <img src="assets/images/blog-right-bg.png" alt="">
             </div>
         </section>
 
@@ -257,7 +260,7 @@
                 <div class="customers">
                     <div class="about-customer">
                         <div class="customer-profile">
-                            <img src="./assets/images/profile1.png" alt="">
+                            <img src="assets/images/profile1.png" alt="">
                         </div>
                         <div class="customer-name">
                             <div>
@@ -268,7 +271,7 @@
                             </div>
                         </div>
                         <div class="customer-msg">
-                            <img src="./assets/images/message.png" alt="">
+                            <img src="assets/images/message.png" alt="">
                         </div>
                     </div>
                     <div class="customer-content">
@@ -278,13 +281,13 @@
                             Nullam et metus congue, auctor augue sit amet, consectetur tortor. </p>
                     </div>
                     <div class="read-more">
-                        Read More <img src="./assets/images/shape-2.png" alt="">
+                        Read More <img src="assets/images/shape-2.png" alt="">
                     </div>
                 </div>
                 <div class="customers">
                     <div class="about-customer">
                         <div class="customer-profile">
-                            <img src="./assets/images/profile2.png" alt="">
+                            <img src="assets/images/profile2.png" alt="">
                         </div>
                         <div class="customer-name">
                             <div>
@@ -295,7 +298,7 @@
                             </div>
                         </div>
                         <div class="customer-msg">
-                            <img src="./assets/images/message.png" alt="">
+                            <img src="assets/images/message.png" alt="">
                         </div>
                     </div>
                     <div class="customer-content">
@@ -305,13 +308,13 @@
                             Nullam et metus congue, auctor augue sit amet, consectetur tortor. </p>
                     </div>
                     <div class="read-more">
-                        Read More <img src="./assets/images/shape-2.png" alt="">
+                        Read More <img src="assets/images/shape-2.png" alt="">
                     </div>
                 </div>
                 <div class="customers">
                     <div class="about-customer">
                         <div class="customer-profile">
-                            <img src="./assets/images/profile3.png" alt="">
+                            <img src="assets/images/profile3.png" alt="">
                         </div>
                         <div class="customer-name">
                             <div>
@@ -322,7 +325,7 @@
                             </div>
                         </div>
                         <div class="customer-msg">
-                            <img src="./assets/images/message.png" alt="">
+                            <img src="assets/images/message.png" alt="">
                         </div>
                     </div>
                     <div class="customer-content">
@@ -332,14 +335,14 @@
                             Nullam et metus congue, auctor augue sit amet, consectetur tortor. </p>
                     </div>
                     <div class="read-more">
-                        Read More <img src="./assets/images/shape-2.png" alt="">
+                        Read More <img src="assets/images/shape-2.png" alt="">
                     </div>
                 </div>
             </div>
 
             <div class="newsletter">
                 <div class="up">
-                    <a href="#hero-image"><img src="./assets/images/forma-1.png" alt=""></a>
+                    <a href="#hero-image"><img src="assets/images/forma-1.png" alt=""></a>
                 </div>
                 <div class="msg-box">
                     <div class="GET-OUR-NEWSLETTER text-center">
@@ -351,7 +354,7 @@
                     </div>
                 </div>
                 <div class="layer">
-                    <img src="./assets/images/layer.png" alt="">
+                    <img src="assets/images/layer.png" alt="">
                 </div>
             </div> 
         </section>
@@ -359,21 +362,21 @@
     <footer id="footer">
         <div class="footer">
             <div class="footer-img">
-                <img src="./assets/images/white-logo-transparent-background.png" class="footer1-logo ">
+                <img src="assets/images/white-logo-transparent-background.png" class="footer1-logo ">
             </div>
             <div class="footer-nav">
                 <ul>
                     <li><a href="#hero-image">HOME</a></li>
-                    <li><a href="about.php">ABOUT</a></li>
+                    <li><a href="<?= $base_url.'?controller=Public&function=about'?>">ABOUT</a></li>
                     <li><a href="#Customers-Say">TESTIMONIALS</a></li>
-                    <li><a href="faq.php">FAQS</a></li>
+                    <li><a href="<?= $base_url.'?controller=Public&function=faq'?>">FAQS</a></li>
                     <li><a href="#">INSURANCE POLICY</a></li>
                     <li><a href="#">IMPRESSUM</a></li>
                 </ul>
             </div>
             <div class="social">
-                <img src="./assets/images/facebook.png" alt="">
-                <img src="./assets/images/insta.png" alt="">
+                <img src="assets/images/facebook.png" alt="">
+                <img src="assets/images/insta.png" alt="">
             </div>
         </div>
         <div class="footer2">
@@ -387,7 +390,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="./assets/js/nav.js"></script>
+    <script src="assets/js/nav.js"></script>
 </body>
 
 </html>

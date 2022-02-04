@@ -16,7 +16,7 @@ class Config{
     const SMTP_EMAIL = "slakhani062@rku.ac.in";
     
     //Enter password of SMTP_EMAIL to activate email functionality
-    const SMTP_PASS = "";
+    const SMTP_PASS = "LHIRAJIR16@1977";
 
     const SMTP_ADMIN = "shaileshlakhani1234@gmail.com";
 }

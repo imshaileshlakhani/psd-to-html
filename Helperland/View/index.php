@@ -1,5 +1,8 @@
 <?php
-    $base_url = "http://localhost/psd-to-html/Helperland/";
+    session_start();
+    if(isset($_SESSION['userdata'])){
+        $userdata = $_SESSION['userdata'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,13 +11,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="stylesheet" href="assets/css/header1.css">
+    <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/modal.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
- 
+
     <script src="https://kit.fontawesome.com/4ae0bb5b6f.js"></script>
 
     <title>Homepage</title>
@@ -22,44 +25,10 @@
 
 <body>
     <?php
-        include ('modal/login-model.php');
+        include('modal/login-model.php');
+        include ('includes/header.php');
     ?>
-    <header id="header">
-        <div class="header">
-            <div class="brand">
-                <a class="navbarbrand" href="<?= $base_url.'?controller=Public&function=home'?>">
-                    <img src="assets/images/nav-logo.png" alt="">
-                </a>
-            </div>
-            <ul>
-                <li class="navitem">
-                    <a class="navlink navbtn" href="#">Book a Cleaner</a>
-                </li>
-                <li class="navitem">
-                    <a class="navlink" href="<?= $base_url.'?controller=Public&function=price'?>">Prices</a>
-                </li>
-                <li class="navitem">
-                    <a class="navlink" href="#">Our Gaurantee</a>
-                </li>
-                <li class="navitem">
-                    <a class="navlink" href="#Blog1">Blog</a>
-                </li>
-                <li class="navitem">
-                    <a class="navlink" href="<?= $base_url.'?controller=Public&function=contact'?>">Contact us</a>
-                </li>
-                <li class="navitem">
-                    <a class="navlink navbtn" href="#" data-bs-toggle="modal" data-bs-target="#loginModal"
-                    data-bs-dismiss="modal">Login</a>
-                </li>
-                <li class="navitem">
-                    <a class="navlink navbtn" href="#">Become a Helper</a>
-                </li>
-            </ul>
-            <div class="menu-btn">
-                <i class="fas fa-bars "></i>
-            </div>
-        </div>
-    </header>
+    
     <main>
         <section id="hero-image">
             <div class="hero-image">
@@ -133,7 +102,7 @@
 
         <section id="Helperland">
             <div class="title text-center">
-                    Why Helperland
+                Why Helperland
             </div>
 
             <div class="card-deck">
@@ -201,12 +170,12 @@
                 <div class="lorem-img">
                     <img src="assets/images/group-36.png" alt="">
                 </div>
-            </div> 
+            </div>
             <div class="title text-center" id="Blog1">
                 Our Blog
             </div>
 
-             <div class="blog-container">
+            <div class="blog-container">
                 <div class="blog card">
                     <img class="card-img-top" src="assets/images/blog1.png" alt="Card image cap">
                     <div class="card-body">
@@ -356,7 +325,7 @@
                 <div class="layer">
                     <img src="assets/images/layer.png" alt="">
                 </div>
-            </div> 
+            </div>
         </section>
     </main>
     <footer id="footer">
@@ -367,9 +336,9 @@
             <div class="footer-nav">
                 <ul>
                     <li><a href="#hero-image">HOME</a></li>
-                    <li><a href="<?= $base_url.'?controller=Public&function=about'?>">ABOUT</a></li>
+                    <li><a href="<?= $base_url.'?controller=Public&function=about' ?>">ABOUT</a></li>
                     <li><a href="#Customers-Say">TESTIMONIALS</a></li>
-                    <li><a href="<?= $base_url.'?controller=Public&function=faq'?>">FAQS</a></li>
+                    <li><a href="<?= $base_url.'?controller=Public&function=faq' ?>">FAQS</a></li>
                     <li><a href="#">INSURANCE POLICY</a></li>
                     <li><a href="#">IMPRESSUM</a></li>
                 </ul>
@@ -391,6 +360,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="assets/js/nav.js"></script>
+    <script src="assets/js/validate.js"></script>
 </body>
 
 </html>

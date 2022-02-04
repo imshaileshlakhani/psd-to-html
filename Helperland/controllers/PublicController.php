@@ -3,6 +3,8 @@
 
     class PublicController{
         public $model;
+        public $base_url = "http://localhost/psd-to-html/Helperland/";
+        public $error_url = "http://localhost/psd-to-html/Helperland/?controller=Public&function=error";
 
         public function __construct(){
             include("models/Public.php");
@@ -33,46 +35,43 @@
             include("View/error.php");
         }
 
+        public function sp_signup(){
+            include('View/servicer_signup.php');
+        }
+    
+        public function customer_signup(){
+            include('View/customer_signup.php');
+        }
+
         public function contact_us(){
-            $base_url = "http://localhost/psd-to-html/Helperland/?controller=Public&function=contact";
-            $error_url = "http://localhost/psd-to-html/Helperland/?controller=Public&function=error";
-
-            if(isset($_POST)){
-                $array = [
-                    'name' => $_POST['firstname']." ".$_POST['lastname'],
-                    'email' => $_POST['email'],
-                    'phone' => $_POST['phone'],
-                    'subject' => $_POST['subject'],
-                    'msg' => $_POST['msg'],
-                    'fileName' => $_FILES['attachment']['name']
-                ];
-            }
-
-            // file upload
-            $tempName = $_FILES['attachment']['tmp_name'];
-            $filePath = "View/attachment/".$array['fileName'];
-            if(!move_uploaded_file($tempName,$filePath)){
-                header("location:".$error_url."&error=File Not Upload");
-                exit();
-            }
-
-            // data insert in database
             $result="";
-            if(isset($_POST['submit'])){
-                $result = $this->model->insertContactDetails($array);
-            }
+            if(isset($_POST)){
+                // file upload
+                $filename = $_FILES['attachment']['name'];
+                $tempName = $_FILES['attachment']['tmp_name'];
+                $filePath = "View/attachment/".$filename;
+                if($filename != null){
+                    if(!move_uploaded_file($tempName,$filePath)){
+                        header("location:".$this->error_url."&error=File Not Upload");
+                        exit();
+                    }
+                }
 
-            // php mail send
-            // to activate mail system you have to give password in SMTP_PASS for email SMTP_EMAIL
-            // you can change SMTP_ADMIN to send email to admin
-            // all above change have to do in config file
-            if($result){
-                sendmail(Config::SMTP_ADMIN,$array['subject'],$array['msg'],$filePath);
-                header("location:".$base_url);
-            }
-            else{
-                header("location:".$error_url."&error=Error Occured Try Again");
-                echo "";
+                // data insert in database
+                $_POST['filename'] = $filename;
+                $result = $this->model->insertContactDetails($_POST);
+                if($result){
+                    // php mail send
+                    // to activate mail system you have to give password in SMTP_PASS for email SMTP_EMAIL
+                    // you can change SMTP_ADMIN to send email to admin
+                    // all above change have to do in config file
+                    sendmail(Config::SMTP_ADMIN,$_POST['subject'],$_POST['msg'],$filePath);
+                    header("location:".$this->base_url."?controller=Public&function=contact");
+                }
+                else{
+                    header("location:".$this->error_url."&error=Error Occured Try Again");
+                    exit();
+                }
             }
         }
     }

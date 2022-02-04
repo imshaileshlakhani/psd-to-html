@@ -9,6 +9,28 @@
   font-weight: bold;
   color: #4f4f4f;
 }
+
+/* -----------------header-section----------------- */
+#header {
+  position: fixed !important;
+  padding: 10px 15px 0 17px !important;
+}
+.header .brand {
+  width: 175px !important;
+  height: 130px !important;
+  transition: all 0.7s ease !important;
+}
+#header.sticky .header .brand {
+  width: 125px !important;
+  height: 80px !important;
+}
+.header ul{
+  margin-top: 0px !important;
+}
+.header ul li {
+  margin-top: 0px !important;
+}
+
 /* ----------------hero-img------------------- */
 .hero-image {
   background-image: url("../images/bg-home.png");
@@ -38,16 +60,20 @@
 }
 .btn-lets a {
   text-decoration: none;
-  background-color: #006072;
+  font-size: 17px;
+  background-color: rgba(0, 96, 114, 0.5);
+  border: 1px solid white;
   color: white;
   height: 54px;
   border-radius: 54px;
   padding: 16px 31px;
   letter-spacing: 1px;
   margin: 0 auto;
+  transition: all 0.2s ease;
 }
 .btn-lets a:hover {
-  color: white;
+  background-color: white;
+  color: #1d7a8c;
 }
 .steps {
   max-width: 1400px;
@@ -97,10 +123,10 @@
 
 /* ---------------Helperland section---------------- */
 #Helperland {
-  padding: 87px 0 160px 0;
+  padding: 90px 0 160px 0;
 }
 #Helperland .card-deck {
-  padding-top: 70px;
+  padding-top: 67px;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -246,6 +272,10 @@
   padding: 30px;
   background-color: #ffffff;
   border-left: 4px solid #1d7a8c;
+  transition: all 0.2s ease;
+}
+.customers:hover{
+  border-left: 7px solid #1d7a8c;
 }
 .about-customer {
   display: flex;
@@ -557,6 +587,10 @@
   }
 }
 @media screen and (max-width:1350px){
+  .header .brand {
+    width: 135px !important;
+    height: 90px !important;
+  }
   .footer2 div {
     padding: 15px 15px;
   }

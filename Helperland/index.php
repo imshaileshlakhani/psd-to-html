@@ -15,7 +15,6 @@ if(isset($_GET['function']) && $_GET['function'] != ''){
 if(isset($_GET['parameter']) && $_GET['parameter'] != ''){
 	$parameter = $_GET['parameter'];
 }
-
 if(file_exists('controllers/'.$controller.'Controller.php')){
 	include('controllers/'.$controller.'Controller.php');
 	$class = $controller.'Controller';

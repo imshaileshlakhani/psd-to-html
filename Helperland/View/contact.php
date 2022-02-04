@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(isset($_SESSION['userdata'])){
+        $userdata = $_SESSION['userdata'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +14,7 @@
 
     <link rel="stylesheet" href="assets/css/contact.css">
     <link rel="stylesheet" href="assets/css/modal.css">
-    <link rel="stylesheet" href="assets/css/header2.css">
+    <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/footer.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
@@ -21,8 +27,8 @@
 
 <body>
     <?php
-    include('modal/login-model.php');
-    include('includes/header.php');
+        include('modal/login-model.php');
+        include('includes/header.php');
     ?>
 
     <main>
@@ -76,7 +82,7 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 pb-3">
-                                <div class="input-group mb-2">
+                                <div class="input-group">
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">+49</div>
                                     </div>

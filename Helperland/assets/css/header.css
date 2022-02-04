@@ -4,11 +4,9 @@
   padding: 3px 15px 5px 17px;
   transition: all 0.7s ease;
   z-index: 99;
-  background-color: #525252;
 }
 #header.sticky {
-  position: fixed;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.6) !important;
 }
 #header .header {
   display: flex;
@@ -26,10 +24,9 @@
 }
 .header ul{
   margin-top: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 0px;
 }
 .header ul li {
-  margin-top: 5px;
   list-style: none;
   display: inline-block;
   margin-left: 25px;
@@ -44,21 +41,27 @@
   letter-spacing: 1px;
   font-weight: 0;
 }
+.header ul li a.navbtn {
+  padding: 12px 24px;
+  border: 1px solid white;
+  border-radius: 40px;
+  height: 40px;
+  transition: all 0.2s ease;
+}
+.header ul li .navbtn:hover{
+  background-color: white !important;
+  color: #1d7a8c !important;
+}
+.header ul li a.navscroll{
+  background-color: rgba(0, 96, 114, 0.7) !important;
+  color: white !important;
+}
 .header ul li.navitem .vr {
   width: 1px;
   margin-top: -6px;
   margin-bottom: -20px;
   height: 48px;
   color: #e1e1e1;
-}
-.navitem .navbtn {
-  background-color: #29626d;
-}
-.navbtn {
-  padding: 12px 25px;
-  border: 1px solid white;
-  border-radius: 40px;
-  height: 40px;
 }
 .dropdown .dropdown-toggle {
   color: white;
@@ -91,6 +94,10 @@
   padding-right: 20px;
   font-size: 40px;
   z-index: 1;
+}
+.error{
+  color: red;
+  font-size: 14px;
 }
 @media screen and (max-width: 1250px) {
   .header ul {

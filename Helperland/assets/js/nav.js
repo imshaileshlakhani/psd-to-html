@@ -2,8 +2,10 @@ $(document).ready(function(){
     $(window).scroll(function(){
         if(this.scrollY > 20){
             $('#header').addClass("sticky");
+            $('.navbtn').addClass('navscroll');
         }else{
             $('#header').removeClass("sticky");
+            $('.navbtn').removeClass('navscroll');
         }
     });
 

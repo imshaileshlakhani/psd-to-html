@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(isset($_SESSION['userdata'])){
+        $userdata = $_SESSION['userdata'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +14,7 @@
 
     <link rel="stylesheet" href="assets/css/price.css">
     <link rel="stylesheet" href="assets/css/modal.css">
-    <link rel="stylesheet" href="assets/css/header2.css">
+    <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/footer.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
@@ -119,7 +125,7 @@
             <div class="include-card d-flex flex-wrap justify-content-center">
                 <div class="card1">
                     <div class="img">
-                        <img src="assets/images/group-18_4.png" alt="">
+                        <img src="assets/images/group-18_3.png" alt="">
                     </div>
                     <div class="content">
                         <div class="card-title">Bedroom and Living Room</div>
@@ -139,7 +145,7 @@
                 </div>
                 <div class="card1">
                     <div class="img">
-                        <img src="assets/images/group-18_2.png" alt="">
+                        <img src="assets/images/group-18_4.png" alt="">
                     </div>
                     <div class="content">
                         <div class="card-title">Bathrooms</div>
@@ -161,7 +167,7 @@
                 </div>
                 <div class="card1">
                     <div class="img">
-                        <img src="assets/images/group-18_3.png" alt="">
+                        <img src="assets/images/group-18_2.png" alt="">
                     </div>
                     <div class="content">
                         <div class="card-title">Kitchen</div>
@@ -243,6 +249,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 
     <script src="assets/js/nav.js"></script>
+    <script src="assets/js/validate.js"></script>
 </body>
 
 </html>

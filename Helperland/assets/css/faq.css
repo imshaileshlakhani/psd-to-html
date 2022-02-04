@@ -7,6 +7,17 @@ body {
   overflow-x: hidden;
 }
 
+/* ------------header-section--------- */
+#header {
+  background-color: #525252 !important;
+}
+#header.sticky {
+  position: fixed !important;
+}
+.navitem .navbtn {
+  background-color: #29626d !important;
+}
+
 /* .hero image */
 .hero-img {
   height: 370px;

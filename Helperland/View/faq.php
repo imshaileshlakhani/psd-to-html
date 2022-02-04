@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(isset($_SESSION['userdata'])){
+        $userdata = $_SESSION['userdata'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/faq.css">
     <link rel="stylesheet" href="assets/css/modal.css">
-    <link rel="stylesheet" href="assets/css/header2.css">
+    <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/footer.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
@@ -154,6 +160,7 @@
 
     <script src="assets/js/faq.js"></script>
     <script src="assets/js/nav.js"></script>
+    <script src="assets/js/validate.js"></script>
 
 </body>
 

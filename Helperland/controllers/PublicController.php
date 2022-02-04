@@ -45,12 +45,12 @@
 
         public function contact_us(){
             $result="";
-            if(isset($_POST)){
+            if(isset($_POST['submit'])){
                 // file upload
                 $filename = $_FILES['attachment']['name'];
                 $tempName = $_FILES['attachment']['tmp_name'];
                 $filePath = "View/attachment/".$filename;
-                if($filename != null){
+                if(isset($_FILES["attachment"]) && !empty($filename)){
                     if(!move_uploaded_file($tempName,$filePath)){
                         header("location:".$this->error_url."&error=File Not Upload");
                         exit();
@@ -65,7 +65,18 @@
                     // to activate mail system you have to give password in SMTP_PASS for email SMTP_EMAIL
                     // you can change SMTP_ADMIN to send email to admin
                     // all above change have to do in config file
-                    sendmail(Config::SMTP_ADMIN,$_POST['subject'],$_POST['msg'],$filePath);
+                    $name = ucwords($_POST["firstname"] . " " . $_POST["lastname"]);
+                    $phone = $_POST["phone"];
+                    $email = $_POST["email"];
+                    $message = strtolower($_POST["msg"]);
+                    $html = "
+                            <h2><span style='border-bottom:1px solid black;'>Contact person Detailes<span></h2>
+                            <p><b>Name</b> : $name</p>
+                            <p><b>Mobile</b> : $phone</p>
+                            <p><b>Email</b> : $email</p>
+                            <p><b>Message</b> : $message</p>
+                        ";
+                    sendmail(Config::SMTP_ADMIN,$_POST['subject'],$html,$filePath);
                     header("location:".$this->base_url."?controller=Public&function=contact");
                 }
                 else{

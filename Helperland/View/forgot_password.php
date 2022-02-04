@@ -46,12 +46,12 @@
                     <input type="hidden" name="email" value="<?php if(isset($_GET['parameter'])){ echo $email;}?>">
                     <div class="pb-4">
                         <label for="newpsw">New Password</label>
-                        <input class="form-control" id="psw" name="newpsw" placeholder="Password" type="password"
+                        <input class="form-control" id="newpsw" name="newpsw" placeholder="Password" type="password"
                     />
                     </div>
                     <div class="pb-4">
                         <label for="cpsw">Confirm Password</label>
-                        <input class="form-control" id="cpsw" name="cpsw" placeholder="Confirm Password" type="password"/>
+                        <input class="form-control" id="oldpsw" name="cpsw" placeholder="Confirm Password" type="password"/>
                     </div>
                     <div class="save-btn">
                         <button type="submit" name="save" id="save" class="save">Save</button>

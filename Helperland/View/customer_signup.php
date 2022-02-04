@@ -85,7 +85,7 @@
                         </label>
                     </div>
                     <div class="submit text-center">
-                        <button type="submit" name="submit" id="Register">Register</button>
+                        <button type="submit" name="register" id="Register">Register</button>
                         <p>Already registered? <span>Login now</span></p>
                     </div>
                 </form>

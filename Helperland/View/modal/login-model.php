@@ -69,7 +69,7 @@
                                 </div>
                             </div>
                             <div>
-                                <button type="submit" id="send" class="btn btn-block btn-round col-12 my-3">Send</button>
+                                <button type="submit" id="send" name="send" class="btn btn-block btn-round col-12 my-3">Send</button>
                             </div>
                             <div class="text-center col">
                                 <p><a href="" data-bs-toggle="modal" data-bs-target="#loginModal"

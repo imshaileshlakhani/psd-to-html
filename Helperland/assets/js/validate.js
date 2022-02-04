@@ -1,5 +1,6 @@
 $(document).ready(function(){
     var is_valid = true;
+    var is_pass_check = false;
 
     // contact page validation
     $('#submit').click(function(){
@@ -36,9 +37,11 @@ $(document).ready(function(){
         lastNameValidation(lastname);
         emailValidation('#email',email);
         phoneValidation(phone);
-        passwordValidation('#psw',psw);
-        passwordValidation('#cpsw',cpsw);
-        passVerify(psw,cpsw);
+        var result = passwordValidation('#psw',psw);
+        var result1 = passwordValidation('#cpsw',cpsw);
+        if(result == true && result1 == true){
+            passVerify('#psw',psw,cpsw);
+        }
         if(is_valid != true){
             return false;
         }
@@ -74,12 +77,14 @@ $(document).ready(function(){
     $('#save').click(function(){
         is_valid = true;
         $('.error').remove();
-        var psw = $('#psw').val();
-        var cpsw = $('#cpsw').val();
+        var psw = $('#newpsw').val();
+        var cpsw = $('#oldpsw').val();
 
-        passwordValidation('#psw',psw);
-        passwordValidation('#cpsw',cpsw);
-        passVerify(psw,cpsw);
+        var result = passwordValidation('#newpsw',psw);
+        var result1 = passwordValidation('#oldpsw',cpsw);
+        if(result == true && result1 == true){
+            passVerify('#newpsw',psw,cpsw);
+        }
         if(is_valid != true){
             return false;
         }
@@ -128,22 +133,26 @@ $(document).ready(function(){
         }
     }
     function passwordValidation(id,password){
-        var passReg = /^[\d]{10}$/;
+        is_pass_check = false;
+        var passReg = /^.*(?=.{6,14})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).*$/;
         if(password.length < 1){
             $(id).after("<span class='error'>Password can't be empty</span>");
             is_valid = false;
             return;
         }
         else if(!passReg.test(password)){
-            //$(id).after("<span class='error'>Password must be 6 to 14 character long including At least one uppercase, lowercase, special char and numbers</span>");
-            $(id).after("<span class='error'>Password must be 10 digit long</span>");
+            $(id).after("<span class='error'>Password must be 6 to 14 character long including At least one uppercase, lowercase, special char and numbers</span>");
             is_valid = false;
             return;
         }
+        else{
+            is_pass_check = true;
+            return is_pass_check;
+        }
     }
-    function passVerify(psw,cpsw){
+    function passVerify(id,psw,cpsw){
         if(psw != cpsw){
-            $('#psw').after("<span class='error'>Password and confirm password must be same</span>");
+            $(id).after("<span class='error'>Password and confirm password must be same</span>");
             is_valid = false;
             return;
         }

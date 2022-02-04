@@ -40,7 +40,7 @@ class AuthenticationController{
 
     public function user_signup(){
         $result = "";
-        if(isset($_POST)){
+        if(isset($_POST['register'])){
             $result = $this->model->is_present($_POST);
             if(!$result){
                 $result = $this->model->insert($_POST);
@@ -57,12 +57,13 @@ class AuthenticationController{
     }
 
     public function forgot_password_link(){
-        if(isset($_POST)){
+        if(isset($_POST['send'])){
             $result = $this->model->validate($_POST);
             if(count($result) > 0){
                 $link = $this->base_url."?controller=Authentication&function=forgot_password&parameter=".$_POST['email'];
+                $msg = "<h2><a href='$link' style='color:red' >Click here to change your password</a></h2>";
                 $subject = "Forgot Password";
-                sendmail($_POST['email'],$subject,$link);
+                sendmail($_POST['email'],$subject,$msg);
                 header("Location:".$this->base_url."?controller=Public&function=home");
             }else{
                 header("location:".$this->error_url."&error=Envalid email!!!");

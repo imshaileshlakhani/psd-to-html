@@ -63,270 +63,52 @@
   }
 }
 
-/* sidebar model css */
-#navbartoggle .modal-dialog {
-  float: right;
-  width: 220px;
+/* -----------------payment modal-------------- */
+#paymentModal .payment-tab{
+  display: block !important;
+  margin-left: 10px !important;
 }
-#navbartoggle .modal-content {
+#paymentModal .modal-body{
+  padding: 0 10px 10px 0;
+}
+#paymentModal .faq #accordion{
   width: auto;
-  padding: 1px;
 }
-#navbartoggle .modal-body,
-#navbartoggle .modal-footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: unset;
-  align-items: flex-start;
-}
-#navbartoggle .modal-body a,
-#navbartoggle .modal-footer a {
-  text-decoration: none;
-  padding: 5px;
-  color: #646464;
-  font-size: 16px;
-}
-#navbartoggle .modal-header {
-  border: none;
-  border-bottom: 1px solid rgba(128, 128, 128, 0.4);
-}
-#welcomeuser {
-  font-size: 14px;
-}
-#navbartoggle .modal-footer {
-  border-top: 1px solid rgba(128, 128, 128, 0.4);
-}
-#navbartoggle .modal-footer a {
-  margin: 0;
+@media screen and (max-width:420px) {
+  #paymentModal .payment-tab .payment-card .total-payment .price{
+    font-size: 18px !important;
+  }
+  .payment-tab .payment-card .total-payment .price div:nth-child(2){
+    font-size: 25px;
+  }
 }
 
-/* Rate sp model for customer*/
-#Ratesp{
-  color: #646464;
+/* ------------------success model--------------------  */
+#successModal .modal-header {
+  padding: 12px 16px;
 }
-#Ratesp .modal-header{
-  border-bottom: none;
+#successModal .modal-body{
+  padding: 0 0px 16px 0;
 }
-#Ratesp .modal-header .btn-close{
-  margin-top: -60px;
-}
-#Ratesp .modal-header > div{
-  display: flex;
-}
-#Ratesp .modal-header > div span{
-  display: block;
-}
-#Ratesp .modal-header > div .cap{
-  border: 1px solid #aaa;
-  height: 55px;
-  width: 55px;
+#successModal .success-icon{
+  background-color: #67b644;
   border-radius: 50%;
-  margin-right: 12px;
+  width: 80px;
+  margin: 5px auto;
+  height: 80px;
+  position: relative;
 }
-#Ratesp .modal-header > div .cap img{
-  height: 20px;
-  width: 30px;
+#successModal .success-icon img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-#Ratesp .modal-body{
-  padding-top: 0;
-}
-#Ratesp .modal-body .rate-title{
-  font-size: 18px;
-  font-weight: 500;
-}
-#Ratesp .modal-body .rate{
-  display: flex;
-}
-#Ratesp .modal-body .submit button{
-  padding: 8px 16px;
-  font-size: 16px;
-  font-weight: bold;
-  border-radius: 46px;
-  border: none;
+#successModal .ok{
+  background-color: #3A7A8C;
+  color: white;
   outline: none;
-  background-color: #1D7A8C;
-  color:white;
-}
-
-/* service-details model for customer and servicer*/
-#servicedetails, #servicedetails1{
-  color: #646464;
-}
-#servicedetails .modal-dialog, #servicedetails1 .modal-dialog{
-  max-width: 1000px;
-}
-#servicedetails .modal-content, #servicedetails1 .modal-content{
-  width: 1000px;
-}
-#servicedetails .modal-header, #servicedetails1 .modal-header{
-  border-bottom: none;
-}
-#servicedetails .content-section .model-title, #servicedetails1 .content-section .model-title{
-  font-size: 20px;
-  font-weight: 400;
-}
-#servicedetails .content-section .model-time, #servicedetails1 .content-section .model-time{
-  font-size: 26px;
-  color: black;
-}
-#servicedetails .content-section div p, #servicedetails1 .content-section div p{
-  margin-top: 2px;
-  margin-bottom: 0;
-  font-size: 17px;
-  font-weight: 500;
-}
-#servicedetails .content-section div p span, #servicedetails1 .content-section div p span{
-  font-weight: 400;
-}
-#servicedetails .content-section .model-price, #servicedetails1 .content-section .model-price{
-  font-size: 26px;
-  color: #348588;
-  font-weight: 600;
-}
-#servicedetails .content-section .fa-times-circle-o, #servicedetails1 .content-section .fa-times-circle-o{
-  color: rgb(255, 0, 0);
-}
-#servicedetails .model-button, #servicedetails1 .model-button{
-  padding-top: 7px;
-}
-#servicedetails .model-button button, #servicedetails1 .model-button button{
-  width: 130px;
-  border-radius: 25px;
-  padding: 8px 10px; 
-  color: white;
   border: none;
-}
-#servicedetails .model-button button i, #servicedetails1 .model-button button i{
-  margin-right: 5px;
-}
-#servicedetails .cancel-button{
- background-color: #ff6b6b; 
-}
-#servicedetails .complete-button{
-  background-color: #348588;
-}
-#servicedetails1 .Accept-button{
-  background-color: #48a114;
-}
-#servicedetails .modal-section-body hr, #servicedetails1 .modal-section-body hr{
-  margin: 6px 0;
-}
-#servicedetails .modal-body .map-section.col-5, #servicedetails1 .modal-body .map-section.col-5 {
-  flex: 0 0 auto;
-  width: 49.666667%;
-}
-#servicedetails .map-section iframe, #servicedetails1 .map-section iframe{
-  height: 100%;
-  width: 100%;
-}
-
-/* add-edit-address-customer model */
-#addeditaddress .modal-header .btn-close{
-  margin-top: -40px;
-} 
-#addeditaddress .modal-body{
-  padding-top: 0px !important;
-}
-#addeditaddress .modal-title{
-  font-weight: bold;
-  color: #646464;
-}
-#addeditaddress label{
-  font-weight: 500;
-  color: #646464;
-}
-#addeditaddress input{
-  height: 42px;
-  margin-bottom: 15px;
-}
-#addeditaddress .input-group-text {
-  line-height: 1.8;
-}
-#addeditaddress .btn-modal{
+  padding: 8px 20px;
   border-radius: 20px;
-  height: 42px;
-  background-color: #1D7A8C;
-  color: white;
-}
-
-/* reschedule-service model */
-#servicereschedule .modal-content{
-  padding: 10px 15px;
-}
-#servicereschedule .modal-body{
-  padding-top: 0px !important;
-}
-#servicereschedule .modal-header .btn-close{
-  margin-top: -40px;
-} 
-#servicereschedule .modal-title{
-  font-weight: bold;
-  color: #646464;
-}
-#servicereschedule label{
-  font-weight: 500;
-  color: #646464;
-  padding-left: 8px;
-}
-#servicereschedule input, #servicereschedule select{
-  height: 46px;
-  margin-bottom: 15px;
-}
-#servicereschedule .update-button{
-  border-radius: 46px;
-  height: 46px;
-  background-color: #1D7A8C;
-  color: white;
-}
-
-/* cancle-service model */
-#servicecancle .modal-content{
-  padding: 10px 15px;
-}
-#servicecancle .modal-body{
-  padding-top: 0px !important;
-}
-#servicecancle .modal-header .btn-close{
-  margin-top: -40px;
-} 
-#servicecancle .modal-title{
-  font-weight: bold;
-  color: #646464;
-}
-#servicecancle .modal-title h4{
-  margin-left: -12px;
-}
-#servicecancle label{
-  font-weight: 500;
-  color: #646464;
-  padding-left: 0px;
-}
-#servicecancle .model-button{
-  margin-top: 15px;
-}
-#servicecancle .complete-button{
-  border-radius: 46px;
-  height: 46px;
-  background-color: #1D7A8C;
-  color: white;
-}
-
-/* Model For Edit and Reschedule Service by Admin */
-#EditAndReschedule{
-  color: #646464;
-}
-#EditAndReschedule .modal-header{
- border-bottom: none;
-}
-#EditAndReschedule .modal-body .lable_title{
-  font-weight: 500;
-}
-#EditAndReschedule .modal-body .btn-modal{
- background-color: #1fb6ff;
- color: white;
- margin-top: 20px;
- padding: 10px;
-}
-#EditAndReschedule .modal-body .btn-modal:hover{
- color: rgba(255, 255, 255, 0.651);
 }

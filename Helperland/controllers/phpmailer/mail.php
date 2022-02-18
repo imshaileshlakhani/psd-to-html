@@ -1,7 +1,7 @@
 <?php 
     require("PHPMailerAutoload.php");
 
-    function sendmail($recipent, $subject, $body, $attachment=""){
+    function sendmail($recipents, $subject, $body, $attachment=""){
         $mail = new PHPMailer;
         //$mail->SMTPDebug = 4;                               // Enable verbose debug output
 
@@ -14,7 +14,9 @@
         $mail->Port = 587;                                    // TCP port to connect to
 
         $mail->setFrom(Config::SMTP_EMAIL, 'Helperland');
-        $mail->addAddress($recipent);     // Add a recipient
+        foreach($recipents as $recipent){
+            $mail->addAddress($recipent);     // Add a recipient
+        }
     
         $mail->addReplyTo(Config::SMTP_EMAIL);
 
@@ -27,10 +29,9 @@
         $mail->Body    = $body;
 
         if(!$mail->send()) {
-            echo 'Message could not be sent.';
-            echo 'Mailer Error: ' . $mail->ErrorInfo;
+            return 'Mailer Error: ' . $mail->ErrorInfo;
         } else {
-            echo 'Message has been sent';
+            return 'Message has been sent';
         }
 
     }

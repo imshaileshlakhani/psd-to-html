@@ -1,4 +1,11 @@
 $(document).ready(function(){
+    $("#bookservice").click(function(){
+        var userdata = $('#userdata').val();
+        if(userdata == ""){
+            $("#loginModal").modal('show');
+        }
+    });
+
     $(window).scroll(function(){
         if(this.scrollY > 20){
             $('#header').addClass("sticky");

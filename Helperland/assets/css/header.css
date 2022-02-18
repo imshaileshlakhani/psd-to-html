@@ -96,8 +96,8 @@
   z-index: 1;
 }
 .error{
-  color: red;
-  font-size: 14px;
+  color: red !important;
+  font-size: 14px !important;
 }
 @media screen and (max-width: 1250px) {
   .header ul {

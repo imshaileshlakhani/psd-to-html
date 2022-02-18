@@ -1,3 +1,4 @@
+    <input type="hidden" id="userdata" value="<?php if(isset($userdata)){ echo $userdata['UserId']; } ?>">
     <header id="header">
         <div class="header">
             <div class="brand">
@@ -7,7 +8,14 @@
             </div>
             <ul>
                 <li class="navitem header2">
-                    <a class="navlink navbtn" href="#">Book now</a>
+                    <a class="navlink navbtn" id="bookservice" href="
+                        <?php if(isset($userdata)){
+                            echo $base_url."?controller=Service&function=service";
+                        }else{
+                            echo "#";
+                        }?>">
+                        Book now
+                    </a>
                 </li>
                 <li class="navitem header2">
                     <a class="navlink" href="<?= $base_url.'?controller=Public&function=price'?>">Prices & services</a>

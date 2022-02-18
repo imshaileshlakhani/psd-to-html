@@ -63,7 +63,7 @@ class AuthenticationController{
                 $link = $this->base_url."?controller=Authentication&function=forgot_password&parameter=".$_POST['email'];
                 $msg = "<h2><a href='$link' style='color:red' >Click here to change your password</a></h2>";
                 $subject = "Forgot Password";
-                sendmail($_POST['email'],$subject,$msg);
+                sendmail([$_POST['email']],$subject,$msg);
                 header("Location:".$this->base_url."?controller=Public&function=home");
             }else{
                 header("location:".$this->error_url."&error=Envalid email!!!");

@@ -402,6 +402,7 @@ $(document).ready(function () {
       // console.log($('#service-schedule-form').serialize()+"&"+$('#details-form').serialize()+"&userId="+userid+"&postal="+postal);
     }
     else{
+      $.LoadingOverlay("hide");
       alert("Please accept terms and conditions");
     }
   });

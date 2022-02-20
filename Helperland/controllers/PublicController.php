@@ -76,7 +76,7 @@
                             <p><b>Email</b> : $email</p>
                             <p><b>Message</b> : $message</p>
                         ";
-                    sendmail(Config::SMTP_ADMIN,$_POST['subject'],$html,$filePath);
+                    sendmail([Config::SMTP_ADMIN],$_POST['subject'],$html,$filePath);
                     header("location:".$this->base_url."?controller=Public&function=contact");
                 }
                 else{

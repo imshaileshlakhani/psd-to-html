@@ -97,7 +97,6 @@ $(document).ready(function () {
           activateNavtabs();
           changeNavtabImg();
           const addressData = JSON.parse(result); 
-          // console.log(addressData);
           showAddress(addressData.address);
           showFavSp(addressData.fav);
           $.LoadingOverlay("hide");
@@ -117,7 +116,7 @@ $(document).ready(function () {
     $('#hr').change(function(){
       if($(".extra-service label input[type=checkbox]").is(':checked')){
         if(parseFloat($('#hr').val()) < parseFloat($(".total-time .total-hr").text().split(" ")[0])){
-          alert("sds");
+          alert("Booking time is less than recommended, we may not be able to finish the job. Please confirm if you wish to proceed with your booking?");
           defaultExtra();
         }
       }
@@ -126,6 +125,7 @@ $(document).ready(function () {
     
     // extra-service from book now page
     var index = [];
+    var counter = 0;
     var extras = ['Inside cabinets','Inside fridge','Inside oven','Laundry wash & dry','Interior windows'];
     $(".extra-service label").change(function(){
         var selectHour = +$('#hr').val();
@@ -135,14 +135,14 @@ $(document).ready(function () {
           $(this).find('div img').attr("src","assets/images/"+$imgVal+"-green.png");
           index[$imgVal-1] = [extras[$imgVal-1]];
           selectHour += 0.5;
-          $('#hr').val(selectHour);
+          counter = 0.5;
         }
         else {
           delete index[$imgVal-1];
           $(this).find('div').removeClass('active');
           $(this).find('div img').attr("src","assets/images/"+$imgVal+".png");
           selectHour -= 0.5;
-          $('#hr').val(selectHour);
+          counter = -0.5;
         }
         
         var txt = "<div class='extra-service-time d-flex flex-column'><div><b>Extras</b></div>";
@@ -154,24 +154,21 @@ $(document).ready(function () {
         txt += "</div>";
         $('.extra-service-time').html(txt);
         
-        totalHours(selectHour);
+        totalHours(counter);
     });
 
     function defaultExtra(){
       var txt = "";
-      $('.extra-service-time').html(txt);
-      $('.extra-service-section input[type=checkbox]').prop('checked', false); 
-      // var service = $('.extra-service .service');
+      $('.extra-service-time').html(txt); 
+      var service = $('.extra-service .service');
       for(var i = 0; i < 5; i++){
-        // if(service[i].classList.contains('active')){
-          // console.log(i);
-          $('.extra-service .service').removeClass('active');
-          for(var j = i+1; j <= 5; j++){
-            console.log(j);
-            $('.extra-service input').find('img').attr("src","assets/images/"+i+".png");
-          }
-        // }
+        if(service[i].classList.contains('active')){
+          service[i].parentNode.querySelector('input').checked = false;
+          $(service[i]).removeClass('active');
+          $(service[i]).find('img').attr("src","assets/images/"+(i+1)+".png");
+        }
       }
+      index = [];
     }
     // total bill
     function totalBill(totalhr){
@@ -185,17 +182,28 @@ $(document).ready(function () {
       var time = $('#time option[value="' + timeval + '"]').text();
       $('.book-time .time').text(time);
 
-      var hrval = $('#hr').val();
-      var hr = $('#hr option[value="' + hrval + '"]').text();
-      $('#basic .hr').text(hr);
-      totalHourValidation(hrval);
-      totalHours(hrval);
+      // totalHourValidation(hrval);
+      totalHours();
     }
     // total hour of work
-    function totalHours(totalhr){
-      $(".total-time .total-hr").text(parseFloat(totalhr)+" Hrs");
-      totalBill(totalhr);
-      totalHourValidation(totalhr);
+    function totalHours(counter=0){
+      var service = $('.extra-service .service');
+      var cnt = 0;
+      for(var i = 0; i < 5; i++){
+        if(service[i].parentNode.querySelector('input').checked){
+          cnt++;
+        }
+      }
+      
+      var hrval = $('#hr').val();
+      var th = counter + +hrval;
+      $(".total-time .total-hr").text(th+" Hrs");
+      $('#hr').val(th);
+      // alert(th+" "+(cnt*0.5));
+      var hr = $('#hr option[value="' + (th - (cnt*0.5)) + '"]').text();
+      $('#basic .hr').text(hr);
+      totalBill(th);
+      totalHourValidation(th);
     }
     // total hour validation
     function totalHourValidation(hrval){

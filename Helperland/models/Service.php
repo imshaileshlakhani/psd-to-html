@@ -25,11 +25,11 @@
                 $postal = trim($data['zipcode']);
                 $userId = trim($data['userdata']);
                 $sql = "SELECT * FROM useraddress WHERE UserId = $userId and PostalCode = '$postal'";
-
                 $result = $this->conn->query($sql);
                 while ($row = $result->fetch_assoc()) {
                     array_push($rows, $row);
                 }
+                
                 return $rows;
             }
         }
@@ -160,6 +160,17 @@
                 }
                 return [$last_id,$email];
             }
+        }
+
+        public function getServiceRequestById($serviceid){
+            $sql = "SELECT * FROM servicerequest JOIN servicerequestaddress ON servicerequestaddress.ServiceRequestId = servicerequest.ServiceRequestId WHERE servicerequest.ServiceRequestId = $serviceid";
+            $service = $this->conn->query($sql);
+            if($service->num_rows > 0){
+                $result = $service->fetch_assoc();
+            }else{
+                $result = [];
+            }
+            return $result;
         }
     }
 ?>

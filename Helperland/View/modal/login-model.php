@@ -1,5 +1,5 @@
 <?php
-    $base_url = "http://localhost/psd-to-html/Helperland/";
+    // Config::BASE_URL = "http://localhost/psd-to-html/Helperland/";
 ?>
 <!-- modal start -->
 
@@ -15,7 +15,7 @@
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <form action="<?= $base_url.'?controller=Authentication&function=login' ?>" method="post">
+                    <form action="<?= Config::BASE_URL.'?controller=Authentication&function=login' ?>" method="post">
                         <div class="col my-2">
                             <div class="form-group icon">
                                 <input type="email" class="form-control" value="<?php if(isset($_COOKIE['email'])){ echo $_COOKIE['email']; } ?>" id="username" name="username" placeholder="Email" autofocus/><i class=""></i>
@@ -41,7 +41,7 @@
                             <p><a href="" data-bs-toggle="modal" data-bs-target="#forgotModal"
                                 data-bs-dismiss="modal">Forgot
                                     password? </a></p>
-                            <p>Don't have an account? <a href="<?= $base_url.'?controller=Public&function=customer_signup'?>"> Create an account</a></p>
+                            <p>Don't have an account? <a href="<?= Config::BASE_URL.'?controller=Public&function=customer_signup'?>"> Create an account</a></p>
                         </div>
                     </form>
                 </div>
@@ -61,7 +61,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <form action="<?= $base_url.'?controller=Authentication&function=forgot_password_link' ?>" method="post">
+                        <form action="<?= Config::BASE_URL.'?controller=Authentication&function=forgot_password_link' ?>" method="post">
                             <div class="col my-2">
                                 <div class="form-group icon">
                                     <input type="email" id="forgot-email" class="form-control" name="email" placeholder="Email"/><i class=""></i>

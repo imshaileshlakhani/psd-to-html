@@ -31,7 +31,7 @@
                         <div class="text-center">
                             <span >Register Now!</span>
                         </div>
-                        <form action="<?= $base_url.'?controller=Authentication&function=user_signup'?>" method="post">
+                        <form action="<?= Config::BASE_URL.'?controller=Authentication&function=user_signup'?>" method="post">
                             <input type="hidden" value="2" name="usertypeid">
                             <div class="row">
                                 <div class="">

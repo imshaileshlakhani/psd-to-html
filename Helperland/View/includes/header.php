@@ -2,7 +2,7 @@
     <header id="header">
         <div class="header">
             <div class="brand">
-                <a class="navbarbrand" href="<?= $base_url.'?controller=Public&function=home'?>">
+                <a class="navbarbrand" href="<?= Config::BASE_URL.'?controller=Public&function=home'?>">
                     <img src="assets/images/nav-logo.png" alt="">
                 </a>
             </div>
@@ -10,7 +10,7 @@
                 <li class="navitem header2">
                     <a class="navlink navbtn" id="bookservice" href="
                         <?php if(isset($userdata)){
-                            echo $base_url."?controller=Service&function=service";
+                            echo Config::BASE_URL."?controller=Service&function=service";
                         }else{
                             echo "#";
                         }?>">
@@ -18,7 +18,7 @@
                     </a>
                 </li>
                 <li class="navitem header2">
-                    <a class="navlink" href="<?= $base_url.'?controller=Public&function=price'?>">Prices & services</a>
+                    <a class="navlink" href="<?= Config::BASE_URL.'?controller=Public&function=price'?>">Prices & services</a>
                 </li>
                 <li class="navitem header2">
                     <a class="navlink" href="#">Warranty</a>
@@ -28,7 +28,7 @@
                 </li>
 
                 <li class="navitem header2">
-                    <a class="navlink" href="<?= $base_url.'?controller=Public&function=contact'?>">Contact</a>
+                    <a class="navlink" href="<?= Config::BASE_URL.'?controller=Public&function=contact'?>">Contact</a>
                 </li>
 
                 <?php if (isset($userdata)) { ?>
@@ -51,7 +51,7 @@
                                 <a class="dropdown-item" href="
                                     <?php
                                         if ($userdata["UserTypeId"] == Config::USER_TYPE[0]) {
-                                            echo "#";
+                                            echo Config::BASE_URL.'?controller=Customer&function=customerDashboard';
                                         } else if ($userdata["UserTypeId"] == Config::USER_TYPE[1]) {
                                             echo "#";
                                         } else {
@@ -63,7 +63,7 @@
                                 <a class="dropdown-item" href="
                                     <?php
                                         if ($userdata["UserTypeId"] == Config::USER_TYPE[0]) {
-                                            echo "#";
+                                            echo Config::BASE_URL.'?controller=Customer&function=customerDashboard&parameter=setting';
                                         } else if ($userdata["UserTypeId"] == Config::USER_TYPE[1]) {
                                             echo "#";
                                         } else {
@@ -72,7 +72,7 @@
                                     ?> ">
                                     My Setting
                                 </a>
-                                <a class="dropdown-item" href="<?= $base_url.'?controller=Authentication&function=logout' ?>">
+                                <a class="dropdown-item" href="<?= Config::BASE_URL.'?controller=Authentication&function=logout' ?>">
                                     Logout
                                 </a>
                             </div>
@@ -85,12 +85,15 @@
                         <a class="navlink navbtn" href="#" data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">Login</a>
                     </li>
                     <li class="navitem">
-                        <a class="navlink navbtn" href="<?= $base_url.'?controller=Public&function=sp_signup' ?>">Become a Helper</a>
+                        <a class="navlink navbtn" href="<?= Config::BASE_URL.'?controller=Public&function=sp_signup' ?>">Become a Helper</a>
                     </li>
                 <?php
                 } ?>
             </ul>
             <div class="menu-btn">
+                <i class="fas fa-bars "></i>
+            </div>
+            <div class="menu-btn1" data-bs-toggle="modal" data-bs-target="#navbartoggle" data-bs-dismiss="modal">
                 <i class="fas fa-bars "></i>
             </div>
         </div>

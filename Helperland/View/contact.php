@@ -71,7 +71,7 @@
                     <span class="title">Get in touch with us</span>
                 </div>
                 <div class="form">
-                    <form action="<?= $base_url.'?controller=Public&function=contact_us'?>" method="post" enctype="multipart/form-data">
+                    <form action="<?= Config::BASE_URL.'?controller=Public&function=contact_us'?>" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 pb-3">
                                 <input class="form-control" id="firstname" name="firstname" placeholder="First name" type="text"/>

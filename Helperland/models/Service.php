@@ -124,7 +124,6 @@
                 $TotalCost = $SubTotal * 18;
                 $Comments = $data['comment'];
                 $ExtraHours = 0;
-                $ServiceHours = $data['totalhr'] - $ExtraHours;
 
                 $SPAcceptedDate = 'null';
                 $Status = 0;
@@ -143,6 +142,7 @@
                 if(isset($data['pet'])){
                     $HasPets = $data['pet'];
                 }
+                $ServiceHours = $data['totalhr'] - $ExtraHours;
                 
                 $sql = "INSERT INTO servicerequest (UserId, ServiceStartDate, ZipCode, ServiceHourlyRate, ServiceHours, ExtraHours, SubTotal, Discount, TotalCost, Comments, ServiceProviderId, SPAcceptedDate, HasPets, Status, CreatedDate, PaymentDone) 
                 VALUES ($userid, '$ServiceStartDate', '$postalcode', $ServiceHourlyRate, $ServiceHours, $ExtraHours, $SubTotal, $Discount, $TotalCost, '$Comments', $ServiceProviderId, $SPAcceptedDate, $HasPets, $Status, now(), $PaymentDone);";

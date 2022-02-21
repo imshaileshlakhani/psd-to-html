@@ -42,7 +42,7 @@
                 <div class="line"></div>
             </div>
             <div class="forgot-password" id="forgot-password">
-                <form action="<?= $base_url.'?controller=Authentication&function=forgot_password' ?>" method="post">
+                <form action="<?= Config::BASE_URL.'?controller=Authentication&function=forgot_password' ?>" method="post">
                     <input type="hidden" name="email" value="<?php if(isset($_GET['parameter'])){ echo $email;}?>">
                     <div class="pb-4">
                         <label for="newpsw">New Password</label>

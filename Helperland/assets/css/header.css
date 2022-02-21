@@ -88,7 +88,7 @@
 .dropdown-menu .dropdown-item img {
   margin-right: 5px;
 }
-.menu-btn {
+.menu-btn, .menu-btn1 {
   color: white;
   display: none;
   padding-right: 20px;

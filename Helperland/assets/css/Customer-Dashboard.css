@@ -1,0 +1,387 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+/* ------------header-section--------- */
+#header {
+  background-color: #525252 !important;
+}
+#header.sticky {
+  position: fixed !important;
+}
+.navitem .navbtn {
+  background-color: #29626d !important;
+}
+
+@media screen and (max-width: 1250px) {
+  .menu-btn1 {
+    display: block !important;
+  }
+  .menu-btn {
+    display: none !important;
+  }
+}
+
+/* ------------welcome-msg------------ */
+.welcome {
+  height: 119px;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #e1e1e1;
+}
+.welcome .text-center {
+  padding: 37px 0px;
+  font-size: 1.87rem;
+  color: #4f4f4f;
+}
+.welcome .text-center span {
+  font-weight: bold;
+}
+
+/* --------------------main-section--------------- */
+#service-section {
+  padding: 31px 20px;
+}
+.service-section {
+  margin: 0 auto;
+  display: flex;
+}
+.sidebar {
+  background-color: #1d7a8c;
+  /* overflow-x: hidden; */
+  width: 18%;
+}
+.sidebar a {
+  text-decoration: none;
+  display: block;
+  color: #ffffff;
+  font-size: 18px;
+  padding: 15px 15px 15px 15px;
+  border-bottom: 1px solid rgba(202, 194, 194, 0.2);
+}
+.sidebar a.active {
+  background-color: #146371;
+}
+.sidebar a:hover {
+  color: #ffffff;
+}
+.sidebar-content {
+  /* overflow-y:hidden; */
+  margin-left: 14px;
+  overflow-x: auto;
+  padding: 15px 20px;
+  width: 100%;
+}
+.sidebar-content .title{
+  color: #646464;
+  font-size: 1.37rem;
+  font-weight: bold;
+}
+.sidebar-content .title-btn a{
+  text-decoration: none;
+  background-color: #146371;
+  color: #fff;
+  font-size: 0.87rem;
+  padding: 12px 16px;
+  border-radius: 34px;
+}
+#ups {
+  overflow-x: auto;
+}
+
+/* --------------------table-section--------------- */
+.table1, .table2, .table3 {
+  border-collapse: collapse;
+  font-size: 1rem;
+  width: 100%;
+}
+.table1 .th, .table2 .th, .table3 .th {
+  background-color: #f9f9f9;
+  color: #646464;
+}
+.table1 .th th, .table2 .th th, .table3 .th th {
+  padding: 13px 37.2px 13px 37.2px;
+}
+.table1 tr {
+  cursor: pointer;
+}
+.table1 tr, .table2 tr, .table3 tr {
+  border: 1px solid #ddd;
+  color: #646464;
+}
+.table1 tr td, .table2 tr td, .table3 tr td {
+  line-height: 1.5;
+  padding: 15px 0;
+}
+.table1 td span, .table2 td span {
+  display: block;
+}
+.table1 .text-center td:nth-child(3) > div, .table2 .text-center td:nth-child(2) > div{
+  display: flex;
+  align-items: center;
+}
+.table1 .cap, .table2 .cap{
+  border: 1px solid #aaa;
+  height: 44px;
+  width: 44px;
+  border-radius: 50%;
+  margin-right: 12px;
+}
+.table1 .cap img, .table2 .cap img{
+  height: 20px;
+  width: 30px;
+}
+.table1 .payment, .table2 .payment{
+  color: #1d7a8c;
+  font-size: 24px;
+  font-weight: bold;
+}
+.table1 .action a, .table2 .ratesp a {
+  text-decoration: none;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 34px;
+}
+
+/* -----------------dashboard-section --------------------*/
+.table1 .text-center td:nth-child(2) > span:nth-child(2){
+  padding-left: 7px;
+}
+.table1 .action a.Reschedule {
+  background-color: #146371;
+  margin-bottom: 5px;
+}
+.table1 .action a.Cancle {
+  background-color: #ff6b6b;
+}
+
+/* ------------------service-history-section ------------------*/
+.table2 .text-center td:nth-child(4) a{
+  background-color: #67b644;
+  padding: 4px 9px;
+  color: white;
+  font-size: 0.81rem;
+}
+.table2 .text-center td:nth-child(4) a.Cancelled{
+  text-decoration: none;
+  background-color: #ff6b6b;
+  padding: 4px 9px;
+  color: white;
+  font-size: 0.81rem;
+}
+.table2 .ratesp a {
+  background-color: #6da9b5;
+}
+
+/* -------------------favourite-pros-section--------------------------- */
+.main{
+  display: flex;
+  flex-wrap: wrap;
+}
+.main .fav-card{
+  width: 280px;
+  height: 280px;
+  margin: 0px 20px 20px 0px;
+  border: 1px solid #e1e1e1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.fav-card .cap{
+  border: 1px solid #aaa;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+.fav-card .cap img{
+  height: 45px;
+  width: 55px;
+}
+.rating div:nth-child(1){
+  font-weight: bold;
+  color: #4f4f4f;
+  font-size: 18px;
+}
+.rating div:nth-child(2), .rating div:nth-child(3){
+  color: #646464;
+}
+.fav-card .btns-div a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 34px;
+}
+.fav-card .btns-div a.Remove {
+  background-color: #146371;
+  margin-bottom: 5px;
+}
+.fav-card .btns-div a.Block {
+  background-color: #ff6b6b;
+}
+
+/* -----------------------table-footer-section----------------- */
+.sidebar-content .table-footer{
+  display: flex;
+  justify-content: space-between;
+}
+.sidebar-content .drop-record{
+  color: #646464;
+  font-size: 0.87rem;
+}
+.drop-record select{
+  width: 62px;
+  height: 38px;
+  outline: none;
+  border: 1px solid #e1e1e1;
+  color: #646464;
+  font-size: 0.87rem;
+  text-align: center;
+}
+.pagination div{
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #e1e1e1;
+  margin: 0 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #777777;
+  cursor: pointer;
+}
+.pagination div.active{
+  background-color: #1d7a8c;
+  color: white;
+}
+.pagination div:nth-child(7) img{
+  transform: rotate(180deg);
+}
+.pagination div:nth-child(8) img{
+  transform: rotate(180deg);
+}
+
+/* -----------------------my-setting-section--------------------- */
+.sidebar-content .nav-tabs{
+  display: flex;
+  justify-content: space-around;
+}
+.nav-tabs{
+  border-bottom: 2px solid #dee2e6 !important;
+}
+.nav-tabs .nav-item button{
+  border: none;
+  color: #646464;
+  font-weight: bold;
+}
+.nav-tabs .nav-item button.active{
+  color: #146371 !important;
+  border-bottom: 2px solid #146371;
+}
+.sidebar-content .tab-content{
+  width: 70vw;
+}
+#details label, #password label{
+  color: #646464;
+  font-weight: bold;
+  display: block;
+}
+#details input, #password input{
+  color: #646464;
+  height: 43px;
+}
+#details .input-group-text{
+  line-height: 1.8;
+}
+.dateofbirth #month{
+  width: 120px;
+}
+.dateofbirth select, .language select{
+  height: 43px;
+  padding: 0 10px;
+  outline: none;
+  border: 1px solid #e1e1e1;
+  color: #646464;
+  font-size: 0.87rem;
+  text-align: center;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+#details .save-btn a, #password .save-btn a, #address .save-btn a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 34px;
+}
+#details .save-btn a.save, #password .save-btn a.save, #address .save-btn a.save {
+  background-color: #146371;
+}
+#address .table3 tr td{
+  padding: 15px 37.5px;
+}
+#address .table3 .action i{
+  color: #aaa;
+  font-size: 18px;
+  margin-right: 5px;
+}
+
+@media screen and (max-width: 560px) {
+  .sidebar-content .tab-content{
+    width: 73vw;
+  }
+}
+@media screen and (max-width:767px) {
+  .table2, .table1 {
+    border-collapse: separate;
+    border-spacing: 1px 15px;
+  }
+  .table2 .th, .table1 .th{
+    display: none;
+  }
+  .table2 tr, .table1 tr{
+    outline: 1px solid #ddd;
+  }
+  .table2 tr td, .table1 tr td{
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 20px;
+    margin: 0 15px;
+  }
+  .table2 tr td:nth-child(1), .table1 tr td:nth-child(2){
+    display: flex;
+    flex-direction: column;
+  }
+  .table2 tr td:nth-child(1) span, .table1 tr td:nth-child(2) span{
+    text-align: left;
+  }
+  .table2 tr td:nth-child(3), .table2 tr td:nth-child(4), .table2 tr td:nth-child(5), .table1 tr td:nth-child(4), .table1 tr td:nth-child(5){
+    justify-content: center;
+  }
+  .table2 tr td:last-child, .table1 tr td:last-child{
+    border: none;
+  }
+  .sidebar-content .table-footer{
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 1100px) {
+  .sidebar {
+    display: none;
+  }
+  .sidebar-content {
+    margin-left: 0px;
+  }
+  .sidebar-content .tab-content{
+    width: 90vw;
+  }
+}
+@media screen and (max-width: 1217px) {
+  .table1 .text-center td:last-child{
+    display: inline-grid;
+  }
+  .table2 .ratesp a, .table1 .action a, .table1 .action a {
+    padding: 8px 16px;
+  }
+}

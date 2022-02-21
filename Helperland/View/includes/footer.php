@@ -5,10 +5,10 @@
             </div>
             <div class="footer-nav">
                 <ul class="">
-                    <li><a href="<?= $base_url.'?controller=Public&function=home'?>">HOME</a></li>
-                    <li><a href="<?= $base_url.'?controller=Public&function=about'?>">ABOUT</a></li>
+                    <li><a href="<?= Config::BASE_URL.'?controller=Public&function=home'?>">HOME</a></li>
+                    <li><a href="<?= Config::BASE_URL.'?controller=Public&function=about'?>">ABOUT</a></li>
                     <li><a href="#Customers-Say">TESTIMONIALS</a></li>
-                    <li><a href="<?= $base_url.'?controller=Public&function=faq'?>">FAQS</a></li>
+                    <li><a href="<?= Config::BASE_URL.'?controller=Public&function=faq'?>">FAQS</a></li>
                     <li><a href="#">INSURANCE POLICY</a></li>
                     <li><a href="#">IMPRESSUM</a></li>
                 </ul>

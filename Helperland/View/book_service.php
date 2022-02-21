@@ -30,6 +30,7 @@
         include('modal/login-model.php');
         include('modal/payment-card.php');
         include('modal/success-model.php');
+
         include('includes/header.php');
     ?>
     <main>
@@ -78,7 +79,7 @@
                                 Setup Service
                             </div>
                             <div class="service-setup-content">
-                                <form action="<?= $base_url.'?controller=Service&function=postal'?>" id="setup-service-form" onsubmit="event.preventDefault();">
+                                <form action="<?= Config::BASE_URL.'?controller=Service&function=postal'?>" id="setup-service-form" onsubmit="event.preventDefault();">
                                     <span>Enter your Postal Code</span>
                                     <div class="postal-code">
                                         <div class="form-group mb-2">
@@ -444,7 +445,7 @@
                                     <p class="ans">You can reschedule any booking for free at least 24 hours in advance of the scheduled start time. If you need to skip a booking within the minimum commitment, we’ll credit the value of the booking to your account. You can use this credit on future cleanings and other Helperland services.</p>
                                 </div>
                             </div>
-                            <div class="link"><a href="<?= $base_url . '?controller=Public&function=faq' ?>">For more help</a></div>
+                            <div class="link"><a href="<?= Config::BASE_URL.'?controller=Public&function=faq' ?>">For more help</a></div>
                         </div>
                     </div>
                 </div>

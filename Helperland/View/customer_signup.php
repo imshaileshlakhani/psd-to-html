@@ -34,7 +34,7 @@
                 <div class="line"></div>
             </div>
             <div class="form">
-                <form action="<?= $base_url.'?controller=Authentication&function=user_signup'?>" method="post">
+                <form action="<?= Config::BASE_URL.'?controller=Authentication&function=user_signup'?>" method="post">
                     <input type="hidden" value="1" name="usertypeid">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 pb-3">

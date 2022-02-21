@@ -1,6 +1,5 @@
 <?php 
 class Config{
-    
     /*------------ Database Constant ------------*/
     const DB_SERVER = "localhost";
     const DB_USER = "root";
@@ -17,7 +16,9 @@ class Config{
     
     //Enter password of SMTP_EMAIL to activate email functionality
     const SMTP_PASS = "";
-
     const SMTP_ADMIN = "shaileshlakhani1234@gmail.com";
+
+    // url constant
+    const BASE_URL = "http://localhost/psd-to-html/Helperland/";
 }
 ?>

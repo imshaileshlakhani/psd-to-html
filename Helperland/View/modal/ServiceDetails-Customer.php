@@ -12,26 +12,26 @@
                             <div class="col content-section">
                                 <div class="row">
                                     <p class="model-title">Service Details</p>
-                                    <p class="model-time">07/10/2021 08:00 -11:00 </p>
-                                    <p>Duration: <span>3 Hrs</span></p>
+                                    <p class="model-time"></p>
+                                    <p>Duration: <span id="duration-model"></span></p>
                                 </div>
                                 <hr>
                                 <div class="row">
-                                    <p>Service Id: <span>8488.</span></p>
-                                    <p>Extras:</p>
-                                    <p>Total Payment: <span class="model-price">56,25 € </span></p>
+                                    <p>Service Id: <span id="sid-model"></span></p>
+                                    <p>Extras: <span id="extra-model"><span></p> 
+                                    <p>Total Payment: <span class="model-price"></span></p>
                                 </div>
                                 <hr>
                                 <div class="row">
-                                    <p>Service Address: <span>Koenigstrasse 112,99897 Tambach-Dietharz</span></p>
+                                    <p>Service Address: <span id="address-model"></span></p>
                                     <p>Billing Address: <span>Same as cleaning Address</span></p>
-                                    <p>Phone: <span>+49 9955648797</span></p>
-                                    <p>Email: <span>patel2128@gmail.com</span></p>
+                                    <p>Phone: <span id="phone-model"></span></p>
+                                    <p>Email: <span id="email-model"></span></p>
                                 </div>
                                 <hr>
                                 <div class="row">
                                     <p>Comments</p>
-                                    <p><i class="fa fa-times-circle-o"></i> <span>I dont't have pets at home</span></p>
+                                    <p id="pet-model"></p>
                                 </div>
                                 <hr>
                                 <div class="row model-button">

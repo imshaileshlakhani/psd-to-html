@@ -156,6 +156,12 @@
 .table1 .action a.Cancle {
   background-color: #ff6b6b;
 }
+.table1 .avg-ratting .fill{
+  color: yellow;
+}
+.table1 .avg-ratting .empty{
+  color: gray;
+}
 
 /* ------------------service-history-section ------------------*/
 .table2 .text-center td:nth-child(4) a{
@@ -255,10 +261,10 @@
   background-color: #1d7a8c;
   color: white;
 }
-.pagination div:nth-child(7) img{
+.pagination #next-tab img{
   transform: rotate(180deg);
 }
-.pagination div:nth-child(8) img{
+.pagination #next-last-tab img{
   transform: rotate(180deg);
 }
 
@@ -364,6 +370,9 @@
   .sidebar-content .table-footer{
     flex-direction: column;
     align-items: center;
+  }
+  .sidebar-content .drop-record{
+    margin-bottom: 15px;
   }
 }
 @media screen and (max-width: 1100px) {

@@ -115,6 +115,7 @@
             if(isset($data)){
                 $email = [];
                 $last_id = 0;
+                $time = $data['time'];
                 $AddressId = $data['address'];
                 $userid = $data['userId'];
                 $ServiceStartDate = $data['date'];
@@ -132,6 +133,12 @@
                 $ServiceProviderId = 'null';
                 $HasPets = 0;
                 $ExtraServiceId = 0;
+
+                // set date format 
+                $date = new DateTime($ServiceStartDate);
+                $date->setTime(floor($time), floor($time) == $time ? "00" : (("0." . substr($time, -1) * 60) * 100));
+                $cleaningstartdate = $date->format('Y-m-d H:i:s');
+
                 if(isset($data['extra'])){
                     $ExtraServiceId = implode("",$data['extra']);
                     $ExtraHours = count($data['extra']) * 0.5;
@@ -145,7 +152,7 @@
                 $ServiceHours = $data['totalhr'] - $ExtraHours;
                 
                 $sql = "INSERT INTO servicerequest (UserId, ServiceStartDate, ZipCode, ServiceHourlyRate, ServiceHours, ExtraHours, SubTotal, Discount, TotalCost, Comments, ServiceProviderId, SPAcceptedDate, HasPets, Status, CreatedDate, PaymentDone) 
-                VALUES ($userid, '$ServiceStartDate', '$postalcode', $ServiceHourlyRate, $ServiceHours, $ExtraHours, $SubTotal, $Discount, $TotalCost, '$Comments', $ServiceProviderId, $SPAcceptedDate, $HasPets, $Status, now(), $PaymentDone);";
+                VALUES ($userid, '$cleaningstartdate', '$postalcode', $ServiceHourlyRate, $ServiceHours, $ExtraHours, $SubTotal, $Discount, $TotalCost, '$Comments', $ServiceProviderId, $SPAcceptedDate, $HasPets, $Status, now(), $PaymentDone);";
 
                 $result = $this->conn->query($sql);
                 if($result){

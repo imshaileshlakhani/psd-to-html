@@ -44,7 +44,7 @@
                                 </select>
                             </div>
                             <div class="row model-button">
-                                <button class="btn update-button">Update</button>
+                                <button type="button" class="btn update-button">Update</button>
                             </div>
                         </div>
                     </form>

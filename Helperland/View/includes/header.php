@@ -51,7 +51,7 @@
                                 <a class="dropdown-item" href="
                                     <?php
                                         if ($userdata["UserTypeId"] == Config::USER_TYPE[0]) {
-                                            echo Config::BASE_URL.'?controller=Customer&function=customerDashboard';
+                                            echo Config::BASE_URL.'?controller=Customer&function=customerDashboard&parameter=Dashboard';
                                         } else if ($userdata["UserTypeId"] == Config::USER_TYPE[1]) {
                                             echo "#";
                                         } else {
@@ -60,7 +60,7 @@
                                     ?> ">
                                     My Dashboard
                                 </a>
-                                <a class="dropdown-item" href="
+                                <a class="dropdown-item" id="setting" href="
                                     <?php
                                         if ($userdata["UserTypeId"] == Config::USER_TYPE[0]) {
                                             echo Config::BASE_URL.'?controller=Customer&function=customerDashboard&parameter=setting';

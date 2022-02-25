@@ -104,6 +104,12 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+#successModal #success-msg{
+  font-weight: 400;
+}
+#successModal #service-id{
+  font-weight: 100;
+}
 #successModal .ok{
   background-color: #3A7A8C;
   color: white;
@@ -235,6 +241,9 @@
 }
 #servicedetails .content-section .fa-times-circle-o, #servicedetails1 .content-section .fa-times-circle-o{
   color: rgb(255, 0, 0);
+}
+#servicedetails .content-section .fa-circle-check, #servicedetails1 .content-section .fa-circle-check{
+  color: rgb(30, 216, 24) !important;
 }
 #servicedetails .model-button, #servicedetails1 .model-button{
   padding-top: 7px;

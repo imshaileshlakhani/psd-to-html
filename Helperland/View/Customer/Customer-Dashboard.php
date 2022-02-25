@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("config.php");
+    // include("config.php");
 
     if (isset($_SESSION["userdata"])) {
         $userdata = $_SESSION["userdata"];
@@ -21,11 +21,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/4ae0bb5b6f.js" crossorigin="anonymous"></script>
-
+    
+    
     <title>Customer Dashboard</title>
 </head>
 
-<body>
+<body onload="defaultDate()">
     
     <?php
         //  model start 
@@ -33,12 +34,14 @@
         include("View/modal/Service-Cancle.php");
         include("View/modal/ServiceDetails-Customer.php");
         include("View/modal/Sidebar-Customer.php");
+        include('View/modal/success-model.php');
 
         // header-section
         include ('View/includes/header.php');
     ?>
 
     <main>
+        <input type="hidden" name="" id="tab-name" value="<?php if(isset($_GET['parameter'])){ echo $_GET['parameter']; }?>">
         <section id="welcome">
             <div class="welcome">
                 <div class="text-center">Welcome, <span><?= $userdata["FirstName"] ?></span></div>
@@ -47,10 +50,10 @@
         <section id="service-section">
             <div class="service-section">
                 <div class="sidebar">
-                    <a href="<?= Config::BASE_URL.'?controller=Customer&function=customerDashboard&parameter=Dashboard'?>" class="active">Dashboard</a>
-                    <a href="<?= Config::BASE_URL.'?controller=Customer&function=customerDashboard&parameter=History'?>">Service History</a>
+                    <a href="<?= Config::BASE_URL.'?controller=Customer&function=customerDashboard&parameter=Dashboard'?>" class="<?php if($_GET['parameter'] == "Dashboard"){ echo 'active'; }?>" id="Dashboard">Dashboard</a>
+                    <a href="<?= Config::BASE_URL.'?controller=Customer&function=customerDashboard&parameter=History'?>" class="<?php if($_GET['parameter'] == "History"){ echo 'active'; }?>" id="History">Service History</a>
                     <a href="#">Service Schedule</a>
-                    <a href="<?= Config::BASE_URL.'?controller=Customer&function=customerDashboard&parameter=Favourite'?>">Favourite Pros</a>
+                    <a href="<?= Config::BASE_URL.'?controller=Customer&function=customerDashboard&parameter=Favourite'?>" class="<?php if($_GET['parameter'] == "Favourite"){ echo 'active'; }?>" id="Favourite">Favourite Pros</a>
                     <a href="#">Invoices</a>
                     <a href="#">Notifications</a>
                 </div>
@@ -85,8 +88,10 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="assets/js/nav.js"></script>
+    <script src="assets/js/customer.js"></script>
 </body>
 
 </html>

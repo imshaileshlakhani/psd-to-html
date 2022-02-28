@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $controller = "Public";
 $function = "home";
 $parameter = '';

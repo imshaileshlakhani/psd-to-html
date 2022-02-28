@@ -193,6 +193,25 @@
 #Ratesp .modal-body .rate{
   display: flex;
 }
+#Ratesp .rating-stars ul {
+  list-style-type:none;
+  padding:0;
+  -moz-user-select:none;
+  -webkit-user-select:none;
+}
+#Ratesp .rating-stars ul > li.star {
+  display:inline-block;
+}
+#Ratesp .rating-stars ul > li.star > i.fa {
+  font-size: 1rem; 
+  color:#ccc;
+}
+#Ratesp .rating-stars ul > li.star.hover > i.fa {
+  color:#FFCC36;
+}
+#Ratesp .rating-stars ul > li.star.selected > i.fa {
+  color:#FF912C;
+}
 #Ratesp .modal-body .submit button{
   padding: 8px 16px;
   font-size: 16px;
@@ -242,7 +261,7 @@
 #servicedetails .content-section .fa-times-circle-o, #servicedetails1 .content-section .fa-times-circle-o{
   color: rgb(255, 0, 0);
 }
-#servicedetails .content-section .fa-circle-check, #servicedetails1 .content-section .fa-circle-check{
+#servicedetails .content-section .fa-check-circle-o, #servicedetails1 .content-section .fa-check-circle-o{
   color: rgb(30, 216, 24) !important;
 }
 #servicedetails .model-button, #servicedetails1 .model-button{

@@ -1,5 +1,4 @@
 <?php
-session_start();
 include("phpmailer/mail.php");
 
 class AuthenticationController{
@@ -18,8 +17,8 @@ class AuthenticationController{
             if(count($userdata)>0){
                 $_SESSION['userdata'] = $userdata;
                 if(isset($_POST['remember'])){
-                    setcookie('email',$userdata['Email'],time()+3600);
-                    setcookie('psw',$userdata['Password'],time()+3600);
+                    setcookie('email',$_POST["username"],time()+3600);
+                    setcookie('psw',$_POST["password"],time()+3600);
                 }
                 else{
                     setcookie('email','',time());

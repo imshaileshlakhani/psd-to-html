@@ -39,10 +39,14 @@ class CustomerController{
                         echo json_encode(['service'=>$result,'paginationData'=>$paginationData]);
                         break;
                     case "Favourite":
-                        echo $parameter . " tab-content";
+                        $result = $this->model->show_fav_block_sp($_POST);
+                        $TotalRecord = $result[0]['Totalrecord'];
+                        $paginationData['Totalrecord'] = $TotalRecord;
+                        echo json_encode(['favSp'=>$result,'paginationData'=>$paginationData]);
                         break;
                     case "setting":
-                        echo $parameter . " tab-content";
+                        $result = $this->model->settingAddress($_POST);
+                        echo json_encode(['saddress'=>$result]);
                         break;
                     default:
                         echo "no parameter";
@@ -62,6 +66,40 @@ class CustomerController{
         if(isset($_POST)){
             $result = $this->model->rescheduleService($_POST);
             echo json_encode(['dateUpdate'=>$result]);
+        }
+    }
+
+    function favBlockSp(){
+        if(isset($_POST)){
+            $result = $this->model->fav_block_sp($_POST);
+            echo json_encode(['status'=>$result]);
+        }
+    }
+
+    public function addAddress(){
+        if(isset($_POST)){
+            $address = $this->model->add_address($_POST);
+            if($address){
+                echo json_encode(['address' => $address]);
+            }
+        }
+    }
+
+    public function editSetting(){
+        if(isset($_POST)){
+            $userdata = $this->model->editSettingDetails($_POST);
+            if(count($userdata) > 0){
+                $_SESSION['userdata'] = $userdata;
+                echo json_encode(['save' => $userdata]);
+            }
+        }
+    }
+    public function changePassword(){
+        if(isset($_POST)){
+            $success = $this->model->changeOldPassword($_POST);
+            if($success){
+                echo json_encode(['success'=>$success]);
+            }
         }
     }
 }

@@ -64,8 +64,9 @@
                 $userId = trim($data['userdata']);
                 $mnumber = trim($data['mnumber']);
                 $state = trim($data['statename']);
+                $email = trim($data['email']);
 
-                $sql = "INSERT INTO useraddress (UserId, AddressLine1, City, State, PostalCode, Mobile) VALUES ($userId,'$AddressLine1','$city','$state','$zipcode','$mnumber')";
+                $sql = "INSERT INTO useraddress (UserId, AddressLine1, City, State, PostalCode, Mobile, Email) VALUES ($userId,'$AddressLine1','$city','$state','$zipcode','$mnumber','$email')";
 
                 $result = $this->conn->query($sql);
                 if($result){

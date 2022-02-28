@@ -7,18 +7,18 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="#">
+                    <form action="#" id="add-edit-saddress-form">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="Street">Street name</label>
-                                    <input type="text" class="form-control" placeholder="Koenigstrasse">
+                                    <input type="text" class="form-control" name="sstreet" placeholder="Koenigstrasse">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="House">House number</label>
-                                    <input type="text" class="form-control" placeholder="122">
+                                    <input type="text" class="form-control" name="shouse" placeholder="122">
                                 </div>
                             </div>
                         </div>
@@ -26,14 +26,14 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="Postal">Postal Code</label>
-                                    <input type="text" class="form-control" placeholder="99897">
+                                    <input type="text" class="form-control" name="spostal" placeholder="99897">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span></span>
                                     <label for="City">City</label>
-                                    <input type="text" class="form-control" placeholder="Tambach-Dietharz">
+                                    <input type="text" class="form-control" name="scity" placeholder="Tambach-Dietharz">
                                 </div>
                             </div>
                         </div>
@@ -44,14 +44,14 @@
                                     <div class="input-group-prepend">
                                         <div class="input-group-text">+49</div>
                                     </div>
-                                        <input type="number" class="form-control" id="inlineFormInputGroup"
+                                        <input type="number" name="smobile" class="form-control" id="smobile"
                                         placeholder="9955648797">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
-                                <button type="submit" class="btn btn-modal form-control">Edit</button>
+                                <button type="button" id="add-edit-saddress" class="btn btn-modal form-control">Edit</button>
                             </div>
                         </div>
                     </form>

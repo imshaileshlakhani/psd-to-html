@@ -3,6 +3,9 @@
     if(isset($_SESSION['userdata'])){
         $userdata = $_SESSION['userdata'];
     }
+    else{
+        header('location: '.Config::BASE_URL.'?controller=Public&function=home');
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -230,6 +233,7 @@
                                         <div id="add-new-address">
                                             <div class="card card-body">
                                                 <input type="hidden" id="na-statename">
+                                                <input type="hidden" id="uemail" value="<?= $userdata['Email']?>">
                                                 <div class="row">
                                                     <div class="col-6">
                                                         <div class="form-group">

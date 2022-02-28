@@ -251,10 +251,11 @@ $(document).ready(function () {
       var Phonenumber = $('#na-Phonenumber').val();
       const userId = $('#userdata').val();
       var state = $('#na-statename').val();
+      var email = $('#uemail').val();
       $.ajax({
         url : "http://localhost/psd-to-html/Helperland/?controller=Service&function=addAddress",
         type : 'POST',
-        data : {zipcode : postal,userdata : userId,sname : Streetname,statename : state ,hnumber : Housenumber,cname : city,mnumber : Phonenumber},
+        data : {zipcode : postal,userdata : userId,sname : Streetname,statename : state ,hnumber : Housenumber,cname : city,mnumber : Phonenumber,email : email},
         success : function(result){
           $("#add-new-address").css("display","none");
           $(".add-address-btn").css("display","block");

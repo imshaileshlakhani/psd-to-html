@@ -1,9 +1,10 @@
 <?php
-    session_start();
     // include("config.php");
-
-    if (isset($_SESSION["userdata"])) {
-        $userdata = $_SESSION["userdata"];
+    if(isset($_SESSION['userdata'])){
+        $userdata = $_SESSION['userdata'];
+    }
+    else{
+        header('location: '.Config::BASE_URL.'?controller=Public&function=home');
     }
 ?>
 <!DOCTYPE html>
@@ -34,7 +35,9 @@
         include("View/modal/Service-Cancle.php");
         include("View/modal/ServiceDetails-Customer.php");
         include("View/modal/Sidebar-Customer.php");
-        include('View/modal/success-model.php');
+        include("View/modal/success-model.php");
+        include("View/modal/Rate-Servicer.php");
+        include("View/modal/AddEdit-Address.php");
 
         // header-section
         include ('View/includes/header.php');
@@ -44,7 +47,7 @@
         <input type="hidden" name="" id="tab-name" value="<?php if(isset($_GET['parameter'])){ echo $_GET['parameter']; }?>">
         <section id="welcome">
             <div class="welcome">
-                <div class="text-center">Welcome, <span><?= $userdata["FirstName"] ?></span></div>
+                <div class="text-center">Welcome, <span id="welcome-name"><?= $userdata["FirstName"] ?></span></div>
             </div>
         </section>
         <section id="service-section">
@@ -78,7 +81,6 @@
                         include('View/Customer/Dashboard.php');
                     }
                 ?>
-
             </div>
         </section>
     </main>
@@ -91,6 +93,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="assets/js/nav.js"></script>
+    <script src="assets/js/validate.js"></script>
     <script src="assets/js/customer.js"></script>
 </body>
 

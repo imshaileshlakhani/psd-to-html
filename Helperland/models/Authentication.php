@@ -10,7 +10,7 @@
             if(isset($data['username'])){
                 $user = trim($data["username"]);
                 $pass = trim($data["password"]);
-                $sql = "SELECT * FROM user WHERE Email='$user' AND Password='$pass'";
+                $sql = "SELECT UserId,FirstName,LastName,Email,Mobile,DateOfBirth,UserTypeId FROM user WHERE Email='$user' AND Password='$pass'";
             }
             else{
                 $email = trim($data["email"]);

@@ -45,7 +45,7 @@
                             <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton">
                                 <div class="dropdown-item">
                                     <div>Welcome,</div>
-                                    <div><b><?= $userdata["FirstName"] ?></b></div>
+                                    <div id="wname"><b><?= $userdata["FirstName"] ?></b></div>
                                 </div>
                                 <hr class="my-1">
                                 <a class="dropdown-item" href="

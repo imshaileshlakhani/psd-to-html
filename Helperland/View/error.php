@@ -37,7 +37,7 @@
                 <img src="assets/images/error.svg" alt="">
             </div>
             <div class="text-center py-4">
-                <span>Something went wrong! <?= $errorMsg ?></span>
+                <span><?= $errorMsg ?></span>
             </div>
         </section>
     </main>

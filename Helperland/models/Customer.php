@@ -17,6 +17,9 @@
                 $avgRatting = 0.0;
 
                 $total = $this->getTotalServiceByUserId($userId,$status);
+                if(is_null($total) || $total == 0){
+                   return [];
+                }
 
                 $sql = "SELECT servicerequest.ServiceRequestId,servicerequest.ServiceStartDate,servicerequest.TotalCost,servicerequest.SubTotal,servicerequest.ServiceProviderId,servicerequest.HasPets,servicerequest.Status,user.FirstName,user.LastName FROM servicerequest LEFT JOIN user ON user.UserId = servicerequest.ServiceProviderId WHERE servicerequest.UserId = $userId AND servicerequest.Status IN (" . implode(',', $status) . ") LIMIT $offset,$showrecord";
 
@@ -26,6 +29,8 @@
                     while ($row = $result->fetch_assoc()) {
                         $address = $this->getAddressByServiceId($row['ServiceRequestId']);
                         $extra = $this->getExtraByServiceId($row['ServiceRequestId']);
+                        $ratingDone = $this->isRatingDone($row['ServiceRequestId']);
+                        $row['ratingDone'] = $ratingDone;
                         $row['Address'] = $address[0];
                         $row['Mobile'] = $address[1];
                         $row['Email'] = $address[2];
@@ -48,6 +53,16 @@
                 }
             }
             return $result; 
+        }
+
+        public function isRatingDone($serviceId){
+            $ratingDone = false;
+            $sql = "SELECT * FROM rating WHERE ServiceRequestId = $serviceId";
+            $result = $this->conn->query($sql);
+            if ($result->num_rows > 0) {
+                $ratingDone = true;
+            }
+            return $ratingDone;
         }
 
         public function getAddressByServiceId($serviceId){
@@ -94,12 +109,70 @@
             $result = "";
             $sql = "UPDATE servicerequest SET Status = 3 WHERE ServiceRequestId = $serviceId";
             if($this->conn->query($sql) == TRUE){
+                $email = $this->getSpEmailByServiceId($serviceId);
 				$result = true; 
 			}
 			else{
 				$result = false;
 			}
-            return $result;
+            return [$result,$email];
+        }
+
+        public function rescheduleService($data,$status,$record_version){
+            $serviceId = $data['serviceId'];
+            $date = $data['date'];
+            $start_time = $data['time'];
+
+            // set date format 
+            $date = new DateTime($date);
+            $date->setTime(floor($start_time), floor($start_time) == $start_time ? "00" : (("0." . substr($start_time, -1) * 60) * 100));
+            $cleaningstartdate = $date->format('Y-m-d H:i:s');
+
+            $result = "";
+            $sql = "UPDATE servicerequest SET ServiceStartDate = '$cleaningstartdate', Status = $status, RecordVersion = $record_version WHERE ServiceRequestId = $serviceId";
+            if($this->conn->query($sql) == TRUE){
+                $email = $this->getSpEmailByServiceId($serviceId);
+				$result = true; 
+			}
+			else{
+				$result = false;
+			}
+            return [$result,$email];
+        }
+
+        public function getServiceById($serviceId){
+            $sql = "SELECT * FROM servicerequest WHERE ServiceProviderId != 'NULL' AND ServiceRequestId = $serviceId ";
+            $result = $this->conn->query($sql);
+            if($result->num_rows > 0){
+                return $result->fetch_assoc();
+            }
+            else{
+                return [];
+            }
+        }
+
+        public function isReschedulePosible($favsp,$status,$startdate){
+            $sql = "SELECT sr.ServiceRequestId, DATE_FORMAT(sr.ServiceStartDate, '%H:%i') as ServiceStartTime, sr.SubTotal, sr.Status, user.Email FROM servicerequest AS sr JOIN user ON user.UserId = sr.ServiceProviderId WHERE sr.ServiceProviderId = $favsp AND sr.Status IN (" . implode(',', $status). ") AND sr.ServiceStartDate LIKE '%$startdate%';";
+            $services = $this->conn->query($sql);
+            $rows = [];
+            if($services->num_rows > 0){
+            // check any slot time with selected time
+                while($row = $services->fetch_assoc()){
+                    array_push($rows,$row);
+                }
+            }
+            return $rows;
+        }
+
+        public function getSpEmailByServiceId($sid){
+            $email = "";
+            $sql = "SELECT user.Email FROM servicerequest JOIN user ON servicerequest.ServiceProviderId = user.UserId WHERE servicerequest.ServiceRequestId = $sid";
+            $result = $this->conn->query($sql);
+            if($result->num_rows > 0){
+                $row = $result->fetch_assoc();
+                $email = $row['Email'];
+            }
+            return $email;
         }
 
         public function show_fav_block_sp($data){
@@ -109,17 +182,23 @@
                 $showrecord = trim($data['limit']);
                 $offset = ($data['page'] - 1) * $showrecord;
                 $avgRatting = 0.0;
+                $totalService = 0;
 
                 $total = $this->getTotalServicerByUserId($userId);
+                if(is_null($total) || $total == 0){
+                    return [];
+                }
 
-                $sql = "SELECT DISTINCT servicerequest.ServiceProviderId,user.FirstName,user.LastName,favoriteandblocked.IsFavorite,favoriteandblocked.IsBlocked FROM servicerequest JOIN user on user.UserId = servicerequest.ServiceProviderId JOIN favoriteandblocked ON user.UserId = favoriteandblocked.TargetUserId WHERE servicerequest.UserId = $userId AND servicerequest.Status = 4 LIMIT $offset,$showrecord";
+                $sql = "SELECT favoriteandblocked.*,user.FirstName,user.LastName FROM favoriteandblocked JOIN user ON user.UserId = favoriteandblocked.TargetUserId WHERE favoriteandblocked.TargetUserId IN (SELECT servicerequest.ServiceProviderId FROM servicerequest WHERE UserId = $userId AND Status = 4) AND favoriteandblocked.UserId = $userId LIMIT $offset,$showrecord";
 
                 $result = $this->conn->query($sql);
                 $rows = array();
                 if ($result->num_rows > 0) {
                     while ($row = $result->fetch_assoc()) {
                         $row['Totalrecord'] = $total;
-                        $avgRatting = $this->getRattingBySpId($row['ServiceProviderId']);
+                        $avgRatting = $this->getRattingBySpId($row['TargetUserId']);
+                        $totalService = $this->getTotalServiceBySpId($row['TargetUserId']);
+                        $row['totalService'] = $totalService;
                         if(is_null($avgRatting['avgrating'])){
                             $avgRatting['avgrating'] = "0.0";
                             $row['avgRatting'] = $avgRatting;
@@ -134,6 +213,19 @@
                 }
             }
             return $result1; 
+        }
+
+        public function getTotalServiceBySpId($spid){
+            $total = 0;
+            $sql = "SELECT ServiceRequestId FROM servicerequest WHERE ServiceProviderId = $spid AND Status = 4";
+            $result = $this->conn->query($sql);
+            if ($result->num_rows > 0) {
+                $total = $result->num_rows;
+            }
+            else{
+                $total = 0;
+            }
+            return $total;
         }
 
         public function getTotalServicerByUserId($userId){
@@ -182,32 +274,11 @@
             return $avgRatting;
         }
 
-        public function rescheduleService($data){
-            $serviceId = $data['serviceId'];
-            $date = $data['date'];
-            $time = $data['time'];
-
-            // set date format 
-            $date = new DateTime($date);
-            $date->setTime(floor($time), floor($time) == $time ? "00" : (("0." . substr($time, -1) * 60) * 100));
-            $cleaningstartdate = $date->format('Y-m-d H:i:s');
-
-            $result = "";
-            $sql = "UPDATE servicerequest SET ServiceStartDate = '$cleaningstartdate' WHERE ServiceRequestId = $serviceId";
-            if($this->conn->query($sql) == TRUE){
-				$result = true; 
-			}
-			else{
-				$result = false;
-			}
-            return $result;
-        }
-
         function settingAddress($data){
             $details = [];
             if(isset($data['userid'])){
                 $userId = trim($data['userid']);
-                $sql = "SELECT AddressId,AddressLine1,City,State,PostalCode,Email,Mobile FROM useraddress WHERE UserId = $userId";
+                $sql = "SELECT AddressId,AddressLine1,City,State,PostalCode,Email,Mobile FROM useraddress WHERE UserId = $userId AND IsDeleted = 0";
                 $result = $this->conn->query($sql);
                 if($result->num_rows > 0){
                     while($row = $result->fetch_assoc()){
@@ -221,7 +292,7 @@
             return $details;
         }
 
-        public function add_address($data){
+        public function add_edit_address($data){
             if(isset($data)){
                 $AddressLine1 = trim($data['sstreet'])." ".trim($data['shouse']);
                 $zipcode = trim($data['spostal']);
@@ -229,8 +300,15 @@
                 $userId = trim($data['userId']);
                 $mnumber = trim($data['smobile']);
                 $email = trim($data['email']);
+                $addressid = $data['addressid'];
 
-                $sql = "INSERT INTO useraddress (UserId, AddressLine1, City, PostalCode, Mobile, Email) VALUES ($userId,'$AddressLine1','$city','$zipcode','$mnumber','$email')";
+                if($addressid == 0){
+                    $sql = "INSERT INTO useraddress (UserId, AddressLine1, City, PostalCode, Mobile, Email) VALUES ($userId,'$AddressLine1','$city','$zipcode','$mnumber','$email')";
+                }
+                else{
+                    $sql = "UPDATE useraddress SET AddressLine1 = '$AddressLine1',City = '$city',PostalCode = '$zipcode',Mobile = '$mnumber' WHERE AddressId = $addressid";
+                }
+                
 
                 $result = $this->conn->query($sql);
                 if($result){
@@ -280,17 +358,64 @@
                     $sql1 = "UPDATE user SET Password = '$newpsw' WHERE UserId = $userid";
                     $result1 = $this->conn->query($sql1);
                     if($result1){
-                        return "Password change successfully";
+                        return ['smsg'=>"Password change successfully",'yes'=>true];
                     }
                     else{
-                        return "not able to change password";
+                        return ['smsg'=>"Not able to change password please try later",'yes'=>false];
                     }
                 }
                 else{
-                    return "Please insert valid old password";
+                    return ['yes'=>false];
                 }
             }
         }
 
+        public function deleteAddress($data){
+            $addressId = trim($data['addressId']);
+            $userId = trim($data['userId']);
+            $sql = "UPDATE useraddress SET IsDeleted = 1 WHERE AddressId = $addressId AND UserId = $userId";
+            if($this->conn->query($sql) == TRUE){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        public function saveRatting($data){
+            $Ontime = $data['Ontime'];
+            $Friendly = $data['Friendly'];
+            $Quality = $data['Quality'];
+            $ratComment = $data['ratComment'];
+            $userId = $data['userId'];
+            $spid = $data['spid'];
+            $avgRatting = ($Ontime + $Friendly + $Quality)/3;
+            $serviceid = $data['serviceid'];
+
+            $sql = "INSERT INTO rating(ServiceRequestId, RatingFrom, RatingTo, Ratings, Comments, RatingDate, OnTimeArrival, Friendly, QualityOfService) VALUES ($serviceid,$userId,$spid,$avgRatting,'$ratComment',now(),$Ontime,$Friendly,$Quality)";
+
+            if($this->conn->query($sql) == TRUE){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+
+        public function getAddressById($data){
+            if(isset($data['userId'])){
+                $details = [];
+                $userId = $data['userId'];
+                $addressId = $data['addresid'];
+                $sql = "SELECT AddressLine1,City,State,PostalCode,Mobile FROM useraddress WHERE UserId = $userId AND AddressId = $addressId";
+                $result = $this->conn->query($sql);
+                if($result->num_rows > 0){
+                    $details = $result->fetch_assoc();
+                }
+                else{
+                    $details = [];
+                }
+            }
+            return $details;
+        }
+
     }
-?>

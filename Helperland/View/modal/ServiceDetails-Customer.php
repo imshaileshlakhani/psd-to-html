@@ -36,9 +36,9 @@
                                 <hr>
                                 <div class="row model-button">
                                     <div class="col">
-                                        <button class="cancel-button"><i class="fa fa-times"></i> Cancel</button>
-                                        <button class="complete-button"><i class="fa fa-check"></i>
-                                            Complete</button>
+                                        <button type="button" class="cancel-button cancle-service" data-bs-toggle="modal" data-bs-target="#servicecancle" data-bs-dismiss="modal"><i class="fa fa-times"></i> Cancel</button>
+                                        <button type="button" class="complete-button date-update" data-bs-toggle="modal" data-bs-target="#servicereschedule" data-bs-dismiss="modal"><i class="fa fa-repeat"></i>
+                                            Reschedule</button>
                                     </div>
                                 </div>
                             </div>

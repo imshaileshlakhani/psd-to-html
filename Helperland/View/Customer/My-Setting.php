@@ -56,7 +56,7 @@
                         </select>
                     </div>
                     <div class="save-btn mt-3">
-                        <a href="#" class="save" id="save-sdetails">Save</a>
+                        <a href="#" class="save" onClick="showLoader()" id="save-sdetails">Save</a>
                     </div>
                 </form>
             </div>
@@ -65,25 +65,25 @@
                     
                 </table>
                 <div class="save-btn mt-3">
-                    <a href="#" class="save" data-bs-toggle="modal" data-bs-target="#addeditaddress" data-bs-dismiss="modal">Add New Address</a>
+                    <a href="#" class="save" id="add-new-address" data-bs-toggle="modal" data-bs-target="#addeditaddress" data-bs-dismiss="modal">Add New Address</a>
                 </div>
             </div>
             <div class="tab-pane fade p-4" id="password" role="tabpanel" aria-labelledby="password-tab">
-                <form action="">
+                <form action="#">
                     <div class="col-lg-4 col-md-4 col-sm-7 pb-3">
                         <label for="oldpsw">Old Password</label>
-                        <input class="form-control" name="oldpsw" id="oldpsw" placeholder="Current Password" type="password" required autocomplete/>
+                        <input class="form-control" name="oldpsw" id="soldpsw" placeholder="Current Password" type="password" required autocomplete/>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-7 pb-3">
                         <label for="newpsw">New Password</label>
-                        <input class="form-control" name="newpsw" id="newpsw" placeholder="Password" type="password" required autocomplete/>
+                        <input class="form-control" name="newpsw" id="snewpsw" placeholder="Password" type="password" required autocomplete/>
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-7 pb-3">
                         <label for="cpsw">Confirm Password</label>
-                        <input class="form-control" name="cpsw" id="cpsw" placeholder="Confirm Password" type="password" required autocomplete/>
+                        <input class="form-control" name="cpsw" id="scpsw" placeholder="Confirm Password" type="password" required autocomplete/>
                     </div>
-                    <div class="save-btn mt-3">
-                        <a href="#" class="save" id="change-psw">Save</a>
+                    <div class="save-btn my-3">
+                        <a href="#" class="save" onClick="showLoader()" id="change-psw">Save</a>
                     </div>
                 </form>
             </div>

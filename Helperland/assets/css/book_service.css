@@ -229,11 +229,14 @@ body {
 #add-new-address .card-body{
   background-color: #F8F8F8;
 }
+.tab-content span, .tab-content label {
+  margin-bottom: 5px !important;
+}
 #add-new-address input, #add-new-address select{
   height: 46px;
 }
-#add-new-address .col-6 {
-  margin-top: 10px;
+#add-new-address .form-group {
+  margin-bottom: 5px;
 }
 .btn-wraper button {
   padding: 8px 16px;

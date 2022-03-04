@@ -10,6 +10,7 @@
                     <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+                    <span id="r-msg"></span>
                     <form action="#">
                         <div class="content-section">
                             <div class="row">
@@ -44,7 +45,7 @@
                                 </select>
                             </div>
                             <div class="row model-button">
-                                <button type="button" class="btn update-button">Update</button>
+                                <button type="button" onClick="showLoader()" class="btn update-button">Update</button>
                             </div>
                         </div>
                     </form>

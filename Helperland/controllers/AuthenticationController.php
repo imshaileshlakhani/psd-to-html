@@ -65,7 +65,7 @@ class AuthenticationController{
                 sendmail([$_POST['email']],$subject,$msg);
                 header("Location:".$this->base_url."?controller=Public&function=home");
             }else{
-                header("location:".$this->error_url."&error=Envalid email!!!");
+                header("location:".$this->error_url."&error=Invalid email!!!");
             }
         }
     }

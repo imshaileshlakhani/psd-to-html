@@ -24,12 +24,11 @@
             if(isset($data['zipcode'])){
                 $postal = trim($data['zipcode']);
                 $userId = trim($data['userdata']);
-                $sql = "SELECT * FROM useraddress WHERE UserId = $userId and PostalCode = '$postal'";
+                $sql = "SELECT * FROM useraddress WHERE UserId = $userId and PostalCode = '$postal' and IsDeleted = 0";
                 $result = $this->conn->query($sql);
                 while ($row = $result->fetch_assoc()) {
                     array_push($rows, $row);
                 }
-                
                 return $rows;
             }
         }
@@ -146,6 +145,11 @@
                 }
                 if(isset($data['favsp'])){
                     $ServiceProviderId = $data['favsp'];
+                }
+                if($ServiceProviderId == 'null'){
+                    $Status = 0;
+                }else{
+                    $Status = 1;
                 }
                 if(isset($data['pet'])){
                     $HasPets = $data['pet'];

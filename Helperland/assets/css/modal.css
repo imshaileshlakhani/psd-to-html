@@ -313,9 +313,11 @@
   font-weight: 500;
   color: #646464;
 }
+#addeditaddress .form-group{
+  margin-bottom: 5px;
+}
 #addeditaddress input{
   height: 42px;
-  margin-bottom: 15px;
 }
 #addeditaddress .input-group-text {
   line-height: 1.8;

@@ -31,7 +31,7 @@
                         </div>
                         <div>
                             <div class='rating-stars text-center'>
-                                <ul id='stars'>
+                                <ul class='stars stars1'>
                                   <li class='star' title='Poor' data-value='1'>
                                     <i class='fa fa-star fa-fw'></i>
                                   </li>
@@ -50,7 +50,7 @@
                                 </ul>
                             </div>
                             <div class='rating-stars text-center'>
-                                <ul id='stars'>
+                                <ul class='stars stars2'>
                                   <li class='star' title='Poor' data-value='1'>
                                     <i class='fa fa-star fa-fw'></i>
                                   </li>
@@ -69,7 +69,7 @@
                                 </ul>
                             </div>
                             <div class='rating-stars text-center'>
-                                <ul id='stars'>
+                                <ul class='stars stars3'>
                                   <li class='star' title='Poor' data-value='1'>
                                     <i class='fa fa-star fa-fw'></i>
                                   </li>
@@ -91,9 +91,9 @@
                     </div>
                     <form action="">
                         <label for="Feedback" class="form-label">Feedback on service provider</label>
-                        <textarea class="form-control"></textarea>
+                        <textarea class="form-control rate-comment"></textarea>
                         <div class="submit mt-3">
-                            <button>Submit</button>
+                            <button type="button" id="rate-submit" data-bs-dismiss="modal" aria-label="Close">Submit</button>
                         </div>
                     </form>
                 </div>

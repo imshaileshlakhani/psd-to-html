@@ -17,7 +17,7 @@
                                 <textarea class="form-control" rows="3" id="service-msg"></textarea>
                             </div>
                             <div class="row model-button">
-                                <button type="button" class="btn complete-button" disabled data-bs-dismiss="modal" aria-label="Close">Cancle Now</button>
+                                <button type="button" onClick="showLoader()" class="btn complete-button" disabled data-bs-dismiss="modal" aria-label="Close">Cancle Now</button>
                             </div>
                         </div>
                     </form>

@@ -1,5 +1,4 @@
 <?php
-    session_start();
     if(isset($_SESSION['userdata'])){
         $userdata = $_SESSION['userdata'];
     }
@@ -264,7 +263,7 @@
                                                     <div class="col-6">
                                                         <div class="form-group">
                                                             <label for="Phonenumber">Phone number</label>
-                                                            <div class="input-group mb-3">
+                                                            <div class="input-group">
                                                                 <div class="input-group-text">+49</div>
                                                                 <input type="text" class="form-control" id="na-Phonenumber" placeholder="9988556644">
                                                             </div>

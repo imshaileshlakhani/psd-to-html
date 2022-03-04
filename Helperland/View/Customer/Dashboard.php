@@ -1,10 +1,10 @@
 <div class="sidebar-content">
     <div class="d-flex justify-content-between flex-wrap mb-2">
         <div class="title">Current Service Requests</div>
-        <div class="title-btn my-2"><a href="<?= Config::BASE_URL.'?controller=Service&function=service'?>">Add New Service Request</a></div>
+        <div class="title-btn my-2"><a href="<?= Config::BASE_URL . '?controller=Service&function=service' ?>">Add New Service Request</a></div>
     </div>
     <div class="" id="ups">
-        <table class="table1">
+        <table class="table1" id="table2">
             
         </table>
     </div>
@@ -20,7 +20,7 @@
             entries Total Record: <span id="totalrequest">0</span>
         </div>
         <div class="pagination" id="pagination">
-            
+
         </div>
     </div>
 </div>

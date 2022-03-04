@@ -1,10 +1,10 @@
 <div class="sidebar-content">
     <div class="d-flex justify-content-between mb-1">
         <div class="title">Service History</div>
-        <div class="title-btn"><a href="#">Export</a></div>
+        <div class="title-btn"><a href="#" id="Export">Export</a></div>
     </div>
     <div class="" id="ups">
-        <table class="table2">
+        <table class="table2" id="table2">
             
         </table>
     </div>
@@ -20,7 +20,7 @@
             entries Total Record: <span id="totalrequest">0</span>
         </div>
         <div class="pagination" id="pagination">
-            
+
         </div>
     </div>
 </div>

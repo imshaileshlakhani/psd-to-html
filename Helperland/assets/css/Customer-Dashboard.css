@@ -20,15 +20,6 @@
   background-color: #29626d !important;
 }
 
-@media screen and (max-width: 1250px) {
-  .menu-btn1 {
-    display: block !important;
-  }
-  .menu-btn {
-    display: none !important;
-  }
-}
-
 /* ------------welcome-msg------------ */
 .welcome {
   height: 119px;
@@ -108,7 +99,7 @@
 .table1 .th th, .table2 .th th, .table3 .th th {
   padding: 13px 37.2px 13px 37.2px;
 }
-.table1 tr {
+.table1 tr,.table2 tr {
   cursor: pointer;
 }
 .table1 tr, .table2 tr, .table3 tr {
@@ -380,12 +371,6 @@
   }
 }
 @media screen and (max-width: 1100px) {
-  .sidebar {
-    display: none;
-  }
-  .sidebar-content {
-    margin-left: 0px;
-  }
   .sidebar-content .tab-content{
     width: 90vw;
   }
@@ -396,5 +381,19 @@
   }
   .table2 .ratesp a, .table1 .action a, .table1 .action a {
     padding: 8px 16px;
+  }
+}
+@media screen and (max-width: 1250px) {
+  .sidebar {
+    display: none;
+  }
+  .sidebar-content {
+    margin-left: 0px;
+  }
+  .menu-btn1 {
+    display: block !important;
+  }
+  .menu-btn {
+    display: none !important;
   }
 }

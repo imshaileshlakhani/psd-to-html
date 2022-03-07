@@ -101,6 +101,7 @@ $(document).ready(function () {
         const addressData = JSON.parse(result);
         showAddress(addressData.address);
         showFavSp(addressData.fav);
+        console.log(addressData.fav);
       }
     });
   });
@@ -326,12 +327,12 @@ $(document).ready(function () {
                     <label>
                       <input class="form-check-input" type="radio" id='favsp${i}' name="favsp" value="${sp.TargetUserId}">
                       <div class="sp-avtar mb-1">
-                        <img src="assets/images/cap.png" alt="">
+                        <img src="assets/images/${sp.UserProfilePicture}" alt="">
                       </div>
                       <span class="sp-name">${sp.FullName}</span>
                       <button type="button" class="btn sp-select" id="sp-select${i}" disabled>Select</button>
                     </label>
-                  </div>`;
+                </div>`;
       i++;
     });
     $('.favorite-sp-wraper').html(spHtml);

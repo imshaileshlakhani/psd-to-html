@@ -4,10 +4,6 @@
   padding: 0;
   font-family: "Roboto", sans-serif;
 }
-.sp-star{
-  width: 18px;
-  height: 18px;
-}
 
 /* ------------header-section--------- */
 #header {
@@ -18,6 +14,9 @@
 }
 .navitem .navbtn {
   background-color: #29626d !important;
+}
+#header #bookservice{
+  display: none !important;
 }
 
 /* ------------welcome-msg------------ */
@@ -45,7 +44,6 @@
 }
 .sidebar {
   background-color: #1d7a8c;
-  /* overflow-x: hidden; */
   width: 18%;
 }
 .sidebar a {
@@ -63,16 +61,13 @@
   color: #ffffff;
 }
 .sidebar-content {
-  /* overflow-y:hidden; */
   margin-left: 14px;
   overflow-x: auto;
-  padding: 15px 20px;
+  padding: 0 20px;
   width: 100%;
 }
 .sidebar-content .title{
   color: #646464;
-  font-size: 1.37rem;
-  font-weight: bold;
 }
 .sidebar-content .title-btn a{
   text-decoration: none;
@@ -96,10 +91,10 @@
   background-color: #f9f9f9;
   color: #646464;
 }
-.table1 .th th, .table2 .th th, .table3 .th th {
+.table1 .th th, .table2 .th th, .table3 .th th{
   padding: 13px 37.2px 13px 37.2px;
 }
-.table1 tr,.table2 tr {
+.table1 tr, .table2 tr{
   cursor: pointer;
 }
 .table1 tr, .table2 tr, .table3 tr {
@@ -107,71 +102,34 @@
   color: #646464;
 }
 .table1 tr td, .table2 tr td, .table3 tr td {
-  line-height: 1.5;
-  padding: 15px 0;
+  line-height: 2;
 }
-.table1 td span, .table2 td span {
-  display: block;
-}
-.table1 .text-center td:nth-child(3) > div, .table2 .text-center td:nth-child(2) > div{
-  display: flex;
-  align-items: center;
-}
-.table1 .cap, .table2 .cap{
-  border: 1px solid #aaa;
-  border-radius: 50%;
-  margin-right: 12px;
-}
-.table1 .cap img, .table2 .cap img{
-  height: 45px;
-  width: 45px;
-}
-.table1 .payment, .table2 .payment{
-  color: #1d7a8c;
-  font-size: 24px;
-  font-weight: bold;
-}
-.table1 .action a, .table2 .ratesp a {
+.table1 .Accept a, .table2 .cancle a {
   text-decoration: none;
   color: white;
   padding: 12px 16px;
   border-radius: 34px;
 }
 
-/* -----------------dashboard-section --------------------*/
-.table1 .text-center td:nth-child(2) > span:nth-child(2){
-  padding-left: 7px;
-}
-.table1 .action a.Reschedule {
+/* -----------------------new-service-request--------------------------- */
+.table1 .Accept a{
   background-color: #146371;
-  margin-bottom: 5px;
-}
-.table1 .action a.Cancle {
-  background-color: #ff6b6b;
-}
-.table1 .avg-ratting .fill{
-  color: yellow;
-}
-.table1 .avg-ratting .empty{
-  color: gray;
 }
 
-/* ------------------service-history-section ------------------*/
-.table2 .text-center td:nth-child(4) a{
-  background-color: #67b644;
-  padding: 4px 9px;
-  color: white;
-  font-size: 0.81rem;
-}
-.table2 .text-center td:nth-child(4) a.Cancelled{
-  text-decoration: none;
+/* ---------------------------upcoming-service-------------------------- */
+.table2 .cancle a{
   background-color: #ff6b6b;
-  padding: 4px 9px;
-  color: white;
-  font-size: 0.81rem;
 }
-.table2 .ratesp a {
-  background-color: #6da9b5;
+
+/* ---------------------------My-ratings-------------------------- */
+.service-rating{
+  border: 1px solid #ddd;
+  width: 100%;
+  color: #646464;
+}
+.service-rating b{
+  color: #4f4f4f;
+  font-weight: 700;
 }
 
 /* -------------------favourite-pros-section--------------------------- */
@@ -181,7 +139,7 @@
 }
 .main .fav-card{
   width: 280px;
-  height: 280px;
+  height: 230px;
   margin: 0px 20px 20px 0px;
   border: 1px solid #e1e1e1;
   display: flex;
@@ -190,32 +148,25 @@
 }
 .fav-card .cap{
   border: 1px solid #aaa;
+  height: 80px;
+  width: 80px;
   border-radius: 50%;
 }
 .fav-card .cap img{
-  height: 80px;
-  width: 80px;
+  height: 45px;
+  width: 55px;
 }
-.rating div:nth-child(1){
+.name div:nth-child(1){
   font-weight: bold;
   color: #4f4f4f;
   font-size: 18px;
 }
-.rating div:nth-child(2), .rating div:nth-child(3){
-  color: #646464;
-}
 .fav-card .btns-div a {
+  background-color: #ff6b6b;
   text-decoration: none;
   color: white;
   padding: 10px 16px;
   border-radius: 34px;
-}
-.fav-card .btns-div a.Remove {
-  background-color: #146371;
-  margin-bottom: 5px;
-}
-.fav-card .btns-div a.Block {
-  background-color: #ff6b6b;
 }
 
 /* -----------------------table-footer-section----------------- */
@@ -223,15 +174,15 @@
   display: flex;
   justify-content: space-between;
 }
-.sidebar-content .drop-record{
+.sidebar-content .drop-record, .sidebar-content select#km{
   color: #646464;
   font-size: 0.87rem;
 }
-.drop-record select{
-  width: 62px;
+.drop-record select, .sidebar-content select#km, .sidebar-content select#payment-status{
   height: 38px;
   outline: none;
   border: 1px solid #e1e1e1;
+  padding: 0 15px;
   color: #646464;
   font-size: 0.87rem;
   text-align: center;
@@ -252,18 +203,14 @@
   background-color: #1d7a8c;
   color: white;
 }
-.pagination #next-tab img{
+.pagination div:nth-child(7) img{
   transform: rotate(180deg);
 }
-.pagination #next-last-tab img{
+.pagination div:nth-child(8) img{
   transform: rotate(180deg);
 }
 
 /* -----------------------my-setting-section--------------------- */
-.sidebar-content .nav-tabs{
-  display: flex;
-  justify-content: space-around;
-}
 .nav-tabs{
   border-bottom: 2px solid #dee2e6 !important;
 }
@@ -277,11 +224,34 @@
   border-bottom: 2px solid #146371;
 }
 .sidebar-content .tab-content{
-  width: 70vw;
+  position: relative;
+}
+.tab-content .cap1{
+  position: absolute;
+  right: 0%;
+  top: 3%;
+}
+.tab-content hr.hr-line{
+  width: 93%;
+}
+#details .acount-status{
+  font-size: 18px;
+  color: #646464;
+  font-weight: bold;
+}
+#details .acount-status span{
+  font-weight: normal;
+  color: #0fc70f;
+}
+#details .section-title{
+  font-size: 18px;
+  color: #646464;
+  font-weight: bold;
+  margin-bottom: -13px;
 }
 #details label, #password label{
   color: #646464;
-  font-weight: bold;
+  font-weight: 500;
   display: block;
 }
 #details input, #password input{
@@ -294,7 +264,27 @@
 .dateofbirth #month{
   width: 120px;
 }
-.dateofbirth select, .language select{
+#details .gender input,.avatar input{
+  height: 16px !important;
+}
+.avatar input{
+  opacity: 0;
+}
+#details .avatar .cap, .cap1{
+  border: 1px solid #aaa;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+}
+#details .avatar .cap.selectAv{
+  border: 2px solid #146371;
+  border-radius: 50%;
+}
+#details .avatar .cap img, .cap1 img{
+  height: 55px;
+  width: 55px;
+}
+#details select, .language select{
   height: 43px;
   padding: 0 10px;
   outline: none;
@@ -305,78 +295,64 @@
   margin-right: 10px;
   margin-bottom: 10px;
 }
-#details .save-btn a, #password .save-btn a, #address .save-btn a {
+#details .save-btn a, #password .save-btn a{
   text-decoration: none;
   color: white;
   padding: 10px 16px;
   border-radius: 34px;
 }
-#details .save-btn a.save, #password .save-btn a.save, #address .save-btn a.save {
+#details .save-btn a.save, #password .save-btn a.save {
   background-color: #146371;
 }
-#address .table3 tr td{
-  padding: 15px 37.5px;
-}
-#address .table3 .action i{
-  color: #aaa;
-  font-size: 18px;
-  margin-right: 5px;
-}
 
-@media screen and (max-width: 560px) {
-  .sidebar-content .tab-content{
-    width: 73vw;
+
+@media screen and (max-width:414px) {
+  .service-rating div div:nth-child(1){
+    flex-direction: column;
+  }
+  .service-rating .mx-5{
+    margin: 10px 0px !important;
+  }
+  .tab-content hr.hr-line {
+    width: 70% !important;
   }
 }
 @media screen and (max-width:767px) {
-  .table2, .table1 {
+  .table1, .table2, .table3 {
     border-collapse: separate;
     border-spacing: 1px 15px;
   }
-  .table2 .th, .table1 .th{
+  .table1 .th, .table2 .th, .table3 .th{
     display: none;
   }
-  .table2 tr, .table1 tr{
+  .table1 tr, .table2 tr, .table3 tr{
     outline: 1px solid #ddd;
   }
-  .table2 tr td, .table1 tr td{
+  .table1 tr td, .table2 tr td, .table3 tr td{
     display: flex;
     border-bottom: 1px solid #ddd;
     padding: 10px 20px;
     margin: 0 15px;
   }
-  .table2 tr td:nth-child(1), .table1 tr td:nth-child(2){
+  .table1 tr td:nth-child(2), .table1 tr td:nth-child(3), .table2 tr td:nth-child(2), .table2 tr td:nth-child(3), .table3 tr td:nth-child(2), .table3 tr td:nth-child(3){
     display: flex;
     flex-direction: column;
   }
-  .table2 tr td:nth-child(1) span, .table1 tr td:nth-child(2) span{
+  .table1 tr td:nth-child(2) div, .table2 tr td:nth-child(2) div, .table3 tr td:nth-child(2) div{
     text-align: left;
   }
-  .table2 tr td:nth-child(3), .table2 tr td:nth-child(4), .table2 tr td:nth-child(5), .table1 tr td:nth-child(4), .table1 tr td:nth-child(5){
+  .table1 tr td:nth-child(4), .table1 tr td:nth-child(5), .table1 tr td:nth-child(6), .table2 tr td:nth-child(4), .table2 tr td:nth-child(5), .table2 tr td:nth-child(6){
     justify-content: center;
   }
-  .table2 tr td:last-child, .table1 tr td:last-child{
+  .table1 tr td:last-child, .table2 tr td:last-child, .table3 tr td:last-child{
     border: none;
+  }
+  .table1 .Accept a, .table2 .cancle a {
+    padding: 6px 16px;
   }
   .sidebar-content .table-footer{
     flex-direction: column;
     align-items: center;
-  }
-  .sidebar-content .drop-record{
-    margin-bottom: 15px;
-  }
-}
-@media screen and (max-width: 1100px) {
-  .sidebar-content .tab-content{
-    width: 90vw;
-  }
-}
-@media screen and (max-width: 1217px) {
-  .table1 .text-center td:last-child{
-    display: inline-grid;
-  }
-  .table2 .ratesp a, .table1 .action a, .table1 .action a {
-    padding: 8px 16px;
   }
 }
 @media screen and (max-width: 1250px) {

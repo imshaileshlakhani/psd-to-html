@@ -12,11 +12,11 @@ class AuthenticationController{
     }
 
     public function login(){
-        if(isset($_POST["signin"])){
+        if(isset($_POST)){
             $userdata = $this->model->validate($_POST);
             if(count($userdata)>0){
                 $_SESSION['userdata'] = $userdata;
-                if(isset($_POST['remember'])){
+                if($_POST['remember']){
                     setcookie('email',$_POST["username"],time()+3600);
                     setcookie('psw',$_POST["password"],time()+3600);
                 }
@@ -24,9 +24,9 @@ class AuthenticationController{
                     setcookie('email','',time());
                     setcookie('psw','',time());
                 }
-                header("Location:".$this->base_url."?controller=Public&function=home");
+                echo json_encode(['status'=>true,'UserTypeId'=>$userdata['UserTypeId']]);
             }else{
-                header("location:".$this->error_url."&error=Username or password is incorrect!!!");
+                echo json_encode(['status'=>false,'error'=>'Username or password is incorrect!!!']);
             }
         }
     }
@@ -39,33 +39,33 @@ class AuthenticationController{
 
     public function user_signup(){
         $result = "";
-        if(isset($_POST['register'])){
+        if(isset($_POST)){
             $result = $this->model->is_present($_POST);
             if(!$result){
                 $result = $this->model->insert($_POST);
                 if($result){
-                    header("Location:".$this->base_url."?controller=Public&function=home");
+                    echo json_encode(['status'=>true,'msg'=>'Account created successfully']);
                 }else{
-                    header("location:".$this->error_url."&error=Unable to signup!!!");
+                    echo json_encode(['status'=>false,'error'=>'Unable to signup!!!']);
                 }
             }
             else{
-                header("location:".$this->error_url."&error=Email and Mobile is already register");
+                echo json_encode(['status'=>false,'error'=>'Email and Mobile is already register']);
             }
         }
     }
 
     public function forgot_password_link(){
-        if(isset($_POST['send'])){
+        if(isset($_POST)){
             $result = $this->model->validate($_POST);
             if(count($result) > 0){
                 $link = $this->base_url."?controller=Authentication&function=forgot_password&parameter=".$_POST['email'];
                 $msg = "<h2><a href='$link' style='color:red' >Click here to change your password</a></h2>";
                 $subject = "Forgot Password";
                 sendmail([$_POST['email']],$subject,$msg);
-                header("Location:".$this->base_url."?controller=Public&function=home");
+                echo json_encode(['status'=>true]);
             }else{
-                header("location:".$this->error_url."&error=Invalid email!!!");
+                echo json_encode(['status'=>false,'error'=>'Invalid email!!!']);
             }
         }
     }

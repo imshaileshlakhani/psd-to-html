@@ -45,7 +45,7 @@
                             <div class="dropdown-menu dropdown-menu-left" aria-labelledby="dropdownMenuButton">
                                 <div class="dropdown-item">
                                     <div>Welcome,</div>
-                                    <div id="wname"><b><?= $userdata["FirstName"] ?></b></div>
+                                    <div id="wname"><b><?= $userdata["FirstName"].' '.$userdata['LastName'] ?></b></div>
                                 </div>
                                 <hr class="my-1">
                                 <a class="dropdown-item" href="
@@ -53,7 +53,7 @@
                                         if ($userdata["UserTypeId"] == Config::USER_TYPE[0]) {
                                             echo Config::BASE_URL.'?controller=Customer&function=customerDashboard&parameter=Dashboard';
                                         } else if ($userdata["UserTypeId"] == Config::USER_TYPE[1]) {
-                                            echo "#";
+                                            echo Config::BASE_URL.'?controller=Servicer&function=ServicerDashboard&parameter=New';
                                         } else {
                                             echo "#";
                                         }
@@ -65,7 +65,7 @@
                                         if ($userdata["UserTypeId"] == Config::USER_TYPE[0]) {
                                             echo Config::BASE_URL.'?controller=Customer&function=customerDashboard&parameter=setting';
                                         } else if ($userdata["UserTypeId"] == Config::USER_TYPE[1]) {
-                                            echo "#";
+                                            echo Config::BASE_URL.'?controller=Servicer&function=ServicerDashboard&parameter=setting';
                                         } else {
                                             echo "#";
                                         }

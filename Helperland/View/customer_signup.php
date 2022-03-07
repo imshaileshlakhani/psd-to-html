@@ -34,8 +34,9 @@
                 <div class="line"></div>
             </div>
             <div class="form">
-                <form action="<?= Config::BASE_URL.'?controller=Authentication&function=user_signup'?>" method="post">
-                    <input type="hidden" value="1" name="usertypeid">
+                <form action="#">
+                    <div class="signup-msg mt-2"></div>
+                    <input type="hidden" value="1" name="usertypeid" id="usertypeid">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 pb-3">
                             <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First name" required autofocus />
@@ -59,33 +60,21 @@
                     </div>
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6 pb-3">
-                            <input type="text" class="form-control" name="psw" id="psw" placeholder="Password" 
-                                required autofocus />
+                            <input type="password" class="form-control" name="psw" id="psw" placeholder="Password" 
+                                required autofocus autocomplete/>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-6 pb-3">
-                            <input type="text" class="form-control" name="cpsw" id="cpsw" placeholder="Confirm Password" required autofocus/>
+                            <input type="password" class="form-control" name="cpsw" id="cpsw" placeholder="Confirm Password" required autofocus autocomplete/>
                         </div>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                        <label class="form-check-label" for="flexCheckDefault">
-                            Yes, I would like to subscribe to the newsletter of Helperland GmbH with vouchers, trends, promotions and individualized offers. I can unsubscribe from the newsletter at any time in the newsletter and in the customer account itself.
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
-                        <label class="form-check-label" for="flexCheckDefault1">
-                            I agree with the <span>terms and conditions</span> of Helperland GmbH.
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
-                        <label class="form-check-label" for="flexCheckDefault2">
-                            I have read the <span>privacy policy </span>
+                        <input class="form-check-input" type="checkbox" value="" id="privacy">
+                        <label class="form-check-label" for="privacy">
+                            I have read the <span>privacy policy </span> and I agree with the <span>terms and conditions</span> of Helperland GmbH.
                         </label>
                     </div>
                     <div class="submit text-center">
-                        <button type="submit" name="register" id="Register">Register</button>
+                        <button type="button" name="register" id="Register">Register</button>
                         <p>Already registered? <span>Login now</span></p>
                     </div>
                 </form>
@@ -98,7 +87,8 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="assets/js/nav.js"></script>
-    <script src="assets/js/validate.js"></script>
+    <script src="assets/js/public.js"></script>
 </body>
 </html>

@@ -102,7 +102,7 @@
 .btn-down {
   display: flex;
   justify-content: center;
-  margin-top: -40px;
+  margin-top: -60px;
   padding-bottom: 15px;
 }
 .circle {
@@ -554,6 +554,7 @@
 @media screen and (max-width:991px){
   .step-text{
     font-size: 1rem;
+    margin-bottom: 10px;
   }
   .step-img{
     width: 135px;

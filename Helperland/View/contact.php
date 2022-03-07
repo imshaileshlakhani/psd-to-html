@@ -1,7 +1,7 @@
 <?php
-    if(isset($_SESSION['userdata'])){
-        $userdata = $_SESSION['userdata'];
-    }
+if (isset($_SESSION['userdata'])) {
+    $userdata = $_SESSION['userdata'];
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,8 +26,8 @@
 
 <body>
     <?php
-        include('modal/login-model.php');
-        include('includes/header.php');
+    include('modal/login-model.php');
+    include('includes/header.php');
     ?>
 
     <main>
@@ -69,14 +69,17 @@
                 <div class="text-center">
                     <span class="title">Get in touch with us</span>
                 </div>
+                <div class="success-msg">
+
+                </div>
                 <div class="form">
-                    <form action="<?= Config::BASE_URL.'?controller=Public&function=contact_us'?>" method="post" enctype="multipart/form-data">
+                    <form action="<?= Config::BASE_URL . '?controller=Public&function=contact_us' ?>" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 pb-3">
-                                <input class="form-control" id="firstname" name="firstname" placeholder="First name" type="text"/>
+                                <input class="form-control" id="firstname" name="firstname" placeholder="First name" type="text" />
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 pb-3">
-                                <input class="form-control" id="lastname" name="lastname" placeholder="Last name" type="text"/>
+                                <input class="form-control" id="lastname" name="lastname" placeholder="Last name" type="text" />
                             </div>
                         </div>
                         <div class="row">
@@ -89,7 +92,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 pb-3">
-                                <input class="form-control" name="email" id="email" placeholder="Email address" type="email"/>
+                                <input class="form-control" name="email" id="email" placeholder="Email address" type="email" />
                             </div>
                         </div>
                         <div class="row">
@@ -151,9 +154,11 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
 
     <script src="assets/js/nav.js"></script>
-    <script src="assets/js/validate.js"></script>
+    <script src="assets/js/public.js"></script>
 </body>
 
 </html>

@@ -166,7 +166,7 @@ $(document).ready(function () {
                 <td class="avg-ratting">`;
                 if (service.ServiceProviderId != null) {
                     serviceHtml += `<div class="d-flex justify-content-center">`;
-                    rating = spRating(fullName,service.avgRatting.avgrating);
+                    rating = spRating(fullName,service.avgRatting.avgrating,service.UserProfilePicture);
                     // console.log(rating);
                     serviceHtml += `${rating}</span>
                                         </div>
@@ -176,10 +176,15 @@ $(document).ready(function () {
                 <td class="payment">
                     <a>${service.TotalCost}</a>€
                 </td>
-                <td class="action">
-                    <a href="#" class="Reschedule date-update" data-bs-toggle="modal" data-bs-target="#servicereschedule" data-bs-dismiss="modal" id="date-update" data-spid="${spid}" data-serviceid="${service.ServiceRequestId}">Reschedule</a>
-                    <a href="#" class="Cancle cancle-service" id="cancle-service" data-bs-toggle="modal" data-bs-target="#servicecancle" data-bs-dismiss="modal" data-spid="${spid}" data-serviceid="${service.ServiceRequestId}">Cancle</a>
-                </td>
+                <td class="action">`
+                    if(service.RecordVersion == 1){
+                        serviceHtml += `<span class="text-success w-50 mx-auto">You can't rescheduled service request.untill Your SP will accept it</span>`;
+                    }else{
+                        serviceHtml += `<a href="#" class="Reschedule date-update" data-bs-toggle="modal" data-bs-target="#servicereschedule" data-bs-dismiss="modal" id="date-update" data-spid="${spid}" data-serviceid="${service.ServiceRequestId}">Reschedule</a>
+                        <a href="#" class="Cancle cancle-service" id="cancle-service" data-bs-toggle="modal" data-bs-target="#servicecancle" data-bs-dismiss="modal" data-spid="${spid}" data-serviceid="${service.ServiceRequestId}">Cancle</a>`;
+                    }
+                    
+                    serviceHtml += `</td>
             </tr>`;
         });
         $('#ups .table1').html(serviceHtml);
@@ -204,7 +209,7 @@ $(document).ready(function () {
 
     // service cancle model
     $(document).on('click', '.cancle-service', function (e) {
-        window.serviceIdforCancle = $(e.target).data('spid');
+        window.serviceIdforCancle = $(e.target).data('serviceid');
         // alert(serviceIdforCancle);
         $('#service-msg').on('keyup', function () {
             var msg = $('#service-msg').val();
@@ -231,7 +236,7 @@ $(document).ready(function () {
                 data: { serviceId: sid },
                 success: function (result) {
                     const status = JSON.parse(result);
-                    // console.log(status);
+                    console.log(status);
                     if (status.update[0] == true) {
                         $.LoadingOverlay("hide");
                         $("#successModal #success-msg").text('Your service request canceled successfully');
@@ -312,28 +317,32 @@ $(document).ready(function () {
         var petHtml = "";
         var extraHtml = "";
         var extras = ['Inside cabinets', 'Inside fridge', 'Inside oven', 'Laundry wash & dry', 'Interior windows'];
-        var selectedExtra = service[13].split("");
-        for (var i = 0; i < selectedExtra.length; i++) {
-            if (i != (selectedExtra.length - 1)) {
-                extraHtml += extras[selectedExtra[i] - 1] + ", ";
-            }
-            else {
-                extraHtml += extras[selectedExtra[i] - 1] + ".";
+        var selectedExtra = service[16].split("");
+        
+        if(selectedExtra[0] != 0){
+            for (var i = 0; i < selectedExtra.length; i++) {
+                if (i != (selectedExtra.length - 1)) {
+                    extraHtml += extras[selectedExtra[i] - 1] + ", ";
+                }
+                else {
+                    extraHtml += extras[selectedExtra[i] - 1] + ".";
+                }
             }
         }
-        const dateTime = getTimeAndDate(service[1], service[3]);
+        
+        const dateTime = getTimeAndDate(service[2], service[4]);
         $('#servicedetails .model-time').text(dateTime.startdate + " " + dateTime.starttime + " - " + dateTime.endtime);
-        $('#servicedetails #duration-model').text(service[3] + " Hrs");
+        $('#servicedetails #duration-model').text(service[4] + " Hrs");
         $('#servicedetails #sid-model').text(service[0] + ".");
         $('#servicedetails #extra-model').text(extraHtml);
-        $('#servicedetails .model-price').text(service[2] + " €");
-        $('#servicedetails #address-model').text(service[9] + "," + service[10]);
-        $('#servicedetails #phone-model').text(service[11]);
-        $('#servicedetails #email-model').text(service[12]);
+        $('#servicedetails .model-price').text(service[3] + " €");
+        $('#servicedetails #address-model').text(service[12] + "," + service[13]);
+        $('#servicedetails #phone-model').text(service[14]);
+        $('#servicedetails #email-model').text(service[15]);
         $('.complete-button.date-update').data('spid',service[0]);
         $('.cancel-button.cancle-service').data('spid',service[0]);
 
-        if (service[5] == "1") {
+        if (service[6] == "1") {
             petHtml += `<i class="fa fa-check-circle-o"></i> <span>I have pets at home</span>`;
         }
         else {
@@ -363,7 +372,7 @@ $(document).ready(function () {
                                     <td>`;
             if (service.ServiceProviderId != null) {
                 serviceHistoryHtml += `<div class="d-flex justify-content-center">`;
-                rating = spRating(fullName,service.avgRatting.avgrating);
+                rating = spRating(fullName,service.avgRatting.avgrating,service.UserProfilePicture);
                 // console.log(rating);
                 serviceHistoryHtml += `${rating}</span>
                                     </div>
@@ -385,7 +394,7 @@ $(document).ready(function () {
             if (service.Status == 3 || service.ratingDone) {
                 serviceHistoryHtml += `style="pointer-events: none;"`;
             }
-            serviceHistoryHtml += `data-bs-toggle="modal" data-spid="${service.ServiceProviderId}" data-serviceid="${service.ServiceRequestId}" data-bs-target="#Ratesp" data-bs-dismiss="modal">`;
+            serviceHistoryHtml += `data-bs-toggle="modal" data-spid="${service.ServiceProviderId}" data-serviceid="${service.ServiceRequestId}" data-avtar="${service.UserProfilePicture}" data-bs-target="#Ratesp" data-bs-dismiss="modal">`;
             if (service.ratingDone) {
                 serviceHistoryHtml += `Rating Done`;
             }
@@ -399,10 +408,10 @@ $(document).ready(function () {
     }
 
     // service provider rating function
-    function spRating(Name,avgrating) {
+    function spRating(Name,avgrating,avtar) {
         var ratingHtml = "";
         ratingHtml += `<div class="cap d-flex align-items-center justify-content-center">
-                            <img src="assets/images/cap.png" alt="">
+                            <img src="assets/images/${avtar}" alt="">
                     </div>
                     <div>
                             <span class="text-start">${Name}</span>
@@ -433,7 +442,8 @@ $(document).ready(function () {
         var name = $(e.target).closest('tr').data('name');
         window.servicerid = $(e.target).data('spid');
         window.serviceid = $(e.target).data('serviceid');
-        var ratdisplay = spRating(name,rateNumber);
+        var avtar = $(e.target).data('avtar');
+        var ratdisplay = spRating(name,rateNumber,avtar);
         $('#rate-wraper').html(ratdisplay);
     });
 
@@ -502,7 +512,7 @@ $(document).ready(function () {
         servicer.forEach(function (sp) {
             favspHtml += `<div class="fav-card py-4" data-spid="${sp.TargetUserId}">
                                 <div class="cap d-flex align-items-center justify-content-center">
-                                    <img src="assets/images/cap.png" alt="">
+                                    <img src="assets/images/${sp.UserProfilePicture}" alt="">
                                 </div>
                                 <div class="rating mt-3 mb-4">
                                     <div class="text-center">${sp.FirstName+" "+sp.LastName}</div>
@@ -651,10 +661,13 @@ $(document).ready(function () {
                 type : 'POST',
                 data : $('#setting-details-form').serialize()+"&userId="+userid,
                 success : function(result){
+                    var user = JSON.parse(result);
+                    // console.log(JSON.parse(result));
+                    $('#welcome-name').text(user.save['FirstName']);
+                    $('#wname').text(user.save['FirstName']+" "+user.save['LastName']);
+                },
+                complete : function(result){
                     $.LoadingOverlay("hide");
-                  // console.log(JSON.parse(result));
-                  $('#welcome-name').text(JSON.parse(result).save['FirstName']);
-                  $('#wname').text(JSON.parse(result).save['FirstName']);
                 }
             });
         }
@@ -754,7 +767,7 @@ $(document).ready(function () {
                     else{
                         alertMsg = `<div class='alert alert-danger alert-dismissible fade show mt-3' role='alert'>${JSON.parse(result).errormsg}<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>`;
                     }
-                    $('#add-new-address').after(alertMsg);
+                    $('#address .table3').before(alertMsg);
                     setTimeout(function(){ 
                         $('.alert').fadeOut(1000) 
                     }, 5000);
@@ -784,7 +797,7 @@ $(document).ready(function () {
                 else{
                     alertMsg = `<div class='alert alert-danger alert-dismissible fade show mt-3' role='alert'>${JSON.parse(result).errormsg}<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>`;
                 }
-                $('#add-new-address').after(alertMsg);
+                $('#address .table3').before(alertMsg);
                 setTimeout(function(){ 
                     $('.alert').fadeOut(1000) 
                 }, 5000);
@@ -815,7 +828,7 @@ $(document).ready(function () {
                 success : function(result){
                     var status = JSON.parse(result);
                     if(!status.success.yes){
-                        $(soldpsw).after("<span class='error'>Please insert valid old password</span>");
+                        $('#soldpsw').after("<span class='error'>Please insert valid old password</span>");
                         $.LoadingOverlay("hide");
                         // console.log(status);
                     }
@@ -827,7 +840,7 @@ $(document).ready(function () {
                         else{
                             alertMsg = `<div class='alert alert-danger alert-dismissible fade show mt-3' role='alert'>${status.success.smsg}<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>`;
                         }
-                        $('#change-psw').after(alertMsg);
+                        $('#password form').before(alertMsg);
                         setTimeout(function(){ 
                             $('.alert').fadeOut(1000) 
                         }, 5000);

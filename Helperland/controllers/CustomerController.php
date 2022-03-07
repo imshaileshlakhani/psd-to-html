@@ -9,13 +9,11 @@ class CustomerController
         $this->model = new Customer();
     }
 
-    public function customerDashboard($parameter = "")
-    {
+    public function customerDashboard($parameter = ""){
         include('View/Customer/Customer-Dashboard.php');
     }
 
-    public function customerData()
-    {
+    public function customerData(){
         if (isset($_POST)) {
             $paginationData = [];
             $result = [];
@@ -72,8 +70,7 @@ class CustomerController
         }
     }
 
-    function serviceCancle()
-    {
+    function serviceCancle(){
         if (isset($_POST)) {
             $result = $this->model->cancleService($_POST);
             if ($result[0]) {
@@ -86,8 +83,7 @@ class CustomerController
         }
     }
 
-    function serviceReschedule()
-    {
+    function serviceReschedule(){
         if (isset($_POST)) {
             $error = "";
             $service = $this->model->getServiceById($_POST['serviceId']);
@@ -143,8 +139,7 @@ class CustomerController
     }
 
     /*------------ Convert  format num(10.5) to time(10:30) -------------*/
-    private function convertStrToTime($str)
-    {
+    private function convertStrToTime($str){
         $hour = substr("0" + floor($str), -2);
         $min = "00";
         if ($hour < $str) {
@@ -154,8 +149,7 @@ class CustomerController
     }
 
     /*------------ Convert time(10:30) format to num(10.5) -------------*/
-    private function convertTimeToStr($time)
-    {
+    private function convertTimeToStr($time){
         $time = explode(":", $time);
         $hour = +$time[0];
         $min = 0.0;
@@ -169,16 +163,14 @@ class CustomerController
     }
 
 
-    function favBlockSp()
-    {
+    function favBlockSp(){
         if (isset($_POST)) {
             $result = $this->model->fav_block_sp($_POST);
             echo json_encode(['status' => $result]);
         }
     }
 
-    public function addeditAddress()
-    {
+    public function addeditAddress(){
         if (isset($_POST)) {
             $address = $this->model->add_edit_address($_POST);
             if ($address) {
@@ -189,8 +181,7 @@ class CustomerController
         }
     }
 
-    public function editSetting()
-    {
+    public function editSetting(){
         if (isset($_POST)) {
             $userdata = $this->model->editSettingDetails($_POST);
             if (count($userdata) > 0) {
@@ -200,8 +191,7 @@ class CustomerController
         }
     }
 
-    public function changePassword()
-    {
+    public function changePassword(){
         if (isset($_POST)) {
             $success = $this->model->changeOldPassword($_POST);
             if ($success['yes']) {
@@ -212,8 +202,7 @@ class CustomerController
         }
     }
 
-    public function addressDelete()
-    {
+    public function addressDelete(){
         if (isset($_POST)) {
             $success = $this->model->deleteAddress($_POST);
             if ($success) {
@@ -224,8 +213,7 @@ class CustomerController
         }
     }
 
-    public function giveRatting()
-    {
+    public function giveRatting(){
         if (isset($_POST)) {
             $success = $this->model->saveRatting($_POST);
             if ($success) {
@@ -236,8 +224,7 @@ class CustomerController
         }
     }
 
-    public function getAddress()
-    {
+    public function getAddress(){
         if (isset($_POST)) {
             $details = $this->model->getAddressById($_POST);
             if ($details) {

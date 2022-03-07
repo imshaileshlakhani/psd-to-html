@@ -1,6 +1,3 @@
-<?php
-    // Config::BASE_URL = "http://localhost/psd-to-html/Helperland/";
-?>
 <!-- modal start -->
 
     <!--login Modal -->
@@ -8,14 +5,15 @@
         <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header border-bottom-0">
-                <div class="form-title ">
+                <div class="form-title">
                     <h4>Login to your account</h4>
                 </div>
                 <button type="button" class="btn-close text-end" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="row">
-                    <form action="<?= Config::BASE_URL.'?controller=Authentication&function=login' ?>" method="post">
+                    <form action="#">
+                    <div class="signin-msg mt-2"></div>
                         <div class="col my-2">
                             <div class="form-group icon">
                                 <input type="email" class="form-control" value="<?php if(isset($_COOKIE['email'])){ echo $_COOKIE['email']; } ?>" id="username" name="username" placeholder="Email" autofocus/><i class=""></i>
@@ -24,18 +22,18 @@
                         </div>
                         <div class="col my-2">
                             <div class="form-group icon">
-                                <input type="text" class="form-control" value="<?php if(isset($_COOKIE['psw'])){ echo $_COOKIE['psw']; } ?>" id="password" name="password" placeholder="Password"  autofocus/>
+                                <input type="password" class="form-control" value="<?php if(isset($_COOKIE['psw'])){ echo $_COOKIE['psw']; } ?>" id="password" name="password" placeholder="Password"  autofocus/>
                                 <img alt="Password" src="assets/images/lock.png">
                             </div>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="remember" value="" id="flexCheckDefault">
-                            <label class="form-check-label" for="flexCheckDefault">
+                            <input class="form-check-input" type="checkbox" name="remember" value="0" id="remember">
+                            <label class="form-check-label" for="remember">
                                 Remember me
                             </label>
                         </div>
                         <div class="">
-                            <button type="submit" name="signin" id="signin" class="btn btn-block btn-round my-3 col-12">Login</button>
+                            <button type="button" name="signin" id="signin" class="btn btn-block btn-round my-3 col-12">Login</button>
                         </div>
                         <div class="text-center col">
                             <p><a href="" data-bs-toggle="modal" data-bs-target="#forgotModal"
@@ -61,7 +59,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="row">
-                        <form action="<?= Config::BASE_URL.'?controller=Authentication&function=forgot_password_link' ?>" method="post">
+                        <form action="#">
+                            <div class="forgot-msg mt-2"></div>
                             <div class="col my-2">
                                 <div class="form-group icon">
                                     <input type="email" id="forgot-email" class="form-control" name="email" placeholder="Email"/><i class=""></i>
@@ -69,7 +68,7 @@
                                 </div>
                             </div>
                             <div>
-                                <button type="submit" id="send" name="send" class="btn btn-block btn-round col-12 my-3">Send</button>
+                                <button type="button" id="send" name="send" class="btn btn-block btn-round col-12 my-3">Send</button>
                             </div>
                             <div class="text-center col">
                                 <p><a href="" data-bs-toggle="modal" data-bs-target="#loginModal"

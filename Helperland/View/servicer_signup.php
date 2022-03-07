@@ -31,21 +31,22 @@
                         <div class="text-center">
                             <span >Register Now!</span>
                         </div>
-                        <form action="<?= Config::BASE_URL.'?controller=Authentication&function=user_signup'?>" method="post">
-                            <input type="hidden" value="2" name="usertypeid">
+                        <form action="#">
+                            <div class="signup-msg mt-2"></div>
+                            <input type="hidden" value="2" name="usertypeid" id="usertypeid">
                             <div class="row">
                                 <div class="">
-                                    <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First name" required autofocus />
+                                    <input type="text" class="form-control" name="firstname" id="firstname" placeholder="First name" />
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="">
-                                    <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last name" required autofocus/>
+                                    <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Last name"/>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Email Address" required />
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Email Address" />
                                 </div>
                             </div>
                             <div class="row">
@@ -60,19 +61,13 @@
                             </div>
                             <div class="row">
                                 <div class="">
-                                    <input type="text" class="form-control" name="psw" id="psw" placeholder="Password" required autofocus />
+                                    <input type="password" class="form-control" name="psw" id="psw" placeholder="Password" autocomplete/>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="">
-                                    <input type="text" class="form-control" name="cpsw" id="cpsw" placeholder="Confirm Password" required autofocus/>
+                                    <input type="password" class="form-control" name="cpsw" id="cpsw" placeholder="Confirm Password" autocomplete/>
                                 </div>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                <label class="form-check-label" for="flexCheckDefault">
-                                    Send me newsletters from Helperland 
-                                </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
@@ -81,7 +76,7 @@
                                 </label>
                             </div>
                             <div class="get-started text-center row">
-                                <button type="submit" name="register" id="Register">Get Started <img src="assets/images/shape-3.png" alt=""></button>
+                                <button type="button" name="register" id="Register">Get Started <img src="assets/images/shape-3.png" alt=""></button>
                             </div>
                         </form>
                     </div>
@@ -159,8 +154,9 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script src="assets/js/nav.js"></script>
-    <script src="assets/js/validate.js"></script>
+    <script src="assets/js/public.js"></script>
 </body>
 </html>

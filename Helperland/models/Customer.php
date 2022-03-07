@@ -21,7 +21,7 @@
                    return [];
                 }
 
-                $sql = "SELECT servicerequest.ServiceRequestId,servicerequest.ServiceStartDate,servicerequest.TotalCost,servicerequest.SubTotal,servicerequest.ServiceProviderId,servicerequest.HasPets,servicerequest.Status,user.FirstName,user.LastName FROM servicerequest LEFT JOIN user ON user.UserId = servicerequest.ServiceProviderId WHERE servicerequest.UserId = $userId AND servicerequest.Status IN (" . implode(',', $status) . ") LIMIT $offset,$showrecord";
+                $sql = "SELECT servicerequest.ServiceRequestId,servicerequest.RecordVersion,servicerequest.ServiceStartDate,servicerequest.TotalCost,servicerequest.SubTotal,servicerequest.ServiceProviderId,servicerequest.HasPets,servicerequest.Status,user.FirstName,user.LastName,user.UserProfilePicture FROM servicerequest LEFT JOIN user ON user.UserId = servicerequest.ServiceProviderId WHERE servicerequest.UserId = $userId AND servicerequest.Status IN (" . implode(',', $status) . ") LIMIT $offset,$showrecord";
 
                 $result = $this->conn->query($sql);
                 $rows = array();
@@ -189,7 +189,7 @@
                     return [];
                 }
 
-                $sql = "SELECT favoriteandblocked.*,user.FirstName,user.LastName FROM favoriteandblocked JOIN user ON user.UserId = favoriteandblocked.TargetUserId WHERE favoriteandblocked.TargetUserId IN (SELECT servicerequest.ServiceProviderId FROM servicerequest WHERE UserId = $userId AND Status = 4) AND favoriteandblocked.UserId = $userId LIMIT $offset,$showrecord";
+                $sql = "SELECT favoriteandblocked.*,user.FirstName,user.LastName,user.UserProfilePicture FROM favoriteandblocked JOIN user ON user.UserId = favoriteandblocked.TargetUserId WHERE favoriteandblocked.TargetUserId IN (SELECT servicerequest.ServiceProviderId FROM servicerequest WHERE UserId = $userId AND Status = 4) AND favoriteandblocked.UserId = $userId LIMIT $offset,$showrecord";
 
                 $result = $this->conn->query($sql);
                 $rows = array();

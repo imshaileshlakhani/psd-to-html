@@ -148,13 +148,11 @@
 }
 .fav-card .cap{
   border: 1px solid #aaa;
-  height: 80px;
-  width: 80px;
   border-radius: 50%;
 }
 .fav-card .cap img{
-  height: 45px;
-  width: 55px;
+  height: 80px;
+  width: 80px;
 }
 .name div:nth-child(1){
   font-weight: bold;
@@ -203,10 +201,10 @@
   background-color: #1d7a8c;
   color: white;
 }
-.pagination div:nth-child(7) img{
+.pagination #next-tab img{
   transform: rotate(180deg);
 }
-.pagination div:nth-child(8) img{
+.pagination #next-last-tab img{
   transform: rotate(180deg);
 }
 

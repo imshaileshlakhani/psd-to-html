@@ -4,6 +4,10 @@ function showLoader(){
     });
 }
 $(document).ready(function () {
+    var userTypeId = $('#header').data('usertype');
+    if(userTypeId == 2){
+        $('#bookservice').closest('li').hide();
+    }
     var is_valid = true;
     var is_pass_check = false;
 

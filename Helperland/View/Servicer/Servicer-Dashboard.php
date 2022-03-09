@@ -29,6 +29,9 @@
     <?php
         // modal start
         include("View/modal/Sidebar-Servicer.php");
+        include("View/modal/Service-Cancle.php");
+        include("View/modal/success-model.php");
+        include("View/modal/Service-Cancle.php");
         include("View/modal/ServiceDetails-Servicer.php");
 
         // header-section

@@ -13,24 +13,24 @@
                                 <div class="row">
                                     <p class="model-title">Service Details</p>
                                     <p class="model-time">07/10/2021 08:00 -11:00 </p>
-                                    <p>Duration: <span>3 Hrs</span></p>
+                                    <p>Duration: <span class="duration-model"></span></p>
                                 </div>
                                 <hr>
                                 <div class="row">
-                                    <p>Service Id: <span>8488.</span></p>
-                                    <p>Extras:</p>
-                                    <p>Total Payment: <span class="model-price">56,25 € </span></p>
+                                    <p>Service Id: <span class="sid-model"></span></p>
+                                    <p>Extras: <span class="extra-model"><span></p>
+                                    <p>Total Payment: <span class="model-price"></span></p>
                                 </div>
                                 <hr>
                                 <div class="row">
-                                    <p>Customer Name: <span>Gaurang Patel.</span></p>
-                                    <p>Service Address: <span>Koenigstrasse 112,99897 Tambach-Dietharz</span></p>
-                                    <p>Distance: <span>296,76</span></p>
+                                    <p>Customer Name: <span class="cname">Gaurang Patel.</span></p>
+                                    <p>Service Address: <span class="address-model">Koenigstrasse 112,99897 Tambach-Dietharz</span></p>
+                                    <p>Distance: <span></span></p>
                                 </div>
                                 <hr>
                                 <div class="row">
                                     <p>Comments</p>
-                                    <p><i class="fa fa-times-circle-o"></i> <span>I dont't have pets at home</span></p>
+                                    <p class="pet-model"></p>
                                 </div>
                                 <hr>
                                 <div class="row model-button">
@@ -65,29 +65,29 @@
                                 <div class="row">
                                     <p class="model-title">Service Details</p>
                                     <p class="model-time">07/10/2021 08:00 -11:00 </p>
-                                    <p>Duration: <span>3 Hrs</span></p>
+                                    <p>Duration: <span class="duration-model"></span></p>
                                 </div>
                                 <hr>
                                 <div class="row">
-                                    <p>Service Id: <span>8488.</span></p>
-                                    <p>Extras:</p>
-                                    <p>Total Payment: <span class="model-price">56,25 € </span></p>
+                                    <p>Service Id: <span class="sid-model"></span></p>
+                                    <p>Extras: <span class="extra-model"><span></p>
+                                    <p>Total Payment: <span class="model-price"></span></p>
                                 </div>
                                 <hr>
                                 <div class="row">
-                                    <p>Customer Name: <span>Gaurang Patel.</span></p>
-                                    <p>Service Address: <span>Koenigstrasse 112,99897 Tambach-Dietharz</span></p>
-                                    <p>Distance: <span>296,76</span></p>
+                                    <p>Customer Name: <span class="cname">Gaurang Patel.</span></p>
+                                    <p>Service Address: <span class="address-model">Koenigstrasse 112,99897 Tambach-Dietharz</span></p>
+                                    <p>Distance: <span></span></p>
                                 </div>
                                 <hr>
                                 <div class="row">
                                     <p>Comments</p>
-                                    <p><i class="fa fa-times-circle-o"></i> <span>I dont't have pets at home</span></p>
+                                    <p class="pet-model"></p>
                                 </div>
                                 <hr>
                                 <div class="row model-button">
                                     <div class="col">
-                                        <button class="cancel-button"><i class="fa fa-times"></i> Cancel</button>
+                                        <button type="button" class="cancle-service cancel-button" data-bs-toggle="modal" data-bs-target="#servicecancle" data-bs-dismiss="modal"><i class="fa fa-times"></i> Cancel</button>
                                         <button class="complete-button"><i class="fa fa-check"></i>
                                             Complete</button>
                                     </div>

@@ -85,6 +85,7 @@ $(document).ready(function () {
         if (page != undefined) {
             customerData(limit, page);
         }
+        $.LoadingOverlay("hide");
     });
 
     function customerData(limit = 2, page = 1) {
@@ -196,7 +197,7 @@ $(document).ready(function () {
         // alert(service);
         var arr = service.split(",")
         serviceDetailsModel(arr);
-    })
+    });
 
     function json2array(json) {
         var result = [];

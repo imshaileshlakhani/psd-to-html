@@ -1,5 +1,5 @@
     <input type="hidden" id="userdata" value="<?php if(isset($userdata)){ echo $userdata['UserId']; } ?>">
-    <header id="header">
+    <header id="header" data-usertype="<?= $userdata['UserTypeId']?>">
         <div class="header">
             <div class="brand">
                 <a class="navbarbrand" href="<?= Config::BASE_URL.'?controller=Public&function=home'?>">

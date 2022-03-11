@@ -3,9 +3,9 @@
         <div class="title my-2">Payment Status
             <select name="payment-status" id="payment-status">
                 <option value="All">All</option>
-                <option value="Pending">Pending</option>
+                <!-- <option value="Pending">Pending</option> -->
                 <option value="Completed">Completed</option>
-                <option value="Refund">Refund</option>
+                <option value="Cancelled">Cancelled</option>
             </select>
         </div>
         <div class="title-btn my-2"><a href="#" id="Export">Export</a></div>
@@ -16,6 +16,7 @@
                 <th onclick="sortTable(0)">Service ID <img src="assets/images/sort.png"></th>
                 <th onclick="sortTable(1)">Service date <img src="assets/images/sort.png"></th>
                 <th onclick="sortTable(2)">Customer details <img src="assets/images/sort.png"></th>
+                <th onclick="sortTable(3)">Status <img src="assets/images/sort.png" alt=""></th>
             </tr>
             <tbody class="tbody">
                 

@@ -68,31 +68,60 @@ $(document).ready(function () {
 
     $('#number').change(function () {
         showLoader();
+        var withpet = 0;
+        if ( $('#withpet').is(":checked") ){
+            withpet = 1;
+        }
         var limit = $('#number').val();
-        ServicerData(limit);
+        var pstatus = $('#payment-status').val();
+        var rstatus = $('#rating-status').val();
+        ServicerData(limit, page = 1, pstatus, rstatus, withpet);
     });
 
     $(document).on('click', '#pagination', function (e) {
         showLoader();
+        var withpet = 0;
+        if ( $('#withpet').is(":checked") ){
+            withpet = 1;
+        }
         var page = $(e.target).closest('div').data("page");
-        console.log(page);
+        var pstatus = $('#payment-status').val();
+        var rstatus = $('#rating-status').val();
         var limit = $('#number').val();
         if (page != undefined) {
-            ServicerData(limit, page);
+            ServicerData(limit, page, pstatus, rstatus, withpet);
         }
         $.LoadingOverlay("hide");
     });
 
-    function ServicerData(limit = 2, page = 1) {
+    $('#rating-status').change(function(){
+        showLoader();
+        var rstatus = $(this).val();
+        var limit = $('#number').val();
+        ServicerData(limit, page = 1,pstatus = "All",rstatus);
+    });
+
+    $('#withpet').change(function(){
+        showLoader();
+        var withpet = 0;
+        if ( $('#withpet').is(":checked") ){
+            withpet = 1;
+        }
+        
+        var limit = $('#number').val();
+        ServicerData(limit, page = 1,pstatus = "All",rstatus = "All",withpet);
+    });
+
+    function ServicerData(limit = 2, page = 1, pstatus = "All", rstatus = "All", withpet = 0) {
         var tabName = $('#tab-name').val();
         var onePageData = limit;
         var defaultPage = page;
         $.ajax({
             url: "http://localhost/psd-to-html/Helperland/?controller=Servicer&function=servicerData",
             type: "POST",
-            data: { pageName: tabName, userid: userid, limit: onePageData, page: defaultPage},
+            data: { pageName: tabName, userid: userid, limit: onePageData, page: defaultPage, pstatus: pstatus, rstatus: rstatus, withpet: withpet},
             success: function (result) {
-                // console.log(result);
+                console.log(result);
                 switch (tabName) {
                     case "New":
                         const newService = JSON.parse(result);
@@ -117,6 +146,10 @@ $(document).ready(function () {
                             $('#totalrequest').text(history.paginationData.Totalrecord);
                             paginationHtml(history.paginationData);
                         } 
+                        break;
+                    case "Schedule":
+                        const Schedule = JSON.parse(result);
+                        $('#ups').html(Schedule.html);
                         break;
                     case "Ratings":
                         const rating = JSON.parse(result);
@@ -157,7 +190,7 @@ $(document).ready(function () {
             var fullName = service.FirstName + " " + service.LastName;
             var address = service.AddressLine1 +","+service.PostalCode+" "+service.City;
             const obj = getTimeAndDate(service.ServiceStartDate, service.SubTotal);
-            newServiceHtml += `<tr class="text-center" data-serviceid="${service.ServiceRequestId}" data-bs-toggle="modal" data-bs-target="#servicedetails1" data-bs-dismiss="modal">
+            newServiceHtml += `<tr class="text-center" data-serviceid="${service.ServiceRequestId}" data-bs-toggle="modal" data-bs-target="#servicedetails1" data-bs-dismiss="modal" data-totalhr="${service.SubTotal}" data-starttime="${obj.starttime}" data-startdate="${obj.startdate}">
                                     <td>
                                         <div>${service.ServiceRequestId}</div>
                                     </td>
@@ -171,11 +204,45 @@ $(document).ready(function () {
                                     </td>
                                     <td>${service.TotalCost} €</td>
                                     <td></td>
-                                    <td class="Accept"><a href="">Accept</a></td>
+                                    <td class="Accept"><a href="#" data-serviceid="${service.ServiceRequestId}">Accept</a></td>
                                 </tr>`;
         });
         $('.table1 .tbody').html(newServiceHtml);
     }
+
+    // accept request
+    $('#Accept-button').click(function(e){
+        var serviceId = $(this).data('serviceid');
+        var workinghr = +$(this).data('totalhr');
+        var starttime = $(this).data('starttime');
+        var startdate = $(this).data('startdate');
+        // alert(starttime+" "+workinghr);
+        $.ajax({
+            url: "http://localhost/psd-to-html/Helperland/?controller=Servicer&function=serviceAccept",
+            type: "POST",
+            data: { serviceId: serviceId,userid: userid,workinghr: workinghr,starttime: starttime,startdate: startdate},
+            success: function (result) {
+                const status = JSON.parse(result);
+                console.log(result);
+                if (status.error == "") {
+                    $("#servicedetails1").modal('hide');
+                    $("#successModal #success-msg").text("Service request has been accepted successfully");
+                    $('#successModal #service-id').text(`Accepted service id : ${serviceId}`);
+                    $("#successModal button").prop('onclick', null);
+                    $("#successModal").modal('show');
+                    ServicerData();
+                } else {
+                    $("#servicedetails1").modal('hide');
+                    alert(status.error);
+                    ServicerData();
+                }
+            },
+            complete : function(result){
+                $.LoadingOverlay("hide");
+            }
+        });
+    });
+    
 
     // show upcoming service
     function showUpcomingService(upcomingServices){
@@ -206,7 +273,7 @@ $(document).ready(function () {
 
     // service cancle model
     $(document).on('click', '.cancle-service', function (e) {
-        window.serviceIdforCancle = $(e.target).data('serviceid');
+        window.serviceIdforCancle = $(this).data('serviceid');
         // alert(serviceIdforCancle);
         $('#service-msg').on('keyup', function () {
             var msg = $('#service-msg').val();
@@ -235,8 +302,8 @@ $(document).ready(function () {
                     const status = JSON.parse(result);
                     // console.log(status);
                     if (status.update == true) {
-                        $("#successModal #success-msg").text('Service request canceled successfully');
-                        $('#successModal #service-id').text(`Cancelled Request Id : ${sid}`);
+                        $("#successModal #success-msg").text('Service request has been canceled successfully');
+                        $('#successModal #service-id').text(`Canceled Request Id : ${sid}`);
                         $("#successModal button").prop('onclick', null);
                         $("#successModal").modal('show');
                         ServicerData();
@@ -251,7 +318,7 @@ $(document).ready(function () {
         }
     }
 
-    $('#table').on('click', function (e) {
+    $('#table .tbody').on('click', function (e) {
         var serviceId = $(e.target).closest('tr').data('serviceid');
         var tabName = $('#tab-name').val();
         // alert(tabName);
@@ -261,7 +328,7 @@ $(document).ready(function () {
             data : {userid: userid, serviceId: serviceId},
             success : function(result){
                 const details = JSON.parse(result);
-                // console.log(details);
+                console.log(details);
                 if(details.service){
                     serviceDetailsModel(details.service,tabName);
                 }
@@ -298,7 +365,13 @@ $(document).ready(function () {
         $('.model-price').text(service['TotalCost'] + " €");
         $('.cname').text(service['FirstName'] + " " + service['LastName']);
         $('.address-model').text(service['AddressLine1'] +","+ service['PostalCode'] +" "+service['City']);
-        $('.cancel-button').data('serviceid',service['ServiceRequestId']);
+        $('#complete-button').data('serviceid',service['ServiceRequestId']);
+        $('#complete-button').data('customerId',service['UserId']);
+        $('.cancle-service').data('serviceid',service['ServiceRequestId']);
+        $('.Accept-button').data('serviceid',service['ServiceRequestId']);
+        $('.Accept-button').data('totalhr',service['SubTotal']);
+        $('.Accept-button').data('starttime',dateTime.starttime);
+        $('.Accept-button').data('startdate',service['ServiceStartDate'].split(" ")[0]);
 
         if (service['HasPets'] == "1") {
             petHtml += `<i class="fa fa-check-circle-o"></i> <span>I have pets at home</span>`;
@@ -308,6 +381,36 @@ $(document).ready(function () {
         }
         $('.pet-model').html(petHtml);
     }
+
+    // complete service
+    $('#complete-button').click(function(){
+        var serviceId = $(this).data('serviceid');
+        var customerId = $(this).data('customerId');
+        // alert(customerId);
+        $.ajax({
+            url : "http://localhost/psd-to-html/Helperland/?controller=Servicer&function=serviceComplete",
+            type : "POST",
+            data : {userid: userid, serviceId: serviceId, customerId: customerId},
+            success : function(result){
+                const scomplete = JSON.parse(result);
+                // console.log(scomplete);
+                if(scomplete.save){
+                    $("#servicedetails").modal('hide');
+                    $("#successModal #success-msg").text('Service request has been completed successfully');
+                    $('#successModal #service-id').text(`Completed Request Id : ${serviceId}`);
+                    $("#successModal button").prop('onclick', null);
+                    $("#successModal").modal('show');
+                    ServicerData();
+                }
+                else{
+                    alert("somthing went wrong");
+                }
+            },
+            complete : function(result){
+                $.LoadingOverlay("hide");
+            }
+        });
+    });
 
     // show service history
     function showHistory(history){
@@ -328,10 +431,25 @@ $(document).ready(function () {
                                         <div>${fullName}</div>
                                         <div> &nbsp; <img src="assets/images/layer-15.png" alt=""> ${address}</div>
                                     </td>
+                                    <td>`;
+                                    if (service.Status == 3) {
+                                        historyHtml += `<a class="Cancelled">Cancelled`;
+                                    }
+                                    else {
+                                        historyHtml += `<a>Completed`;
+                                    }
+                            historyHtml += `</a></td>
                                 </tr>`;
         });
         $('.table3 .tbody').html(historyHtml);
     }
+
+    $('#payment-status').change(function(){
+        showLoader();
+        var pstatus = $(this).val();
+        var limit = $('#number').val();
+        ServicerData(limit, page = 1,pstatus);
+    });
 
     // show service rating
     function showRating(rating){
@@ -368,6 +486,7 @@ $(document).ready(function () {
 
     // service provider rating function
     function spRating(avgrating) {
+        const arr = ['Bad','Fair','Average','Good','Excellent'];
         var ratingHtml = "";
         var i = 0;
         for (var i = 0; i < Math.floor(avgrating); i++) {
@@ -380,9 +499,12 @@ $(document).ready(function () {
         for (var j = 0; j < 5 - i; j++) {
             ratingHtml += `<img src="assets/images/star-empty.png" alt="">`;
         }
-            ratingHtml += ` &nbsp;Very Good`;
+        
+            ratingHtml += ` &nbsp;${arr[Math.floor(avgrating)]}`;
         return ratingHtml;
     }
+
+    
 
     // Favourite pros page
     function showFavBlockSp(block){

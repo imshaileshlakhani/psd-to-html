@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="assets/css/header.css">
     <link rel="stylesheet" href="assets/css/modal.css">
     <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/calendar.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://kit.fontawesome.com/4ae0bb5b6f.js" crossorigin="anonymous"></script>
@@ -53,7 +54,7 @@
 
                     <a href="<?= Config::BASE_URL.'?controller=Servicer&function=ServicerDashboard&parameter=Upcoming'?>" class="<?php if($_GET['parameter'] == "Upcoming"){ echo 'active'; }?>" id="Upcoming">Upcoming Services</a>
 
-                    <a href="#">Service Schedule</a>
+                    <a href="<?= Config::BASE_URL.'?controller=Servicer&function=ServicerDashboard&parameter=Schedule'?>" class="<?php if($_GET['parameter'] == "Schedule"){ echo 'active'; }?>">Service Schedule</a>
 
                     <a href="<?= Config::BASE_URL.'?controller=Servicer&function=ServicerDashboard&parameter=History'?>" class="<?php if($_GET['parameter'] == "History"){ echo 'active'; }?>" id="History">Service History</a>
 
@@ -79,6 +80,9 @@
                                     break;
                                 case "Block":
                                     include('View/Servicer/Block-Customer.php');
+                                    break;
+                                case "Schedule":
+                                    include('View/Servicer/Service-Schedule.php');
                                     break;
                                 case "setting":
                                     include('View/Servicer/My-Setting.php');

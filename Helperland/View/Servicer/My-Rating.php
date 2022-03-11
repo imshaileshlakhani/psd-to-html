@@ -1,13 +1,16 @@
 <div class="sidebar-content">
     <div class="d-flex justify-content-between flex-wrap mb-2 ">
         <div class="title">Rating
-            <select name="payment-status" id="payment-status">
+            <select name="rating-status" id="rating-status">
                 <option value="All">All</option>
-                <option value="Pending">Bad</option>
-                <option value="Completed">Good</option>
+                <option value="Bad">Bad</option>
+                <option value="Fair">Fair</option>
+                <option value="Average">Average</option>
+                <option value="Good">Good</option>
+                <option value="Excellent">Excellent</option>
             </select>
         </div>
-        <div class="my-2">Sorting <img src="assets/images/sort.png" alt=""></div>
+        <!-- <div class="my-2">Sorting <img src="assets/images/sort.png" alt=""></div> -->
     </div>
     <div class="main" id="ups">
         

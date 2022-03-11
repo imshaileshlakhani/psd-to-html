@@ -39,7 +39,9 @@
                 $userId = trim($data['userdata']);
                 $pet = trim($data['WorkWithPet']);
 
-                $sql = "SELECT favoriteandblocked.*, user.UserProfilePicture, concat(user.FirstName, ' ', user.LastName) AS FullName FROM favoriteandblocked JOIN user ON user.UserId = favoriteandblocked.TargetUserId WHERE user.UserId IN (SELECT favoriteandblocked.TargetUserId FROM favoriteandblocked JOIN user ON user.UserId = favoriteandblocked.UserId WHERE user.UserId = '$userId' AND user.UserTypeId = 1) AND user.IsApproved = 1 AND user.IsDeleted = 0 AND user.WorksWithPets >= $pet AND favoriteandblocked.IsFavorite = 1 AND favoriteandblocked.IsBlocked = 0";
+                $sql = "SELECT fb.*, user.UserProfilePicture, concat(user.FirstName, ' ', user.LastName) AS FullName FROM favoriteandblocked AS fb JOIN user ON user.UserId = fb.TargetUserId WHERE fb.UserId = $userId AND fb.TargetUserId IN (SELECT UserId FROM favoriteandblocked WHERE TargetUserId = $userId AND IsBlocked=0) AND user.IsApproved = 1 AND user.IsDeleted = 0 AND fb.IsFavorite = 1 AND fb.IsBlocked = 0 AND user.WorksWithPets >= 0";
+
+                // echo $sql;
 
                 $result = $this->conn->query($sql);
                 $rows = array();

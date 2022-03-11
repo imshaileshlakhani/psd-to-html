@@ -35,7 +35,7 @@
                                 <hr>
                                 <div class="row model-button">
                                     <div class="col">
-                                        <button class="Accept-button"><i class="fa fa-check"></i>
+                                        <button type="button" class="Accept-button" id="Accept-button"><i class="fa fa-check"></i>
                                             Accept</button>
                                     </div>
                                 </div>
@@ -88,7 +88,7 @@
                                 <div class="row model-button">
                                     <div class="col">
                                         <button type="button" class="cancle-service cancel-button" data-bs-toggle="modal" data-bs-target="#servicecancle" data-bs-dismiss="modal"><i class="fa fa-times"></i> Cancel</button>
-                                        <button class="complete-button"><i class="fa fa-check"></i>
+                                        <button type="button" id="complete-button" onClick="showLoader()" class="complete-button"><i class="fa fa-check"></i>
                                             Complete</button>
                                     </div>
                                 </div>

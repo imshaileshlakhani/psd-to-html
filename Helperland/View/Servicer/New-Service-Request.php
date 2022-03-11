@@ -9,8 +9,8 @@
             </select>
         </div>
         <div class="Check-btn form-check my-2 mx-3">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">
+            <input class="form-check-input" type="checkbox" id="withpet">
+            <label class="form-check-label" for="withpet">
                 Include Pet at Home
             </label>
         </div>

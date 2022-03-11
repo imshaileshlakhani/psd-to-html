@@ -121,6 +121,21 @@
   background-color: #ff6b6b;
 }
 
+/* --------------------------service-history------------------------- */
+.table3 .text-center td:nth-child(4) a{
+  background-color: #67b644;
+  padding: 4px 9px;
+  color: white;
+  font-size: 0.81rem;
+}
+.table3 .text-center td:nth-child(4) a.Cancelled{
+  text-decoration: none;
+  background-color: #ff6b6b;
+  padding: 4px 9px;
+  color: white;
+  font-size: 0.81rem;
+}
+
 /* ---------------------------My-ratings-------------------------- */
 .service-rating{
   border: 1px solid #ddd;
@@ -176,7 +191,7 @@
   color: #646464;
   font-size: 0.87rem;
 }
-.drop-record select, .sidebar-content select#km, .sidebar-content select#payment-status{
+.drop-record select, .sidebar-content select#km, .sidebar-content select#payment-status, .sidebar-content select#rating-status{
   height: 38px;
   outline: none;
   border: 1px solid #e1e1e1;
@@ -302,7 +317,6 @@
 #details .save-btn a.save, #password .save-btn a.save {
   background-color: #146371;
 }
-
 
 @media screen and (max-width:414px) {
   .service-rating div div:nth-child(1){

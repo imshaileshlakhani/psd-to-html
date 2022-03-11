@@ -241,7 +241,7 @@ $(document).ready(function () {
                     if (status.update[0] == true) {
                         $.LoadingOverlay("hide");
                         $("#successModal #success-msg").text('Your service request canceled successfully');
-                        $('#successModal #service-id').text(`Cancelled Request Id : ${sid}`);
+                        $('#successModal #service-id').text(`Canceled Request Id : ${sid}`);
                         $("#successModal button").prop('onclick', null);
                         $("#successModal").modal('show');
                         customerData();

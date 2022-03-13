@@ -94,7 +94,7 @@ $(document).ready(function () {
       type: 'POST',
       data: { zipcode: postal, userdata: userId, WorkWithPet: pet },
       success: function (result) {
-        console.log(result);
+        // console.log(result);
         $.LoadingOverlay("hide");
         changeNavtab('schedule-tab', 'details-tab', 'schedule', 'details');
         activateNavtabs();
@@ -102,7 +102,7 @@ $(document).ready(function () {
         const addressData = JSON.parse(result);
         showAddress(addressData.address);
         showFavSp(addressData.fav);
-        console.log(addressData.fav);
+        // console.log(addressData.fav);
       }
     });
   });

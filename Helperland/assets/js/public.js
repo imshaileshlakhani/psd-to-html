@@ -124,6 +124,8 @@ $(document).ready(function () {
                             window.location = "http://localhost/psd-to-html/Helperland/?controller=Customer&function=customerDashboard&parameter=Dashboard";
                         }else if(loginData.UserTypeId == 2){
                             window.location = "http://localhost/psd-to-html/Helperland/?controller=Servicer&function=ServicerDashboard&parameter=New";
+                        }else{
+                            window.location = "http://localhost/psd-to-html/Helperland/?controller=Admin&function=adminDashboard&parameter=srequest";
                         }
                     }
                     else{

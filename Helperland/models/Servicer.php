@@ -273,7 +273,7 @@ class Servicer extends Connection
                 return [false, 'Not able to accept service'];
             }
         }
-        return [false, 'Service is already accepted'];
+        return [false, 'This service request is no more available. It has been assigned to another provider.'];
     }
 
     public function isAccepted($serviceId)

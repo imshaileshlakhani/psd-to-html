@@ -106,6 +106,7 @@
 }
 #successModal #success-msg{
   font-weight: 400;
+  padding: 0 20px;
 }
 #successModal #service-id{
   font-weight: 100;
@@ -387,4 +388,24 @@
   height: 46px;
   background-color: #1D7A8C;
   color: white;
+}
+
+/* Model For Edit and Reschedule Service by Admin */
+#EditAndReschedule{
+  color: #646464;
+}
+#EditAndReschedule .modal-header{
+ border-bottom: none;
+}
+#EditAndReschedule .modal-body .lable_title{
+  font-weight: 500;
+}
+#EditAndReschedule .modal-body .btn-modal{
+ background-color: #1fb6ff;
+ color: white;
+ margin-top: 20px;
+ padding: 10px;
+}
+#EditAndReschedule .modal-body .btn-modal:hover{
+ color: rgba(255, 255, 255, 0.651);
 }

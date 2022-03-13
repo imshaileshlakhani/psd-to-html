@@ -88,7 +88,7 @@
                                 <div class="row model-button">
                                     <div class="col">
                                         <button type="button" class="cancle-service cancel-button" data-bs-toggle="modal" data-bs-target="#servicecancle" data-bs-dismiss="modal"><i class="fa fa-times"></i> Cancel</button>
-                                        <button type="button" id="complete-button" onClick="showLoader()" class="complete-button"><i class="fa fa-check"></i>
+                                        <button type="button" id="complete-button" onClick="showLoader()" class="complete-button d-none"><i class="fa fa-check"></i>
                                             Complete</button>
                                     </div>
                                 </div>

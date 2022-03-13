@@ -51,7 +51,7 @@ class Calendar {
             foreach ($this->events as $event) {
                 for ($d = 0; $d <= ($event[2]-1); $d++) {
                     if (date('y-m-d', strtotime($this->active_year . '-' . $this->active_month . '-' . $i . ' -' . $d . ' day')) == date('y-m-d', strtotime($event[1]))) {
-                        $html .= '<div class="event' . $event[3] . '" id="data_'.$event[4].'">';
+                        $html .= '<div data-bs-toggle="modal" data-bs-target="#servicedetails" data-bs-dismiss="modal" class="event' . $event[3] . '" id="data_'.$event[4].'">';
                         $html .= $event[0];
                         $html .= '</div>';
                     }

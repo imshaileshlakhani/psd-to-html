@@ -2,6 +2,7 @@
 include('Calendar/Calendar.php');
 class ServicerController{
     public $model;
+    public $data = [];
     public function __construct(){
         include('models/Servicer.php');
         $this->model = new Servicer();
@@ -21,7 +22,8 @@ class ServicerController{
             $paginationData['limit'] = $_POST['limit'];
             $paginationData['page'] = $_POST['page'];
             $TotalRecord = 0;
-
+            $this->data["date"] = $_POST['date'];
+            
             if ($parameter != "") {
                 switch ($parameter) {
                     case "New":
@@ -74,12 +76,12 @@ class ServicerController{
                             $i=0;
                             foreach($results as $result){
                                 $service_starttime = $result["ServiceStartTime"];
-                                $service_endtime = $this->convertStrToTime($result["ServiceHours"] + $this->convertTimeToStr($service_starttime));
+                                $service_endtime = $this->convertStrToTime($result["SubTotal"] + $this->convertTimeToStr($service_starttime));
                                 $calendar->add_event($service_starttime." - ".$service_endtime, $result["StartDate"], 1, "appcolor",$i++);
                             }
                         }
                         $html = $calendar->getCalendarHTML();
-                        echo json_encode(['html' => $html, 'service' => $results,'paginationData' => $paginationData]);
+                        echo json_encode(['html' => $html, 'service' => $results]);
                         break;
                     case "Block":
                         $result = $this->model->show_block_user($_POST);
@@ -186,7 +188,7 @@ class ServicerController{
                     $service_endtime = $service_starttime + $service_hour;
                     // echo $select_starttime.' '.$select_endtime.' '.$service_starttime.' '.$service_endtime;
                     if ($select_starttime == $service_starttime || $select_endtime == $service_endtime || $select_starttime == $service_endtime || $select_endtime == $service_starttime || ($select_starttime < $service_starttime && $select_endtime > $service_starttime) || ($service_starttime-$select_endtime)<1 || ($select_starttime > $service_starttime && $select_starttime < $service_endtime) || ($select_starttime-$service_endtime)<1) {
-                        $error = "You have already accept Another service request during this time slot";
+                        $error = "Another service request ".$res["ServiceRequestId"]." has already been assigned which has time overlap with this service request. You can’t pick this one!";
                             break;
                         }
                 }

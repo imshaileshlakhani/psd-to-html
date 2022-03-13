@@ -54,8 +54,8 @@
                                             echo Config::BASE_URL.'?controller=Customer&function=customerDashboard&parameter=Dashboard';
                                         } else if ($userdata["UserTypeId"] == Config::USER_TYPE[1]) {
                                             echo Config::BASE_URL.'?controller=Servicer&function=ServicerDashboard&parameter=New';
-                                        } else {
-                                            echo "#";
+                                        } else if ($userdata["UserTypeId"] == Config::USER_TYPE[2]){
+                                            echo Config::BASE_URL.'?controller=Admin&function=adminDashboard&parameter=srequest';
                                         }
                                     ?> ">
                                     My Dashboard
@@ -66,8 +66,8 @@
                                             echo Config::BASE_URL.'?controller=Customer&function=customerDashboard&parameter=setting';
                                         } else if ($userdata["UserTypeId"] == Config::USER_TYPE[1]) {
                                             echo Config::BASE_URL.'?controller=Servicer&function=ServicerDashboard&parameter=setting';
-                                        } else {
-                                            echo "#";
+                                        } else if ($userdata["UserTypeId"] == Config::USER_TYPE[2]){
+                                            echo Config::BASE_URL.'?controller=Admin&function=adminDashboard&parameter=srequest';
                                         }
                                     ?> ">
                                     My Setting

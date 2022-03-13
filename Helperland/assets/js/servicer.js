@@ -46,6 +46,7 @@ function showLoader(){
 }
 $(document).ready(function () {
     const userid = $('#userdata').val();
+    window.scheduleDate = new Date();
     ServicerData();
     $('#New').click(function () {
         ServicerData();
@@ -94,34 +95,27 @@ $(document).ready(function () {
         $.LoadingOverlay("hide");
     });
 
-    $('#rating-status').change(function(){
-        showLoader();
-        var rstatus = $(this).val();
-        var limit = $('#number').val();
-        ServicerData(limit, page = 1,pstatus = "All",rstatus);
+    // service schedule prev month
+    $(document).on('click','#left-date',function(){
+        var date = window.scheduleDate.setMonth((window.scheduleDate.getMonth())+1,0);
+        ServicerData(limit = 2, page = 1, pstatus = "All", rstatus = "All", withpet = 0, date);
+    });
+    // service schedule next month
+    $(document).on('click','#right-date',function(){
+        var date = window.scheduleDate.setMonth((window.scheduleDate.getMonth())+1,0);
+        ServicerData(limit = 2, page = 1, pstatus = "All", rstatus = "All", withpet = 0, date);
     });
 
-    $('#withpet').change(function(){
-        showLoader();
-        var withpet = 0;
-        if ( $('#withpet').is(":checked") ){
-            withpet = 1;
-        }
-        
-        var limit = $('#number').val();
-        ServicerData(limit, page = 1,pstatus = "All",rstatus = "All",withpet);
-    });
-
-    function ServicerData(limit = 2, page = 1, pstatus = "All", rstatus = "All", withpet = 0) {
+    function ServicerData(limit = 2, page = 1, pstatus = "All", rstatus = "All", withpet = 0, date = new Date()) {
         var tabName = $('#tab-name').val();
         var onePageData = limit;
         var defaultPage = page;
         $.ajax({
             url: "http://localhost/psd-to-html/Helperland/?controller=Servicer&function=servicerData",
             type: "POST",
-            data: { pageName: tabName, userid: userid, limit: onePageData, page: defaultPage, pstatus: pstatus, rstatus: rstatus, withpet: withpet},
+            data: { pageName: tabName, userid: userid, limit: onePageData, page: defaultPage, pstatus: pstatus, rstatus: rstatus, withpet: withpet, date: date},
             success: function (result) {
-                console.log(result);
+                // console.log(result);
                 switch (tabName) {
                     case "New":
                         const newService = JSON.parse(result);
@@ -150,6 +144,7 @@ $(document).ready(function () {
                     case "Schedule":
                         const Schedule = JSON.parse(result);
                         $('#ups').html(Schedule.html);
+                        window.services = Schedule.service;
                         break;
                     case "Ratings":
                         const rating = JSON.parse(result);
@@ -174,7 +169,7 @@ $(document).ready(function () {
                         }
                         break;
                     default:
-                        console.log("New");
+                        // console.log("New");
                 }
             },
             complete : function(result){
@@ -210,6 +205,18 @@ $(document).ready(function () {
         $('.table1 .tbody').html(newServiceHtml);
     }
 
+    // with pet service
+    $('#withpet').change(function(){
+        showLoader();
+        var withpet = 0;
+        if ( $('#withpet').is(":checked") ){
+            withpet = 1;
+        }
+        
+        var limit = $('#number').val();
+        ServicerData(limit, page = 1,pstatus = "All",rstatus = "All",withpet);
+    });
+
     // accept request
     $('#Accept-button').click(function(e){
         var serviceId = $(this).data('serviceid');
@@ -223,19 +230,21 @@ $(document).ready(function () {
             data: { serviceId: serviceId,userid: userid,workinghr: workinghr,starttime: starttime,startdate: startdate},
             success: function (result) {
                 const status = JSON.parse(result);
-                console.log(result);
+                // console.log(result);
                 if (status.error == "") {
                     $("#servicedetails1").modal('hide');
                     $("#successModal #success-msg").text("Service request has been accepted successfully");
                     $('#successModal #service-id').text(`Accepted service id : ${serviceId}`);
-                    $("#successModal button").prop('onclick', null);
-                    $("#successModal").modal('show');
-                    ServicerData();
+                    
                 } else {
                     $("#servicedetails1").modal('hide');
-                    alert(status.error);
-                    ServicerData();
+                    $("#successModal #success-msg").text(status.error);
+                    $('#successModal #service-id').text("");
+                    // alert(status.error);
                 }
+                $("#successModal button").prop('onclick', null);
+                $("#successModal").modal('show');
+                ServicerData();
             },
             complete : function(result){
                 $.LoadingOverlay("hide");
@@ -243,7 +252,6 @@ $(document).ready(function () {
         });
     });
     
-
     // show upcoming service
     function showUpcomingService(upcomingServices){
         var upcomingServiceHtml = "";
@@ -251,7 +259,7 @@ $(document).ready(function () {
             var fullName = service.FirstName + " " + service.LastName;
             var address = service.AddressLine1 +","+service.PostalCode+" "+service.City;
             const obj1 = getTimeAndDate(service.ServiceStartDate, service.SubTotal);
-            upcomingServiceHtml += `<tr class="text-center" data-bs-toggle="modal" data-serviceid="${service.ServiceRequestId}"data-bs-target="#servicedetails" data-bs-dismiss="modal">
+            upcomingServiceHtml += `<tr class="text-center" data-bs-toggle="modal" data-serviceid="${service.ServiceRequestId}" data-bs-target="#servicedetails" data-bs-dismiss="modal">
                                     <td>
                                         <div>${service.ServiceRequestId}</div>
                                     </td>
@@ -289,7 +297,6 @@ $(document).ready(function () {
             $('#service-msg').val("");
         });
     });
-
     function cancleService(serviceIdforCancle) {
         var sid = serviceIdforCancle;
         // var limit = $('#number').val();
@@ -320,7 +327,6 @@ $(document).ready(function () {
 
     $('#table .tbody').on('click', function (e) {
         var serviceId = $(e.target).closest('tr').data('serviceid');
-        var tabName = $('#tab-name').val();
         // alert(tabName);
         $.ajax({
             url : "http://localhost/psd-to-html/Helperland/?controller=Servicer&function=serviceDetails",
@@ -328,9 +334,9 @@ $(document).ready(function () {
             data : {userid: userid, serviceId: serviceId},
             success : function(result){
                 const details = JSON.parse(result);
-                console.log(details);
+                // console.log(details);
                 if(details.service){
-                    serviceDetailsModel(details.service,tabName);
+                    serviceDetailsModel(details.service);
                 }
                 else{
                     alert("somthing went wrong");
@@ -339,8 +345,18 @@ $(document).ready(function () {
         });
     });
 
+    // service schedule open model
+    $(document).on('click','.event',function(e){
+        var clickId = $(e.target).attr('id');
+        var recordId = clickId.split("_")[1];
+        // alert(recordId);
+        serviceDetailsModel(window.services[recordId]);
+    });
+
+    
+
     // service-details model
-    function serviceDetailsModel(service,tabName) {
+    function serviceDetailsModel(service) {
         var petHtml = "";
         var extraHtml = "";
         var extras = ['Inside cabinets', 'Inside fridge', 'Inside oven', 'Laundry wash & dry', 'Interior windows'];
@@ -372,6 +388,20 @@ $(document).ready(function () {
         $('.Accept-button').data('totalhr',service['SubTotal']);
         $('.Accept-button').data('starttime',dateTime.starttime);
         $('.Accept-button').data('startdate',service['ServiceStartDate'].split(" ")[0]);
+
+        var serviceDate = service['ServiceStartDate'].split(" ")[0];
+        var currentDate = new Date().toISOString().split("T")[0];
+        var currentTime = Date().slice(16,21);
+        // console.log(currentTime+" "+dateTime.endtime);
+        if(currentDate >= serviceDate){
+            if(currentTime >= dateTime.endtime){
+                $('.complete-button').removeClass('d-none');
+            }else{
+                $('.complete-button').addClass('d-none');
+            }
+        }else{
+            $('.complete-button').addClass('d-none');
+        }
 
         if (service['HasPets'] == "1") {
             petHtml += `<i class="fa fa-check-circle-o"></i> <span>I have pets at home</span>`;
@@ -444,6 +474,7 @@ $(document).ready(function () {
         $('.table3 .tbody').html(historyHtml);
     }
 
+    // short by service status
     $('#payment-status').change(function(){
         showLoader();
         var pstatus = $(this).val();
@@ -504,7 +535,13 @@ $(document).ready(function () {
         return ratingHtml;
     }
 
-    
+    // short by rating
+    $('#rating-status').change(function(){
+        showLoader();
+        var rstatus = $(this).val();
+        var limit = $('#number').val();
+        ServicerData(limit, page = 1,pstatus = "All",rstatus);
+    });
 
     // Favourite pros page
     function showFavBlockSp(block){

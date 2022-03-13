@@ -9,7 +9,7 @@ class CustomerController
         $this->model = new Customer();
     }
 
-    public function customerDashboard($parameter = ""){
+    public function customerDashboard(){
         include('View/Customer/Customer-Dashboard.php');
     }
 
@@ -31,8 +31,6 @@ class CustomerController
                         $result = $this->model->serviceDetails($_POST);
                         if (count($result) > 0) {
                             $TotalRecord = $result[0]['Totalrecord'];
-                        } else {
-                            $TotalRecord = 0;
                         }
                         $paginationData['Totalrecord'] = $TotalRecord;
                         echo json_encode(['service' => $result, 'paginationData' => $paginationData]);
@@ -43,8 +41,6 @@ class CustomerController
                         $result = $this->model->serviceDetails($_POST);
                         if (count($result) > 0) {
                             $TotalRecord = $result[0]['Totalrecord'];
-                        } else {
-                            $TotalRecord = 0;
                         }
                         $paginationData['Totalrecord'] = $TotalRecord;
                         echo json_encode(['service' => $result, 'paginationData' => $paginationData]);
@@ -53,8 +49,6 @@ class CustomerController
                         $result = $this->model->show_fav_block_sp($_POST);
                         if (count($result) > 0) {
                             $TotalRecord = $result[0]['Totalrecord'];
-                        } else {
-                            $TotalRecord = 0;
                         }
                         $paginationData['Totalrecord'] = $TotalRecord;
                         echo json_encode(['favSp' => $result, 'paginationData' => $paginationData]);

@@ -148,6 +148,7 @@ $(document).ready(function () {
                             </tr>`;
         services.forEach(function (service) {
             let arr = [];
+            var rating = "";
             var fullName = service.FirstName + " " + service.LastName;
             const obj = getTimeAndDate(service.ServiceStartDate, service.SubTotal);
             var spid = 0;
@@ -432,7 +433,7 @@ $(document).ready(function () {
             ratingHtml += ` &nbsp;${"0.0"}`;
         }
         else{
-            ratingHtml += ` &nbsp;${parseFloat(avgrating)}`;
+            ratingHtml += ` &nbsp;${parseFloat(avgrating).toFixed(1)}`;
         }
         return ratingHtml;
     }
@@ -533,7 +534,7 @@ $(document).ready(function () {
                                         favspHtml += ` ${"0.0"}`;
                                     }
                                     else{
-                                        favspHtml += ` ${parseFloat(sp.avgRatting.avgrating)}`;
+                                        favspHtml += ` ${parseFloat(sp.avgRatting.avgrating).toFixed(1)}`;
                                     }
                                 favspHtml += `</div>
                                     <div class="text-center mt-3">${sp.totalService} Cleanings</div>

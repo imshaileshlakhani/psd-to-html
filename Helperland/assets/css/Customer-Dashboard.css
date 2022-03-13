@@ -118,11 +118,11 @@
   align-items: center;
 }
 .table1 .cap, .table2 .cap{
-  border: 1px solid #aaa;
-  border-radius: 50%;
   margin-right: 12px;
 }
 .table1 .cap img, .table2 .cap img{
+  border: 1px solid #aaa;
+  border-radius: 50%;
   height: 45px;
   width: 45px;
 }

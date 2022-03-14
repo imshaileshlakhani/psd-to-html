@@ -12,23 +12,29 @@
 
         public function adminData(){
             if (isset($_POST)) {
-                // $paginationData = [];
+                $paginationData = [];
                 $result = [];
     
                 $parameter = $_POST['pageName'];
-                // $paginationData['limit'] = $_POST['limit'];
-                // $paginationData['page'] = $_POST['page'];
+                $paginationData['limit'] = $_POST['limit'];
+                $paginationData['page'] = $_POST['page'];
     
                 $TotalRecord = 0;
                 if ($parameter != "") {
                     switch ($parameter) {
                         case "srequest":
                             $result = $this->model->serviceDetails($_POST);
-                            echo json_encode(['service' => $result]);
+                            if (count($result) > 0)
+                                $TotalRecord = $result[0]['Totalrecord'];
+                            $paginationData['Totalrecord'] = $TotalRecord;
+                            echo json_encode(['record' => $result, 'paginationData' => $paginationData]);
                             break;
                         case "umanagement":
-                            echo "umanagement";
-                            // echo json_encode(['service' => $result, 'paginationData' => $paginationData]);
+                            $result = $this->model->userDetails($_POST);
+                            if (count($result) > 0)
+                                $TotalRecord = $result[0]['Totalrecord'];
+                            $paginationData['Totalrecord'] = $TotalRecord;
+                            echo json_encode(['record' => $result, 'paginationData' => $paginationData]);
                             break;
                         default:
                             echo "no parameter";

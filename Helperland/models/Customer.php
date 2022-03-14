@@ -328,7 +328,7 @@
                 $userId = trim($data['userId']);
                 $dob = trim($data['dob']);
 
-                $sql = "UPDATE user SET FirstName='$firstname',LastName='$lastname',Mobile='$mobile',DateOfBirth='$dob' WHERE UserId = $userId";
+                $sql = "UPDATE user SET FirstName='$firstname',LastName='$lastname',Mobile='$mobile',DateOfBirth='$dob',ModifiedDate=now() WHERE UserId = $userId";
 
                 $result = $this->conn->query($sql);
                 if($result){

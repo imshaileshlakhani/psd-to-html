@@ -300,7 +300,7 @@ class Servicer extends Connection
             $email = trim($data['email']);
             $gender = $data['Gender'];
 
-            $sql = "UPDATE user SET FirstName='$firstname',LastName='$lastname',Mobile='$mobile',DateOfBirth='$dob',Gender=$gender WHERE UserId = $userId";
+            $sql = "UPDATE user SET FirstName='$firstname',LastName='$lastname',Mobile='$mobile',DateOfBirth='$dob',Gender=$gender,ModifiedDate=now() WHERE UserId = $userId";
 
             $sql1 = "INSERT INTO useraddress (UserId, AddressLine1, City, PostalCode, Mobile, Email) VALUES ($userId,'$addressline','$city','$postal','$mobile','$email')";
             $address = $this->checkAddressByUserId($userId);

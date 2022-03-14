@@ -6,7 +6,7 @@ function showLoader(){
 $(document).ready(function () {
     var userTypeId = $('#header').data('usertype');
     if(userTypeId == 2){
-        $('#bookservice').closest('li').hide();
+        $('#bookservice').closest('li').remove();
     }
     var is_valid = true;
     var is_pass_check = false;
@@ -197,7 +197,7 @@ $(document).ready(function () {
         var phoneno = /^[\d]{10}$/;
         if(phone.length < 1){
             $('.phone').parent().after("<span class='error'>Enter Phone Number</span>");
-            var is_valid = false;
+            is_valid = false;
             return;
         }
         else if(!phoneno.test(phone)){

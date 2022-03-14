@@ -29,6 +29,7 @@
     <?php
         // modal start
         include("View/modal/EditService-Admin.php");
+        include("View/modal/Refund-modal.php");
     ?>
 
     <input type="hidden" id="userdata" value="<?php if(isset($userdata)){ echo $userdata['UserId']; } ?>">
@@ -127,6 +128,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
     <script src="assets/js/nav.js"></script>
     <script src="assets/js/admin_user.js"></script>
 </body>

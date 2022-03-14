@@ -46,8 +46,9 @@
             $pass = trim($data["psw"]);
             $mobile = trim($data["phone"]);
             $avtar = "avatar-hat.png";
+            $IsActive = 1;
 
-            $sql = "INSERT INTO user (UserTypeId, FirstName, LastName,Email,Mobile,Password,UserProfilePicture) VALUES ($usertypeid,'$fname','$lname','$email','$mobile','$pass','$avtar')";
+            $sql = "INSERT INTO user (UserTypeId, FirstName, LastName,Email,Mobile,Password,UserProfilePicture,CreatedDate,IsActive) VALUES ($usertypeid,'$fname','$lname','$email','$mobile','$pass','$avtar',now(),$IsActive)";
         
             if($this->conn->query($sql) == TRUE){
                 return true;

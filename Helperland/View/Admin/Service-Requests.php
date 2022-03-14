@@ -48,12 +48,12 @@
         <div id="ups">
             <table class="table1" id="table">
                 <tr class="th text-center">
-                    <th onclick="sortTable(0)">Service ID <img src="assets/images/sort.png" alt=""></th>
-                    <th onclick="sortTable(1)">Service date <img src="assets/images/sort.png" alt="">
-                    </th>
-                    <th onclick="sortTable(2)">Customer details <img src="assets/images/sort.png" alt=""></th>
-                    <th onclick="sortTable(3)">Service Provider <img src="assets/images/sort.png" alt=""></th>
-                    <th onclick="sortTable(4)">Status <img src="assets/images/sort.png" alt=""></th>
+                    <th>Service ID</th>
+                    <th>Service date</th>
+                    <th>Customer details</th>
+                    <th>Service Provider</th>
+                    <th>Payment</th>
+                    <th>Status</th>
                     <th>Actions </th>
                 </tr>
                 <tbody class="tbody">
@@ -65,21 +65,15 @@
             <div class="drop-record my-3">
                 Show
                 <select name="number" id="number">
-                    <option value="10">10</option>
-                    <option value="20">20</option>
-                    <option value="30">30</option>
-                    <option value="40">40</option>
+                    <option value="2">2</option>
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                    <option value="8">8</option>
                 </select>
                 entries
             </div>
-            <div class="pagination my-3">
-                <div><img src="assets/images/polygon-1-copy-5.png" alt=""></div>
-                <div class="active">1</div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
-                <div>5</div>
-                <div><img src="assets/images/polygon-1-copy-5.png" alt=""></div>
+            <div class="pagination my-3" id="pagination">
+                
             </div>
         </div>
         <div class="copyright mt-3">

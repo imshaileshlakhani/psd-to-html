@@ -406,6 +406,20 @@
  margin-top: 20px;
  padding: 10px;
 }
-#EditAndReschedule .modal-body .btn-modal:hover{
- color: rgba(255, 255, 255, 0.651);
+
+/* Model For Refund by Admin */
+#Refundmodal{
+  color: #646464;
+}
+#Refundmodal .modal-header{
+ border-bottom: none;
+}
+#Refundmodal .modal-body .lable_title{
+  font-weight: 500;
+}
+#Refundmodal .modal-body .btn-modal{
+ background-color: #1fb6ff;
+ color: white;
+ margin-top: 20px;
+ padding: 10px;
 }

@@ -51,223 +51,30 @@
                 <tr class="th text-center">
                     <th>User Name <img src="assets/images/C_dashboard/sort.png" alt=""></th>
                     <th>User Type</th>
-                    <th>Role </th>
+                    <th>Date of Registration</th>
+                    <th>Phone <img src="assets/images/C_dashboard/sort.png" alt=""></th>
                     <th>Postal Code <img src="assets/images/C_dashboard/sort.png" alt=""></th>
-                    <th>City </th>
-                    <th>Radius <img src="assets/images/C_dashboard/sort.png" alt=""></th>
-                    <th>User Status <img src="assets/images/C_dashboard/sort.png" alt=""></th>
+                    <th>Status <img src="assets/images/C_dashboard/sort.png" alt=""></th>
                     <th>Actions </th>
                 </tr>
-                <tr class="text-center">
-                    <td> <span>Lyum Watson</span> </td>
-                    <td> <span>Call Center</span> </td>
-                    <td> <span>Inquiry Manager</span> </td>
-                    <td> <span>123456</span> </td>
-                    <td> <span>Berlin</span> </td>
-                    <td> <span>10 km</span> </td>
-                    <td><a>Active</a></td>
-                    <td class="action">
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="ActionMenu" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="assets/images/group-38.png" alt="">
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="ActionMenu">
-                                <li class="dropdown-item"><a href="">Edit</a></li>
-                                <li class="dropdown-item"><a href="">Deactivate</a></li>
-                                <li class="dropdown-item"><a href="">Service History</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="text-center">
-                    <td> <span>Lyum Watson</span> </td>
-                    <td> <span>Call Center</span> </td>
-                    <td> <span>Inquiry Manager</span> </td>
-                    <td> <span>123456</span> </td>
-                    <td> <span>Berlin</span> </td>
-                    <td> <span>10 km</span> </td>
-                    <td><a class="Inactive">Active</a></td>
-                    <td class="action">
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="ActionMenu" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="assets/images/group-38.png" alt="">
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="ActionMenu">
-                                <li class="dropdown-item"><a href="">Edit</a></li>
-                                <li class="dropdown-item"><a href="">Deactivate</a></li>
-                                <li class="dropdown-item"><a href="">Service History</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="text-center">
-                    <td> <span>Lyum Watson</span> </td>
-                    <td> <span>Call Center</span> </td>
-                    <td> <span>Inquiry Manager</span> </td>
-                    <td> <span>123456</span> </td>
-                    <td> <span>Berlin</span> </td>
-                    <td> <span>10 km</span> </td>
-                    <td><a>Active</a></td>
-                    <td class="action">
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="ActionMenu" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="assets/images/group-38.png" alt="">
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="ActionMenu">
-                                <li class="dropdown-item"><a href="">Edit</a></li>
-                                <li class="dropdown-item"><a href="">Deactivate</a></li>
-                                <li class="dropdown-item"><a href="">Service History</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="text-center">
-                    <td> <span>Lyum Watson</span> </td>
-                    <td> <span>Call Center</span> </td>
-                    <td> <span>Inquiry Manager</span> </td>
-                    <td> <span>123456</span> </td>
-                    <td> <span>Berlin</span> </td>
-                    <td> <span>10 km</span> </td>
-                    <td><a>Active</a></td>
-                    <td class="action">
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="ActionMenu" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="assets/images/group-38.png" alt="">
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="ActionMenu">
-                                <li class="dropdown-item"><a href="">Edit</a></li>
-                                <li class="dropdown-item"><a href="">Deactivate</a></li>
-                                <li class="dropdown-item"><a href="">Service History</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="text-center">
-                    <td> <span>Lyum Watson</span> </td>
-                    <td> <span>Call Center</span> </td>
-                    <td> <span>Inquiry Manager</span> </td>
-                    <td> <span>123456</span> </td>
-                    <td> <span>Berlin</span> </td>
-                    <td> <span>10 km</span> </td>
-                    <td><a class="Inactive">Active</a></td>
-                    <td class="action">
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="ActionMenu" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="assets/images/group-38.png" alt="">
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="ActionMenu">
-                                <li class="dropdown-item"><a href="">Edit</a></li>
-                                <li class="dropdown-item"><a href="">Deactivate</a></li>
-                                <li class="dropdown-item"><a href="">Service History</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="text-center">
-                    <td> <span>Lyum Watson</span> </td>
-                    <td> <span>Call Center</span> </td>
-                    <td> <span>Inquiry Manager</span> </td>
-                    <td> <span>123456</span> </td>
-                    <td> <span>Berlin</span> </td>
-                    <td> <span>10 km</span> </td>
-                    <td><a>Active</a></td>
-                    <td class="action">
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="ActionMenu" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="assets/images/group-38.png" alt="">
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="ActionMenu">
-                                <li class="dropdown-item"><a href="">Edit</a></li>
-                                <li class="dropdown-item"><a href="">Deactivate</a></li>
-                                <li class="dropdown-item"><a href="">Service History</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="text-center">
-                    <td> <span>Lyum Watson</span> </td>
-                    <td> <span>Call Center</span> </td>
-                    <td> <span>Inquiry Manager</span> </td>
-                    <td> <span>123456</span> </td>
-                    <td> <span>Berlin</span> </td>
-                    <td> <span>10 km</span> </td>
-                    <td><a>Active</a></td>
-                    <td class="action">
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="ActionMenu" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="assets/images/group-38.png" alt="">
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="ActionMenu">
-                                <li class="dropdown-item"><a href="">Edit</a></li>
-                                <li class="dropdown-item"><a href="">Deactivate</a></li>
-                                <li class="dropdown-item"><a href="">Service History</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="text-center">
-                    <td> <span>Lyum Watson</span> </td>
-                    <td> <span>Call Center</span> </td>
-                    <td> <span>Inquiry Manager</span> </td>
-                    <td> <span>123456</span> </td>
-                    <td> <span>Berlin</span> </td>
-                    <td> <span>10 km</span> </td>
-                    <td><a>Active</a></td>
-                    <td class="action">
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="ActionMenu" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="assets/images/group-38.png" alt="">
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="ActionMenu">
-                                <li class="dropdown-item"><a href="">Edit</a></li>
-                                <li class="dropdown-item"><a href="">Deactivate</a></li>
-                                <li class="dropdown-item"><a href="">Service History</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
-                <tr class="text-center">
-                    <td> <span>Lyum Watson</span> </td>
-                    <td> <span>Call Center</span> </td>
-                    <td> <span>Inquiry Manager</span> </td>
-                    <td> <span>123456</span> </td>
-                    <td> <span>Berlin</span> </td>
-                    <td> <span>10 km</span> </td>
-                    <td><a>Active</a></td>
-                    <td class="action">
-                        <div class="dropdown">
-                            <button class="dropdown-toggle" type="button" id="ActionMenu" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="assets/images/group-38.png" alt="">
-                            </button>
-                            <ul class="dropdown-menu" aria-labelledby="ActionMenu">
-                                <li class="dropdown-item"><a href="">Edit</a></li>
-                                <li class="dropdown-item"><a href="">Deactivate</a></li>
-                                <li class="dropdown-item"><a href="">Service History</a></li>
-                            </ul>
-                        </div>
-                    </td>
-                </tr>
+                <tbody class="tbody">
+                    
+                </tbody>
             </table>
         </div>
         <div class="table-footer px-5">
             <div class="drop-record my-3">
                 Show
                 <select name="number" id="number">
-                    <option value="10">10</option>
-                    <option value="20">20</option>
-                    <option value="30">30</option>
-                    <option value="40">40</option>
+                    <option value="2">2</option>
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                    <option value="8">8</option>
                 </select>
                 entries
             </div>
-            <div class="pagination my-3">
-                <div><img src="assets/images/polygon-1-copy-5.png" alt=""></div>
-                <div class="active">1</div>
-                <div>2</div>
-                <div>3</div>
-                <div>4</div>
-                <div>5</div>
-                <div><img src="assets/images/polygon-1-copy-5.png" alt=""></div>
+            <div class="pagination my-3" id="pagination">
+                
             </div>
         </div>
         <div class="copyright mt-3">

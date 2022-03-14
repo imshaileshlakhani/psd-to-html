@@ -79,6 +79,11 @@
   font-size: 1.37rem;
   font-weight: bold;
 }
+.payment{
+  color: #1d7a8c;
+  font-size: 20px;
+  font-weight: bold;
+}
 /* form */
 .form-container {
   padding: 20px 15px 15px 15px;
@@ -126,9 +131,9 @@
   text-decoration: none;
   color: #646464;
 }
-#ups {
+/* #ups {
   overflow-x: auto;
-}
+} */
 .sidebar-content .table-footer {
   display: flex;
   justify-content: space-between;
@@ -162,7 +167,7 @@
   border-color: #565656;
   color: white;
 }
-.pagination div:nth-child(7) img {
+.pagination #next-tab img {
   transform: rotate(180deg);
 }
 .copyright {
@@ -228,21 +233,21 @@
   height: 45px;
   width: 45px;
 }
-.table1 .text-center td:nth-child(5) a {
+.table1 .text-center td:nth-child(6) a {
   background-color: #67b644;
   padding: 4px 9px;
   color: white;
   font-size: 0.81rem;
 }
-.table1 .text-center td:nth-child(5) a.Cancelled {
+.table1 .text-center td:nth-child(6) a.Cancelled {
   text-decoration: none;
   background-color: #ff6b6b;
 }
-.table1 .text-center td:nth-child(5) a.New {
+.table1 .text-center td:nth-child(6) a.New {
   text-decoration: none;
   background-color: #f2bb37;
 }
-.table1 .text-center td:nth-child(5) a.Pending {
+.table1 .text-center td:nth-child(6) a.Pending {
   text-decoration: none;
   background-color: #1fb6ff;
 }
@@ -306,13 +311,13 @@
   display: flex;
   align-items: center;
 }
-.table2 .text-center td:nth-child(7) a {
+.table2 .text-center td:nth-child(6) a {
   background-color: #67b644;
   padding: 4px 9px;
   color: white;
   font-size: 0.81rem;
 }
-.table2 .text-center td:nth-child(7) a.Inactive {
+.table2 .text-center td:nth-child(6) a.Inactive {
   text-decoration: none;
   background-color: #ff6b6b;
 }

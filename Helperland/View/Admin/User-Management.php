@@ -71,7 +71,7 @@
                     <option value="6">6</option>
                     <option value="8">8</option>
                 </select>
-                entries
+                entries Total Record: <span id="totalrequest">0</span>
             </div>
             <div class="pagination my-3" id="pagination">
                 

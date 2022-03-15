@@ -20,16 +20,22 @@
         }
 
         public function get_address($data){
-            $rows = array();
+            $result = [];
             if(isset($data['zipcode'])){
                 $postal = trim($data['zipcode']);
                 $userId = trim($data['userdata']);
                 $sql = "SELECT * FROM useraddress WHERE UserId = $userId and PostalCode = '$postal' and IsDeleted = 0";
                 $result = $this->conn->query($sql);
-                while ($row = $result->fetch_assoc()) {
-                    array_push($rows, $row);
+                $rows = array();
+                if ($result->num_rows > 0) {
+                    while ($row = $result->fetch_assoc()) {
+                        array_push($rows, $row);
+                    }
+                    $result = $rows;
+                } else {
+                    $result = [];
                 }
-                return $rows;
+                return $result;
             }
         }
 
@@ -41,8 +47,6 @@
 
                 $sql = "SELECT fb.*, user.UserProfilePicture, concat(user.FirstName, ' ', user.LastName) AS FullName FROM favoriteandblocked AS fb JOIN user ON user.UserId = fb.TargetUserId WHERE fb.UserId = $userId AND fb.TargetUserId IN (SELECT UserId FROM favoriteandblocked WHERE TargetUserId = $userId AND IsBlocked=0) AND user.IsApproved = 1 AND user.IsDeleted = 0 AND fb.IsFavorite = 1 AND fb.IsBlocked = 0 AND user.WorksWithPets >= 0";
 
-                // echo $sql;
-
                 $result = $this->conn->query($sql);
                 $rows = array();
                 if ($result->num_rows > 0) {
@@ -52,7 +56,7 @@
                     $result = $rows;
                 } else {
                     $result = [];
-                }      
+                }
             }
             return $result; 
         }

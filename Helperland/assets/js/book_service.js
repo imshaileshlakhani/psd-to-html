@@ -38,9 +38,9 @@ $(document).ready(function () {
   $('.postal-check').click(function () {
     var zipcode = $('#postal').val();
     if (isPostalValid(zipcode)) {
-      var action = $('#setup-service-form').attr('action');
+      // var action = $('#setup-service-form').attr('action');
       $.ajax({
-        url: action,
+        url: "http://localhost/psd-to-html/Helperland/?controller=Service&function=postal",
         type: "POST",
         data: { postal: zipcode },
         success: function (result) {
@@ -53,17 +53,16 @@ $(document).ready(function () {
             $('#na-postal').val(postaldata['PostalCode']);
             $('#na-statename').val(postaldata['State']);
             $('#na-city option').text(postaldata['City']).val(postaldata['City']);
-            $.LoadingOverlay("hide");
           } else {
             var alertMsg = "<div class='alert alert-danger alert-dismissible fade show' role='alert'>Sorry we are not providing service in your area<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>"
             $('.service-setup-content').after(alertMsg);
             setTimeout(function () {
               $('.alert').fadeOut(1000)
             }, 2000);
-            setTimeout(function () {
-              $.LoadingOverlay("hide");
-            }, 1000);
           }
+        },
+        complete : function(result){
+          $.LoadingOverlay("hide");
         }
       });
     }
@@ -131,20 +130,20 @@ $(document).ready(function () {
   var counter = 0;
   var extras = ['Inside cabinets', 'Inside fridge', 'Inside oven', 'Laundry wash & dry', 'Interior windows'];
   $(".extra-service label").change(function () {
-    var selectHour = +$('#hr').val();
+    // var selectHour = +$('#hr').val();
     $imgVal = $(this).find('input[type=checkbox]').val();
     if ($(this).find('input[type=checkbox]').is(':checked')) {
       $(this).find('div').addClass('active');
       $(this).find('div img').attr("src", "assets/images/" + $imgVal + "-green.png");
       index[$imgVal - 1] = [extras[$imgVal - 1]];
-      selectHour += 0.5;
+      // selectHour += 0.5;
       counter = 0.5;
     }
     else {
       delete index[$imgVal - 1];
       $(this).find('div').removeClass('active');
       $(this).find('div img').attr("src", "assets/images/" + $imgVal + ".png");
-      selectHour -= 0.5;
+      // selectHour -= 0.5;
       counter = -0.5;
     }
 

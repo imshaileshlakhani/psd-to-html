@@ -81,7 +81,7 @@
                                 Setup Service
                             </div>
                             <div class="service-setup-content">
-                                <form action="<?= Config::BASE_URL.'?controller=Service&function=postal'?>" id="setup-service-form" onsubmit="event.preventDefault();">
+                                <form action="#" id="setup-service-form" onsubmit="event.preventDefault();">
                                     <span>Enter your Postal Code</span>
                                     <div class="postal-code">
                                         <div class="form-group mb-2">

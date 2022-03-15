@@ -5,26 +5,40 @@
         </div>
 
         <div class="form">
-            <form action="#">
+            <form action="#" id="service-request-search">
                 <div class="form-container">
                     <div class="input-container">
-                        <input class="inputbox" name="serviceid" placeholder="Service ID" type="text" required autofocus />
+                        <input class="inputbox" name="serviceid" placeholder="Service ID" id="sid" type="text" />
                     </div>
                     <div class="input-container">
-                        <select class="form-select inputbox" aria-label="Customer">
-                            <option selected>Customer</option>
-                            <option value="david bought">David Bough</option>
+                        <input class="inputbox" name="postal" placeholder="Postal code" id="spostal" type="text"/>
+                    </div>
+                    <div class="input-container">
+                        <input class="inputbox" name="email" placeholder="Email" id="semail" type="email" />
+                    </div>
+                    <div class="input-container">
+                        <select class="form-select inputbox" name="customer" id="customer" aria-label="Customer">
+                            <option selected value="0">Select Customer</option>
                         </select>
                     </div>
                     <div class="input-container">
-                        <select class="form-select inputbox" aria-label="Service Provider">
-                            <option selected>Service Provider</option>
-                            <option value="lyum watson">Lyum Watson</option>
+                        <select class="form-select inputbox" name="sp" id="servicer" aria-label="Service-Provider">
+                            <option selected value="0">Select Service Provider</option>
                         </select>
                     </div>
                     <div class="input-container">
-                        <select class="form-select inputbox" aria-label="Status">
-                            <option selected>Status</option>
+                        <select class="form-select inputbox" name="status" id="status" aria-label="Status">
+                            <option selected value="0">Select Status</option>
+                            <option value="-1">New</option>
+                            <option value="1">Assign</option>
+                            <option value="2">Pending</option>
+                            <option value="3">Cancelled</option>
+                            <option value="4">Completed</option>
+                        </select>
+                    </div>
+                    <div class="input-container">
+                        <select class="form-select inputbox" name="pstatus" id="sptatus" aria-label="Payment-Status">
+                            <option selected value="0">SP payment Status</option>
                             <option value="1">New</option>
                             <option value="2">Pending</option>
                             <option value="3">Cancelled</option>
@@ -32,13 +46,13 @@
                         </select>
                     </div>
                     <div class="input-container">
-                        <input class="inputbox" name="FromDate" type="date" required autofocus />
+                        <input class="inputbox" name="FromDate" id="sfdate" title="From date" type="date" />
                     </div>
                     <div class="input-container">
-                        <input class="inputbox" name="ToDate" type="date" required autofocus />
+                        <input class="inputbox" name="ToDate" id="stdate" title="To date" type="date" />
                     </div>
                     <div class="submit text-center">
-                        <button type="button" class="search">Search</button>
+                        <button type="button" class="search" id="service-search">Search</button>
                         <button type="reset" class="clear">Clear</button>
                     </div>
                 </div>
@@ -70,7 +84,7 @@
                     <option value="6">6</option>
                     <option value="8">8</option>
                 </select>
-                entries
+                entries Total Record: <span id="totalrequest">0</span>
             </div>
             <div class="pagination my-3" id="pagination">
                 

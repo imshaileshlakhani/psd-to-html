@@ -191,6 +191,9 @@
   font-size: 1rem;
   padding-left: 11px;
 }
+#semail.inputbox{
+  width: 230px !important;
+}
 /* table-section */
 .table1 {
   border-collapse: collapse;

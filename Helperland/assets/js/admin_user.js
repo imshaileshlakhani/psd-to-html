@@ -45,32 +45,53 @@ $(document).ready(function () {
     $.LoadingOverlay("hide");
   });
 
+  $('#service-search').click(function(){
+    showLoader();
+    var limit = $('#number').val();
+    adminData(limit, page = 1)
+  });
+
   function adminData(limit = 2, page = 1) {
     var tabName = $('#tab-name').val();
-    var onePageData = limit;
-    var defaultPage = page;
+    var customer = $('#customer').val();
+    var servicer = $('#servicer').val();
+    var sid = $('#sid').val();
+    var postal = $('#spostal').val();
+    var status = $('#status').val();
+    var email = $('#semail').val();
+    // var fdate = $('#sfdate').val();
+    // var tdate = $('#stdate').val();
+    // console.log(fdate);
     $.ajax({
       url: "http://localhost/psd-to-html/Helperland/?controller=Admin&function=adminData",
       type: "POST",
-      data: { pageName: tabName, userid: userid, limit: onePageData, page: defaultPage },
+      data: { pageName: tabName, userid: userid, limit: limit, page: page, customer: customer, servicer: servicer, sid: sid, postal: postal, status: status, email: email},
       success: function (result) {
         const Data = JSON.parse(result);
         console.log(result);
         switch (tabName) {
           case "srequest":
             showServices(Data.record);
+            showCustomer(Data.customer);
+            showServicer(Data.servicer);
             if(Data.paginationData != 0){
+              $('#totalrequest').text(Data.paginationData.Totalrecord);
               paginationHtml(Data.paginationData);
             }
             break;
           case "umanagement":
             showUserData(Data.record);
             if(Data.paginationData != 0){
+              $('#totalrequest').text(Data.paginationData.Totalrecord);
               paginationHtml(Data.paginationData);
             }
             break;
           default:
             showServices(Data.record);
+            if(Data.paginationData != 0){
+              $('#totalrequest').text(Data.paginationData.Totalrecord);
+              paginationHtml(Data.paginationData);
+            }
         }
       },
       complete : function(result){
@@ -82,6 +103,21 @@ $(document).ready(function () {
         }
       }
     });
+  }
+
+  function showCustomer(customers){
+    var custhtml = `<option selected value="0">Select Customer</option>`;
+    customers.forEach(function (customer) {
+      custhtml += `<option value="${customer.UserId}">${customer.FullName}</option>`;
+    });
+    $('#customer').html(custhtml);
+  }
+  function showServicer(servicers){
+    var sphtml = `<option selected value="0">Select Service Provider</option>`;
+    servicers.forEach(function (servicer) {
+      sphtml += `<option value="${servicer.UserId}">${servicer.FullName}</option>`;
+    });
+    $('#servicer').html(sphtml);
   }
 
   // show service data

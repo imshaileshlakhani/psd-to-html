@@ -14,6 +14,8 @@
             if (isset($_POST)) {
                 $paginationData = [];
                 $result = [];
+                $customers = [];
+                $servicer = [];
     
                 $parameter = $_POST['pageName'];
                 $paginationData['limit'] = $_POST['limit'];
@@ -23,11 +25,13 @@
                 if ($parameter != "") {
                     switch ($parameter) {
                         case "srequest":
+                            $customers = $this->model->getCustomerName();
+                            $servicer = $this->model->getServicerName();
                             $result = $this->model->serviceDetails($_POST);
                             if (count($result) > 0)
                                 $TotalRecord = $result[0]['Totalrecord'];
                             $paginationData['Totalrecord'] = $TotalRecord;
-                            echo json_encode(['record' => $result, 'paginationData' => $paginationData]);
+                            echo json_encode(['record' => $result,'customer' => $customers, 'servicer' => $servicer,'paginationData' => $paginationData]);
                             break;
                         case "umanagement":
                             $result = $this->model->userDetails($_POST);

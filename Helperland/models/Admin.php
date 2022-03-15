@@ -8,17 +8,23 @@
         public function serviceDetails($data){
             $result = [];
             if(isset($data['userid'])){
-                $pageName = trim($data['pageName']);
                 $showrecord = trim($data['limit']);
                 $offset = ($data['page'] - 1) * $showrecord;
                 $avgRatting = 0.0;
 
-                $total = $this->getTotalServiceByUserId($pageName);
+                $total = $this->getTotalServiceByUserId($data);
                 if(is_null($total) || $total == 0){
                    return [];
                 }
 
-                $sql = "SELECT servicerequest.ServiceRequestId,servicerequest.TotalCost,servicerequest.ServiceProviderId,servicerequest.SubTotal,servicerequest.Status,servicerequest.ServiceStartDate,servicerequestaddress.*,concat(cu.FirstName, ' ', cu.LastName) AS CFullName,concat(sp.FirstName, ' ', sp.LastName) AS SpFullName,sp.UserProfilePicture FROM servicerequest JOIN servicerequestaddress ON servicerequest.ServiceRequestId = servicerequestaddress.ServiceRequestId JOIN user AS cu ON cu.UserId = servicerequest.UserId LEFT JOIN user AS sp ON sp.UserId = servicerequest.ServiceProviderId LIMIT $offset,$showrecord";
+                $customer = !empty($data['customer']) ? 'servicerequest.UserId='.$data['customer'] : 1;
+                $servicer = !empty($data['servicer']) ? 'servicerequest.ServiceProviderId='.$data['servicer'] : 1;
+                $sid = !empty($data['sid']) ? 'servicerequest.ServiceRequestId='.$data['sid'] : 1;
+                $status = !empty($data['status']) ? ($data['status'] == -1 ? 'servicerequest.Status=0' : 'servicerequest.Status='.$data['status']) : 1;
+                $postal = !empty($data['postal']) ? 'servicerequestaddress.PostalCode='.$data['postal'] : 1;
+                $email = !empty($data['email']) ? $data['email'] : 1;
+
+                $sql = "SELECT servicerequest.ServiceRequestId,servicerequest.TotalCost,servicerequest.ServiceProviderId,servicerequest.SubTotal,servicerequest.Status,servicerequest.ServiceStartDate,servicerequestaddress.*,concat(cu.FirstName, ' ', cu.LastName) AS CFullName,concat(sp.FirstName, ' ', sp.LastName) AS SpFullName,sp.UserProfilePicture FROM servicerequest JOIN servicerequestaddress ON servicerequest.ServiceRequestId = servicerequestaddress.ServiceRequestId JOIN user AS cu ON cu.UserId = servicerequest.UserId LEFT JOIN user AS sp ON sp.UserId = servicerequest.ServiceProviderId WHERE $customer AND $servicer AND $sid AND $postal AND $status LIMIT $offset,$showrecord";
 
                 $result = $this->conn->query($sql);
                 $rows = array();
@@ -44,14 +50,47 @@
             return $result; 
         }
 
+        public function getCustomerName(){
+            $customers = [];
+            $sql = "SELECT UserId,concat(FirstName,' ',LastName) AS FullName FROM user WHERE UserTypeId = 1";
+            $result = $this->conn->query($sql);
+            $rows = array();
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()){
+                    array_push($rows, $row);
+                }
+                $customers = $rows;
+            }
+            else{
+                $customers = [];
+            }
+            return $customers;
+        }
+
+        public function getServicerName(){
+            $servicer = [];
+            $sql = "SELECT UserId,concat(FirstName,' ',LastName) AS FullName FROM user WHERE UserTypeId = 2";
+            $result = $this->conn->query($sql);
+            $rows = array();
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()){
+                    array_push($rows, $row);
+                }
+                $servicer = $rows;
+            }
+            else{
+                $servicer = [];
+            }
+            return $servicer;
+        }
+
         public function userDetails($data){
             $result = [];
             if(isset($data['userid'])){
-                $pageName = trim($data['pageName']);
                 $showrecord = trim($data['limit']);
                 $offset = ($data['page'] - 1) * $showrecord;
 
-                $total = $this->getTotalServiceByUserId($pageName);
+                $total = $this->getTotalServiceByUserId($data);
                 if(is_null($total) || $total == 0){
                    return [];
                 }
@@ -73,10 +112,20 @@
             return $result; 
         }
 
-        public function getTotalServiceByUserId($pageName = "srequest"){
+        public function getTotalServiceByUserId($data){
             $total = 0;
+            $pageName = $data['pageName'];
             if($pageName == "srequest"){
-                $sql = "SELECT ServiceRequestId FROM servicerequest";
+                $customer = !empty($data['customer']) ? 'servicerequest.UserId='.$data['customer'] : 1;
+                $servicer = !empty($data['servicer']) ? 'servicerequest.ServiceProviderId='.$data['servicer'] : 1;
+                $sid = !empty($data['sid']) ? 'servicerequest.ServiceRequestId='.$data['sid'] : 1;
+                $postal = !empty($data['postal']) ? 'servicerequestaddress.PostalCode='.$data['postal'] : 1;
+                $status = !empty($data['status']) ? ($data['status'] == -1 ? 'servicerequest.Status=0' : 'servicerequest.Status='.$data['status']) : 1;
+                $email = !empty($data['email']) ? $data['email'] : 1;
+
+                $sql = "SELECT servicerequest.ServiceRequestId,servicerequest.TotalCost,servicerequest.ServiceProviderId,servicerequest.SubTotal,servicerequest.Status,servicerequest.ServiceStartDate,servicerequestaddress.*,concat(cu.FirstName, ' ', cu.LastName) AS CFullName,concat(sp.FirstName, ' ', sp.LastName) AS SpFullName,sp.UserProfilePicture FROM servicerequest JOIN servicerequestaddress ON servicerequest.ServiceRequestId = servicerequestaddress.ServiceRequestId JOIN user AS cu ON cu.UserId = servicerequest.UserId LEFT JOIN user AS sp ON sp.UserId = servicerequest.ServiceProviderId WHERE $customer AND $servicer AND $sid AND $postal AND $status";
+
+                // AND servicerequestaddress.Email = '$email'
             }
             else{
                 $sql = "SELECT user.UserId FROM user";

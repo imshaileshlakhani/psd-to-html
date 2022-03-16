@@ -22,9 +22,12 @@
                 $sid = !empty($data['sid']) ? 'servicerequest.ServiceRequestId='.$data['sid'] : 1;
                 $status = !empty($data['status']) ? ($data['status'] == -1 ? 'servicerequest.Status=0' : 'servicerequest.Status='.$data['status']) : 1;
                 $postal = !empty($data['postal']) ? 'servicerequestaddress.PostalCode='.$data['postal'] : 1;
-                $email = !empty($data['email']) ? $data['email'] : 1;
+                // $fdate = !empty($data['fdate']) ? $data['fdate'].' 00:00:00.000' : "1900-01-01 00:00:00.000";
+                // $tdate = !empty($data['tdate']) ? $data['tdate'].' 00:00:00.000' : "3000-01-01 00:00:00.000";
+                $email = !empty($data['email']) ? "servicerequestaddress.Email='".$data['email']."'" : 1;
 
-                $sql = "SELECT servicerequest.ServiceRequestId,servicerequest.TotalCost,servicerequest.ServiceProviderId,servicerequest.SubTotal,servicerequest.Status,servicerequest.ServiceStartDate,servicerequestaddress.*,concat(cu.FirstName, ' ', cu.LastName) AS CFullName,concat(sp.FirstName, ' ', sp.LastName) AS SpFullName,sp.UserProfilePicture FROM servicerequest JOIN servicerequestaddress ON servicerequest.ServiceRequestId = servicerequestaddress.ServiceRequestId JOIN user AS cu ON cu.UserId = servicerequest.UserId LEFT JOIN user AS sp ON sp.UserId = servicerequest.ServiceProviderId WHERE $customer AND $servicer AND $sid AND $postal AND $status LIMIT $offset,$showrecord";
+                $sql = "SELECT servicerequest.ServiceRequestId,servicerequest.TotalCost,servicerequest.ServiceProviderId,servicerequest.SubTotal,servicerequest.Status,servicerequest.ServiceStartDate,servicerequestaddress.*,concat(cu.FirstName, ' ', cu.LastName) AS CFullName,concat(sp.FirstName, ' ', sp.LastName) AS SpFullName,sp.UserProfilePicture FROM servicerequest JOIN servicerequestaddress ON servicerequest.ServiceRequestId = servicerequestaddress.ServiceRequestId JOIN user AS cu ON cu.UserId = servicerequest.UserId LEFT JOIN user AS sp ON sp.UserId = servicerequest.ServiceProviderId WHERE $customer AND $servicer AND $sid AND $postal AND $status AND $email LIMIT $offset,$showrecord";
+                // AND servicerequest.ServiceStartDate BETWEEN $fdate AND $tdate
 
                 $result = $this->conn->query($sql);
                 $rows = array();
@@ -84,6 +87,23 @@
             return $servicer;
         }
 
+        public function getUserName(){
+            $users = [];
+            $sql = "SELECT UserId,concat(FirstName,' ',LastName) AS FullName FROM user";
+            $result = $this->conn->query($sql);
+            $rows = array();
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()){
+                    array_push($rows, $row);
+                }
+                $users = $rows;
+            }
+            else{
+                $users = [];
+            }
+            return $users;
+        }
+
         public function userDetails($data){
             $result = [];
             if(isset($data['userid'])){
@@ -95,7 +115,15 @@
                    return [];
                 }
 
-                $sql = "SELECT user.UserId, concat(user.FirstName,' ',user.LastName) AS FullName,user.UserTypeId,user.Mobile,user.CreatedDate,user.IsActive,useraddress.PostalCode FROM user LEFT JOIN useraddress ON user.UserId = useraddress.UserId GROUP BY user.UserId LIMIT $offset,$showrecord";
+                $utype = !empty($data['utype']) ? 'user.UserTypeId='.$data['utype'] : 1;
+                $postal = !empty($data['postal']) ? 'useraddress.PostalCode='.$data['postal'] : 1;
+                $mobile = !empty($data['mobile']) ? 'useraddress.Mobile='.$data['mobile'] : 1;
+                $user = !empty($data['user']) ? 'user.UserId='.$data['user'] : 1;
+                // $fdate = !empty($data['fdate']) ? $data['fdate'].' 00:00:00.000' : "1900-01-01 00:00:00.000";
+                // $tdate = !empty($data['tdate']) ? $data['tdate'].' 00:00:00.000' : "3000-01-01 00:00:00.000";
+                $email = !empty($data['email']) ? "user.Email='".$data['email']."'" : 1;
+
+                $sql = "SELECT user.UserId, concat(user.FirstName,' ',user.LastName) AS FullName,user.UserTypeId,user.Mobile,user.CreatedDate,user.IsApproved,useraddress.PostalCode FROM user LEFT JOIN useraddress ON user.UserId = useraddress.UserId WHERE $utype AND $postal AND $mobile AND $user AND $email GROUP BY user.UserId LIMIT $offset,$showrecord";
 
                 $result = $this->conn->query($sql);
                 $rows = array();
@@ -121,15 +149,24 @@
                 $sid = !empty($data['sid']) ? 'servicerequest.ServiceRequestId='.$data['sid'] : 1;
                 $postal = !empty($data['postal']) ? 'servicerequestaddress.PostalCode='.$data['postal'] : 1;
                 $status = !empty($data['status']) ? ($data['status'] == -1 ? 'servicerequest.Status=0' : 'servicerequest.Status='.$data['status']) : 1;
-                $email = !empty($data['email']) ? $data['email'] : 1;
+                $email = !empty($data['email']) ? "servicerequestaddress.Email='".$data['email']."'" : 1;
+                // $fdate = !empty($data['fdate']) ? $data['fdate'].' 00:00:00.000' : 1900-01-01;
+                // $tdate = !empty($data['tdate']) ? $data['tdate'].' 00:00:00.000' : 3000-01-01;
 
-                $sql = "SELECT servicerequest.ServiceRequestId,servicerequest.TotalCost,servicerequest.ServiceProviderId,servicerequest.SubTotal,servicerequest.Status,servicerequest.ServiceStartDate,servicerequestaddress.*,concat(cu.FirstName, ' ', cu.LastName) AS CFullName,concat(sp.FirstName, ' ', sp.LastName) AS SpFullName,sp.UserProfilePicture FROM servicerequest JOIN servicerequestaddress ON servicerequest.ServiceRequestId = servicerequestaddress.ServiceRequestId JOIN user AS cu ON cu.UserId = servicerequest.UserId LEFT JOIN user AS sp ON sp.UserId = servicerequest.ServiceProviderId WHERE $customer AND $servicer AND $sid AND $postal AND $status";
+                $sql = "SELECT servicerequest.ServiceRequestId,servicerequest.TotalCost,servicerequest.ServiceProviderId,servicerequest.SubTotal,servicerequest.Status,servicerequest.ServiceStartDate,servicerequestaddress.*,concat(cu.FirstName, ' ', cu.LastName) AS CFullName,concat(sp.FirstName, ' ', sp.LastName) AS SpFullName,sp.UserProfilePicture FROM servicerequest JOIN servicerequestaddress ON servicerequest.ServiceRequestId = servicerequestaddress.ServiceRequestId JOIN user AS cu ON cu.UserId = servicerequest.UserId LEFT JOIN user AS sp ON sp.UserId = servicerequest.ServiceProviderId WHERE $customer AND $servicer AND $sid AND $postal AND $status AND $email";
+                // AND servicerequest.ServiceStartDate BETWEEN $fdate AND $tdate
 
-                // AND servicerequestaddress.Email = '$email'
             }
             else{
-                $sql = "SELECT user.UserId FROM user";
+                $utype = !empty($data['utype']) ? 'user.UserTypeId='.$data['utype'] : 1;
+                $postal = !empty($data['postal']) ? 'useraddress.PostalCode='.$data['postal'] : 1;
+                $mobile = !empty($data['mobile']) ? 'useraddress.Mobile='.$data['mobile'] : 1;
+                $user = !empty($data['user']) ? 'user.UserId='.$data['user'] : 1;
+                $email = !empty($data['email']) ? "user.Email='".$data['email']."'" : 1;
+
+                $sql = "SELECT user.UserId, concat(user.FirstName,' ',user.LastName) AS FullName,user.UserTypeId,user.Mobile,user.CreatedDate,user.IsActive,useraddress.PostalCode FROM user LEFT JOIN useraddress ON user.UserId = useraddress.UserId WHERE $utype AND $postal AND $mobile AND $user AND $email GROUP BY user.UserId";
             }
+            // echo $sql;
             $result = $this->conn->query($sql);
             if ($result->num_rows > 0) {
                 $total = $result->num_rows;
@@ -148,6 +185,39 @@
                 $avgRatting = $result->fetch_assoc();
             }
             return $avgRatting;
+        }
+
+        public function approvedUser($data){
+            $userid = $data['userid'];
+            $isApproved = 0;
+            $isApproved = $data['IsApproved'] == 0 ? 1 : 0;
+            $sql = "UPDATE user SET IsApproved = $isApproved WHERE UserId = $userid";
+            $result = $this->conn->query($sql);
+            if ($result) {
+                return true;
+            }
+            return false;
+        }
+
+        public function serviceCancle($data){
+            $serviceId = $data['serviceId'];
+            $sql = "UPDATE servicerequest SET Status = 3 WHERE ServiceRequestId = $serviceId";
+            $result = $this->conn->query($sql);
+            if ($result) {
+                return true;
+            }
+            return false;
+        }
+
+        public function refundPayment($data){
+            $serviceId = $data['serviceId'];
+            $payment = $data['payment'];
+            $sql = "UPDATE servicerequest SET Status = 5,RefundedAmount = $payment WHERE ServiceRequestId = $serviceId";
+            $result = $this->conn->query($sql);
+            if ($result) {
+                return true;
+            }
+            return false;
         }
     }
 ?>

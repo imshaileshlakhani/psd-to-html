@@ -55,17 +55,20 @@ $(document).ready(function () {
     var tabName = $('#tab-name').val();
     var customer = $('#customer').val();
     var servicer = $('#servicer').val();
+    var user = $('#suname').val();
     var sid = $('#sid').val();
     var postal = $('#spostal').val();
     var status = $('#status').val();
     var email = $('#semail').val();
-    // var fdate = $('#sfdate').val();
-    // var tdate = $('#stdate').val();
+    var utype = $('#sutype').val();
+    var mobile = $('#usmobile').val();
+    var fdate = $('#sfdate').val();
+    var tdate = $('#stdate').val();
     // console.log(fdate);
     $.ajax({
       url: "http://localhost/psd-to-html/Helperland/?controller=Admin&function=adminData",
       type: "POST",
-      data: { pageName: tabName, userid: userid, limit: limit, page: page, customer: customer, servicer: servicer, sid: sid, postal: postal, status: status, email: email},
+      data: { pageName: tabName, userid: userid, limit: limit, page: page, customer: customer, servicer: servicer, sid: sid, postal: postal, status: status, email: email, utype: utype, mobile: mobile, user: user, fdate: fdate, tdate: tdate},
       success: function (result) {
         const Data = JSON.parse(result);
         console.log(result);
@@ -81,6 +84,7 @@ $(document).ready(function () {
             break;
           case "umanagement":
             showUserData(Data.record);
+            showUser(Data.user);
             if(Data.paginationData != 0){
               $('#totalrequest').text(Data.paginationData.Totalrecord);
               paginationHtml(Data.paginationData);
@@ -88,6 +92,8 @@ $(document).ready(function () {
             break;
           default:
             showServices(Data.record);
+            showCustomer(Data.customer);
+            showServicer(Data.servicer);
             if(Data.paginationData != 0){
               $('#totalrequest').text(Data.paginationData.Totalrecord);
               paginationHtml(Data.paginationData);
@@ -105,6 +111,7 @@ $(document).ready(function () {
     });
   }
 
+  // show type of username in search dropdown
   function showCustomer(customers){
     var custhtml = `<option selected value="0">Select Customer</option>`;
     customers.forEach(function (customer) {
@@ -119,6 +126,13 @@ $(document).ready(function () {
     });
     $('#servicer').html(sphtml);
   }
+  function showUser(users){
+    var userhtml = `<option selected value="0">Select User Name</option>`;
+    users.forEach(function (user) {
+      userhtml += `<option value="${user.UserId}">${user.FullName}</option>`;
+    });
+    $('#suname').html(userhtml);
+  }
 
   // show service data
   function showServices(services) {
@@ -127,7 +141,7 @@ $(document).ready(function () {
     services.forEach(function (service) {
       var address = service.AddressLine1 +","+service.PostalCode+" "+service.City;
       const obj = getTimeAndDate(service.ServiceStartDate, service.SubTotal);
-      serviceHtml += `<tr class="text-center">
+      serviceHtml += `<tr class="text-center" data-serviceid="${service.ServiceRequestId}" data-payment="${service.TotalCost}">
                         <td>
                             <div>${service.ServiceRequestId}</div>
                         </td>
@@ -162,8 +176,11 @@ $(document).ready(function () {
                         else if(service.Status == 3){
                           serviceHtml += `<a class="Cancelled">Cancelled`;
                         }
-                        else {
+                        else if(service.Status == 4){
                           serviceHtml += `<a>Completed`;
+                        }
+                        else if(service.Status == 5){
+                          serviceHtml += `<a class="Refunded">Refunded`;
                         }
                         serviceHtml += `</a></td>
                         <td class="action">
@@ -172,9 +189,9 @@ $(document).ready(function () {
                                   <img src="assets/images/group-38.png">
                                 </button>
                               <ul class="dropdown-menu" aria-labelledby="ActionMenu1">
-                                <li class="dropdown-item"><a href="#" data-bs-toggle="modal" data-bs-target="#EditAndReschedule" data-bs-dismiss="modal">Edit & Reschedule</a></li>
-                                <li class="dropdown-item"><a href="#" data-bs-toggle="modal" data-bs-target="#Refundmodal" data-bs-dismiss="modal">Refund</a></li>
-                                <li class="dropdown-item"><a href="#">Cancel</a></li>
+                                <li class="dropdown-item"><a href="#" data-bs-toggle="modal" data-bs-target="#EditAndReschedule" data-bs-dismiss="modal" id="edit-reschedule">Edit & Reschedule</a></li>
+                                <li class="dropdown-item"><a href="#" data-bs-toggle="modal" data-bs-target="#Refundmodal" data-bs-dismiss="modal" id="refund-btn">Refund</a></li>
+                                <li class="dropdown-item"><a href="#" id="cancleByAdmin">Cancel</a></li>
                               </ul>
                           </div>
                         </td>
@@ -182,6 +199,84 @@ $(document).ready(function () {
     });
     $('.table1 .tbody').html(serviceHtml);
   }
+
+  // reschedule service by admin
+  $(document).on('click','#edit-reschedule',function(){
+    var serviceId = $(this).closest('tr').data('serviceid');
+    $('#admin-edit-btn').data('serviceid',serviceId);
+  });
+  $('#admin-edit-btn').click(function(){
+    var serviceId = $(this).data('serviceid');
+    // alert(serviceId);
+    console.log($('#admin-edit-reschedule').serialize());
+  });
+
+  // refund service by admin
+  $(document).on('click','#refund-btn',function(){
+    var serviceId = $(this).closest('tr').data('serviceid');
+    var payment = $(this).closest('tr').data('payment');
+    $('#refund').data('serviceid',serviceId);
+    $('#paidAmount').text(payment+"€");
+  });
+  $(document).on('click','#refund',function(){
+    showLoader();
+    var limit = $('#number').val();
+    var serviceId = $(this).data('serviceid');
+    var payment = $('#rpayment').val();
+    // alert(serviceId+" "+payment);
+    $.ajax({
+      url : "http://localhost/psd-to-html/Helperland/?controller=Admin&function=refund",
+      type : "POST",
+      data : {serviceId: serviceId, payment: payment},
+      success : function(result){
+        const data = JSON.parse(result);
+        if(data.status){
+          $("#Refundmodal").modal('hide');
+          $("#successModal #success-msg").text('Refund has been completed successfully');
+          $('#successModal #service-id').text(`Refunded Service Id : ${serviceId}`);
+          $("#successModal button").prop('onclick', null);
+          $("#successModal").modal('show');
+          adminData(limit);
+        }
+        else{
+          alert("somthing went wrong");
+        }
+      },
+      complete : function(result){
+        $.LoadingOverlay("hide");
+        $('#rpayment').val("");
+      }
+    });
+  });
+
+  // cancle service by admin
+  $(document).on('click','#cancleByAdmin',function(){
+    showLoader();
+    var limit = $('#number').val();
+    var serviceId = $(this).closest('tr').data('serviceid');
+    // alert(serviceId);
+    $.ajax({
+      url : "http://localhost/psd-to-html/Helperland/?controller=Admin&function=cancleService",
+      type : "POST",
+      data : {serviceId: serviceId},
+      success : function(result){
+        const data = JSON.parse(result);
+        if(data.status){
+          $("#successModal #success-msg").text('Service request has been Cancelled successfully');
+          $('#successModal #service-id').text(`Cancelled Service Id : ${serviceId}`);
+          $("#successModal button").prop('onclick', null);
+          $("#successModal").modal('show');
+          adminData(limit);
+        }
+        else{
+          alert("somthing went wrong");
+        }
+      },
+      complete : function(result){
+        $.LoadingOverlay("hide");
+      }
+    });
+  });
 
   // show user data
   function showUserData(users) {
@@ -207,11 +302,11 @@ $(document).ready(function () {
                       if(user.PostalCode != null){
                         userHtml += `${user.PostalCode}`;
                       }
-                      if(user.IsActive == 1){
+                      if(user.IsApproved == 1){
                         userHtml += `</span></td>
                           <td><a>Active</a>`;
                       }
-                      else if(user.IsActive == 0){
+                      else if(user.IsApproved == 0){
                         userHtml += `</span></td>
                         <td><a class="Inactive">InActive</a>`;
                       }
@@ -222,7 +317,14 @@ $(document).ready(function () {
                             <img src="assets/images/group-38.png" alt="">
                           </button>
                           <ul class="dropdown-menu" aria-labelledby="ActionMenu">
-                            <li class="dropdown-item"><a href="#">Deactivate</a></li>
+                            <li class="dropdown-item">`;
+                            if(user.IsApproved == 1){
+                              userHtml += `<a href="#" data-userid="${user.UserId}" data-approved="${user.IsApproved}" class="Is-Approved">Deactivate</a>`;
+                            }
+                            else if(user.IsApproved == 0){
+                              userHtml += `<a href="#" data-userid="${user.UserId}" data-approved="${user.IsApproved}" class="Is-Approved">Activate</a>`;
+                            }
+                            userHtml += `</li>
                           </ul>
                         </div>
                       </td>
@@ -230,6 +332,28 @@ $(document).ready(function () {
     });
     $('.table2 .tbody').html(userHtml);
   }
+
+  $(document).on('click','.Is-Approved',function(){
+    showLoader();
+    var IsApproved = $(this).data('approved');
+    var userid = $(this).data('userid');
+    // console.log(IsApproved+" "+userid);
+    $.ajax({
+      url : "http://localhost/psd-to-html/Helperland/?controller=Admin&function=userApproved",
+      type : "POST",
+      data : {IsApproved: IsApproved, userid: userid},
+      success : function(result){
+        const data = JSON.parse(result);
+        if(data.status){
+          var limit = $('#number').val();
+          adminData(limit);
+        }
+      },
+      complete : function(result){
+        $.LoadingOverlay("hide");
+      }
+    });
+  });
 
   // service provider rating function
   function spRating(Name,avgrating,avtar) {

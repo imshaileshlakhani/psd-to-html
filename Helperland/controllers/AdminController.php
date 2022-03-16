@@ -16,6 +16,7 @@
                 $result = [];
                 $customers = [];
                 $servicer = [];
+                $users = [];
     
                 $parameter = $_POST['pageName'];
                 $paginationData['limit'] = $_POST['limit'];
@@ -34,15 +35,43 @@
                             echo json_encode(['record' => $result,'customer' => $customers, 'servicer' => $servicer,'paginationData' => $paginationData]);
                             break;
                         case "umanagement":
+                            $users = $this->model->getUserName();
                             $result = $this->model->userDetails($_POST);
                             if (count($result) > 0)
                                 $TotalRecord = $result[0]['Totalrecord'];
                             $paginationData['Totalrecord'] = $TotalRecord;
-                            echo json_encode(['record' => $result, 'paginationData' => $paginationData]);
+                            echo json_encode(['record' => $result,'user' => $users , 'paginationData' => $paginationData]);
                             break;
                         default:
                             echo "no parameter";
                     }
+                }
+            }
+        }
+
+        public function userApproved(){
+            if(isset($_POST)){
+                $result = $this->model->approvedUser($_POST);
+                if($result){
+                    echo json_encode(['status' => $result]);
+                }
+            }
+        }
+
+        public function cancleService(){
+            if(isset($_POST)){
+                $result = $this->model->serviceCancle($_POST);
+                if($result){
+                    echo json_encode(['status' => $result]);
+                }
+            }
+        }
+
+        public function refund(){
+            if(isset($_POST)){
+                $result = $this->model->refundPayment($_POST);
+                if($result){
+                    echo json_encode(['status' => $result]);
                 }
             }
         }

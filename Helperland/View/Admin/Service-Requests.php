@@ -8,13 +8,13 @@
             <form action="#" id="service-request-search">
                 <div class="form-container">
                     <div class="input-container">
-                        <input class="inputbox" name="serviceid" placeholder="Service ID" id="sid" type="text" />
+                        <input class="inputbox form-control" name="serviceid" placeholder="Service ID" id="sid" type="text" />
                     </div>
                     <div class="input-container">
-                        <input class="inputbox" name="postal" placeholder="Postal code" id="spostal" type="text"/>
+                        <input class="inputbox form-control" name="postal" placeholder="Postal code" id="spostal" type="text"/>
                     </div>
                     <div class="input-container">
-                        <input class="inputbox" name="email" placeholder="Email" id="semail" type="email" />
+                        <input class="inputbox form-control" name="email" placeholder="Email" id="semail" type="email" />
                     </div>
                     <div class="input-container">
                         <select class="form-select inputbox" name="customer" id="customer" aria-label="Customer">
@@ -34,6 +34,7 @@
                             <option value="2">Pending</option>
                             <option value="3">Cancelled</option>
                             <option value="4">Completed</option>
+                            <option value="5">Refunded</option>
                         </select>
                     </div>
                     <div class="input-container">
@@ -46,10 +47,10 @@
                         </select>
                     </div>
                     <div class="input-container">
-                        <input class="inputbox" name="FromDate" id="sfdate" title="From date" type="date" />
+                        <input class="inputbox form-control" name="FromDate" id="sfdate" title="From date" type="date" />
                     </div>
                     <div class="input-container">
-                        <input class="inputbox" name="ToDate" id="stdate" title="To date" type="date" />
+                        <input class="inputbox form-control" name="ToDate" id="stdate" title="To date" type="date" />
                     </div>
                     <div class="submit text-center">
                         <button type="button" class="search" id="service-search">Search</button>

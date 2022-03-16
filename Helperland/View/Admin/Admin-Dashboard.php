@@ -30,6 +30,7 @@
         // modal start
         include("View/modal/EditService-Admin.php");
         include("View/modal/Refund-modal.php");
+        include("View/modal/success-model.php");
     ?>
 
     <input type="hidden" id="userdata" value="<?php if(isset($userdata)){ echo $userdata['UserId']; } ?>">

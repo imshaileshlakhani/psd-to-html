@@ -7,18 +7,18 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="#">
+                    <form action="#" id="admin-edit-reschedule">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span>Date</span>
-                                    <input type="date" class="form-control">
+                                    <input type="date" id="admin-edit-date" name="date" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span>Time</span>
-                                    <input type="time" class="form-control">
+                                    <input type="time" id="admin-edit-time" name="time" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -27,13 +27,13 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span>Street name</span>
-                                    <input type="text" class="form-control">
+                                    <input type="text" id="admin-edit-Street" name="street" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span>House number</span>
-                                    <input type="text" class="form-control">
+                                    <input type="text" id="admin-edit-House" name="house" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -41,21 +41,23 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span>Postal Code</span>
-                                    <input type="text" class="form-control">
+                                    <input type="text" id="admin-edit-Postal" name="postal" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span>City</span>
-                                    <select class="form-control">
+                                    <input type="text" id="admin-edit-City" name="city" class="form-control">
+                                    <!-- <select class="form-control" id="admin-edit-City">
                                         <option value="rajkot">Rajkot</option>
-                                    </select>
+                                    </select> -->
                                 </div>
                             </div>
                         </div>
 
                         <br><div class="lable_title">Invoice Address</div>
-                        <div class="row">
+                        <div>Same as cleaning Address</div>
+                        <!-- <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <span>Street name</span>
@@ -84,12 +86,12 @@
                                     </select>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <br><div class="lable_title">Why do you want to reschedule service request?</div>
                         <div class="row">
                             <div class="col">
-                                <textarea rows="3" class="form-control" placeholder="Why do you want to reschedule service requests?"></textarea>
+                                <textarea rows="3" class="form-control" name="comment" placeholder="Why do you want to reschedule service requests?"></textarea>
                             </div>
                         </div>
 
@@ -102,7 +104,7 @@
 
                         <div class="row">
                             <div class="col">
-                                <button type="button" class="btn btn-modal form-control">Update</button>
+                                <button type="button" id="admin-edit-btn" class="btn btn-modal form-control">Update</button>
                             </div>
                         </div>
                     </form>

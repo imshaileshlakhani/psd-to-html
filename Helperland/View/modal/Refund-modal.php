@@ -13,7 +13,7 @@
                             <div class="row">
                                 <div class="col-6">
                                     Paid Amount<br>
-                                    54.00€
+                                    <span id="paidAmount">0.00€</span>
                                 </div>
                                 <div class="col-6">
                                     Refunded Amount<br>
@@ -31,7 +31,7 @@
                             <div class="form-group">
                                 <label for="">Amount</label>
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                                    <input type="text" class="form-control" id="rpayment" aria-label="Text input with dropdown button" required>
                                     <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Percentage</button>
                                     <ul class="dropdown-menu dropdown-menu-end">
                                         <li><a class="dropdown-item" href="#">Percentage</a></li>
@@ -65,7 +65,7 @@
 
                     <div class="row">
                         <div class="col">
-                            <button type="submit" class="btn btn-modal form-control" name="refund">Refund</button>
+                            <button type="button" class="btn btn-modal form-control" id="refund">Refund</button>
                         </div>
                     </div>
                 </form>

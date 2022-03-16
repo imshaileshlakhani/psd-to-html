@@ -187,7 +187,7 @@
   outline: none;
   border: 1px solid #dedddd;
   border-radius: 5px;
-  color: #a0a0a0;
+  color: #a0a0a0 !important;
   font-size: 1rem;
   padding-left: 11px;
 }
@@ -253,6 +253,10 @@
 .table1 .text-center td:nth-child(6) a.Pending {
   text-decoration: none;
   background-color: #1fb6ff;
+}
+.table1 .text-center td:nth-child(6) a.Refunded {
+  text-decoration: none;
+  background-color: #e7640d;
 }
 /* -----------------------end service request section--------------------- */
 

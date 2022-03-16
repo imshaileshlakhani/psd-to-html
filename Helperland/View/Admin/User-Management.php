@@ -11,18 +11,16 @@
             <form action="#">
                 <div class="form-container">
                     <div class="input-container">
-                        <select class="form-select inputbox1" aria-label="User name">
-                            <option selected>User name</option>
-                            <option value="1">Lyum Watson</option>
-                            <option value="2">John Smith</option>
+                        <select class="form-select inputbox1" id="suname" aria-label="User name">
+                            <option selected value="0">Select User Name</option>
                         </select>
                     </div>
                     <div class="input-container">
-                        <select class="form-select inputbox1" aria-label="User Role">
-                            <option selected>User Role</option>
-                            <option value="1">Call Center</option>
+                        <select class="form-select inputbox1" id="sutype" aria-label="User Type">
+                            <option selected value="0">Select User Type</option>
+                            <option value="1">Customer</option>
                             <option value="2">Service Provider</option>
-                            <option value="3">Customer</option>
+                            <option value="3">Admin</option>
                         </select>
                     </div>
                     <div class="input-container">
@@ -31,15 +29,24 @@
                                 <div class="input-group-text">+49</div>
                             </div>
                             <div>
-                                <input type="text" class="inputbox1 form-control" id="inlineFormInputGroup" placeholder="Phone number">
+                                <input type="text" class="inputbox1 form-control" id="usmobile" placeholder="Phone number">
                             </div>
                         </div>
                     </div>
                     <div class="input-container">
-                        <input class="inputbox1 form-control" name="zcode" placeholder="Zipcode" type="text" required autofocus />
+                        <input class="inputbox form-control" name="postal" placeholder="Postal code" id="spostal" type="text"/>
+                    </div>
+                    <div class="input-container">
+                        <input class="inputbox form-control" name="email" placeholder="Email" id="semail" type="email" />
+                    </div>
+                    <div class="input-container">
+                        <input class="inputbox form-control" name="FromDate" id="sfdate" title="From date" type="date" />
+                    </div>
+                    <div class="input-container">
+                        <input class="inputbox form-control" name="ToDate" id="stdate" title="To date" type="date" />
                     </div>
                     <div class="submit text-center">
-                        <button type="button" class="search">Search</button>
+                        <button type="button" class="search" id="service-search">Search</button>
                         <button type="reset" class="clear">Clear</button>
                     </div>
                 </div>

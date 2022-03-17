@@ -106,8 +106,9 @@
 
         public function cancleService($data){
             $serviceId = $data['serviceId'];
+            $cancleMsg = $data['cancleMsg'];
             $result = "";
-            $sql = "UPDATE servicerequest SET Status = 3 WHERE ServiceRequestId = $serviceId";
+            $sql = "UPDATE servicerequest SET Status = 3, Comments = '$cancleMsg' WHERE ServiceRequestId = $serviceId";
             if($this->conn->query($sql) == TRUE){
                 $email = $this->getSpEmailByServiceId($serviceId);
 				$result = true; 

@@ -18,6 +18,7 @@ function showLoader(){
   });
 }
 $(document).ready(function () {
+  var is_valid = true;
   const userid = $('#userdata').val();
   adminData();
 
@@ -141,7 +142,7 @@ $(document).ready(function () {
     services.forEach(function (service) {
       var address = service.AddressLine1 +","+service.PostalCode+" "+service.City;
       const obj = getTimeAndDate(service.ServiceStartDate, service.SubTotal);
-      serviceHtml += `<tr class="text-center" data-serviceid="${service.ServiceRequestId}" data-payment="${service.TotalCost}">
+      serviceHtml += `<tr class="text-center" data-serviceid="${service.ServiceRequestId}" data-payment="${service.TotalCost}" data-refund="${service.RefundedAmount}">
                         <td>
                             <div>${service.ServiceRequestId}</div>
                         </td>
@@ -210,9 +211,12 @@ $(document).ready(function () {
   $(document).on('click','#edit-reschedule',function(){
     var serviceId = $(this).closest('tr').data('serviceid');
     $('#admin-edit-btn').data('serviceid',serviceId);
+    $('.error').remove();
   });
   $('#admin-edit-btn').click(function(){
     showLoader();
+    is_valid = true;
+    $('.error').remove();
     var limit = $('#number').val();
     var serviceId = $(this).data('serviceid');
     var date = $('#admin-edit-date').val();
@@ -223,68 +227,124 @@ $(document).ready(function () {
     var city = $('#admin-edit-City').val();
     var comment = $('#admin-edit-coment').val();
     // console.log(serviceId+" "+date+" "+time);
-    $.ajax({
-      url : "http://localhost/psd-to-html/Helperland/?controller=Admin&function=serviceReschedule",
-      type : "POST",
-      data : {serviceId: serviceId, date: date, time: time, street: street, house: house, postal: postal, city: city, comment: comment},
-      success : function(result){
-        const data = JSON.parse(result);
-        var alertMsg="";
-        if (data.dateUpdate[0] == true) {
-          $("#EditAndReschedule").modal('hide');
-          $("#successModal #success-msg").text('Service has been Reschedule successfully');
-          $('#successModal #service-id').text(`Reschedule Service Id : ${serviceId}`);
-          $("#successModal button").prop('onclick', null);
-          $("#successModal").modal('show');
-        } else {
-          alertMsg = `<div class='alert alert-danger alert-dismissible fade show mt-3' role='alert'>${data.error}<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>`;
-          $('#r-msg').html(alertMsg);
+    feildValidation('#admin-edit-Street',street,'Street Name');
+    feildValidation('#admin-edit-House',house,'House Name');
+    feildValidation('#admin-edit-Postal',postal,'Postal Name');
+    feildValidation('#admin-edit-City',city,'City Name');
+    if(is_valid == true){
+      $.ajax({
+        url : "http://localhost/psd-to-html/Helperland/?controller=Admin&function=serviceReschedule",
+        type : "POST",
+        data : {serviceId: serviceId, date: date, time: time, street: street, house: house, postal: postal, city: city, comment: comment},
+        success : function(result){
+          const data = JSON.parse(result);
+          var alertMsg="";
+          if (data.dateUpdate[0] == true) {
+            $("#EditAndReschedule").modal('hide');
+            $("#successModal #success-msg").text('Service has been Reschedule successfully');
+            $('#successModal #service-id').text(`Reschedule Service Id : ${serviceId}`);
+            $("#successModal button").prop('onclick', null);
+            $("#successModal").modal('show');
+          } else {
+            alertMsg = `<div class='alert alert-danger alert-dismissible fade show mt-3' role='alert'>${data.error}<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>`;
+            $('#r-msg').html(alertMsg);
+          }
+        },
+        complete : function(result){
+          $.LoadingOverlay("hide");
+          adminData(limit);
+          $('.error').remove();
         }
-      },
-      complete : function(result){
-        $.LoadingOverlay("hide");
-        adminData(limit);
-      }
-    });
+      });
+    }
+    else{
+      $.LoadingOverlay("hide");
+    }
   });
 
   // refund service by admin
   $(document).on('click','#refund-btn',function(){
     var serviceId = $(this).closest('tr').data('serviceid');
-    var payment = $(this).closest('tr').data('payment');
+    window.payment = +$(this).closest('tr').data('payment');
+    window.refund = +$(this).closest('tr').data('refund');
     $('#refund').data('serviceid',serviceId);
-    $('#paidAmount').text(payment+"€");
+    $('#paidAmount').text(window.payment+"€");
+    $('#refundedAmount').text(refund+"€");
+    $('#balanceAmount').text((window.payment-refund)+"€");
+    $('.error').remove();
+    $('#rpayment').val("");
+    $('#calculate').val("");
+  });
+  $('#rpayment').keyup(function(){
+    var action = $('#r-action').val();
+    var refund = +$('#rpayment').val();
+    var refundAmount = refund;
+    if(action == 1){
+      refundAmount = (refund * window.payment)/100;
+    }
+    $('#calculate').val(refundAmount);
+  });
+  $('#r-action').change(function(){
+    var action = $('#r-action').val();
+    var refund = +$('#rpayment').val();
+    var refundAmount = refund;
+    if(action == 1){
+      refundAmount = (refund * window.payment)/100;
+    }
+    $('#calculate').val(refundAmount);
   });
   $(document).on('click','#refund',function(){
     showLoader();
+    is_valid = true;
+    $('.error').remove();
     var limit = $('#number').val();
     var serviceId = $(this).data('serviceid');
-    var payment = $('#rpayment').val();
+    var msg = $('#refund-msg').val();
+    var payment = +$('#calculate').val() + window.refund;
+    if(payment > window.payment || +$('#calculate').val() == 0){
+      $('#calculate').after(`<span class='error'>Cann't refund more then paid or 0</span>`);
+      is_valid = false;
+    }
+    feildValidation('#r-error',$('#rpayment').val(),"refund amount");
     // alert(serviceId+" "+payment);
-    $.ajax({
-      url : "http://localhost/psd-to-html/Helperland/?controller=Admin&function=refund",
-      type : "POST",
-      data : {serviceId: serviceId, payment: payment},
-      success : function(result){
-        const data = JSON.parse(result);
-        if(data.status){
-          $("#Refundmodal").modal('hide');
-          $("#successModal #success-msg").text('Refund has been completed successfully');
-          $('#successModal #service-id').text(`Refunded Service Id : ${serviceId}`);
-          $("#successModal button").prop('onclick', null);
-          $("#successModal").modal('show');
+    if(is_valid == true){
+      $.ajax({
+        url : "http://localhost/psd-to-html/Helperland/?controller=Admin&function=refund",
+        type : "POST",
+        data : {serviceId: serviceId, payment: payment, msg: msg},
+        success : function(result){
+          const data = JSON.parse(result);
+          if(data.status){
+            $("#Refundmodal").modal('hide');
+            $("#successModal #success-msg").text('Refund has been completed successfully');
+            $('#successModal #service-id').text(`Refunded Service Id : ${serviceId}`);
+            $("#successModal button").prop('onclick', null);
+            $("#successModal").modal('show');
+          }
+          else{
+            alert("somthing went wrong");
+          }
+        },
+        complete : function(result){
+          $.LoadingOverlay("hide");
+          $('#rpayment').val("");
+          $('.error').remove();
+          adminData(limit);
         }
-        else{
-          alert("somthing went wrong");
-        }
-      },
-      complete : function(result){
-        $.LoadingOverlay("hide");
-        $('#rpayment').val("");
-        adminData(limit);
-      }
-    });
+      });
+    }
+    else{
+      $.LoadingOverlay("hide");
+    }
   });
+
+  function feildValidation(id,value,feildname){
+    if(value.length < 1){
+        $(id).after(`<span class='error'>Enter ${feildname}</span>`);
+        is_valid = false;
+        return;
+    }
+  }
 
   // cancle service by admin
   $(document).on('click','#cancleByAdmin',function(){

@@ -5,7 +5,16 @@
     </div>
     <div class="" id="ups">
         <table class="table1" id="table2">
-            
+            <tr class="th text-center">
+                <th onclick="sortTable(0)">Service Id <img src="assets/images/sort.png" alt=""></th>
+                <th onclick="sortTable(1)">Service Date <img src="assets/images/sort.png" alt=""></th>
+                <th onclick="sortTable(2)">Service Provider <img src="assets/images/sort.png" alt=""></th>
+                <th onclick="sortTable(3)">Payment <img src="assets/images/sort.png" alt=""></th>
+                <th onclick="sortTable(4)">Actions </th>
+            </tr>
+            <tbody class="tbody">
+
+            </tbody>
         </table>
     </div>
     <div class="table-footer mt-3">

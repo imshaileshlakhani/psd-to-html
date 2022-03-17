@@ -111,65 +111,68 @@ $(document).ready(function () {
             type: "POST",
             data: { pageName: tabName, userid: userid, limit: onePageData, page: defaultPage, pstatus: pstatus, rstatus: rstatus, withpet: withpet, date: date},
             success: function (result) {
-                console.log(result);
+                // console.log(result);
+                const Data = JSON.parse(result);
                 switch (tabName) {
                     case "New":
-                        const newService = JSON.parse(result);
-                        showNewService(newService.service);
-                        if(newService.paginationData != 0){
-                            $('#totalrequest').text(newService.paginationData.Totalrecord);
-                            paginationHtml(newService.paginationData);
+                        showNewService(Data.service);
+                        if(Data.paginationData != 0){
+                            $('#totalrequest').text(Data.paginationData.Totalrecord);
+                            paginationHtml(Data.paginationData);
                         } 
                         break;
                     case "Upcoming":
-                        const upcomingService = JSON.parse(result);
-                        showUpcomingService(upcomingService.service);
-                        if(upcomingService.paginationData != 0){
-                            $('#totalrequest').text(upcomingService.paginationData.Totalrecord);
-                            paginationHtml(upcomingService.paginationData);
+                        showUpcomingService(Data.service);
+                        if(Data.paginationData != 0){
+                            $('#totalrequest').text(Data.paginationData.Totalrecord);
+                            paginationHtml(Data.paginationData);
                         } 
                         break;
                     case "History":
-                        const history = JSON.parse(result);
-                        showHistory(history.service);
-                        if(history.paginationData != 0){
-                            $('#totalrequest').text(history.paginationData.Totalrecord);
-                            paginationHtml(history.paginationData);
+                        showHistory(Data.service);
+                        if(Data.paginationData != 0){
+                            $('#totalrequest').text(Data.paginationData.Totalrecord);
+                            paginationHtml(Data.paginationData);
                         } 
                         break;
                     case "Schedule":
-                        const Schedule = JSON.parse(result);
-                        $('#ups').html(Schedule.html);
-                        window.services = Schedule.service;
+                        $('#ups').html(Data.html);
+                        window.services = Data.service;
                         break;
                     case "Ratings":
-                        const rating = JSON.parse(result);
-                        showRating(rating.service);
-                        if(rating.paginationData != 0){
-                            $('#totalrequest').text(rating.paginationData.Totalrecord);
-                            paginationHtml(rating.paginationData);
+                        showRating(Data.service);
+                        if(Data.paginationData != 0){
+                            $('#totalrequest').text(Data.paginationData.Totalrecord);
+                            paginationHtml(Data.paginationData);
                         } 
                         break;
                     case "Block":
-                        const block = JSON.parse(result);
-                        showFavBlockSp(block.service);
-                        if(block.paginationData != 0){
-                            $('#totalrequest').text(block.paginationData.Totalrecord);
-                            paginationHtml(block.paginationData);
+                        showFavBlockSp(Data.service);
+                        if(Data.paginationData != 0){
+                            $('#totalrequest').text(Data.paginationData.Totalrecord);
+                            paginationHtml(Data.paginationData);
                         } 
                         break;
                     case "setting":
-                        const saddress = JSON.parse(result);
-                        if(saddress.address.length != 0){
-                            showaddress(saddress.address);
+                        if(Data.address.length != 0){
+                            showaddress(Data.address);
                         }
                         break;
                     default:
-                        // console.log("New");
+                        showNewService(Data.service);
+                        if(Data.paginationData != 0){
+                            $('#totalrequest').text(Data.paginationData.Totalrecord);
+                            paginationHtml(Data.paginationData);
+                        }
                 }
             },
             complete : function(result){
                 $.LoadingOverlay("hide");
+                if(page >= 3){
+                    $('#page3').text(page);
+                    $('#page3').addClass('active');
+                    $('#page3').data('page',page);
+                }
             }
         });
     }
@@ -291,13 +294,13 @@ $(document).ready(function () {
     });
     function cancleService(serviceIdforCancle) {
         var limit = $('#number').val();
+        var cancleMsg = $('#service-msg').val();
         var sid = serviceIdforCancle;
-        // var limit = $('#number').val();
         if(sid != 0){
             $.ajax({
                 url: "http://localhost/psd-to-html/Helperland/?controller=Servicer&function=serviceCancle",
                 type: "POST",
-                data: { serviceId: sid },
+                data: { serviceId: sid, cancleMsg: cancleMsg },
                 success: function (result) {
                     const status = JSON.parse(result);
                     // console.log(status);
@@ -313,6 +316,7 @@ $(document).ready(function () {
                 complete : function(result){
                     $.LoadingOverlay("hide");
                     ServicerData(limit);
+                    $('#service-msg').val("");
                 }
             });
         }
@@ -345,8 +349,6 @@ $(document).ready(function () {
         // alert(recordId);
         serviceDetailsModel(window.services[recordId]);
     });
-
-    
 
     // service-details model
     function serviceDetailsModel(service) {
@@ -388,12 +390,12 @@ $(document).ready(function () {
         // console.log(currentTime+" "+dateTime.endtime);
         if(currentDate >= serviceDate){
             if(currentTime >= dateTime.endtime){
-                $('.complete-button').removeClass('d-none');
+                $('.service-complete-button').removeClass('d-none');
             }else{
-                $('.complete-button').addClass('d-none');
+                $('.service-complete-button').addClass('d-none');
             }
         }else{
-            $('.complete-button').addClass('d-none');
+            $('.service-complete-button').addClass('d-none');
         }
 
         if (service['HasPets'] == "1") {
@@ -753,11 +755,13 @@ $(document).ready(function () {
                                 <img src='assets/images/keyboard-right-arrow-button-copy.png'>
                             </div>`;
         for (var i = 1; i <= totalPage; i++) {
-            if (i == currentPage) {
-                paginationHtml += `<div class='active' data-page='${i}' id='page${i}'>${i}</div>`;
-            }
-            else {
-                paginationHtml += `<div data-page='${i}' id='page${i}'>${i}</div>`;
+            if(i <= 3){
+                if (i == currentPage) {
+                    paginationHtml += `<div class='active' data-page='${i}' id='page${i}'>${i}</div>`;
+                }
+                else {
+                    paginationHtml += `<div data-page='${i}' id='page${i}'>${i}</div>`;
+                }
             }
         }
         paginationHtml += `<div id='next-tab' data-page='${next}'>

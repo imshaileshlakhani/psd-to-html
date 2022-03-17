@@ -37,7 +37,7 @@
                                 <div class="row model-button">
                                     <div class="col">
                                         <button type="button" class="cancel-button cancle-service" data-bs-toggle="modal" data-bs-target="#servicecancle" data-bs-dismiss="modal"><i class="fa fa-times"></i> Cancel</button>
-                                        <button type="button" class="complete-button date-update" data-bs-toggle="modal" data-bs-target="#servicereschedule" data-bs-dismiss="modal"><i class="fa fa-repeat"></i>
+                                        <button type="button" class="complete-button service-complete-button date-update" data-bs-toggle="modal" data-bs-target="#servicereschedule" data-bs-dismiss="modal"><i class="fa fa-repeat"></i>
                                             Reschedule</button>
                                     </div>
                                 </div>

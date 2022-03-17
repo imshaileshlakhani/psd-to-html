@@ -100,52 +100,54 @@ $(document).ready(function () {
             data: { pageName: tabName, userid: userId, limit: onePageData, page: defaultPage },
             success: function (result) {
                 // console.log(result);
+                const Data = JSON.parse(result);
                 switch (tabName) {
                     case "Dashboard":
-                        const serviceData = JSON.parse(result);
-                        showServices(serviceData.service);
-                        if(serviceData.paginationData != 0){
-                            $('#totalrequest').text(serviceData.paginationData.Totalrecord);
-                            paginationHtml(serviceData.paginationData);
+                        showServices(Data.service);
+                        if(Data.paginationData != 0){
+                            $('#totalrequest').text(Data.paginationData.Totalrecord);
+                            paginationHtml(Data.paginationData);
                         } 
                         break;
                     case "History":
-                        const serviceHistory = JSON.parse(result);
-                        showServiceHistory(serviceHistory.service);
-                        if(serviceHistory.paginationData != 0){
-                            $('#totalrequest').text(serviceHistory.paginationData.Totalrecord);
-                            paginationHtml(serviceHistory.paginationData);
+                        showServiceHistory(Data.service);
+                        if(Data.paginationData != 0){
+                            $('#totalrequest').text(Data.paginationData.Totalrecord);
+                            paginationHtml(Data.paginationData);
                         }
                         break;
                     case "Favourite":
-                        const favBlockSp = JSON.parse(result);
-                        showFavBlockSp(favBlockSp.favSp);
-                        if(favBlockSp.paginationData != 0){
-                            $('#totalrequest').text(favBlockSp.paginationData.Totalrecord);
-                            paginationHtml(favBlockSp.paginationData);
+                        showFavBlockSp(Data.favSp);
+                        if(Data.paginationData != 0){
+                            $('#totalrequest').text(Data.paginationData.Totalrecord);
+                            paginationHtml(Data.paginationData);
                         } 
                         break;
                     case "setting":
-                        const settingAddress = JSON.parse(result);
-                        showMyAddress(settingAddress.saddress);
+                        showMyAddress(Data.saddress);
                         // console.log(settingAddress.saddress);
                         break;
                     default:
-                        showServices(serviceData.service);
+                        showServices(Data.service);
+                        if(Data.paginationData != 0){
+                            $('#totalrequest').text(Data.paginationData.Totalrecord);
+                            paginationHtml(Data.paginationData);
+                        } 
                 }
+            },
+            complete : function(result){
                 $.LoadingOverlay("hide");
+                if(page >= 3){
+                    $('#page3').text(page);
+                    $('#page3').addClass('active');
+                    $('#page3').data('page',page);
+                }
             }
         });
     }
 
     function showServices(services) {
-        var serviceHtml = `<tr class="th text-center">
-                                <th onclick="sortTable(0)">Service Id <img src="assets/images/sort.png" alt=""></th>
-                                <th onclick="sortTable(1)">Service Date <img src="assets/images/sort.png" alt=""></th>
-                                <th onclick="sortTable(2)">Service Provider <img src="assets/images/sort.png" alt=""></th>
-                                <th onclick="sortTable(3)">Payment <img src="assets/images/sort.png" alt=""></th>
-                                <th onclick="sortTable(4)">Actions </th>
-                            </tr>`;
+        var serviceHtml = "";
         services.forEach(function (service) {
             let arr = [];
             var rating = "";
@@ -189,7 +191,7 @@ $(document).ready(function () {
                     serviceHtml += `</td>
             </tr>`;
         });
-        $('#ups .table1').html(serviceHtml);
+        $('.table1 .tbody').html(serviceHtml);
     }
 
     $('.table1').on('click', function (e) {
@@ -230,15 +232,16 @@ $(document).ready(function () {
 
     function cancleService(serviceIdforCancle) {
         var sid = serviceIdforCancle;
+        var cancleMsg = $('#service-msg').val();
         // var limit = $('#number').val();
         if(sid != 0){
             $.ajax({
                 url: "http://localhost/psd-to-html/Helperland/?controller=Customer&function=serviceCancle",
                 type: "POST",
-                data: { serviceId: sid },
+                data: { serviceId: sid, cancleMsg: cancleMsg },
                 success: function (result) {
                     const status = JSON.parse(result);
-                    console.log(status);
+                    // console.log(status);
                     if (status.update[0] == true) {
                         $.LoadingOverlay("hide");
                         $("#successModal #success-msg").text('Your service request canceled successfully');
@@ -355,13 +358,7 @@ $(document).ready(function () {
 
     // service-history page
     function showServiceHistory(services) {
-        var serviceHistoryHtml = `<tr class="th text-center">
-                                    <th onclick="sortTable(0)">Service Details <img src="assets/images/sort.png" alt=""></th>
-                                    <th onclick="sortTable(1)">Service Provider <img src="assets/images/sort.png" alt=""></th>
-                                    <th onclick="sortTable(2)">Payment <img src="assets/images/sort.png" alt=""></th>
-                                    <th onclick="sortTable(3)">Status <img src="assets/images/sort.png" alt=""></th>
-                                    <th>Rate SP </th>
-                                </tr>`;
+        var serviceHistoryHtml = ``;
         services.forEach(function (service) {
             var rating = "";
             var fullName = service.FirstName + " " + service.LastName;
@@ -406,7 +403,7 @@ $(document).ready(function () {
             serviceHistoryHtml += `</a></td>
             </tr>`;
         });
-        $('#ups .table2').html(serviceHistoryHtml);
+        $('.table2 .tbody').html(serviceHistoryHtml);
     }
 
     // service provider rating function
@@ -615,11 +612,13 @@ $(document).ready(function () {
                                 <img src='assets/images/keyboard-right-arrow-button-copy.png'>
                             </div>`;
         for (var i = 1; i <= totalPage; i++) {
-            if (i == currentPage) {
-                paginationHtml += `<div class='active' data-page='${i}' id='page${i}'>${i}</div>`;
-            }
-            else {
-                paginationHtml += `<div data-page='${i}' id='page${i}'>${i}</div>`;
+            if(i <= 3){
+                if (i == currentPage) {
+                    paginationHtml += `<div class='active' data-page='${i}' id='page${i}'>${i}</div>`;
+                }
+                else {
+                    paginationHtml += `<div data-page='${i}' id='page${i}'>${i}</div>`;
+                }
             }
         }
         paginationHtml += `<div id='next-tab' data-page='${next}'>

@@ -26,7 +26,7 @@
                 $tdate = !empty($data['tdate']) ? $data['tdate'].' 23:59:00.000' : "3000-01-01 23:59:00.000";
                 $email = !empty($data['email']) ? "servicerequestaddress.Email='".$data['email']."'" : 1;
 
-                $sql = "SELECT servicerequest.ServiceRequestId,servicerequest.TotalCost,servicerequest.ServiceProviderId,servicerequest.SubTotal,servicerequest.Status,servicerequest.ServiceStartDate,servicerequestaddress.*,concat(cu.FirstName, ' ', cu.LastName) AS CFullName,concat(sp.FirstName, ' ', sp.LastName) AS SpFullName,sp.UserProfilePicture FROM servicerequest JOIN servicerequestaddress ON servicerequest.ServiceRequestId = servicerequestaddress.ServiceRequestId JOIN user AS cu ON cu.UserId = servicerequest.UserId LEFT JOIN user AS sp ON sp.UserId = servicerequest.ServiceProviderId WHERE $customer AND $servicer AND $sid AND $postal AND $status AND $email AND servicerequest.ServiceStartDate BETWEEN '$fdate' AND '$tdate' LIMIT $offset,$showrecord";
+                $sql = "SELECT servicerequest.ServiceRequestId,servicerequest.TotalCost,servicerequest.RefundedAmount,servicerequest.ServiceProviderId,servicerequest.SubTotal,servicerequest.Status,servicerequest.ServiceStartDate,servicerequestaddress.*,concat(cu.FirstName, ' ', cu.LastName) AS CFullName,concat(sp.FirstName, ' ', sp.LastName) AS SpFullName,sp.UserProfilePicture FROM servicerequest JOIN servicerequestaddress ON servicerequest.ServiceRequestId = servicerequestaddress.ServiceRequestId JOIN user AS cu ON cu.UserId = servicerequest.UserId LEFT JOIN user AS sp ON sp.UserId = servicerequest.ServiceProviderId WHERE $customer AND $servicer AND $sid AND $postal AND $status AND $email AND servicerequest.ServiceStartDate BETWEEN '$fdate' AND '$tdate' LIMIT $offset,$showrecord";
                 // AND servicerequest.ServiceStartDate BETWEEN $fdate AND $tdate
 
                 $result = $this->conn->query($sql);
@@ -155,7 +155,7 @@
                 $status = !empty($data['status']) ? ($data['status'] == -1 ? 'servicerequest.Status=0' : 'servicerequest.Status='.$data['status']) : 1;
                 $email = !empty($data['email']) ? "servicerequestaddress.Email='".$data['email']."'" : 1;
 
-                $sql = "SELECT servicerequest.ServiceRequestId,servicerequest.TotalCost,servicerequest.ServiceProviderId,servicerequest.SubTotal,servicerequest.Status,servicerequest.ServiceStartDate,servicerequestaddress.*,concat(cu.FirstName, ' ', cu.LastName) AS CFullName,concat(sp.FirstName, ' ', sp.LastName) AS SpFullName,sp.UserProfilePicture FROM servicerequest JOIN servicerequestaddress ON servicerequest.ServiceRequestId = servicerequestaddress.ServiceRequestId JOIN user AS cu ON cu.UserId = servicerequest.UserId LEFT JOIN user AS sp ON sp.UserId = servicerequest.ServiceProviderId WHERE $customer AND $servicer AND $sid AND $postal AND $status AND $email AND servicerequest.ServiceStartDate BETWEEN '$fdate' AND '$tdate'";
+                $sql = "SELECT servicerequest.ServiceRequestId,servicerequest.TotalCost,servicerequest.RefundedAmount,servicerequest.ServiceProviderId,servicerequest.SubTotal,servicerequest.Status,servicerequest.ServiceStartDate,servicerequestaddress.*,concat(cu.FirstName, ' ', cu.LastName) AS CFullName,concat(sp.FirstName, ' ', sp.LastName) AS SpFullName,sp.UserProfilePicture FROM servicerequest JOIN servicerequestaddress ON servicerequest.ServiceRequestId = servicerequestaddress.ServiceRequestId JOIN user AS cu ON cu.UserId = servicerequest.UserId LEFT JOIN user AS sp ON sp.UserId = servicerequest.ServiceProviderId WHERE $customer AND $servicer AND $sid AND $postal AND $status AND $email AND servicerequest.ServiceStartDate BETWEEN '$fdate' AND '$tdate'";
                 // AND servicerequest.ServiceStartDate BETWEEN $fdate AND $tdate
             }
             else{
@@ -215,7 +215,8 @@
         public function refundPayment($data){
             $serviceId = $data['serviceId'];
             $payment = $data['payment'];
-            $sql = "UPDATE servicerequest SET Status = 5,RefundedAmount = $payment WHERE ServiceRequestId = $serviceId";
+            $msg = $data['msg'];
+            $sql = "UPDATE servicerequest SET Status = 5,Comments = '$msg',RefundedAmount = $payment WHERE ServiceRequestId = $serviceId";
             $result = $this->conn->query($sql);
             if ($result) {
                 return true;

@@ -17,33 +17,32 @@
                                 </div>
                                 <div class="col-6">
                                     Refunded Amount<br>
-                                    0.00€
+                                    <span id="refundedAmount">0.00€</span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-6">
                             In Balance Amount<br>
-                            54.00€
+                            <span id="balanceAmount">0.00€</span>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="">Amount</label>
-                                <div class="input-group mb-3">
+                                <div class="input-group" id="r-error">
                                     <input type="text" class="form-control" id="rpayment" aria-label="Text input with dropdown button" required>
-                                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Percentage</button>
-                                    <ul class="dropdown-menu dropdown-menu-end">
-                                        <li><a class="dropdown-item" href="#">Percentage</a></li>
-                                        <li><a class="dropdown-item" href="#">Euro</a></li>
-                                    </ul>
+                                    <select class="btn btn-outline-secondary" id="r-action">
+                                        <option value="1">Percentage</option>
+                                        <option value="2">Euro</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="">Calculate</label>
-                                <input type="text" class="form-control" id="calculate">
+                                <input type="text" class="form-control" id="calculate" disabled>
                             </div>
                         </div>
                     </div>
@@ -51,7 +50,7 @@
                     <div class="divtitle">Why you want to refund amount?</div>
                     <div class="row">
                         <div class="col">
-                            <textarea name="" id="" rows="3" class="form-control" placeholder="Why you want to refund amount?"></textarea>
+                            <textarea name="" rows="3" id="refund-msg" class="form-control" placeholder="Why you want to refund amount?"></textarea>
                         </div>
                     </div>
 

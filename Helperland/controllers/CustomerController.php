@@ -102,7 +102,9 @@ class CustomerController
                             continue;
                         }
                         // echo $_POST['serviceId'].' '.$serid.' '.$select_starttime.' '.$select_endtime.' '.$service_starttime.' '.$service_endtime;
-                        if ($select_starttime == $service_starttime || $select_endtime == $service_endtime || $select_starttime == $service_endtime || ($select_starttime < $service_starttime && $select_endtime > $service_starttime) || ($select_starttime > $service_starttime && $select_starttime < $service_endtime)) {
+                        if ($select_starttime == $service_starttime || $select_endtime == $service_endtime || $select_starttime == $service_endtime || $select_endtime == $service_starttime ||
+                        (($select_starttime < $service_starttime && $select_endtime > $service_starttime) || ($select_starttime < $service_starttime && ($service_starttime - $select_endtime) < 1)) ||
+                        (($select_starttime > $service_starttime && $select_starttime < $service_endtime) || ($select_starttime > $service_starttime && ($select_starttime - $service_endtime) < 1))) {
                             $error = "Another service request has been assigned to the service provider on $startdate from ".$this->convertStrToTime($service_starttime)." to ".$this->convertStrToTime($service_endtime).". Either choose another date or pick up a different time slot";
                             break;
                         }

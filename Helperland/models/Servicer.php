@@ -24,10 +24,13 @@ class Servicer extends Connection
             }
 
             if ($pageName == "New") {
-                $sql = "SELECT servicerequest.*,servicerequestaddress.*,user.FirstName,user.LastName FROM servicerequest JOIN servicerequestaddress ON servicerequest.ServiceRequestId = servicerequestaddress.ServiceRequestId JOIN user ON servicerequest.UserId = user.UserId LEFT JOIN favoriteandblocked AS f1 ON f1.UserId = servicerequest.UserId LEFT JOIN favoriteandblocked AS f2 ON f2.TargetUserId = servicerequest.UserId WHERE ((f2.UserId = $userId AND f1.TargetUserId=$userId AND f1.IsBlocked = 0 AND f2.IsBlocked = 0) OR (f1.TargetUserId IS NULL)) AND servicerequest.Status IN (" . implode(',', $status) . ") AND (servicerequest.ServiceProviderId = $userId OR servicerequest.ServiceProviderId IS NULL) AND servicerequest.HasPets <= $withpet LIMIT $offset,$showrecord";
+                $sql = "SELECT servicerequest.*,servicerequestaddress.*,user.FirstName,user.LastName FROM servicerequest JOIN servicerequestaddress ON servicerequest.ServiceRequestId = servicerequestaddress.ServiceRequestId JOIN user ON servicerequest.UserId = user.UserId LEFT JOIN favoriteandblocked AS f1 ON f1.UserId = servicerequest.UserId LEFT JOIN favoriteandblocked AS f2 ON f2.TargetUserId = servicerequest.UserId WHERE ((f2.UserId = $userId AND f1.TargetUserId=$userId AND f1.IsBlocked = 0 AND f2.IsBlocked = 0) OR (f1.TargetUserId IS NULL) OR
+                f1.TargetUserId IN (SELECT UserId FROM user WHERE UserTypeId = 2 AND IsApproved=1 )) AND servicerequest.Status IN (" . implode(',', $status) . ") AND (servicerequest.ServiceProviderId = $userId OR servicerequest.ServiceProviderId IS NULL) AND servicerequest.HasPets <= $withpet GROUP BY servicerequest.ServiceRequestId LIMIT $offset,$showrecord";
             } else {
                 $sql = "SELECT servicerequest.*,servicerequestaddress.*,user.FirstName,user.LastName FROM servicerequest JOIN servicerequestaddress ON servicerequest.ServiceRequestId = servicerequestaddress.ServiceRequestId JOIN user ON servicerequest.UserId = user.UserId WHERE servicerequest.Status IN (" . implode(',', $status) . ") AND (servicerequest.ServiceProviderId = $userId OR servicerequest.ServiceProviderId IS NULL) LIMIT $offset,$showrecord";
             }
+
+            // echo $sql;
 
             $result = $this->conn->query($sql);
             $rows = array();
@@ -64,7 +67,7 @@ class Servicer extends Connection
     {
         $total = 0;
         if ($pageName == "New") {
-            $sql = "SELECT ServiceRequestId FROM servicerequest WHERE (ServiceProviderId = $userId OR ServiceProviderId IS NULL) AND Status IN (" . implode(',', $status) . ") AND HasPets <= $withpet";
+            $sql = "SELECT servicerequest.*,servicerequestaddress.*,user.FirstName,user.LastName FROM servicerequest JOIN servicerequestaddress ON servicerequest.ServiceRequestId = servicerequestaddress.ServiceRequestId JOIN user ON servicerequest.UserId = user.UserId LEFT JOIN favoriteandblocked AS f1 ON f1.UserId = servicerequest.UserId LEFT JOIN favoriteandblocked AS f2 ON f2.TargetUserId = servicerequest.UserId WHERE ((f2.UserId = $userId AND f1.TargetUserId=$userId AND f1.IsBlocked = 0 AND f2.IsBlocked = 0) OR (f1.TargetUserId IS NULL) OR f1.TargetUserId IN (SELECT UserId FROM user WHERE UserTypeId = 2 AND IsApproved=1 )) AND servicerequest.Status IN (" . implode(',', $status) . ") AND (servicerequest.ServiceProviderId = $userId OR servicerequest.ServiceProviderId IS NULL) AND servicerequest.HasPets <= $withpet GROUP BY servicerequest.ServiceRequestId";
         } else if ($pageName == "Upcoming" || $pageName == "History") {
             $sql = "SELECT ServiceRequestId FROM servicerequest WHERE (ServiceProviderId = $userId OR ServiceProviderId IS NULL) AND Status IN (" . implode(',', $status) . ")";
         } else if ($pageName == "Ratings") {
@@ -72,6 +75,7 @@ class Servicer extends Connection
         } else if ($pageName == "Block") {
             $sql = "SELECT favoriteandblocked.*,user.FirstName,user.LastName,user.UserProfilePicture FROM favoriteandblocked JOIN user ON favoriteandblocked.TargetUserId = user.UserId WHERE favoriteandblocked.UserId = $userId";
         }
+        // echo $sql;
 
         $result = $this->conn->query($sql);
         if ($result->num_rows > 0) {

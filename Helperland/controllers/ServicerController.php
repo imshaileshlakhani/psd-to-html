@@ -187,7 +187,9 @@ class ServicerController{
                     $service_hour = $res["SubTotal"];
                     $service_endtime = $service_starttime + $service_hour;
                     // echo $select_starttime.' '.$select_endtime.' '.$service_starttime.' '.$service_endtime;
-                    if ($select_starttime == $service_starttime || $select_endtime == $service_endtime || $select_starttime == $service_endtime || $select_endtime == $service_starttime || ($select_starttime < $service_starttime && $select_endtime > $service_starttime) || ($service_starttime-$select_endtime)<1 || ($select_starttime > $service_starttime && $select_starttime < $service_endtime) || ($select_starttime-$service_endtime)<1) {
+                    if ($select_starttime == $service_starttime || $select_endtime == $service_endtime || $select_starttime == $service_endtime || $select_endtime == $service_starttime ||
+                    (($select_starttime < $service_starttime && $select_endtime > $service_starttime) || ($select_starttime < $service_starttime && ($service_starttime - $select_endtime) < 1)) ||
+                    (($select_starttime > $service_starttime && $select_starttime < $service_endtime) || ($select_starttime > $service_starttime && ($select_starttime - $service_endtime) < 1))) {
                         $error = "Another service request ".$res["ServiceRequestId"]." has already been assigned which has time overlap with this service request. You can’t pick this one!";
                             break;
                         }

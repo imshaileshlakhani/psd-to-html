@@ -71,7 +71,7 @@ $(document).ready(function () {
       data: { pageName: tabName, userid: userid, limit: limit, page: page, customer: customer, servicer: servicer, sid: sid, postal: postal, status: status, email: email, utype: utype, mobile: mobile, user: user, fdate: fdate, tdate: tdate},
       success: function (result) {
         const Data = JSON.parse(result);
-        console.log(result);
+        // console.log(result);
         switch (tabName) {
           case "srequest":
             showServices(Data.record);
@@ -188,11 +188,17 @@ $(document).ready(function () {
                                 <button class="dropdown-toggle" type="button" id="ActionMenu1" data-bs-toggle="dropdown" aria-expanded="false">
                                   <img src="assets/images/group-38.png">
                                 </button>
-                              <ul class="dropdown-menu" aria-labelledby="ActionMenu1">
-                                <li class="dropdown-item"><a href="#" data-bs-toggle="modal" data-bs-target="#EditAndReschedule" data-bs-dismiss="modal" id="edit-reschedule">Edit & Reschedule</a></li>
-                                <li class="dropdown-item"><a href="#" data-bs-toggle="modal" data-bs-target="#Refundmodal" data-bs-dismiss="modal" id="refund-btn">Refund</a></li>
-                                <li class="dropdown-item"><a href="#" id="cancleByAdmin">Cancel</a></li>
-                              </ul>
+                              <ul class="dropdown-menu" aria-labelledby="ActionMenu1">`;
+                              if (service.Status == 0 || service.Status == 1 || service.Status == 2 || service.Status == 3) {
+                                serviceHtml += `<li class="dropdown-item"><a href="#" data-bs-toggle="modal" data-bs-target="#EditAndReschedule" data-bs-dismiss="modal" id="edit-reschedule">Edit & Reschedule</a></li>`;
+                              }
+                              if (service.Status == 3 || service.Status == 4 || service.Status == 5) {
+                                serviceHtml += `<li class="dropdown-item"><a href="#" data-bs-toggle="modal" data-bs-target="#Refundmodal" data-bs-dismiss="modal" id="refund-btn">Refund</a></li>`;
+                              }
+                              if (service.Status == 0 || service.Status == 1 || service.Status == 2) {
+                                serviceHtml += `<li class="dropdown-item"><a href="#" id="cancleByAdmin">Cancel</a></li>`;
+                              }
+                              serviceHtml += `</ul>
                           </div>
                         </td>
                       </tr>`;
@@ -206,9 +212,40 @@ $(document).ready(function () {
     $('#admin-edit-btn').data('serviceid',serviceId);
   });
   $('#admin-edit-btn').click(function(){
+    showLoader();
+    var limit = $('#number').val();
     var serviceId = $(this).data('serviceid');
-    // alert(serviceId);
-    console.log($('#admin-edit-reschedule').serialize());
+    var date = $('#admin-edit-date').val();
+    var time = $('#admin-edit-time').val();
+    var street = $('#admin-edit-Street').val();
+    var house = $('#admin-edit-House').val();
+    var postal = $('#admin-edit-Postal').val();
+    var city = $('#admin-edit-City').val();
+    var comment = $('#admin-edit-coment').val();
+    // console.log(serviceId+" "+date+" "+time);
+    $.ajax({
+      url : "http://localhost/psd-to-html/Helperland/?controller=Admin&function=serviceReschedule",
+      type : "POST",
+      data : {serviceId: serviceId, date: date, time: time, street: street, house: house, postal: postal, city: city, comment: comment},
+      success : function(result){
+        const data = JSON.parse(result);
+        var alertMsg="";
+        if (data.dateUpdate[0] == true) {
+          $("#EditAndReschedule").modal('hide');
+          $("#successModal #success-msg").text('Service has been Reschedule successfully');
+          $('#successModal #service-id').text(`Reschedule Service Id : ${serviceId}`);
+          $("#successModal button").prop('onclick', null);
+          $("#successModal").modal('show');
+        } else {
+          alertMsg = `<div class='alert alert-danger alert-dismissible fade show mt-3' role='alert'>${data.error}<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>`;
+          $('#r-msg').html(alertMsg);
+        }
+      },
+      complete : function(result){
+        $.LoadingOverlay("hide");
+        adminData(limit);
+      }
+    });
   });
 
   // refund service by admin
@@ -236,7 +273,6 @@ $(document).ready(function () {
           $('#successModal #service-id').text(`Refunded Service Id : ${serviceId}`);
           $("#successModal button").prop('onclick', null);
           $("#successModal").modal('show');
-          adminData(limit);
         }
         else{
           alert("somthing went wrong");
@@ -245,6 +281,7 @@ $(document).ready(function () {
       complete : function(result){
         $.LoadingOverlay("hide");
         $('#rpayment').val("");
+        adminData(limit);
       }
     });
   });

@@ -69,28 +69,20 @@ $(document).ready(function () {
 
     $('#number').change(function () {
         showLoader();
-        var withpet = 0;
-        if ( $('#withpet').is(":checked") ){
-            withpet = 1;
-        }
         var limit = $('#number').val();
         var pstatus = $('#payment-status').val();
         var rstatus = $('#rating-status').val();
-        ServicerData(limit, page = 1, pstatus, rstatus, withpet);
+        ServicerData(limit, page = 1, pstatus, rstatus);
     });
 
     $(document).on('click', '#pagination', function (e) {
         showLoader();
-        var withpet = 0;
-        if ( $('#withpet').is(":checked") ){
-            withpet = 1;
-        }
         var page = $(e.target).closest('div').data("page");
         var pstatus = $('#payment-status').val();
         var rstatus = $('#rating-status').val();
         var limit = $('#number').val();
         if (page != undefined) {
-            ServicerData(limit, page, pstatus, rstatus, withpet);
+            ServicerData(limit, page, pstatus, rstatus);
         }
         $.LoadingOverlay("hide");
     });
@@ -98,24 +90,28 @@ $(document).ready(function () {
     // service schedule prev month
     $(document).on('click','#left-date',function(){
         var date = window.scheduleDate.setMonth((window.scheduleDate.getMonth())+1,0);
-        ServicerData(limit = 2, page = 1, pstatus = "All", rstatus = "All", withpet = 0, date);
+        ServicerData(limit = 2, page = 1, pstatus = "All", rstatus = "All", date);
     });
     // service schedule next month
     $(document).on('click','#right-date',function(){
         var date = window.scheduleDate.setMonth((window.scheduleDate.getMonth())+1,0);
-        ServicerData(limit = 2, page = 1, pstatus = "All", rstatus = "All", withpet = 0, date);
+        ServicerData(limit = 2, page = 1, pstatus = "All", rstatus = "All", date);
     });
 
-    function ServicerData(limit = 2, page = 1, pstatus = "All", rstatus = "All", withpet = 0, date = new Date()) {
+    function ServicerData(limit = 2, page = 1, pstatus = "All", rstatus = "All", date = new Date()) {
         var tabName = $('#tab-name').val();
         var onePageData = limit;
         var defaultPage = page;
+        var withpet = 0;
+        if ( $('#withpet').is(":checked") ){
+            withpet = 1;
+        }
         $.ajax({
             url: "http://localhost/psd-to-html/Helperland/?controller=Servicer&function=servicerData",
             type: "POST",
             data: { pageName: tabName, userid: userid, limit: onePageData, page: defaultPage, pstatus: pstatus, rstatus: rstatus, withpet: withpet, date: date},
             success: function (result) {
-                // console.log(result);
+                console.log(result);
                 switch (tabName) {
                     case "New":
                         const newService = JSON.parse(result);
@@ -208,17 +204,13 @@ $(document).ready(function () {
     // with pet service
     $('#withpet').change(function(){
         showLoader();
-        var withpet = 0;
-        if ( $('#withpet').is(":checked") ){
-            withpet = 1;
-        }
-        
         var limit = $('#number').val();
-        ServicerData(limit, page = 1,pstatus = "All",rstatus = "All",withpet);
+        ServicerData(limit, page = 1);
     });
 
     // accept request
     $('#Accept-button').click(function(e){
+        var limit = $('#number').val();
         var serviceId = $(this).data('serviceid');
         var workinghr = +$(this).data('totalhr');
         var starttime = $(this).data('starttime');
@@ -244,10 +236,10 @@ $(document).ready(function () {
                 }
                 $("#successModal button").prop('onclick', null);
                 $("#successModal").modal('show');
-                ServicerData();
             },
             complete : function(result){
                 $.LoadingOverlay("hide");
+                ServicerData(limit);
             }
         });
     });
@@ -298,6 +290,7 @@ $(document).ready(function () {
         });
     });
     function cancleService(serviceIdforCancle) {
+        var limit = $('#number').val();
         var sid = serviceIdforCancle;
         // var limit = $('#number').val();
         if(sid != 0){
@@ -313,13 +306,13 @@ $(document).ready(function () {
                         $('#successModal #service-id').text(`Canceled Request Id : ${sid}`);
                         $("#successModal button").prop('onclick', null);
                         $("#successModal").modal('show');
-                        ServicerData();
                     } else {
                         alert("Somthing went wrong");
                     }
                 },
                 complete : function(result){
                     $.LoadingOverlay("hide");
+                    ServicerData(limit);
                 }
             });
         }
@@ -414,6 +407,7 @@ $(document).ready(function () {
 
     // complete service
     $('#complete-button').click(function(){
+        var limit = $('#number').val();
         var serviceId = $(this).data('serviceid');
         var customerId = $(this).data('customerId');
         // alert(customerId);
@@ -430,7 +424,6 @@ $(document).ready(function () {
                     $('#successModal #service-id').text(`Completed Request Id : ${serviceId}`);
                     $("#successModal button").prop('onclick', null);
                     $("#successModal").modal('show');
-                    ServicerData();
                 }
                 else{
                     alert("somthing went wrong");
@@ -438,6 +431,7 @@ $(document).ready(function () {
             },
             complete : function(result){
                 $.LoadingOverlay("hide");
+                ServicerData(limit);
             }
         });
     });

@@ -16,7 +16,7 @@
                     <a href="<?= Config::BASE_URL.'?controller=Servicer&function=ServicerDashboard&parameter=Block'?>">Block Customer</a>
                     <a href="#invoice">Invoices</a>
                     <a href="<?= Config::BASE_URL.'?controller=Servicer&function=ServicerDashboard&parameter=setting'?>">My Setting</a>
-                    <a href="<?= Config::BASE_URL.'?controller=Authentication&function=logout'?>">Logout</a>
+                    <a href="#" class="logout-btn">Logout</a>
                 </div>
                 <div class="modal-footer">
                     <a href="<?= Config::BASE_URL.'?controller=Public&function=price'?>">Prices & Services</a>

@@ -10,7 +10,7 @@
             if(isset($data['username'])){
                 $user = trim($data["username"]);
                 $pass = trim($data["password"]);
-                $sql = "SELECT UserId,FirstName,LastName,Email,Mobile,DateOfBirth,UserTypeId FROM user WHERE Email='$user' AND Password='$pass'";
+                $sql = "SELECT UserId,FirstName,LastName,Email,Mobile,DateOfBirth,UserTypeId,IsApproved FROM user WHERE Email='$user' AND Password='$pass'";
             }
             else{
                 $email = trim($data["email"]);
@@ -60,7 +60,7 @@
         }
 
         public function change_password($data){
-            $pass = $data['newpsw'];
+            $pass = $data['psw'];
             $cpass = $data['cpsw'];
             $email = $data['email'];
             if($pass == $cpass){

@@ -15,6 +15,10 @@ class AuthenticationController{
         if(isset($_POST)){
             $userdata = $this->model->validate($_POST);
             if(count($userdata)>0){
+                if($userdata['UserTypeId'] == 2 && $userdata['IsApproved'] != 1){
+                    echo json_encode(['status'=>false,'approved'=>0,'error'=>'You are not approved by Admin']);
+                    exit();
+                }
                 $_SESSION['userdata'] = $userdata;
                 if($_POST['remember']){
                     setcookie('email',$_POST["username"],time()+3600);
@@ -26,7 +30,7 @@ class AuthenticationController{
                 }
                 echo json_encode(['status'=>true,'UserTypeId'=>$userdata['UserTypeId']]);
             }else{
-                echo json_encode(['status'=>false,'error'=>'Username or password is incorrect!!!']);
+                echo json_encode(['status'=>false,'approved'=>1,'error'=>'Username or password is incorrect!!!']);
             }
         }
     }
@@ -34,7 +38,7 @@ class AuthenticationController{
     public function logout(){
         session_unset();
         session_destroy();
-        header("location:".$this->base_url."?controller=Public&function=home");
+        echo json_encode(['status'=>true]);
     }
 
     public function user_signup(){
@@ -71,13 +75,15 @@ class AuthenticationController{
     }
 
     public function forgot_password(){
-        if(isset($_POST['save'])){
+        if(isset($_POST['email'])){
             $result = $this->model->change_password($_POST);
             if($result){
-                header("Location:".$this->base_url."?controller=Public&function=home");
+                echo json_encode(['status'=>true,'msg'=>'Password change successfully']);
+                exit();
             }
             else{
-                header("location:".$this->error_url."&error=Not able to change password");
+                echo json_encode(['status'=>false,'msg'=>'Not able to change password']);
+                exit();
             }
         }
         include('View/forgot_password.php');

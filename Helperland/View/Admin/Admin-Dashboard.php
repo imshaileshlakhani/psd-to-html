@@ -51,7 +51,7 @@
                     <a class="navlink" href="#"><?= $userdata["FirstName"] ?></a>
                 </li>
                 <li class="navitem">
-                    <a class="navlink" href="<?= Config::BASE_URL.'?controller=Authentication&function=logout' ?>"><img src="assets/images/logout.png" alt=""></a>
+                    <a class="navlink logout-btn" href="#"><img src="assets/images/logout.png" alt=""></a>
                 </li>
             </ul>
             <div class="menu-btn" data-bs-toggle="modal" data-bs-target="#navbartoggle" data-bs-dismiss="modal">
@@ -66,7 +66,7 @@
                 <div class="sidebar">
                     <div class="sidebar-admin">
                         <p class="welcomeadmin" id="welcomeadmin">Welcome, <br><b><?= $userdata["FirstName"].' '.$userdata['LastName'] ?></b> </p>
-                        <a href="<?= Config::BASE_URL.'?controller=Authentication&function=logout' ?>">Logout</a>
+                        <a href="#" class="logout-btn">Logout</a>
                     </div>
                     <a href="#">Service Management</a>
                     <a href="#">Rple Management</a>
@@ -132,6 +132,7 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
     <script src="assets/js/nav.js"></script>
     <script src="assets/js/admin_user.js"></script>
+    <script src="assets/js/public.js"></script>
 </body>
 
 </html>

@@ -13,7 +13,7 @@
                     <a href="<?= Config::BASE_URL.'?controller=Customer&function=customerDashboard&parameter=Favourite'?>">Favourite Pros</a>
                     <a href="#invoice">Invoices</a>
                     <a href="<?= Config::BASE_URL.'?controller=Customer&function=customerDashboard&parameter=setting' ?>">My Setting</a>
-                    <a href="<?= Config::BASE_URL.'?controller=Authentication&function=logout' ?>">Logout</a>
+                    <a href="#" class="logout-btn">Logout</a>
                 </div>
                 <div class="modal-footer">
                     <a href="<?= Config::BASE_URL . '?controller=Service&function=service' ?>">Book now</a>

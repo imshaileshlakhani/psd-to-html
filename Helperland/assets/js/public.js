@@ -1,18 +1,19 @@
-function showLoader(){
-    $.LoadingOverlay("show",{
-      background  : "rgba(0, 0, 0, 0.7)"
+function showLoader() {
+    $.LoadingOverlay("show", {
+        background: "rgba(0, 0, 0, 0.7)"
     });
 }
 $(document).ready(function () {
+    var isLogout = 0;
     var userTypeId = $('#header').data('usertype');
-    if(userTypeId == 2){
+    if (userTypeId == 2) {
         $('#bookservice').closest('li').remove();
     }
     var is_valid = true;
     var is_pass_check = false;
 
     // contact page validation
-    $('#submit').click(function(){
+    $('#submit').click(function () {
         is_valid = true;
         $('.error').remove();
         var firstname = $('#firstname').val();
@@ -21,12 +22,12 @@ $(document).ready(function () {
         var email = $('#email').val();
         var msg = $('#msg').val();
 
-        feildValidation('#firstname',firstname,"First Name");
-        feildValidation('#lastname',lastname,"Last Name");
+        feildValidation('#firstname', firstname, "First Name");
+        feildValidation('#lastname', lastname, "Last Name");
         phoneValidation(phone);
-        emailValidation('#email',email);
-        feildValidation('#msg',msg,"Message");
-        if(is_valid != true){
+        emailValidation('#email', email);
+        feildValidation('#msg', msg, "Message");
+        if (is_valid != true) {
             return false;
         }
     });
@@ -47,8 +48,8 @@ $(document).ready(function () {
 
     $('.card1 .qe').on('click', function () {
         var clist = document.getElementsByClassName("card1");
-        for(var i=0;i<clist.length;i++){
-           clist[i].getElementsByClassName("img")[0].setAttribute('src', "./assets/images/arrow-right.png");
+        for (var i = 0; i < clist.length; i++) {
+            clist[i].getElementsByClassName("img")[0].setAttribute('src', "./assets/images/arrow-right.png");
         }
         if (!$(this).hasClass("collapsed")) {
             $(this).find('.img').attr('src', "./assets/images/arrow-right.png");
@@ -58,7 +59,7 @@ $(document).ready(function () {
     });
 
     //registration page validation
-    $('#Register').click(function(){
+    $('#Register').click(function () {
         is_valid = true;
         $('.error').remove();
         var firstname = $('#firstname').val();
@@ -69,96 +70,128 @@ $(document).ready(function () {
         var cpsw = $('#cpsw').val();
         var usertypeid = $('#usertypeid').val();
 
-        feildValidation('#firstname',firstname,"First Name");
-        feildValidation('#lastname',lastname,"Last Name");
-        emailValidation('#email',email);
+        feildValidation('#firstname', firstname, "First Name");
+        feildValidation('#lastname', lastname, "Last Name");
+        emailValidation('#email', email);
         phoneValidation(phone);
-        var result = passwordValidation('#psw',psw);
-        var result1 = passwordValidation('#cpsw',cpsw);
-        if(result == true && result1 == true){
-            passVerify('#psw',psw,cpsw);
+        var result = passwordValidation('#psw', psw);
+        var result1 = passwordValidation('#cpsw', cpsw);
+        if (result == true && result1 == true) {
+            passVerify('#psw', psw, cpsw);
         }
-        if(is_valid == true){
+        if (is_valid == true) {
             $.ajax({
-                url : "http://localhost/psd-to-html/Helperland/?controller=Authentication&function=user_signup",
-                type : "POST",
-                data : {email:email, psw:psw, phone:phone, usertypeid:usertypeid, firstname:firstname, lastname:lastname},
-                success : function(result){
+                url: "http://localhost/psd-to-html/Helperland/?controller=Authentication&function=user_signup",
+                type: "POST",
+                data: { email: email, psw: psw, phone: phone, usertypeid: usertypeid, firstname: firstname, lastname: lastname },
+                success: function (result) {
                     var signup = JSON.parse(result);
                     var alertMsg = "";
-                    if(signup.status){
-                        alertMsg = `<div class='alert alert-success alert-dismissible fade show' role='alert'>${signup.msg}</div>`
+                    if (signup.status) {
+                        alertMsg = `<div class='alert alert-success alert-dismissible fade show' role='alert'>${signup.msg}</div>`;
+                        $('.signin-msg').html(alertMsg);
+                        $("#loginModal").modal('show');
                     }
-                    else{
-                        alertMsg = `<div class='alert alert-danger alert-dismissible fade show' role='alert'>${signup.error}</div>`
+                    else {
+                        alertMsg = `<div class='alert alert-danger alert-dismissible fade show' role='alert'>${signup.error}</div>`;
+                        $('.signup-msg').html(alertMsg);
                     }
-                    $('.signup-msg').html(alertMsg);
-                    setTimeout(function () { $('.alert').fadeOut(1000) }, 5000);
                 }
             });
         }
     });
 
     // login validation
-    $('#signin').click(function(){
+    $('#signin').click(function () {
         is_valid = true;
         $('.error').remove();
         var email = $('#username').val();
         var psw = $('#password').val();
         var remember = 0;
-        if($('#remember').is(":checked")){
+        if ($('#remember').is(":checked")) {
             remember = 1;
         }
 
-        emailValidation('#username',email);
-        passwordValidation('#password',psw);
-        if(is_valid == true){
+        emailValidation('#username', email);
+        passwordValidation('#password', psw);
+        if (is_valid == true) {
             $.ajax({
-                url : "http://localhost/psd-to-html/Helperland/?controller=Authentication&function=login",
-                type : "POST",
-                data : {username : email,password : psw,remember : remember},
-                success : function(result){
+                url: "http://localhost/psd-to-html/Helperland/?controller=Authentication&function=login",
+                type: "POST",
+                data: { username: email, password: psw, remember: remember },
+                success: function (result) {
                     var loginData = JSON.parse(result);
-                    if(loginData.status){
-                        if(loginData.UserTypeId == 1){
+                    var alertMsg = "";
+                    if (loginData.status) {
+                        if (loginData.UserTypeId == 1) {
                             window.location = "http://localhost/psd-to-html/Helperland/?controller=Customer&function=customerDashboard&parameter=Dashboard";
-                        }else if(loginData.UserTypeId == 2){
+                        } else if (loginData.UserTypeId == 2) {
                             window.location = "http://localhost/psd-to-html/Helperland/?controller=Servicer&function=ServicerDashboard&parameter=New";
-                        }else{
+                        } else {
                             window.location = "http://localhost/psd-to-html/Helperland/?controller=Admin&function=adminDashboard&parameter=srequest";
                         }
                     }
-                    else{
-                        var alertMsg = `<div class='alert alert-danger alert-dismissible fade show' role='alert'>${loginData.error}</div>`
+                    else {
+                        if(loginData.approved == 1){
+                            alertMsg = `<div class='alert alert-danger alert-dismissible fade show' role='alert'>${loginData.error}</div>`;
+                        }else{
+                            alertMsg = `<div class='alert alert-danger alert-dismissible fade show' role='alert'>${loginData.error}</div>`;
+                        }
+                        
                         $('.signin-msg').html(alertMsg);
-                        setTimeout(function () { $('.alert').fadeOut(1000) }, 5000);
                     }
                 }
             });
         }
     });
 
+    // logout
+    $('.logout-btn').click(function () {
+        $.ajax({
+            url: "http://localhost/psd-to-html/Helperland/?controller=Authentication&function=logout",
+            type: "POST",
+            data: {},
+            success: function (result) {
+                var logoutData = JSON.parse(result);
+                if (logoutData.status) {
+                    window.location = "http://localhost/psd-to-html/Helperland/?controller=Public&function=home";
+                }
+            },
+            complete : function(result){
+                isLogout = 1;
+            }
+        });
+    });
+
+    if(isLogout == 1){
+        $("#successModal #success-msg").text('You have successfully logged out');
+        $('#successModal #service-id').text("");
+        $("#successModal button").prop('onclick', null);
+        $("#successModal").modal('show');
+        isLogout = 0; 
+    }
+
     //forgot password model
-    $('#send').click(function(){
+    $('#send').click(function () {
         is_valid = true;
         $('.error').remove();
         var email = $('#forgot-email').val();
 
-        emailValidation('#forgot-email',email);
-        if(is_valid == true){
+        emailValidation('#forgot-email', email);
+        if (is_valid == true) {
             $.ajax({
-                url : "http://localhost/psd-to-html/Helperland/?controller=Authentication&function=forgot_password_link",
-                type : "POST",
-                data : {email : email},
-                success : function(result){
+                url: "http://localhost/psd-to-html/Helperland/?controller=Authentication&function=forgot_password_link",
+                type: "POST",
+                data: { email: email },
+                success: function (result) {
                     var forgot = JSON.parse(result);
                     var alertMsg = "";
-                    if(forgot.status){
+                    if (forgot.status) {
                         alertMsg = `<div class='alert alert-success alert-dismissible fade show' role='alert'>Check your email</div>`
                         $('.forgot-msg').html(alertMsg);
                         setTimeout(function () { $('.alert').fadeOut(1000) }, 5000);
                     }
-                    else{
+                    else {
                         alertMsg = `<div class='alert alert-danger alert-dismissible fade show' role='alert'>${forgot.error}</div>`
                         $('.forgot-msg').html(alertMsg);
                         setTimeout(function () { $('.alert').fadeOut(1000) }, 5000);
@@ -169,71 +202,90 @@ $(document).ready(function () {
     });
 
     //change password
-    $('#save').click(function(){
+    $('#save').click(function () {
         is_valid = true;
         $('.error').remove();
         var psw = $('#newpsw').val();
         var cpsw = $('#oldpsw').val();
+        var email = $(this).data('email');
+        // console.log(psw+" "+cpsw+" "+email);
 
-        var result = passwordValidation('#newpsw',psw);
-        var result1 = passwordValidation('#oldpsw',cpsw);
-        if(result == true && result1 == true){
-            passVerify('#newpsw',psw,cpsw);
+        var result = passwordValidation('#newpsw', psw);
+        var result1 = passwordValidation('#oldpsw', cpsw);
+        if (result == true && result1 == true) {
+            passVerify('#newpsw', psw, cpsw);
         }
-        if(is_valid != true){
-            return false;
+        if (is_valid == true) {
+            $.ajax({
+                url: "http://localhost/psd-to-html/Helperland/?controller=Authentication&function=forgot_password",
+                type: "POST",
+                data: { email: email, psw: psw, cpsw: cpsw},
+                success: function (result) {
+                    var changePsw = JSON.parse(result);
+                    var alertMsg = "";
+                    if (changePsw.status == true) {
+                        alertMsg = `<div class='alert alert-success alert-dismissible fade show' role='alert'>${changePsw.msg}</div>`;
+                        $('.signin-msg').html(alertMsg);
+                        $("#loginModal").modal('show');
+                    }
+                    else {
+                        alertMsg = `<div class='alert alert-danger alert-dismissible fade show' role='alert'>${changePsw.msg}</div>`;
+                        $('#forgot-psw-msg').html(alertMsg);
+                    }
+                }
+            });
         }
     });
 
     // validation function
-    function feildValidation(id,value,feildname){
-        if(value.length < 1){
+    function feildValidation(id, value, feildname) {
+        if (value.length < 1) {
             $(id).after(`<span class='error'>Enter ${feildname}</span>`);
             is_valid = false;
             return;
         }
     }
-    function phoneValidation(phone){
+    function phoneValidation(phone) {
         var phoneno = /^[\d]{10}$/;
-        if(phone.length < 1){
+        if (phone.length < 1) {
             $('.phone').parent().after("<span class='error'>Enter Phone Number</span>");
             is_valid = false;
             return;
         }
-        else if(!phoneno.test(phone)){
+        else if (!phoneno.test(phone)) {
             $('.phone').parent().after("<span class='error'>Mobile number must 10 digit long</span>");
             is_valid = false;
             return;
         }
     }
-    function emailValidation(id,email){
+    function emailValidation(id, email) {
         var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-        if(email.length < 1 || !emailReg.test(email)){
+        if (email.length < 1 || !emailReg.test(email)) {
             $(id).after("<span class='error'>Enter Valid Email</span>");
             is_valid = false;
             return;
         }
     }
-    function passwordValidation(id,password){
+    function passwordValidation(id, password) {
         is_pass_check = false;
         var passReg = /^.*(?=.{6,14})(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&]).*$/;
-        if(password.length < 1){
+        if (password.length < 1) {
             $(id).after("<span class='error'>Password can't be empty</span>");
             is_valid = false;
             return;
         }
-        else if(!passReg.test(password)){
+        else if (!passReg.test(password)) {
             $(id).after("<span class='error'>Password must be 6 to 14 character long including At least one uppercase, lowercase, special char and numbers</span>");
             is_valid = false;
             return;
         }
-        else{
+        else {
             is_pass_check = true;
             return is_pass_check;
         }
     }
-    function passVerify(id,psw,cpsw){
-        if(psw != cpsw){
+    function passVerify(id, psw, cpsw) {
+        if (psw != cpsw) {
             $(id).after("<span class='error'>Password and confirm password must be same</span>");
             is_valid = false;
             return;

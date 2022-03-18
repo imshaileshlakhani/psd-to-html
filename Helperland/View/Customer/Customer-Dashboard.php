@@ -96,6 +96,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
     <script src="assets/js/nav.js"></script>
     <script src="assets/js/customer.js"></script>
+    <script src="assets/js/public.js"></script>
     
 </body>
 

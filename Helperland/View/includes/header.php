@@ -72,7 +72,7 @@
                                     ?> ">
                                     My Setting
                                 </a>
-                                <a class="dropdown-item" id="logout-btn" href="<?= Config::BASE_URL.'?controller=Authentication&function=logout' ?>">
+                                <a class="dropdown-item logout-btn" href="#">
                                     Logout
                                 </a>
                             </div>

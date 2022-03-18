@@ -42,19 +42,19 @@
                 <div class="line"></div>
             </div>
             <div class="forgot-password" id="forgot-password">
-                <form action="<?= Config::BASE_URL.'?controller=Authentication&function=forgot_password' ?>" method="post">
-                    <input type="hidden" name="email" value="<?php if(isset($_GET['parameter'])){ echo $email;}?>">
+                <form action="#">
+                    <div id="forgot-psw-msg"></div>
                     <div class="pb-4">
                         <label for="newpsw">New Password</label>
-                        <input class="form-control" id="newpsw" name="newpsw" placeholder="Password" type="password"
-                    />
+                        <input class="form-control" id="newpsw" placeholder="Password" type="password"
+                        autocomplete/>
                     </div>
                     <div class="pb-4">
                         <label for="cpsw">Confirm Password</label>
-                        <input class="form-control" id="oldpsw" name="cpsw" placeholder="Confirm Password" type="password"/>
+                        <input class="form-control" id="oldpsw" placeholder="Confirm Password" type="password" autocomplete/>
                     </div>
                     <div class="save-btn">
-                        <button type="submit" name="save" id="save" class="save">Save</button>
+                        <button type="button" id="save" class="save" data-email="<?php if(isset($_GET['parameter'])){ echo $email;}?>">Save</button>
                     </div>
                 </form>
             </div>

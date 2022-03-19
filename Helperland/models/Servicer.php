@@ -128,13 +128,24 @@ class Servicer extends Connection
         $result = "";
         $sql = "UPDATE servicerequest SET ServiceProviderId = NULL,Status = 0, Comments = '$cancleMsg' WHERE ServiceRequestId = $serviceId";
         if ($this->conn->query($sql) == TRUE) {
-            // $email = $this->getSpEmailByServiceId($serviceId);
+            $email = $this->getCustomerEmailByServiceId($serviceId);
             $result = true;
         } else {
             $result = false;
         }
-        // return [$result,$email];
-        return $result;
+        return [$result,$email];
+        // return $result;
+    }
+
+    public function getCustomerEmailByServiceId($sid){
+        $email = "";
+        $sql = "SELECT user.Email FROM servicerequest JOIN user ON servicerequest.UserId = user.UserId WHERE servicerequest.ServiceRequestId = $sid";
+        $result = $this->conn->query($sql);
+        if($result->num_rows > 0){
+            $row = $result->fetch_assoc();
+            $email = $row['Email'];
+        }
+        return $email;
     }
 
     public function getRatingsBySpId($data)
@@ -267,13 +278,15 @@ class Servicer extends Connection
     {
         $serviceId = $data['serviceId'];
         $userid = $data['userid'];
+        $email = "";
 
         $sql = "UPDATE servicerequest SET Status = 2,ServiceProviderId = $userid,RecordVersion = 0 WHERE ServiceRequestId = $serviceId";
 
         $result = $this->isAccepted($serviceId);
         if (!$result) {
             if ($this->conn->query($sql) == TRUE) {
-                return [true, 'Service request has been accepted successfully'];
+                $email = $this->getCustomerEmailByServiceId($serviceId);
+                return [true, 'Service request has been accepted successfully',$email];
             } else {
                 return [false, 'Not able to accept service'];
             }

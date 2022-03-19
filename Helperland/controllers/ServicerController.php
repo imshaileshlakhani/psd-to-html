@@ -1,8 +1,8 @@
 <?php
+include("phpmailer/mail.php");
 include('Calendar/Calendar.php');
 class ServicerController{
     public $model;
-    // public $data = [];
     public function __construct(){
         include('models/Servicer.php');
         $this->model = new Servicer();
@@ -22,7 +22,7 @@ class ServicerController{
             $paginationData['limit'] = $_POST['limit'];
             $paginationData['page'] = $_POST['page'];
             $TotalRecord = 0;
-            // $this->data["date"] = $_POST['date'];
+            $this->data["date"] = $_POST['date'];
             
             if ($parameter != "") {
                 switch ($parameter) {
@@ -200,10 +200,8 @@ class ServicerController{
             if(empty($error)){
                 $result = $this->model->acceptService($_POST);
                 if ($result[0]) {
-                    // if ($result[2] != "") {
-                    //     $body = "Service Request " . $_POST['serviceId'] . " has been Accepted by servicer.";
-                    //     sendmail([$result[1]], 'Service rescheduled ', $body);
-                    // }
+                    $body = "Service Request " . $_POST['serviceId'] . " has been Accepted by servicer.";
+                    sendmail([$result[2]], 'Service Accepted ', $body);
                 }else{
                     $error = $result[1];
                 }
@@ -240,11 +238,9 @@ class ServicerController{
         if (isset($_POST)) {
             $result = $this->model->cancleService($_POST);
             if ($result) {
-                // if ($result[1] != "") {
-                //     $body = "Service Request " . $_POST['serviceId'] . " has been cancelled by customer";
-                //     sendmail([$result[1]], 'Service cancelled ', $body);
-                // }
-                echo json_encode(['update' => $result]);
+                $body = "Service Request " . $_POST['serviceId'] . " has been cancelled by servicer and new servicer will be assign to you soon";
+                sendmail([$result[1]], 'Service cancelled ', $body);
+                echo json_encode(['update' => $result[0]]);
             }
         }
     }

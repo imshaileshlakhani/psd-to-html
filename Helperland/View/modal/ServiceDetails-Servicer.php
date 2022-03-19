@@ -35,7 +35,7 @@
                                 <hr>
                                 <div class="row model-button">
                                     <div class="col">
-                                        <button type="button" class="Accept-button" id="Accept-button"><i class="fa fa-check"></i>
+                                        <button type="button" onClick="showLoader()" class="Accept-button" id="Accept-button"><i class="fa fa-check"></i>
                                             Accept</button>
                                     </div>
                                 </div>

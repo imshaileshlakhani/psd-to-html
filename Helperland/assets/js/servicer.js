@@ -46,7 +46,7 @@ function showLoader(){
 }
 $(document).ready(function () {
     const userid = $('#userdata').val();
-    window.scheduleDate = new Date();
+    var date = new Date();
     ServicerData();
     $('#New').click(function () {
         ServicerData();
@@ -88,28 +88,30 @@ $(document).ready(function () {
     });
 
     // service schedule prev month
-    // $(document).on('click','#left-date',function(){
-    //     var date = window.scheduleDate.setMonth((window.scheduleDate.getMonth())+1,0);
-    //     ServicerData(limit = 2, page = 1, pstatus = "All", rstatus = "All", date);
-    // });
+    $(document).on('click','#left-date',function(){
+        date.setMonth(date.getMonth()-1);
+        ServicerData(limit = 2, page = 1, pstatus = "All", rstatus = "All");
+    });
     // service schedule next month
-    // $(document).on('click','#right-date',function(){
-    //     var date = window.scheduleDate.setMonth((window.scheduleDate.getMonth())+1,0);
-    //     ServicerData(limit = 2, page = 1, pstatus = "All", rstatus = "All", date);
-    // });
+    $(document).on('click','#right-date',function(){
+        date.setMonth(date.getMonth()+1);
+        ServicerData(limit = 2, page = 1, pstatus = "All", rstatus = "All");
+    });
 
-    function ServicerData(limit = 2, page = 1, pstatus = "All", rstatus = "All", date = new Date()) {
+    function ServicerData(limit = 2, page = 1, pstatus = "All", rstatus = "All") {
         var tabName = $('#tab-name').val();
         var onePageData = limit;
         var defaultPage = page;
         var withpet = 0;
+        var today = date.getFullYear() + "-" + ("0" + (date.getMonth() + 1)).slice(-2) + "-" + ("0" + date.getDate()).slice(-2)
+        // console.log(date);
         if ( $('#withpet').is(":checked") ){
             withpet = 1;
         }
         $.ajax({
             url: "http://localhost/psd-to-html/Helperland/?controller=Servicer&function=servicerData",
             type: "POST",
-            data: { pageName: tabName, userid: userid, limit: onePageData, page: defaultPage, pstatus: pstatus, rstatus: rstatus, withpet: withpet, date: date},
+            data: { pageName: tabName, userid: userid, limit: onePageData, page: defaultPage, pstatus: pstatus, rstatus: rstatus, withpet: withpet, date: today},
             success: function (result) {
                 // console.log(result);
                 const Data = JSON.parse(result);
@@ -305,7 +307,7 @@ $(document).ready(function () {
                     const status = JSON.parse(result);
                     // console.log(status);
                     if (status.update == true) {
-                        $("#successModal #success-msg").text('Service request has been canceled successfully');
+                        $("#successModal #success-msg").text('Service request has been cancelled successfully');
                         $('#successModal #service-id').text(`Canceled Request Id : ${sid}`);
                         $("#successModal button").prop('onclick', null);
                         $("#successModal").modal('show');

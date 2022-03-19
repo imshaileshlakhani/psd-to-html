@@ -21,7 +21,7 @@
                    return [];
                 }
 
-                $sql = "SELECT servicerequest.ServiceRequestId,servicerequest.RecordVersion,servicerequest.ServiceStartDate,servicerequest.TotalCost,servicerequest.SubTotal,servicerequest.ServiceProviderId,servicerequest.HasPets,servicerequest.Status,user.FirstName,user.LastName,user.UserProfilePicture FROM servicerequest LEFT JOIN user ON user.UserId = servicerequest.ServiceProviderId WHERE servicerequest.UserId = $userId AND servicerequest.Status IN (" . implode(',', $status) . ") LIMIT $offset,$showrecord";
+                $sql = "SELECT servicerequest.ServiceRequestId,servicerequest.RecordVersion,servicerequest.ServiceStartDate,servicerequest.TotalCost,servicerequest.ServiceHours,servicerequest.ServiceProviderId,servicerequest.HasPets,servicerequest.Status,user.FirstName,user.LastName,user.UserProfilePicture FROM servicerequest LEFT JOIN user ON user.UserId = servicerequest.ServiceProviderId WHERE servicerequest.UserId = $userId AND servicerequest.Status IN (" . implode(',', $status) . ") LIMIT $offset,$showrecord";
 
                 $result = $this->conn->query($sql);
                 $rows = array();
@@ -142,7 +142,8 @@
         }
 
         public function getServiceById($serviceId){
-            $sql = "SELECT * FROM servicerequest WHERE ServiceProviderId != 'NULL' AND ServiceRequestId = $serviceId ";
+            $sql = "SELECT * FROM servicerequest WHERE ServiceRequestId = $serviceId ";
+            // $sql = "SELECT * FROM servicerequest WHERE ServiceProviderId != 'NULL' AND ServiceRequestId = $serviceId ";
             $result = $this->conn->query($sql);
             if($result->num_rows > 0){
                 return $result->fetch_assoc();
@@ -153,7 +154,7 @@
         }
 
         public function isReschedulePosible($favsp,$status,$startdate){
-            $sql = "SELECT sr.ServiceRequestId, DATE_FORMAT(sr.ServiceStartDate, '%H:%i') as ServiceStartTime, sr.SubTotal, sr.Status, user.Email FROM servicerequest AS sr JOIN user ON user.UserId = sr.ServiceProviderId WHERE sr.ServiceProviderId = $favsp AND sr.Status IN (" . implode(',', $status). ") AND sr.ServiceStartDate LIKE '%$startdate%';";
+            $sql = "SELECT sr.ServiceRequestId, DATE_FORMAT(sr.ServiceStartDate, '%H:%i') as ServiceStartTime, sr.ServiceHours, sr.Status, user.Email FROM servicerequest AS sr JOIN user ON user.UserId = sr.ServiceProviderId WHERE sr.ServiceProviderId = $favsp AND sr.Status IN (" . implode(',', $status). ") AND sr.ServiceStartDate LIKE '%$startdate%';";
             $services = $this->conn->query($sql);
             $rows = [];
             if($services->num_rows > 0){

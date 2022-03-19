@@ -88,15 +88,15 @@ $(document).ready(function () {
     });
 
     // service schedule prev month
-    $(document).on('click','#left-date',function(){
-        var date = window.scheduleDate.setMonth((window.scheduleDate.getMonth())+1,0);
-        ServicerData(limit = 2, page = 1, pstatus = "All", rstatus = "All", date);
-    });
+    // $(document).on('click','#left-date',function(){
+    //     var date = window.scheduleDate.setMonth((window.scheduleDate.getMonth())+1,0);
+    //     ServicerData(limit = 2, page = 1, pstatus = "All", rstatus = "All", date);
+    // });
     // service schedule next month
-    $(document).on('click','#right-date',function(){
-        var date = window.scheduleDate.setMonth((window.scheduleDate.getMonth())+1,0);
-        ServicerData(limit = 2, page = 1, pstatus = "All", rstatus = "All", date);
-    });
+    // $(document).on('click','#right-date',function(){
+    //     var date = window.scheduleDate.setMonth((window.scheduleDate.getMonth())+1,0);
+    //     ServicerData(limit = 2, page = 1, pstatus = "All", rstatus = "All", date);
+    // });
 
     function ServicerData(limit = 2, page = 1, pstatus = "All", rstatus = "All", date = new Date()) {
         var tabName = $('#tab-name').val();
@@ -183,8 +183,8 @@ $(document).ready(function () {
         newServices.forEach(function(service){
             var fullName = service.FirstName + " " + service.LastName;
             var address = service.AddressLine1 +","+service.PostalCode+" "+service.City;
-            const obj = getTimeAndDate(service.ServiceStartDate, service.SubTotal);
-            newServiceHtml += `<tr class="text-center" data-serviceid="${service.ServiceRequestId}" data-bs-toggle="modal" data-bs-target="#servicedetails1" data-bs-dismiss="modal" data-totalhr="${service.SubTotal}" data-starttime="${obj.starttime}" data-startdate="${obj.startdate}">
+            const obj = getTimeAndDate(service.ServiceStartDate, service.ServiceHours);
+            newServiceHtml += `<tr class="text-center" data-serviceid="${service.ServiceRequestId}" data-bs-toggle="modal" data-bs-target="#servicedetails1" data-bs-dismiss="modal" data-totalhr="${service.ServiceHours}" data-starttime="${obj.starttime}" data-startdate="${obj.startdate}">
                                     <td>
                                         <div>${service.ServiceRequestId}</div>
                                     </td>
@@ -253,7 +253,7 @@ $(document).ready(function () {
         upcomingServices.forEach(function(service){
             var fullName = service.FirstName + " " + service.LastName;
             var address = service.AddressLine1 +","+service.PostalCode+" "+service.City;
-            const obj1 = getTimeAndDate(service.ServiceStartDate, service.SubTotal);
+            const obj1 = getTimeAndDate(service.ServiceStartDate, service.ServiceHours);
             upcomingServiceHtml += `<tr class="text-center" data-bs-toggle="modal" data-serviceid="${service.ServiceRequestId}" data-bs-target="#servicedetails" data-bs-dismiss="modal">
                                     <td>
                                         <div>${service.ServiceRequestId}</div>
@@ -368,9 +368,9 @@ $(document).ready(function () {
             }
         }
         
-        const dateTime = getTimeAndDate(service['ServiceStartDate'], service['SubTotal']);
+        const dateTime = getTimeAndDate(service['ServiceStartDate'], service['ServiceHours']);
         $('.model-time').text(dateTime.startdate + " " + dateTime.starttime + " - " + dateTime.endtime);
-        $('.duration-model').text(service['SubTotal'] + " Hrs");
+        $('.duration-model').text(service['ServiceHours'] + " Hrs");
         $('.sid-model').text(service['ServiceRequestId'] + ".");
         $('.extra-model').text(extraHtml);
         $('.model-price').text(service['TotalCost'] + " €");
@@ -380,7 +380,7 @@ $(document).ready(function () {
         $('#complete-button').data('customerId',service['UserId']);
         $('.cancle-service').data('serviceid',service['ServiceRequestId']);
         $('.Accept-button').data('serviceid',service['ServiceRequestId']);
-        $('.Accept-button').data('totalhr',service['SubTotal']);
+        $('.Accept-button').data('totalhr',service['ServiceHours']);
         $('.Accept-button').data('starttime',dateTime.starttime);
         $('.Accept-button').data('startdate',service['ServiceStartDate'].split(" ")[0]);
 
@@ -444,7 +444,7 @@ $(document).ready(function () {
         history.forEach(function(service){
             var fullName = service.FirstName + " " + service.LastName;
             var address = service.AddressLine1 +","+service.PostalCode+" "+service.City;
-            const obj2 = getTimeAndDate(service.ServiceStartDate, service.SubTotal);
+            const obj2 = getTimeAndDate(service.ServiceStartDate, service.ServiceHours);
             historyHtml += `<tr class="text-center">
                                     <td>
                                         <div>${service.ServiceRequestId}</div>
@@ -482,7 +482,7 @@ $(document).ready(function () {
     function showRating(rating){
         var ratingHtml = "";
         rating.forEach(function(service){
-            const obj4 = getTimeAndDate(service.ServiceStartDate, service.SubTotal);
+            const obj4 = getTimeAndDate(service.ServiceStartDate, service.ServiceHours);
             ratingHtml += `<div class="service-rating p-3 mb-3">
                                 <div class="d-flex justify-content-between flex-wrap">
                                     <div class="d-flex flex-wrap mb-2">

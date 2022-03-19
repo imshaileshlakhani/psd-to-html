@@ -2,7 +2,7 @@
 include('Calendar/Calendar.php');
 class ServicerController{
     public $model;
-    public $data = [];
+    // public $data = [];
     public function __construct(){
         include('models/Servicer.php');
         $this->model = new Servicer();
@@ -22,7 +22,7 @@ class ServicerController{
             $paginationData['limit'] = $_POST['limit'];
             $paginationData['page'] = $_POST['page'];
             $TotalRecord = 0;
-            $this->data["date"] = $_POST['date'];
+            // $this->data["date"] = $_POST['date'];
             
             if ($parameter != "") {
                 switch ($parameter) {
@@ -76,7 +76,7 @@ class ServicerController{
                             $i=0;
                             foreach($results as $result){
                                 $service_starttime = $result["ServiceStartTime"];
-                                $service_endtime = $this->convertStrToTime($result["SubTotal"] + $this->convertTimeToStr($service_starttime));
+                                $service_endtime = $this->convertStrToTime($result["ServiceHours"] + $this->convertTimeToStr($service_starttime));
                                 $calendar->add_event($service_starttime." - ".$service_endtime, $result["StartDate"], 1, "appcolor",$i++);
                             }
                         }
@@ -184,13 +184,13 @@ class ServicerController{
                     $res = $results[$i];
                     // print_r($results);
                     $service_starttime = $this->convertTimeToStr($res["ServiceStartTime"]);
-                    $service_hour = $res["SubTotal"];
+                    $service_hour = $res["ServiceHours"];
                     $service_endtime = $service_starttime + $service_hour;
                     // echo $select_starttime.' '.$select_endtime.' '.$service_starttime.' '.$service_endtime;
                     if ($select_starttime == $service_starttime || $select_endtime == $service_endtime || $select_starttime == $service_endtime || $select_endtime == $service_starttime ||
                     (($select_starttime < $service_starttime && $select_endtime > $service_starttime) || ($select_starttime < $service_starttime && ($service_starttime - $select_endtime) < 1)) ||
                     (($select_starttime > $service_starttime && $select_starttime < $service_endtime) || ($select_starttime > $service_starttime && ($select_starttime - $service_endtime) < 1))) {
-                        $error = "Another service request ".$res["ServiceRequestId"]." has already been assigned which has time overlap with this service request. You can’t pick this one!";
+                        $error = "Another service request ".$res["ServiceRequestId"]." has already been accepted which has time overlap with this service request. You can’t pick this one!";
                             break;
                         }
                 }
@@ -200,9 +200,9 @@ class ServicerController{
             if(empty($error)){
                 $result = $this->model->acceptService($_POST);
                 if ($result[0]) {
-                    // if ($result[1] != "") {
-                        // $body = "Service Request " . $_POST['serviceId'] . " has been rescheduled by customer. New date and time are " . $_POST['date'] . " " . $_POST['time'];
-                        // sendmail([$result[1]], 'Service rescheduled ', $body);
+                    // if ($result[2] != "") {
+                    //     $body = "Service Request " . $_POST['serviceId'] . " has been Accepted by servicer.";
+                    //     sendmail([$result[1]], 'Service rescheduled ', $body);
                     // }
                 }else{
                     $error = $result[1];

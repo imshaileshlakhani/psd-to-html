@@ -87,7 +87,7 @@ class CustomerController
                 $status = [0, 1, 2];
                 $results = $this->model->isReschedulePosible($spid, $status, $startdate);
                 if (count($results) > 0) {
-                    $workinghr = $service['SubTotal'];
+                    $workinghr = $service['ServiceHours'];
                     $select_starttime = $_POST['time'];
                     $select_endtime = $select_starttime + $workinghr;
 
@@ -96,7 +96,7 @@ class CustomerController
                         $serid = $res["ServiceRequestId"];
                         
                         $service_starttime = $this->convertTimeToStr($res["ServiceStartTime"]);
-                        $service_hour = $res["SubTotal"];
+                        $service_hour = $res["ServiceHours"];
                         $service_endtime = $service_starttime + $service_hour;
                         if ($res["ServiceRequestId"] == $_POST['serviceId']) {
                             continue;
@@ -125,7 +125,7 @@ class CustomerController
                 $result = $this->model->rescheduleService($_POST,$status,$record_version);
                 if ($result[0]) {
                     if ($result[1] != "") {
-                        $body = "Service Request " . $_POST['serviceId'] . " has been rescheduled by customer. New date and time are " . $_POST['date'] . " " . $_POST['time'];
+                        $body = "Service Request " . $_POST['serviceId'] . " has been rescheduled by customer. New date and time are " . $_POST['date'] . " " . $this->convertStrToTime($_POST['time']);
                         sendmail([$result[1]], 'Service rescheduled ', $body);
                     }
                 }

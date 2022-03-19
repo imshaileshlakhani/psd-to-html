@@ -152,7 +152,7 @@ $(document).ready(function () {
             let arr = [];
             var rating = "";
             var fullName = service.FirstName + " " + service.LastName;
-            const obj = getTimeAndDate(service.ServiceStartDate, service.SubTotal);
+            const obj = getTimeAndDate(service.ServiceStartDate, service.ServiceHours);
             var spid = 0;
             if(service.ServiceProviderId != null){
                 spid = service.ServiceProviderId;
@@ -160,7 +160,7 @@ $(document).ready(function () {
 
             arr = json2array(service);
             // console.log(arr);
-            serviceHtml += `<tr class="text-center table1-row" data-bs-toggle="modal" data-bs-target="#servicedetails" data-bs-dismiss="modal" data-totalhr="${service.SubTotal}" data-starttime="${obj.starttime}">
+            serviceHtml += `<tr class="text-center table1-row" data-bs-toggle="modal" data-bs-target="#servicedetails" data-bs-dismiss="modal">
                 <input type="hidden" value="${arr}">
                 <td>${service.ServiceRequestId}</td>
                 <td>
@@ -184,8 +184,8 @@ $(document).ready(function () {
                     if(service.RecordVersion == 1){
                         serviceHtml += `<span class="text-success w-50 mx-auto">You can't rescheduled service request.untill Your SP will accept it</span>`;
                     }else{
-                        serviceHtml += `<a href="#" class="Reschedule date-update" data-bs-toggle="modal" data-bs-target="#servicereschedule" data-bs-dismiss="modal" id="date-update" data-spid="${spid}" data-serviceid="${service.ServiceRequestId}">Reschedule</a>
-                        <a href="#" class="Cancle cancle-service" id="cancle-service" data-bs-toggle="modal" data-bs-target="#servicecancle" data-bs-dismiss="modal" data-spid="${spid}" data-serviceid="${service.ServiceRequestId}">Cancle</a>`;
+                        serviceHtml += `<a href="#" class="Reschedule date-update" data-bs-toggle="modal" data-bs-target="#servicereschedule" data-bs-dismiss="modal" id="date-update" data-totalhr="${service.ServiceHours}" data-starttime="${obj.starttime}" data-serviceid="${service.ServiceRequestId}">Reschedule</a>
+                        <a href="#" class="Cancle cancle-service" id="cancle-service" data-bs-toggle="modal" data-bs-target="#servicecancle" data-bs-dismiss="modal" data-serviceid="${service.ServiceRequestId}">Cancle</a>`;
                     }
                     
                     serviceHtml += `</td>
@@ -244,7 +244,7 @@ $(document).ready(function () {
                     // console.log(status);
                     if (status.update[0] == true) {
                         $.LoadingOverlay("hide");
-                        $("#successModal #success-msg").text('Your service request canceled successfully');
+                        $("#successModal #success-msg").text('Your service request cancelled successfully');
                         $('#successModal #service-id').text(`Canceled Request Id : ${sid}`);
                         $("#successModal button").prop('onclick', null);
                         $("#successModal").modal('show');
@@ -261,30 +261,27 @@ $(document).ready(function () {
     $(document).on('click', '.date-update', function (e) {
         $('.alert').remove();
         window.sIdforReschedule = $(e.target).data('serviceid');
-        var workinghr = +$(e.target).closest('tr').data('totalhr');
-        var starttime = $(e.target).closest('tr').data('starttime');
-        var spid = $(e.target).data('spid');
+        var workinghr = +$(e.target).data('totalhr');
+        var starttime = $(e.target).data('starttime');
         // alert(sIdforReschedule);
         $('.update-button').click(function () {
             var rdate = $('#rdate').val();
             var rtime = +$('#rtime').val();
             // console.log(sIdforReschedule+" "+starttime+" "+rtime+" "+workinghr);
-            if((rtime + workinghr) > 21){
+            if((rtime + workinghr) >= 21.5){
                 alertMsg = `<div class='alert alert-danger alert-dismissible fade show mt-3' role='alert'>Could not completed the service request, because service booking request is must be completed within 21:00 time<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>`;
                 $('#r-msg').html(alertMsg);
                 // console.log(rtime + workinghr);
                 $.LoadingOverlay("hide");
             }else{
-                rescheduleService(spid, sIdforReschedule, rdate, rtime,starttime,workinghr);
+                rescheduleService(sIdforReschedule, rdate, rtime,starttime,workinghr);
                 window.sIdforReschedule = 0;
-                spid = 0;
             }   
         });
     });
 
-    function rescheduleService(spid, serviceIdforCancle, rdate, rtime,starttime,workinghr) {
-        var spid = spid;
-        var sid = serviceIdforCancle;
+    function rescheduleService(sIdforReschedule, rdate, rtime,starttime,workinghr) {
+        var sid = sIdforReschedule;
         var date = rdate;
         var time = rtime;
         var limit = $('#number').val();
@@ -293,7 +290,7 @@ $(document).ready(function () {
             $.ajax({
                 url: "http://localhost/psd-to-html/Helperland/?controller=Customer&function=serviceReschedule",
                 type: "POST",
-                data: { serviceId: sid, date: date, time: time, spid: spid, starttime: starttime,workinghr:workinghr },
+                data: { serviceId: sid, date: date, time: time, starttime: starttime,workinghr:workinghr },
                 success: function (result) {
                     console.log(result);
                     const status = JSON.parse(result);
@@ -344,8 +341,10 @@ $(document).ready(function () {
         $('#servicedetails #address-model').text(service[12] + "," + service[13]);
         $('#servicedetails #phone-model').text(service[14]);
         $('#servicedetails #email-model').text(service[15]);
-        $('.complete-button.date-update').data('spid',service[0]);
-        $('.cancel-button.cancle-service').data('spid',service[0]);
+        $('.complete-button.date-update').data('serviceid',service[0]);
+        $('.complete-button.date-update').data('starttime',dateTime.starttime);
+        $('.complete-button.date-update').data('totalhr',service[4]);
+        $('.cancel-button.cancle-service').data('serviceid',service[0]);
 
         if (service[6] == "1") {
             petHtml += `<i class="fa fa-check-circle-o"></i> <span>I have pets at home</span>`;
@@ -362,7 +361,7 @@ $(document).ready(function () {
         services.forEach(function (service) {
             var rating = "";
             var fullName = service.FirstName + " " + service.LastName;
-            const obj = getTimeAndDate(service.ServiceStartDate, service.SubTotal);
+            const obj = getTimeAndDate(service.ServiceStartDate, service.ServiceHours);
             serviceHistoryHtml += `<tr class="text-center" data-name="${fullName}">
                                     <td>
                                         <span> <img src="assets/images/shape-12.png" alt=""> ${obj.startdate} &nbsp;</span>

@@ -270,7 +270,7 @@ $(document).ready(function () {
     $('#refund').data('serviceid',serviceId);
     $('#paidAmount').text(window.payment+"€");
     $('#refundedAmount').text(refund+"€");
-    $('#balanceAmount').text((window.payment-refund)+"€");
+    $('#balanceAmount').text((window.payment-refund).toFixed(2)+"€");
     $('.error').remove();
     $('#rpayment').val("");
     $('#calculate').val("");
@@ -337,14 +337,6 @@ $(document).ready(function () {
       $.LoadingOverlay("hide");
     }
   });
-
-  function feildValidation(id,value,feildname){
-    if(value.length < 1){
-        $(id).after(`<span class='error'>Enter ${feildname}</span>`);
-        is_valid = false;
-        return;
-    }
-  }
 
   // cancle service by admin
   $(document).on('click','#cancleByAdmin',function(){
@@ -512,6 +504,14 @@ $(document).ready(function () {
                             <img src="assets/images/polygon-1-copy-5.png" alt="">
                       </div>`;
     $('.table-footer #pagination').html(paginationHtml);
+  }
+
+  function feildValidation(id,value,feildname){
+    if(value.length < 1){
+        $(id).after(`<span class='error'>Enter ${feildname}</span>`);
+        is_valid = false;
+        return;
+    }
   }
 
   // get time and date in required format

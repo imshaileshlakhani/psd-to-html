@@ -30,7 +30,7 @@ class AuthenticationController{
                 }
                 echo json_encode(['status'=>true,'UserTypeId'=>$userdata['UserTypeId']]);
             }else{
-                echo json_encode(['status'=>false,'approved'=>1,'error'=>'Username or password is incorrect!!!']);
+                echo json_encode(['status'=>false,'approved'=>1,'error'=>'Username or password is incorrect!']);
             }
         }
     }
@@ -50,7 +50,7 @@ class AuthenticationController{
                 if($result){
                     echo json_encode(['status'=>true,'msg'=>'Account created successfully']);
                 }else{
-                    echo json_encode(['status'=>false,'error'=>'Unable to signup!!!']);
+                    echo json_encode(['status'=>false,'error'=>'Unable to signup!']);
                 }
             }
             else{
@@ -69,7 +69,7 @@ class AuthenticationController{
                 sendmail([$_POST['email']],$subject,$msg);
                 echo json_encode(['status'=>true]);
             }else{
-                echo json_encode(['status'=>false,'error'=>'Invalid email!!!']);
+                echo json_encode(['status'=>false,'error'=>'Invalid email!']);
             }
         }
     }

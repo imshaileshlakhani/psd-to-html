@@ -154,7 +154,7 @@ class Servicer extends Connection
                 return [];
             }
 
-            $sql = "SELECT rating.*,servicerequest.ServiceStartDate,servicerequest.SubTotal,user.FirstName,user.LastName FROM rating JOIN servicerequest ON rating.ServiceRequestId = servicerequest.ServiceRequestId JOIN user ON user.UserId = rating.RatingFrom WHERE rating.RatingTo = $userId AND (rating.Ratings >= $ratingS AND rating.Ratings <= $ratingE) LIMIT $offset,$showrecord";
+            $sql = "SELECT rating.*,servicerequest.ServiceStartDate,servicerequest.ServiceHours,user.FirstName,user.LastName FROM rating JOIN servicerequest ON rating.ServiceRequestId = servicerequest.ServiceRequestId JOIN user ON user.UserId = rating.RatingFrom WHERE rating.RatingTo = $userId AND (rating.Ratings >= $ratingS AND rating.Ratings <= $ratingE) LIMIT $offset,$showrecord";
 
             $result = $this->conn->query($sql);
             $rows = array();
@@ -268,7 +268,7 @@ class Servicer extends Connection
         $serviceId = $data['serviceId'];
         $userid = $data['userid'];
 
-        $sql = "UPDATE servicerequest SET Status = 2,ServiceProviderId = $userid WHERE ServiceRequestId = $serviceId";
+        $sql = "UPDATE servicerequest SET Status = 2,ServiceProviderId = $userid,RecordVersion = 0 WHERE ServiceRequestId = $serviceId";
 
         $result = $this->isAccepted($serviceId);
         if (!$result) {
@@ -278,7 +278,7 @@ class Servicer extends Connection
                 return [false, 'Not able to accept service'];
             }
         }
-        return [false, 'This service request is no more available. It has been assigned to another provider.'];
+        return [false, 'This service request is no more available. It has been accepted by another provider.'];
     }
 
     public function isAccepted($serviceId)

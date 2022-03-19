@@ -62,7 +62,7 @@ class ServiceController{
         if($status==0){ $status = "New Request"; }
         else if($status==1) { $status = "Assigned To You"; }
         $servicehourlyrate = $result["ServiceHourlyRate"];
-        $totalhour = $result["SubTotal"];
+        $totalhour = $result["ServiceHours"];
         $extrahour = $result["ExtraHours"];
         $basichour = $totalhour - $extrahour;
         $totalcost = $result["TotalCost"];

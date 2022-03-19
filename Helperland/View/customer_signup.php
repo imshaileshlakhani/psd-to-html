@@ -75,7 +75,7 @@
                     </div>
                     <div class="submit text-center">
                         <button type="button" name="register" id="Register">Register</button>
-                        <p>Already registered? <span>Login now</span></p>
+                        <p>Already registered? <span data-bs-toggle="modal" data-bs-target="#loginModal" data-bs-dismiss="modal">Login now</span></p>
                     </div>
                 </form>
             </div>

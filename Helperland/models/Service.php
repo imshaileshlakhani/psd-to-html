@@ -96,12 +96,12 @@
             return $result;
         }
 
-        public function get_servicerEmail($ServiceProviderId,$HasPet){
+        public function get_servicerEmail($ServiceProviderId,$postalcode,$HasPet){
             $email = [];
             if($ServiceProviderId != 'null'){
                 $sql = "SELECT Email FROM user WHERE UserId = $ServiceProviderId";
             }else{
-                $sql = "SELECT Email FROM user WHERE UserTypeId = 2 AND WorksWithPets >= $HasPet" ;
+                $sql = "SELECT user.Email FROM user LEFT JOIN useraddress ON user.UserId = useraddress.UserId WHERE user.UserTypeId = 2 AND useraddress.PostalCode = '$postalcode'" ;
             }
             $result = $this->conn->query($sql);
 
@@ -126,16 +126,16 @@
                 $userid = $data['userId'];
                 $ServiceStartDate = $data['date'];
                 $postalcode = $data['postal'];
-                $SubTotal = $data['totalhr'];
+                $SubTotal = $data['totalhr'] * 18;
                 $ServiceHourlyRate = 18;
-                $TotalCost = $SubTotal * 18;
+                $discount = 0;
+                $TotalCost = $SubTotal - $discount;
                 $Comments = $data['comment'];
                 $ExtraHours = 0;
 
                 $SPAcceptedDate = 'null';
                 $Status = 0;
                 $PaymentDone = 1;
-                $Discount = 0;
                 $ServiceProviderId = 'null';
                 $HasPets = 0;
                 $ExtraServiceId = 0;
@@ -160,10 +160,10 @@
                 if(isset($data['pet'])){
                     $HasPets = $data['pet'];
                 }
-                $ServiceHours = $data['totalhr'] - $ExtraHours;
+                $ServiceHours = $data['totalhr'];
                 
                 $sql = "INSERT INTO servicerequest (UserId, ServiceStartDate, ZipCode, ServiceHourlyRate, ServiceHours, ExtraHours, SubTotal, Discount, TotalCost, Comments, ServiceProviderId, SPAcceptedDate, HasPets, Status, CreatedDate, PaymentDone) 
-                VALUES ($userid, '$cleaningstartdate', '$postalcode', $ServiceHourlyRate, $ServiceHours, $ExtraHours, $SubTotal, $Discount, $TotalCost, '$Comments', $ServiceProviderId, $SPAcceptedDate, $HasPets, $Status, now(), $PaymentDone);";
+                VALUES ($userid, '$cleaningstartdate', '$postalcode', $ServiceHourlyRate, $ServiceHours, $ExtraHours, $SubTotal, $discount, $TotalCost, '$Comments', $ServiceProviderId, $SPAcceptedDate, $HasPets, $Status, now(), $PaymentDone);";
 
                 $result = $this->conn->query($sql);
                 if($result){
@@ -172,7 +172,7 @@
                     if($address){
                         $extraService = $this->add_extraService($last_id,$ExtraServiceId);
                         if($extraService){
-                            $email = $this->get_servicerEmail($ServiceProviderId,$HasPets);
+                            $email = $this->get_servicerEmail($ServiceProviderId,$postalcode,$HasPets);
                         }
                     }
                 }

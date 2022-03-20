@@ -48,7 +48,7 @@ class AuthenticationController{
             if(!$result){
                 $result = $this->model->insert($_POST);
                 if($result){
-                    echo json_encode(['status'=>true,'msg'=>'Account created successfully']);
+                    echo json_encode(['status'=>true]);
                 }else{
                     echo json_encode(['status'=>false,'error'=>'Unable to signup!']);
                 }

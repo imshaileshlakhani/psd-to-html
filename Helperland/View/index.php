@@ -25,10 +25,12 @@
 <body>
     <?php
         include('modal/login-model.php');
+        include('modal/success-model.php');
         include ('includes/header.php');
     ?>
     
     <main>
+        <input type="hidden" value="<?php if(isset($_GET['parameter'])){ echo $_GET['parameter'];}?>" id="logout-login-para">
         <section id="hero-image">
             <div class="hero-image">
                 <div class="home-content">

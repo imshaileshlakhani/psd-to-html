@@ -70,8 +70,8 @@
                                 </div>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
-                                <label class="form-check-label" for="flexCheckDefault1">
+                                <input class="form-check-input" type="checkbox" id="privacy">
+                                <label class="form-check-label" for="privacy">
                                     I accept <span>terms and conditions </span>&<span> privacy policy</span>
                                 </label>
                             </div>

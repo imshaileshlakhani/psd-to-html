@@ -4,7 +4,7 @@ function showLoader() {
     });
 }
 $(document).ready(function () {
-    var isLogout = 0;
+    var parameter = $('#logout-login-para').val();
     var userTypeId = $('#header').data('usertype');
     if (userTypeId == 2) {
         $('#bookservice').closest('li').remove();
@@ -69,6 +69,12 @@ $(document).ready(function () {
         var psw = $('#psw').val();
         var cpsw = $('#cpsw').val();
         var usertypeid = $('#usertypeid').val();
+        var privacy = 0;
+
+        if($('#privacy').is(':checked')){
+            privacy = 1;
+        }
+        // console.log(privacy);
 
         feildValidation('#firstname', firstname, "First Name");
         feildValidation('#lastname', lastname, "Last Name");
@@ -80,26 +86,35 @@ $(document).ready(function () {
             passVerify('#psw', psw, cpsw);
         }
         if (is_valid == true) {
-            $.ajax({
-                url: "http://localhost/psd-to-html/Helperland/?controller=Authentication&function=user_signup",
-                type: "POST",
-                data: { email: email, psw: psw, phone: phone, usertypeid: usertypeid, firstname: firstname, lastname: lastname },
-                success: function (result) {
-                    var signup = JSON.parse(result);
-                    var alertMsg = "";
-                    if (signup.status) {
-                        alertMsg = `<div class='alert alert-success alert-dismissible fade show' role='alert'>${signup.msg}</div>`;
-                        $('.signin-msg').html(alertMsg);
-                        $("#loginModal").modal('show');
+            if(privacy == 1){
+                $.ajax({
+                    url: "http://localhost/psd-to-html/Helperland/?controller=Authentication&function=user_signup",
+                    type: "POST",
+                    data: { email: email, psw: psw, phone: phone, usertypeid: usertypeid, firstname: firstname, lastname: lastname },
+                    success: function (result) {
+                        var signup = JSON.parse(result);
+                        var alertMsg = "";
+                        if (signup.status) {
+                            window.location = "http://localhost/psd-to-html/Helperland/?controller=Public&function=home&parameter=login";
+                        }
+                        else {
+                            alertMsg = `<div class='alert alert-danger alert-dismissible fade show' role='alert'>${signup.error}</div>`;
+                            $('.signup-msg').html(alertMsg);
+                        }
                     }
-                    else {
-                        alertMsg = `<div class='alert alert-danger alert-dismissible fade show' role='alert'>${signup.error}</div>`;
-                        $('.signup-msg').html(alertMsg);
-                    }
-                }
-            });
+                });
+            }
+            else{
+                alert('Please accept privacy policy');
+            }
         }
     });
+
+    if(parameter == "login"){
+        var alertMsg = `<div class='alert alert-success alert-dismissible fade show' role='alert'>Account created successfully</div>`;
+        $('.signin-msg').html(alertMsg);
+        $("#loginModal").modal('show');
+    }
 
     // login validation
     $('#signin').click(function () {
@@ -154,21 +169,18 @@ $(document).ready(function () {
             success: function (result) {
                 var logoutData = JSON.parse(result);
                 if (logoutData.status) {
-                    window.location = "http://localhost/psd-to-html/Helperland/?controller=Public&function=home";
+                    window.location = "http://localhost/psd-to-html/Helperland/?controller=Public&function=home&parameter=logout";
                 }
-            },
-            complete : function(result){
-                isLogout = 1;
             }
         });
     });
 
-    if(isLogout == 1){
+    if(parameter == "logout"){
+        $("#successModal #success-msg").addClass('my-4');
         $("#successModal #success-msg").text('You have successfully logged out');
-        $('#successModal #service-id').text("");
+        $("#successModal .modal-dialog .modal-content").addClass('modal-small');
         $("#successModal button").prop('onclick', null);
         $("#successModal").modal('show');
-        isLogout = 0; 
     }
 
     //forgot password model

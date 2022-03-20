@@ -90,6 +90,14 @@
 #successModal .modal-body{
   padding: 0 0px 16px 0;
 }
+#successModal .modal-dialog .modal-content.modal-small {
+  padding: 1rem;
+  width: 80%;
+  margin: 0 auto;
+}
+#successModal #success-msg.my-4{
+  font-size: 22px;
+}
 #successModal .success-icon{
   background-color: #67b644;
   border-radius: 50%;

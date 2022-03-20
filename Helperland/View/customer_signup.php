@@ -68,7 +68,7 @@
                         </div>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="privacy">
+                        <input class="form-check-input" type="checkbox" id="privacy">
                         <label class="form-check-label" for="privacy">
                             I have read the <span>privacy policy </span> and I agree with the <span>terms and conditions</span> of Helperland GmbH.
                         </label>

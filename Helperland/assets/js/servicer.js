@@ -308,7 +308,7 @@ $(document).ready(function () {
                     // console.log(status);
                     if (status.update == true) {
                         $("#successModal #success-msg").text('Service request has been cancelled successfully');
-                        $('#successModal #service-id').text(`Canceled Request Id : ${sid}`);
+                        $('#successModal #service-id').text(`Cancelled Request Id : ${sid}`);
                         $("#successModal button").prop('onclick', null);
                         $("#successModal").modal('show');
                     } else {

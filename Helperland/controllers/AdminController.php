@@ -111,7 +111,7 @@ include("phpmailer/mail.php");
                         }
                     }
                 }
-                // check user is laready request to reschude service
+                // check user is aready request to reschude service
                 $record_version = 0;
                 $status = $service["Status"];
                 if($service["Status"]==2 && (is_null($service["RecordVersion"]) || $service["RecordVersion"]==0)){

@@ -141,7 +141,7 @@ $(document).ready(function () {
     var rating = "";
     services.forEach(function (service) {
       var address = service.AddressLine1 +","+service.PostalCode+" "+service.City;
-      const obj = getTimeAndDate(service.ServiceStartDate, service.SubTotal);
+      const obj = getTimeAndDate(service.ServiceStartDate, service.ServiceHours);
       serviceHtml += `<tr class="text-center" data-serviceid="${service.ServiceRequestId}" data-payment="${service.TotalCost}" data-refund="${service.RefundedAmount}">
                         <td>
                             <div>${service.ServiceRequestId}</div>

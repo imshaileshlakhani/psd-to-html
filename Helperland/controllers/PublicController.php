@@ -77,7 +77,7 @@
                             <p><b>Message</b> : $message</p>
                         ";
                     sendmail([Config::SMTP_ADMIN],$_POST['subject'],$html,$filePath);
-                    header("location:".$this->base_url."?controller=Public&function=contact");
+                    header("location:".$this->base_url."?controller=Public&function=contact&parameter=success");
                 }
                 else{
                     header("location:".$this->error_url."&error=Error Occured Try Again");

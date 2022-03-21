@@ -31,6 +31,7 @@ if (isset($_SESSION['userdata'])) {
     ?>
 
     <main>
+        <input type="hidden" id="contact-success" value="<?php if(isset($_GET['parameter'])){ echo $_GET['parameter'];}?>">
         <section class="hero-img"></section>
 
         <section class="contact">
@@ -69,10 +70,8 @@ if (isset($_SESSION['userdata'])) {
                 <div class="text-center">
                     <span class="title">Get in touch with us</span>
                 </div>
-                <div class="success-msg">
-
-                </div>
                 <div class="form">
+                    <div class="success-msg"></div>
                     <form action="<?= Config::BASE_URL . '?controller=Public&function=contact_us' ?>" method="post" enctype="multipart/form-data">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6 pb-3">
@@ -119,7 +118,7 @@ if (isset($_SESSION['userdata'])) {
                             </div>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="contact-check">
+                            <input class="form-check-input" type="checkbox" id="contact-check">
                             <label class="form-check-label" for="contact-check">
                                 Our current ones apply <a href="#">privacy policy</a>. I hereby agree that my data entered into the contact form will be stored electronically and processed and used for the purpose of establishing contact. The consent can be withdrawn at any time pursuant to Art. 7 (3) GDPR by informal notification (eg by e-mail).
                             </label>

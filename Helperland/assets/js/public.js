@@ -5,6 +5,7 @@ function showLoader() {
 }
 $(document).ready(function () {
     var parameter = $('#logout-login-para').val();
+    var successMsg = $('#contact-success').val();
     var userTypeId = $('#header').data('usertype');
     if (userTypeId == 2) {
         $('#bookservice').closest('li').remove();
@@ -21,6 +22,11 @@ $(document).ready(function () {
         var phone = $('.phone').val();
         var email = $('#email').val();
         var msg = $('#msg').val();
+        var privacy = 0;
+
+        if($('#contact-check').is(':checked')){
+            privacy = 1;
+        }
 
         feildValidation('#firstname', firstname, "First Name");
         feildValidation('#lastname', lastname, "Last Name");
@@ -30,7 +36,18 @@ $(document).ready(function () {
         if (is_valid != true) {
             return false;
         }
+        else{
+            if(privacy != 1){
+                alert('Please accept privacy policy');
+                return false;
+            }
+        }
     });
+
+    if(successMsg == 'success'){
+        var alertMsg = `<div class='alert alert-success alert-dismissible fade show' role='alert'>Your query store successfully, our team will reach you soon</div>`;
+        $('.success-msg').html(alertMsg);
+    }
 
     // faq page
     $(".customer-tab").click(function () {

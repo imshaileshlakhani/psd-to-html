@@ -38,19 +38,10 @@
                         </select>
                     </div>
                     <div class="input-container">
-                        <select class="form-select inputbox" name="pstatus" id="sptatus" aria-label="Payment-Status">
-                            <option selected value="0">SP payment Status</option>
-                            <option value="1">New</option>
-                            <option value="2">Pending</option>
-                            <option value="3">Cancelled</option>
-                            <option value="4">Completed</option>
-                        </select>
-                    </div>
-                    <div class="input-container">
                         <input class="inputbox form-control" name="FromDate" id="sfdate" title="From date" type="date" />
                     </div>
                     <div class="input-container">
-                        <input class="inputbox form-control" name="ToDate" id="stdate" title="To date" type="date" />
+                        <input class="inputbox form-control" name="ToDate" id="stdate" title="To date" type="date"/>
                     </div>
                     <div class="submit text-center">
                         <button type="button" class="search" id="service-search">Search</button>

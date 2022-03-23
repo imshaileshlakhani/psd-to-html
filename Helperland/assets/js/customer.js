@@ -281,6 +281,7 @@ $(document).ready(function () {
     });
 
     function rescheduleService(sIdforReschedule, rdate, rtime,starttime,workinghr) {
+        showLoader();
         var sid = sIdforReschedule;
         var date = rdate;
         var time = rtime;
@@ -298,7 +299,6 @@ $(document).ready(function () {
                     if (status.dateUpdate[0] == true) {
                         alertMsg = `<div class='alert alert-success alert-dismissible fade show mt-3' role='alert'>Reschedule successfully<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>`;
                         $('#r-msg').html(alertMsg);
-                        customerData(limit);
                     } else {
                         alertMsg = `<div class='alert alert-danger alert-dismissible fade show mt-3' role='alert'>${status.error}<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>`;
                         $('#r-msg').html(alertMsg);
@@ -306,6 +306,8 @@ $(document).ready(function () {
                 },
                 complete: function(result){
                     $.LoadingOverlay("hide");
+                    customerData(limit);
+                    $('.error').remove();
                 }
             });
         }

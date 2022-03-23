@@ -14,7 +14,7 @@
                 <div class="section-title mt-3">Basic details</div>
                 <hr class="hr-line">
                 <div class="cap1 mx-1 my-1 d-flex align-items-center justify-content-center">
-                    <img src='assets/images/avatar-car.png'>
+                    <img src='assets/images/avatar-hat.png'>
                 </div>
                 <form action="#" id="servicer-form">
                     <div class="row">

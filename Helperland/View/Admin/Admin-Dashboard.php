@@ -25,7 +25,7 @@
     <title>Admin Dashboard</title>
 </head>
 
-<body>
+<body onload="defaultDate()">
     <?php
         // modal start
         include("View/modal/EditService-Admin.php");

@@ -1,3 +1,10 @@
+function defaultDate() {
+  var date = new Date();
+  day = date.getDate();
+  month = date.getMonth() + 1;
+  year = date.getFullYear();
+  document.getElementById("admin-edit-date").defaultValue = year + "-" + ("0" + month).slice(-2) + "-" + ("0" + day).slice(-2);
+}
 var dropdown = document.getElementsByClassName("dropdown-btn");
 var i;
 

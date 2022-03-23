@@ -253,6 +253,7 @@
             $date = $data['date'];
             $start_time = $data['time'];
             $comment = $data['comment'];
+            $email = [];
 
             // set date format 
             $date = new DateTime($date);
@@ -269,7 +270,7 @@
 			else{
 				$result = false;
 			}
-            return [$result,$email];
+            return [$result,$email['spEmail'],$email['cuEmail']];
         }
 
         public function updateserviceAddress($data){
@@ -290,12 +291,13 @@
         }
 
         public function getSpEmailByServiceId($sid){
-            $email = "";
-            $sql = "SELECT user.Email FROM servicerequest JOIN user ON servicerequest.ServiceProviderId = user.UserId WHERE servicerequest.ServiceRequestId = $sid";
+            $email = [];
+            $sql = "SELECT sp.Email AS spEmail,cu.Email AS cuEmail FROM servicerequest JOIN user AS cu ON servicerequest.UserId = cu.UserId LEFT JOIN user AS sp ON servicerequest.ServiceProviderId = sp.UserId WHERE servicerequest.ServiceRequestId = $sid";
             $result = $this->conn->query($sql);
             if($result->num_rows > 0){
                 $row = $result->fetch_assoc();
-                $email = $row['Email'];
+                $email['spEmail'] = $row['spEmail'];
+                $email['cuEmail'] = $row['cuEmail'];
             }
             return $email;
         }

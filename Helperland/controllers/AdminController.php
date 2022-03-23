@@ -124,9 +124,12 @@ include("phpmailer/mail.php");
                 if(empty($error)){
                     $result = $this->model->rescheduleService($_POST,$status,$record_version);
                     if ($result[0]) {
+                        $body = "Service Request " . $_POST['serviceId'] . " has been rescheduled by Admin. New date is " . $_POST['date'] . " and time is " . $this->convertStrToTime($_POST['time']);
                         if ($result[1] != "") {
-                            $body = "Service Request " . $_POST['serviceId'] . " has been rescheduled by Admin. New date is " . $_POST['date'] . " and time is " . $this->convertStrToTime($_POST['time']);
                             sendmail([$result[1]], 'Service rescheduled ', $body);
+                        }
+                        if ($result[2] != "") {
+                            sendmail([$result[2]], 'Service rescheduled ', $body);
                         }
                     }
                 }

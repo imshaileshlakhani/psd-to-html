@@ -53,6 +53,24 @@ class ServiceController{
         }
     }
 
+    public function isServiceAvailable()
+    {
+        $result = [];
+        $error = "";
+        if (isset($_POST["userid"])) {
+            $userid = $_POST["userid"];
+            if (isset($_POST["adid"])) {
+                $adid = $_POST["adid"];
+                $ondate = $_POST["selecteddate"];
+                $result = $this->model->isServiceAvailable($adid, $ondate, $userid);
+                if (!$result) {
+                    $error = "Another service request has been logged for this address on this date. Please select a different date.";
+                }
+            }
+        }
+        echo json_encode(["result" => $result, "error" => $error]);
+    }
+
     public function getBodyToSendMailToSPs($serviceid)
     {
         $result = $this->model->getServiceRequestById($serviceid); 

@@ -275,12 +275,14 @@
 
         public function updateserviceAddress($data){
             $serviceId = $data['serviceId'];
-            $address = $data['street'].' '.$data['house'];
+            $address1 = $data['street'];
+            $address2 = $data['house'];
             $postal = $data['postal'];
             $city = $data['city'];
+            $state = $this->getStateByCityName($city);
 
             $result = "";
-            $sql = "UPDATE servicerequestaddress SET AddressLine1 = '$address', PostalCode = '$postal', City = '$city' WHERE ServiceRequestId = $serviceId";
+            $sql = "UPDATE servicerequestaddress SET AddressLine1 = '$address1',AddressLine2 = '$address2', PostalCode = '$postal', City = '$city',State = '$state' WHERE ServiceRequestId = $serviceId";
             if($this->conn->query($sql) == TRUE){
 				$result = true; 
 			}
@@ -288,6 +290,20 @@
 				$result = false;
 			}
             return $result;
+        }
+
+        public function getStateByCityName($city){
+            $state = "";
+            $sql = "SELECT city.StateId,state.StateName FROM city JOIN state ON city.StateId = state.Id WHERE city.CityName = '$city'";
+            $result = $this->conn->query($sql);
+            if($result->num_rows > 0){
+                $row = $result->fetch_assoc();
+                $state = $row['StateName'];
+            }
+            else{
+                $state = "";
+            }
+            return $state;
         }
 
         public function getSpEmailByServiceId($sid){

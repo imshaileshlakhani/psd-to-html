@@ -184,7 +184,7 @@ $(document).ready(function () {
         var newServiceHtml = "";
         newServices.forEach(function(service){
             var fullName = service.FirstName + " " + service.LastName;
-            var address = service.AddressLine1 +","+service.PostalCode+" "+service.City;
+            var address = service.AddressLine1+" "+service.AddressLine2 +","+service.PostalCode+" "+service.City;
             const obj = getTimeAndDate(service.ServiceStartDate, service.ServiceHours);
             newServiceHtml += `<tr class="text-center" data-serviceid="${service.ServiceRequestId}" data-bs-toggle="modal" data-bs-target="#servicedetails1" data-bs-dismiss="modal" data-totalhr="${service.ServiceHours}" data-starttime="${obj.starttime}" data-startdate="${obj.startdate}">
                                     <td>
@@ -254,7 +254,7 @@ $(document).ready(function () {
         var upcomingServiceHtml = "";
         upcomingServices.forEach(function(service){
             var fullName = service.FirstName + " " + service.LastName;
-            var address = service.AddressLine1 +","+service.PostalCode+" "+service.City;
+            var address = service.AddressLine1+" "+service.AddressLine2 +","+service.PostalCode+" "+service.City;
             const obj1 = getTimeAndDate(service.ServiceStartDate, service.ServiceHours);
             upcomingServiceHtml += `<tr class="text-center" data-bs-toggle="modal" data-serviceid="${service.ServiceRequestId}" data-bs-target="#servicedetails" data-bs-dismiss="modal">
                                     <td>
@@ -377,7 +377,7 @@ $(document).ready(function () {
         $('.extra-model').text(extraHtml);
         $('.model-price').text(service['TotalCost'] + " €");
         $('.cname').text(service['FirstName'] + " " + service['LastName']);
-        $('.address-model').text(service['AddressLine1'] +","+ service['PostalCode'] +" "+service['City']);
+        $('.address-model').text(service['AddressLine1']+" "+service['AddressLine2'] +","+ service['PostalCode'] +" "+service['City']);
         $('#complete-button').data('serviceid',service['ServiceRequestId']);
         $('#complete-button').data('customerId',service['UserId']);
         $('.cancle-service').data('serviceid',service['ServiceRequestId']);
@@ -445,7 +445,7 @@ $(document).ready(function () {
         var historyHtml = "";
         history.forEach(function(service){
             var fullName = service.FirstName + " " + service.LastName;
-            var address = service.AddressLine1 +","+service.PostalCode+" "+service.City;
+            var address = service.AddressLine1+" "+service.AddressLine2 +","+service.PostalCode+" "+service.City;
             const obj2 = getTimeAndDate(service.ServiceStartDate, service.ServiceHours);
             historyHtml += `<tr class="text-center">
                                     <td>
@@ -650,8 +650,8 @@ $(document).ready(function () {
             }
         }
         // show address
-        $('#Streetname').val(address.AddressLine1.split(" ")[0]);
-        $('#Housenumber').val(address.AddressLine1.split(" ")[1]);
+        $('#Streetname').val(address.AddressLine1);
+        $('#Housenumber').val(address.AddressLine2);
         $('#Postalcode').val(address.PostalCode);
         $('#city').val(address.City);
     }

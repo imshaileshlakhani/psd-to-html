@@ -73,7 +73,7 @@
             $result = $this->conn->query($sql);
             if ($result->num_rows > 0) {
                 $row = $result->fetch_assoc();
-                $serviceAddress = $row['AddressLine1'].",".$row['PostalCode']." ".$row['City'];
+                $serviceAddress = $row['AddressLine1']." ".$row['AddressLine2'].",".$row['PostalCode']." ".$row['City'];
                 $mobile = $row['Mobile'];
                 $email = $row['Email'];
             }
@@ -280,7 +280,7 @@
             $details = [];
             if(isset($data['userid'])){
                 $userId = trim($data['userid']);
-                $sql = "SELECT AddressId,AddressLine1,City,State,PostalCode,Email,Mobile FROM useraddress WHERE UserId = $userId AND IsDeleted = 0";
+                $sql = "SELECT AddressId,AddressLine1,AddressLine2,City,State,PostalCode,Email,Mobile FROM useraddress WHERE UserId = $userId AND IsDeleted = 0";
                 $result = $this->conn->query($sql);
                 if($result->num_rows > 0){
                     while($row = $result->fetch_assoc()){
@@ -296,21 +296,22 @@
 
         public function add_edit_address($data){
             if(isset($data)){
-                $AddressLine1 = trim($data['sstreet'])." ".trim($data['shouse']);
+                $AddressLine1 = trim($data['sstreet']);
+                $AddressLine2 = trim($data['shouse']);
                 $zipcode = trim($data['spostal']);
                 $city = trim($data['scity']);
                 $userId = trim($data['userId']);
                 $mnumber = trim($data['smobile']);
                 $email = trim($data['email']);
                 $addressid = $data['addressid'];
+                $state = $this->getStateByCityName($city);
 
                 if($addressid == 0){
-                    $sql = "INSERT INTO useraddress (UserId, AddressLine1, City, PostalCode, Mobile, Email) VALUES ($userId,'$AddressLine1','$city','$zipcode','$mnumber','$email')";
+                    $sql = "INSERT INTO useraddress (UserId, AddressLine1, AddressLine2, City, State, PostalCode, Mobile, Email) VALUES ($userId,'$AddressLine1','$AddressLine2','$city','$state','$zipcode','$mnumber','$email')";
                 }
                 else{
-                    $sql = "UPDATE useraddress SET AddressLine1 = '$AddressLine1',City = '$city',PostalCode = '$zipcode',Mobile = '$mnumber' WHERE AddressId = $addressid";
+                    $sql = "UPDATE useraddress SET AddressLine1 = '$AddressLine1',AddressLine2 = '$AddressLine2',City = '$city',State = '$state',PostalCode = '$zipcode',Mobile = '$mnumber' WHERE AddressId = $addressid";
                 }
-                
 
                 $result = $this->conn->query($sql);
                 if($result){
@@ -320,6 +321,20 @@
 				    return false;
 			    }
             }
+        }
+
+        public function getStateByCityName($city){
+            $state = "";
+            $sql = "SELECT city.StateId,state.StateName FROM city JOIN state ON city.StateId = state.Id WHERE city.CityName = '$city'";
+            $result = $this->conn->query($sql);
+            if($result->num_rows > 0){
+                $row = $result->fetch_assoc();
+                $state = $row['StateName'];
+            }
+            else{
+                $state = "";
+            }
+            return $state;
         }
 
         public function editSettingDetails($data){
@@ -408,7 +423,7 @@
                 $details = [];
                 $userId = $data['userId'];
                 $addressId = $data['addresid'];
-                $sql = "SELECT AddressLine1,City,State,PostalCode,Mobile FROM useraddress WHERE UserId = $userId AND AddressId = $addressId";
+                $sql = "SELECT AddressLine1,AddressLine2,City,State,PostalCode,Mobile FROM useraddress WHERE UserId = $userId AND AddressId = $addressId";
                 $result = $this->conn->query($sql);
                 if($result->num_rows > 0){
                     $details = $result->fetch_assoc();

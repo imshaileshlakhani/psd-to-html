@@ -687,7 +687,7 @@ $(document).ready(function () {
                 address.forEach(function(ad){
                     addressHtml += `<tr data-addressid="${ad.AddressId}" data-state="${ad.State}">
                                 <td>
-                                    <div><b>Address:</b> ${ad.AddressLine1}, ${ad.PostalCode} ${ad.City}</div>
+                                    <div><b>Address:</b> ${ad.AddressLine1} ${ad.AddressLine2}, ${ad.PostalCode} ${ad.City}</div>
                                     <div><b>Phone number:</b> ${ad.Mobile}</div>
                                 </td>
                                 <td class="action text-end">
@@ -712,8 +712,8 @@ $(document).ready(function () {
                 // console.log(ad.details.AddressLine1);
                 $('#addeditaddress .modal-title').text("Edit Address");
                 $('#add-edit-saddress').text("Edit");
-                $('#sastreet').val(ad.details['AddressLine1'].split(" ")[0]);
-                $('#sahouse').val(ad.details['AddressLine1'].split(" ")[1]);
+                $('#sastreet').val(ad.details['AddressLine1']);
+                $('#sahouse').val(ad.details['AddressLine2']);
                 $('#sapostal').val(ad.details['PostalCode']);
                 $('#sacity').val(ad.details['City']);
                 $('#samobile').val(ad.details['Mobile']);

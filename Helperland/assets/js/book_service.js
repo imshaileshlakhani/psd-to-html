@@ -224,9 +224,36 @@ $(document).ready(function () {
   // -----------------your-details tab-------------------------
   $('.details-btn').click(function () {
     if (isCheckAddress()) {
-      changeNavtab('details-tab', 'payment-tab', 'details', 'payment');
-      activateNavtabs();
-      changeNavtabImg();
+      showLoader();
+      const userid = $('#userdata').val();
+      var date = $('#date').val();
+      var selectAd = $('.details .address ul input[name=address]');
+      for (var i = 0; i < selectAd.length; i++) {
+        if ($('#address' + i).is(':checked')) {
+          var addid = $('#address' + i).val();
+        }
+      }
+      console.log(userid+" "+date+" "+addid);
+      $.ajax({
+        url : "http://localhost/psd-to-html/Helperland/?controller=Service&function=isServiceAvailable",
+        type : "POST",
+        data : {userid: userid, selecteddate: date, adid: addid},
+        success : function(result){
+          var isSameAdd = JSON.parse(result);
+          if(isSameAdd.result != true){
+            var alertMsg = `<div class='alert alert-danger alert-dismissible fade show' role='alert'>${isSameAdd.error}<button type='button' class='btn-close alert-close' aria-label='Close'></button></div>`
+            $('.details').before(alertMsg);
+            setTimeout(function () { $('.alert').fadeOut(1000) }, 2000);
+          }else{
+            changeNavtab('details-tab', 'payment-tab', 'details', 'payment');
+            activateNavtabs();
+            changeNavtabImg();
+          }
+        },
+        complete : function(result){
+          $.LoadingOverlay("hide");
+        }
+      });
     }
     else {
       var alertMsg = `
@@ -310,7 +337,7 @@ $(document).ready(function () {
                           </div>
                           <div>
                             <label for='address${i}' class='fw-normal'>
-                              <p><b>Address:</b> ${ad.AddressLine1}, ${ad.City} ${ad.PostalCode} </p>
+                              <p><b>Address:</b> ${ad.AddressLine1} ${ad.AddressLine2}, ${ad.City} ${ad.PostalCode} </p>
                               <p><b>Phone number:</b> ${ad.Mobile}</p>
                             </label>
                           </div>

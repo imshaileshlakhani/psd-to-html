@@ -312,18 +312,20 @@ class Servicer extends Connection
             $mobile = trim($data['mobile']);
             $userId = trim($data['userId']);
             $dob = trim($data['dob']);
-            $addressline = trim($data['Streetname']) . ' ' . trim($data['Housenumber']);
+            $addressline1 = trim($data['Streetname']);
+            $addressline2 = trim($data['Housenumber']);
             $city = trim($data['city']);
             $postal = trim($data['Postalcode']);
             $email = trim($data['email']);
             $gender = $data['Gender'];
+            $state = $this->getStateByCityName($city);
 
             $sql = "UPDATE user SET FirstName='$firstname',LastName='$lastname',Mobile='$mobile',DateOfBirth='$dob',Gender=$gender,ModifiedDate=now() WHERE UserId = $userId";
 
-            $sql1 = "INSERT INTO useraddress (UserId, AddressLine1, City, PostalCode, Mobile, Email) VALUES ($userId,'$addressline','$city','$postal','$mobile','$email')";
+            $sql1 = "INSERT INTO useraddress (UserId, AddressLine1, AddressLine2, City, State, PostalCode, Mobile, Email) VALUES ($userId,'$addressline1','$addressline2','$city','$state','$postal','$mobile','$email')";
             $address = $this->checkAddressByUserId($userId);
             if ($address) {
-                $sql1 = "UPDATE useraddress SET AddressLine1 = '$addressline',City = '$city',PostalCode = '$postal',Mobile = '$mobile',Email = '$email' WHERE UserId = $userId";
+                $sql1 = "UPDATE useraddress SET AddressLine1 = '$addressline1',AddressLine2 = '$addressline2',City = '$city',State = '$state',PostalCode = '$postal',Mobile = '$mobile',Email = '$email' WHERE UserId = $userId";
             }
 
             $result = $this->conn->query($sql);
@@ -340,6 +342,20 @@ class Servicer extends Connection
                 return [];
             }
         }
+    }
+
+    public function getStateByCityName($city){
+        $state = "";
+        $sql = "SELECT city.StateId,state.StateName FROM city JOIN state ON city.StateId = state.Id WHERE city.CityName = '$city'";
+        $result = $this->conn->query($sql);
+        if($result->num_rows > 0){
+            $row = $result->fetch_assoc();
+            $state = $row['StateName'];
+        }
+        else{
+            $state = "";
+        }
+        return $state;
     }
 
     public function checkAddressByUserId($userId)

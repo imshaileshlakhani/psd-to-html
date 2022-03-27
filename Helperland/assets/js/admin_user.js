@@ -219,6 +219,38 @@ $(document).ready(function () {
     var serviceId = $(this).closest('tr').data('serviceid');
     $('#admin-edit-btn').data('serviceid',serviceId);
     $('.error').remove();
+    $.ajax({
+      url : "http://localhost/psd-to-html/Helperland/?controller=Admin&function=getAddress",
+      type : "POST",
+      data : {serviceId: serviceId},
+      success : function(result){
+        const data = JSON.parse(result);
+        var city = `<option value="${data.record.City}">${data.record.City}</option>`;
+        $("#admin-edit-Street").val(data.record.AddressLine1);
+        $("#admin-edit-House").val(data.record.AddressLine2);
+        $("#admin-edit-Postal").val(data.record.PostalCode);
+        $("#admin-edit-City").html(city);
+      }
+    });
+  });
+  $(document).on('keyup','#admin-edit-Postal',function(){
+    var postal = $('#admin-edit-Postal').val();
+    $.ajax({
+      url : "http://localhost/psd-to-html/Helperland/?controller=Admin&function=getCity",
+      type : "POST",
+      data : {postal: postal},
+      success : function(result){
+        const data = JSON.parse(result);
+        var cityHtml = `<option value="0" selected>Select city</option>`;
+        // console.log(data.status);
+        if(data.status){
+          data.record.forEach(function(city){
+            cityHtml += `<option value="${city.CityName}">${city.CityName}</option>`;
+          });
+        }
+        $("#admin-edit-City").html(cityHtml);
+      }
+    });
   });
   $('#admin-edit-btn').click(function(){
     showLoader();
@@ -236,8 +268,8 @@ $(document).ready(function () {
     // console.log(serviceId+" "+date+" "+time);
     feildValidation('#admin-edit-Street',street,'Street Name');
     feildValidation('#admin-edit-House',house,'House Name');
-    feildValidation('#admin-edit-Postal',postal,'Postal Name');
-    feildValidation('#admin-edit-City',city,'City Name');
+    postalValidation('#admin-edit-Postal',postal);
+    cityValidation('#admin-edit-City',city);
     if(is_valid == true){
       $.ajax({
         url : "http://localhost/psd-to-html/Helperland/?controller=Admin&function=serviceReschedule",
@@ -516,6 +548,20 @@ $(document).ready(function () {
   function feildValidation(id,value,feildname){
     if(value.length < 1){
         $(id).after(`<span class='error'>Enter ${feildname}</span>`);
+        is_valid = false;
+        return;
+    }
+  }
+  function postalValidation(id,value){
+    if(value.length < 6){
+        $(id).after(`<span class='error'>Enter valid zipcode</span>`);
+        is_valid = false;
+        return;
+    }
+  }
+  function cityValidation(id,value){
+    if(value == 0){
+        $(id).after(`<span class='error'>Select valid city</span>`);
         is_valid = false;
         return;
     }

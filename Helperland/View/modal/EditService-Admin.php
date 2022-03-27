@@ -75,10 +75,9 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <span>City</span>
-                                <input type="text" id="admin-edit-City" name="city" class="form-control">
-                                <!-- <select class="form-control" id="admin-edit-City">
-                                        <option value="rajkot">Rajkot</option>
-                                    </select> -->
+                                <select class="form-control" id="admin-edit-City">
+                                        
+                                </select>
                             </div>
                         </div>
                     </div>

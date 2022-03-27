@@ -736,6 +736,25 @@ $(document).ready(function () {
         $('#sacity').val("");
         $('#samobile').val("");
     }
+    $(document).on('keyup','#sapostal',function(){
+        var postal = $('#sapostal').val();
+        $.ajax({
+          url : "http://localhost/psd-to-html/Helperland/?controller=Customer&function=getCity",
+          type : "POST",
+          data : {postal: postal},
+          success : function(result){
+            const data = JSON.parse(result);
+            var cityHtml = `<option value="0" selected>Select city</option>`;
+            console.log(data.status);
+            if(data.status){
+              data.record.forEach(function(city){
+                cityHtml += `<option value="${city.CityName}">${city.CityName}</option>`;
+              });
+            }
+            $("#sacity").html(cityHtml);
+          }
+        });
+    });
 
     $('#add-edit-saddress').click(function(){
         is_valid = true;
@@ -747,9 +766,9 @@ $(document).ready(function () {
         }
         feildValidation($('#sastreet').val(),'#sastreet',"Street Name");
         feildValidation($('#sahouse').val(),'#sahouse',"House Number");
-        feildValidation($('#sapostal').val(),'#sapostal',"Postal Code");
-        feildValidation($('#sacity').val(),'#sacity',"City");
         phoneValidation($('#samobile').val(),'#samobile');
+        postalValidation('#sapostal',$('#sapostal').val());
+        cityValidation('#sacity',$('#sacity').val());
         if(is_valid == true){
             $.ajax({
                 url : "http://localhost/psd-to-html/Helperland/?controller=Customer&function=addeditAddress",
@@ -902,6 +921,20 @@ $(document).ready(function () {
             is_valid = false;
             return is_valid;
         }
+    }
+    function postalValidation(id,value){
+        if(value.length < 6){
+            $(id).after(`<span class='error'>Enter valid zipcode</span>`);
+            is_valid = false;
+            return;
+        }
+    }
+    function cityValidation(id,value){
+      if(value == 0){
+          $(id).after(`<span class='error'>Select valid city</span>`);
+          is_valid = false;
+          return;
+      }
     }
 
     // export to excel

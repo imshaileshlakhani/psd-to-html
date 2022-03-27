@@ -358,6 +358,29 @@ class Servicer extends Connection
         return $state;
     }
 
+    public function getCityByPostal($data){
+        $result = [];
+        $rows = [];
+        $postal = trim($data['postal']);
+        if($postal == "" || $postal == null || empty($postal)){
+            $result = [];
+            return [false,$result];
+        }
+        $sql = "SELECT city.CityName FROM zipcode JOIN city ON zipcode.CityId = city.Id WHERE zipcode.ZipcodeValue LIKE '%$postal%'";
+        $result = $this->conn->query($sql);
+        if($result->num_rows > 0){
+            while($row = $result->fetch_assoc()){
+                array_push($rows,$row);
+            }
+            $result = $rows;
+            return [true,$result];
+        }
+        else{
+            $result = [];
+        }
+        return [false,$result];
+    }
+
     public function checkAddressByUserId($userId)
     {
         $sql = "SELECT * FROM useraddress WHERE UserId = $userId";

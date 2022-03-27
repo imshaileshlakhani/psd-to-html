@@ -152,6 +152,15 @@ class ServicerController{
         }
     }
 
+    public function getCity(){
+        if(isset($_POST)){
+            $result = $this->model->getCityByPostal($_POST);
+            if(count($result) > 0){
+                echo json_encode(['status'=>$result[0],'record' => $result[1]]);
+            }
+        }
+    }
+
     public function editSetting(){
         if (isset($_POST)) {
             $userdata = $this->model->editSettingDetails($_POST);

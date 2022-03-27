@@ -33,7 +33,9 @@
                                 <div class="form-group">
                                     <span></span>
                                     <label for="City">City</label>
-                                    <input type="text" id="sacity" class="form-control" name="scity" placeholder="Tambach-Dietharz">
+                                    <select class="form-control" id="sacity" name="scity">
+                                        <option value="0" selected>Select city</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>

@@ -27,7 +27,6 @@
                 $email = !empty($data['email']) ? "servicerequestaddress.Email='".$data['email']."'" : 1;
 
                 $sql = "SELECT servicerequest.ServiceRequestId,servicerequest.TotalCost,servicerequest.RefundedAmount,servicerequest.ServiceProviderId,servicerequest.ServiceHours,servicerequest.Status,servicerequest.ServiceStartDate,servicerequestaddress.*,concat(cu.FirstName, ' ', cu.LastName) AS CFullName,concat(sp.FirstName, ' ', sp.LastName) AS SpFullName,sp.UserProfilePicture FROM servicerequest JOIN servicerequestaddress ON servicerequest.ServiceRequestId = servicerequestaddress.ServiceRequestId JOIN user AS cu ON cu.UserId = servicerequest.UserId LEFT JOIN user AS sp ON sp.UserId = servicerequest.ServiceProviderId WHERE $customer AND $servicer AND $sid AND $postal AND $status AND $email AND servicerequest.ServiceStartDate BETWEEN '$fdate' AND '$tdate' LIMIT $offset,$showrecord";
-                // AND servicerequest.ServiceStartDate BETWEEN $fdate AND $tdate
 
                 $result = $this->conn->query($sql);
                 $rows = array();
@@ -51,6 +50,42 @@
                 }
             }
             return $result; 
+        }
+
+        public function getUserAddressById($data){
+            $result = [];
+            $serviceid = $data['serviceId'];
+            $sql = "SELECT * FROM servicerequestaddress WHERE ServiceRequestId = $serviceid";
+            $result = $this->conn->query($sql);
+            if ($result->num_rows < 1) {
+                $result = [];
+            } else {
+                $result = $result->fetch_assoc();
+            }
+            return $result;
+        }
+
+        public function getCityByPostal($data){
+            $result = [];
+            $rows = [];
+            $postal = trim($data['postal']);
+            if($postal == "" || $postal == null || empty($postal)){
+                $result = [];
+                return [false,$result];
+            }
+            $sql = "SELECT city.CityName FROM zipcode JOIN city ON zipcode.CityId = city.Id WHERE zipcode.ZipcodeValue LIKE '%$postal%'";
+            $result = $this->conn->query($sql);
+            if($result->num_rows > 0){
+                while($row = $result->fetch_assoc()){
+                    array_push($rows,$row);
+                }
+                $result = $rows;
+                return [true,$result];
+            }
+            else{
+                $result = [];
+            }
+            return [false,$result];
         }
 
         public function getCustomerName(){
@@ -124,7 +159,6 @@
                 $email = !empty($data['email']) ? "user.Email='".$data['email']."'" : 1;
 
                 $sql = "SELECT user.UserId, concat(user.FirstName,' ',user.LastName) AS FullName,user.UserTypeId,user.Mobile,user.CreatedDate,user.IsApproved,useraddress.PostalCode FROM user LEFT JOIN useraddress ON user.UserId = useraddress.UserId WHERE $utype AND $postal AND $mobile AND $user AND $email AND user.CreatedDate BETWEEN '$fdate' AND '$tdate' GROUP BY user.UserId LIMIT $offset,$showrecord";
-                // AND user.CreatedDate '$fdate' AND '$tdate'
 
                 $result = $this->conn->query($sql);
                 $rows = array();
@@ -156,7 +190,6 @@
                 $email = !empty($data['email']) ? "servicerequestaddress.Email='".$data['email']."'" : 1;
 
                 $sql = "SELECT servicerequest.ServiceRequestId,servicerequest.TotalCost,servicerequest.RefundedAmount,servicerequest.ServiceProviderId,servicerequest.ServiceHours,servicerequest.Status,servicerequest.ServiceStartDate,servicerequestaddress.*,concat(cu.FirstName, ' ', cu.LastName) AS CFullName,concat(sp.FirstName, ' ', sp.LastName) AS SpFullName,sp.UserProfilePicture FROM servicerequest JOIN servicerequestaddress ON servicerequest.ServiceRequestId = servicerequestaddress.ServiceRequestId JOIN user AS cu ON cu.UserId = servicerequest.UserId LEFT JOIN user AS sp ON sp.UserId = servicerequest.ServiceProviderId WHERE $customer AND $servicer AND $sid AND $postal AND $status AND $email AND servicerequest.ServiceStartDate BETWEEN '$fdate' AND '$tdate'";
-                // AND servicerequest.ServiceStartDate BETWEEN $fdate AND $tdate
             }
             else{
                 $utype = !empty($data['utype']) ? 'user.UserTypeId='.$data['utype'] : 1;
@@ -167,7 +200,6 @@
 
                 $sql = "SELECT user.UserId, concat(user.FirstName,' ',user.LastName) AS FullName,user.UserTypeId,user.Mobile,user.CreatedDate,user.IsActive,useraddress.PostalCode FROM user LEFT JOIN useraddress ON user.UserId = useraddress.UserId WHERE $utype AND $postal AND $mobile AND $user AND $email AND user.CreatedDate BETWEEN '$fdate' AND '$tdate' GROUP BY user.UserId";
             }
-
             // echo $sql;
             
             $result = $this->conn->query($sql);

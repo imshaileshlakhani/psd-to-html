@@ -77,6 +77,24 @@ include("phpmailer/mail.php");
             }
         }
 
+        public function getAddress(){
+            if(isset($_POST)){
+                $result = $this->model->getUserAddressById($_POST);
+                if(count($result) > 0){
+                    echo json_encode(['record' => $result]);
+                }
+            }
+        
+        }
+        public function getCity(){
+            if(isset($_POST)){
+                $result = $this->model->getCityByPostal($_POST);
+                if(count($result) > 0){
+                    echo json_encode(['status'=>$result[0],'record' => $result[1]]);
+                }
+            }
+        }
+
         function serviceReschedule(){
             if (isset($_POST)) {
                 $error = "";

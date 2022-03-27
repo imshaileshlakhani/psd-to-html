@@ -145,7 +145,9 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-7 pb-3">
                             <label for="city">City</label>
-                            <input class="form-control" name="city" id="city" placeholder="Ahemdabad" type="text"  />
+                            <select class="form-control" id="city" name="city">
+                                <option value="0">Select city</option>
+                            </select>
                         </div>
                         <hr>
                     </div>

@@ -166,6 +166,15 @@ class CustomerController
         }
     }
 
+    public function getCity(){
+        if(isset($_POST)){
+            $result = $this->model->getCityByPostal($_POST);
+            if(count($result) > 0){
+                echo json_encode(['status'=>$result[0],'record' => $result[1]]);
+            }
+        }
+    }
+
     public function addeditAddress(){
         if (isset($_POST)) {
             $address = $this->model->add_edit_address($_POST);

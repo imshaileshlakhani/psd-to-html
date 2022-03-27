@@ -591,6 +591,26 @@ $(document).ready(function () {
         });
     }
 
+    $(document).on('keyup','#Postalcode',function(){
+        var postal = $('#Postalcode').val();
+        $.ajax({
+          url : "http://localhost/psd-to-html/Helperland/?controller=Servicer&function=getCity",
+          type : "POST",
+          data : {postal: postal},
+          success : function(result){
+            const data = JSON.parse(result);
+            var cityHtml = `<option value="0" selected>Select city</option>`;
+            console.log(data.status);
+            if(data.status){
+              data.record.forEach(function(city){
+                cityHtml += `<option value="${city.CityName}">${city.CityName}</option>`;
+              });
+            }
+            $("#city").html(cityHtml);
+          }
+        });
+    });
+
     // save setting details
     $('#save-details').on('click',function(e){
         is_valid = true;
@@ -604,8 +624,8 @@ $(document).ready(function () {
         // address validation
         feildValidation($('#Streetname').val(),'#Streetname',"Street Name");
         feildValidation($('#Housenumber').val(),'#Housenumber',"House Number");
-        feildValidation($('#Postalcode').val(),'#Postalcode',"Postal Code");
-        feildValidation($('#city').val(),'#city',"City");
+        postalValidation('#Postalcode',$('#Postalcode').val());
+        cityValidation('#city',$('#city').val());
         if(is_valid == true){
             $.ajax({
                 url : "http://localhost/psd-to-html/Helperland/?controller=Servicer&function=editSetting",
@@ -653,7 +673,8 @@ $(document).ready(function () {
         $('#Streetname').val(address.AddressLine1);
         $('#Housenumber').val(address.AddressLine2);
         $('#Postalcode').val(address.PostalCode);
-        $('#city').val(address.City);
+        var city = `<option value="${address.City}">${address.City}</option>`;
+        $('#city').html(city);
     }
 
     // service provider avtar
@@ -839,6 +860,20 @@ $(document).ready(function () {
             is_valid = false;
             return is_valid;
         }
+    }
+    function postalValidation(id,value){
+        if(value.length < 6){
+            $(id).after(`<span class='error'>Enter valid zipcode</span>`);
+            is_valid = false;
+            return;
+        }
+    }
+    function cityValidation(id,value){
+      if(value == 0){
+          $(id).after(`<span class='error'>Select valid city</span>`);
+          is_valid = false;
+          return;
+      }
     }
 
     // export to excel

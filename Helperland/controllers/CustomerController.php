@@ -36,7 +36,7 @@ class CustomerController
                         echo json_encode(['service' => $result, 'paginationData' => $paginationData]);
                         break;
                     case "History":
-                        $status = [3, 4];
+                        $status = [3, 4, 5];
                         $_POST['status'] = $status;
                         $result = $this->model->serviceDetails($_POST);
                         if (count($result) > 0) {

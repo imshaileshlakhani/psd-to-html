@@ -386,8 +386,11 @@ $(document).ready(function () {
             if (service.Status == 3) {
                 serviceHistoryHtml += `<a class="Cancelled">Cancelled`;
             }
-            else {
+            else if(service.Status == 4){
                 serviceHistoryHtml += `<a>Completed`;
+            }
+            else{
+                serviceHistoryHtml += `<a class="Refund">Refund`;
             }
             serviceHistoryHtml += `</a></td>
                                     <td class="ratesp"><a href="#" id="rate-model-btn"`;

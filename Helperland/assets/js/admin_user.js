@@ -110,6 +110,9 @@ $(document).ready(function () {
       },
       complete : function(result){
         $.LoadingOverlay("hide");
+        $('#customer').val(customer);
+        $('#servicer').val(servicer);
+        $('#suname').val(user);
         if(page >= 5){
           $('#page5').text(page);
           $('#page5').addClass('active');

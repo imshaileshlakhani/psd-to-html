@@ -34,7 +34,7 @@
                                     <span></span>
                                     <label for="City">City</label>
                                     <select class="form-control" id="sacity" name="scity">
-                                        <option value="0" selected>Select city</option>
+                                        <option selected value="0">Select city</option>
                                     </select>
                                 </div>
                             </div>

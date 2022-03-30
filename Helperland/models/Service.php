@@ -231,7 +231,7 @@ class Service extends Connection
             $result = $this->conn->query($sql);
             if ($result->num_rows > 0) {
                 $result = $result->fetch_assoc();
-                if ($result["Status"] != 5 && $result["ServiceStartDate"] == $ondate) {
+                if ($result["Status"] == 0 || $result["Status"] == 1 || $result["Status"] == 2) {
                     $result = false;
                     // echo "2";
                 }

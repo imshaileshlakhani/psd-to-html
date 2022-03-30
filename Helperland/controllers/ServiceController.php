@@ -87,6 +87,9 @@ class ServiceController{
         $addressline = $result["AddressLine1"];
         $city = $result["City"];
         $postalcode = $result["PostalCode"];
+        $pet = $result['HasPets'];
+        if($pet==0){ $pet = "No"; }
+        else if($pet==1) { $pet = "Yes"; }
     
         return '
         <html>
@@ -144,8 +147,12 @@ class ServiceController{
                     <div><h4>'.$basichour.' (basic) + '.$extrahour.' (extra) = <span class="totalhour">'.$totalhour.' Hrs. (total)</span></h4></div>
                 </div>
                 <div class="row">
-                    <div><b>Total Bill ('.$servicehourlyrate.'€ per cleaning) : </b></div>
+                    <div><b>Total Bill ('.$servicehourlyrate.'€ per cleaning) :-</b></div>
                     <div><h4><span class="totalbill">'.$totalcost.'€<span></h4></div>
+                </div>
+                <div class="row">
+                    <div><b>Pet At Home:-</b></div>
+                    <div><h4><span>'.$pet.'<span></h4></div>
                 </div>
                 <div class="row address">
                     <div>

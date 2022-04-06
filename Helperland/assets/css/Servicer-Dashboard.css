@@ -127,9 +127,15 @@
   padding: 4px 9px;
   color: white;
   font-size: 0.81rem;
+  text-decoration: none;
+}
+.table3 .text-center td:nth-child(4) a.Refund {
+  background-color: #e7640d;
+  padding: 4px 9px;
+  color: white;
+  font-size: 0.81rem;
 }
 .table3 .text-center td:nth-child(4) a.Cancelled{
-  text-decoration: none;
   background-color: #ff6b6b;
   padding: 4px 9px;
   color: white;

@@ -106,8 +106,10 @@ class ServicerController{
             $status = [4];
         else if($pstatus == "Cancelled")
             $status = [3];
+        else if($pstatus == "Refund")
+            $status = [5];
         else
-            $status = [3,4];
+            $status = [3,4,5];
         return $status;
     }
 

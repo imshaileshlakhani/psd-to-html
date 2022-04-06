@@ -6,6 +6,7 @@
                 <!-- <option value="Pending">Pending</option> -->
                 <option value="Completed">Completed</option>
                 <option value="Cancelled">Cancelled</option>
+                <option value="Refund">Refund</option>
             </select>
         </div>
         <div class="title-btn my-2"><a href="#" id="Export">Export</a></div>

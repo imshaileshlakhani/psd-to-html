@@ -463,6 +463,9 @@ $(document).ready(function () {
                                     if (service.Status == 3) {
                                         historyHtml += `<a class="Cancelled">Cancelled`;
                                     }
+                                    else if (service.Status == 5) {
+                                        historyHtml += `<a class="Refund">Refund`;
+                                    }
                                     else {
                                         historyHtml += `<a>Completed`;
                                     }
